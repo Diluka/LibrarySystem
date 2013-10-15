@@ -61,7 +61,8 @@ namespace LibraryDB
             {
                 c = new Cover();
                 c.CoverID = Convert.ToInt64(dr["CoverID"]);
-                c.ImageStream = dr.GetStream(1);
+                //c.ImageStream = dr.GetStream(1); //only support above 4.5
+                c.mem = new MemoryStream((byte[])dr.GetValue(1));//below 4.5
             }
 
             return c;
