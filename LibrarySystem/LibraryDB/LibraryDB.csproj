@@ -44,6 +44,7 @@
     <Compile Include="Author.cs" />
     <Compile Include="Book.cs" />
     <Compile Include="BookInfo.cs" />
+    <Compile Include="BookBrief.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Cover.cs" />
     <Compile Include="DBHelper.cs" />

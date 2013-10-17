@@ -19,8 +19,7 @@ namespace LibraryDB
         public DateTime? PressDate { get; set; }
         public decimal? Price { get; set; }
 
-        public long? BriefID { get; set; }
-        public long? CoverID { get; set; }
+
         private int total;
         public int Total
         {
@@ -62,7 +61,7 @@ namespace LibraryDB
 
         private BookInfo() { }
 
-        public BookInfo(int? cid, string title, char alpha, string isbn, int? aid, int? pid, DateTime? pdate, decimal? price, long? brfid, long? cvrid)
+        public BookInfo(int? cid, string title, char alpha, string isbn, int? aid, int? pid, DateTime? pdate, decimal? price)
         {
             this.InfoID = 0;
             this.CatID = cid;
@@ -73,8 +72,6 @@ namespace LibraryDB
             this.PressID = pid;
             this.PressDate = pdate;
             this.Price = price;
-            this.BriefID = brfid;
-            this.CoverID = cvrid;
         }
 
         public static BookInfo GetBookInfoByID(long id, SqlConnection conn)
@@ -97,8 +94,6 @@ namespace LibraryDB
                 b.PressID = dr["PressID"].Equals(DBNull.Value) ? (int?)null : Convert.ToInt32(dr["PressID"]);
                 b.PressDate = dr["PressDate"].Equals(DBNull.Value) ? (DateTime?)null : Convert.ToDateTime(dr["PressDate"]);
                 b.Price = dr["Price"].Equals(DBNull.Value) ? (decimal?)null : Convert.ToInt32(dr["Price"]);
-                b.BriefID = dr["BriefID"].Equals(DBNull.Value) ? (long?)null : Convert.ToInt64(dr["BriefID"]);
-                b.CoverID = dr["CoverID"].Equals(DBNull.Value) ? (long?)null : Convert.ToInt64(dr["CoverID"]);
                 b.Total = Convert.ToInt32(dr["Total"]);
                 b.Remain = Convert.ToInt32(dr["Remain"]);
             }
@@ -121,7 +116,7 @@ namespace LibraryDB
             int result = 0;
             StringBuilder sql = new StringBuilder();
             sql.AppendLine("INSERT INTO BookInfo");
-            sql.AppendFormat("VALUES(@catid,@title,@alpha,@isbn,@aid,@pid,@pdate,@price,@brfid,@cvrid,default,default)\n");
+            sql.AppendFormat("VALUES(@catid,@title,@alpha,@isbn,@aid,@pid,@pdate,@price,default,default)\n");
             sql.AppendLine("SELECT SCOPE_IDENTITY()");
 
             SqlCommand cmd = new SqlCommand(sql.ToString(), conn);
@@ -134,8 +129,6 @@ namespace LibraryDB
             SqlParameter paramPressID = new SqlParameter("@pid", SqlDbType.Int);
             SqlParameter paramPressDate = new SqlParameter("@pdate", SqlDbType.DateTime);
             SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.Money);
-            SqlParameter paramBriefID = new SqlParameter("@brfid", SqlDbType.BigInt);
-            SqlParameter paramCoverID = new SqlParameter("@cvrid", SqlDbType.BigInt);
 
             paramCatID.Value = CatID ?? (object)DBNull.Value;
             paramTitle.Value = Title ?? (object)"无题";
@@ -145,8 +138,6 @@ namespace LibraryDB
             paramPressID.Value = PressID ?? (object)DBNull.Value;
             paramPressDate.Value = PressDate ?? (object)DBNull.Value;
             paramPrice.Value = Price ?? (object)DBNull.Value;
-            paramBriefID.Value = BriefID ?? (object)DBNull.Value;
-            paramCoverID.Value = CoverID ?? (object)DBNull.Value;
 
             cmd.Parameters.Add(paramCatID);
             cmd.Parameters.Add(paramTitle);
@@ -156,8 +147,6 @@ namespace LibraryDB
             cmd.Parameters.Add(paramPressID);
             cmd.Parameters.Add(paramPressDate);
             cmd.Parameters.Add(paramPrice);
-            cmd.Parameters.Add(paramBriefID);
-            cmd.Parameters.Add(paramCoverID);
 
             object obj = cmd.ExecuteScalar();
             if (!obj.Equals(DBNull.Value))
@@ -185,7 +174,7 @@ namespace LibraryDB
             int result = 0;
             StringBuilder sql = new StringBuilder();
             sql.AppendLine("UPDATE BookInfo");
-            sql.AppendLine("SET CatID=@catid,Title=@title,Alphabet=@alpha,ISBN=@isbn,AuthorID=@aid,PressID=@pid,PressDate=@pdate,Price=@price,BriefID=@brfid,CoverID=@cvrid,Total=@total,Remain=@remain");
+            sql.AppendLine("SET CatID=@catid,Title=@title,Alphabet=@alpha,ISBN=@isbn,AuthorID=@aid,PressID=@pid,PressDate=@pdate,Price=@price,Total=@total,Remain=@remain");
             sql.AppendFormat("WHERE InfoID={0}\n",InfoID);
 
             SqlCommand cmd = new SqlCommand(sql.ToString(), conn);
@@ -199,8 +188,6 @@ namespace LibraryDB
             SqlParameter paramPressID = new SqlParameter("@pid", SqlDbType.Int);
             SqlParameter paramPressDate = new SqlParameter("@pdate", SqlDbType.DateTime);
             SqlParameter paramPrice = new SqlParameter("@price", SqlDbType.Money);
-            SqlParameter paramBriefID = new SqlParameter("@brfid", SqlDbType.BigInt);
-            SqlParameter paramCoverID = new SqlParameter("@cvrid", SqlDbType.BigInt);
             SqlParameter paramTotal = new SqlParameter("@total", SqlDbType.Int);
             SqlParameter paramRemain = new SqlParameter("@remain", SqlDbType.Int);
 
@@ -212,8 +199,6 @@ namespace LibraryDB
             paramPressID.Value = PressID ?? (object)DBNull.Value;
             paramPressDate.Value = PressDate ?? (object)DBNull.Value;
             paramPrice.Value = Price ?? (object)DBNull.Value;
-            paramBriefID.Value = BriefID ?? (object)DBNull.Value;
-            paramCoverID.Value = CoverID ?? (object)DBNull.Value;
             paramTotal.Value = Total;
             paramRemain.Value = Remain;
 
@@ -225,8 +210,6 @@ namespace LibraryDB
             cmd.Parameters.Add(paramPressID);
             cmd.Parameters.Add(paramPressDate);
             cmd.Parameters.Add(paramPrice);
-            cmd.Parameters.Add(paramBriefID);
-            cmd.Parameters.Add(paramCoverID);
             cmd.Parameters.Add(paramTotal);
             cmd.Parameters.Add(paramRemain);
             
