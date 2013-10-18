@@ -43,7 +43,7 @@ namespace LibraryDB
         }
 
         private Cover() { }
-        public Cover(long iid,Stream s)
+        public Cover(long iid, Stream s)
         {
             mem = FromStream(s);
             this.InfoID = iid;
@@ -75,7 +75,7 @@ namespace LibraryDB
 
             int result = 0;
 
-            string sql = string.Format("INSERT INTO Covers VALUES({0},@cover)",InfoID);
+            string sql = string.Format("INSERT INTO Covers VALUES({0},@cover)", InfoID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlParameter paramCover = new SqlParameter("@cover", SqlDbType.Image);
             byte[] imgbuf = mem.GetBuffer();

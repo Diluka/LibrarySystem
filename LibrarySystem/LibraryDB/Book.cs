@@ -18,7 +18,7 @@ namespace LibraryDB
         {
             this.BookID = 0;
             this.InfoID = iid;
-            //this.IsLeased = isLeased;
+            this.IsLeased = false;
         }
 
         public static Book GetBookByID(long id, SqlConnection conn)
@@ -71,16 +71,13 @@ namespace LibraryDB
             }
             int result = 0;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("DECLARE @bid bigint;");
-            sb.AppendLine(string.Format("EXEC proc_add_book {0},@bid out", InfoID));
-            sb.AppendLine("SELECT @bid");
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            string sql = string.Format("INSERT INTO Books VALUES({0},default);SELECT SCOPE_IDENTITY()", InfoID);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
             object obj = cmd.ExecuteScalar();
             if (!obj.Equals(DBNull.Value))
             {
                 BookID = Convert.ToInt64(obj);
-                IsLeased = false;//默认值
                 result = 1;
             }
 

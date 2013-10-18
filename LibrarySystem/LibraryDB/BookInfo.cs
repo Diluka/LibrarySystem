@@ -78,7 +78,7 @@ namespace LibraryDB
         {
             BookInfo b = null;
 
-            string sql = string.Format("SELECT * FROM BookInfo WHERE InfoID={0}",id);
+            string sql = string.Format("SELECT * FROM BookInfo WHERE InfoID={0}", id);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader dr = cmd.ExecuteReader();
 
@@ -87,7 +87,7 @@ namespace LibraryDB
                 b = new BookInfo();
                 b.InfoID = Convert.ToInt64(dr["InfoID"]);
                 b.Title = dr["Title"].ToString();
-                b.CatID = dr["CatID"].Equals(DBNull.Value) ?(int?) null : Convert.ToInt32(dr["CatID"]);
+                b.CatID = dr["CatID"].Equals(DBNull.Value) ? (int?)null : Convert.ToInt32(dr["CatID"]);
                 b.Alphabet = Convert.ToChar(dr["Alphabet"]);
                 b.ISBN = dr["ISBN"].Equals(DBNull.Value) ? null : dr["ISBN"].ToString();
                 b.AuthorID = dr["AuthorID"].Equals(DBNull.Value) ? (int?)null : Convert.ToInt32(dr["AuthorID"]);
@@ -175,7 +175,7 @@ namespace LibraryDB
             StringBuilder sql = new StringBuilder();
             sql.AppendLine("UPDATE BookInfo");
             sql.AppendLine("SET CatID=@catid,Title=@title,Alphabet=@alpha,ISBN=@isbn,AuthorID=@aid,PressID=@pid,PressDate=@pdate,Price=@price,Total=@total,Remain=@remain");
-            sql.AppendFormat("WHERE InfoID={0}\n",InfoID);
+            sql.AppendFormat("WHERE InfoID={0}\n", InfoID);
 
             SqlCommand cmd = new SqlCommand(sql.ToString(), conn);
 
@@ -212,7 +212,7 @@ namespace LibraryDB
             cmd.Parameters.Add(paramPrice);
             cmd.Parameters.Add(paramTotal);
             cmd.Parameters.Add(paramRemain);
-            
+
 
             result = cmd.ExecuteNonQuery();
 
