@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -61,23 +62,52 @@ namespace LibraryDB
             return books;
         }
 
+        public static int AddBook(Book book, SqlConnection conn)
+        {
+            return ((IDBOperate)book).Insert(conn);
+        }
+
+        public static int DelBook(Book book, SqlConnection conn)
+        {
+            return ((IDBOperate)book).Delete(conn);
+        }
+
+        public static int DelBookByID(long id, SqlConnection conn)
+        {
+            int result = 0;
+
+            string sql = string.Format("decalre @result int;exec @result=proc_del_book {0};select @result", id);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            result = (int)cmd.ExecuteScalar();
+
+            return result;
+        }
+
+        public static int ModBook(Book book, SqlConnection conn)
+        {
+            return ((IDBOperate)book).Update(conn);
+        }
+
         #region IDBOperate 成员
 
         int IDBOperate.Insert(SqlConnection conn)
         {
-            if (this.BookID != 0)
-            {
-                throw new Exception("ID不为零，不能插入");
-            }
             int result = 0;
+            if (BookID != 0)
+            {
+                throw new Exception("ID不为0，不能插入");
+            }
 
-            string sql = string.Format("INSERT INTO Books VALUES({0},default);SELECT SCOPE_IDENTITY()", InfoID);
+            string sql = "decalre @bid long;exec proc_add_book @iid,@bid out;select @bid";
             SqlCommand cmd = new SqlCommand(sql, conn);
-
+            SqlParameter paramInfoID = new SqlParameter("@iid", SqlDbType.BigInt);
+            paramInfoID.Value = InfoID;
+            cmd.Parameters.Add(paramInfoID);
             object obj = cmd.ExecuteScalar();
+
             if (!obj.Equals(DBNull.Value))
             {
-                BookID = Convert.ToInt64(obj);
+                BookID = (long)obj;
                 result = 1;
             }
 
@@ -88,11 +118,9 @@ namespace LibraryDB
         {
             int result = 0;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("DELETE Books");
-            sb.AppendLine(string.Format("WHERE [BookID]={0}", BookID));
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-            result = cmd.ExecuteNonQuery();
+            string sql = string.Format("decalre @result int;exec @result=proc_del_book {0};select @result", BookID);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            result = (int)cmd.ExecuteScalar();
 
             return result;
         }
