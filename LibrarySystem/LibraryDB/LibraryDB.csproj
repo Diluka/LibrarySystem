@@ -47,7 +47,6 @@
     <Compile Include="BookBrief.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="Cover.cs" />
-    <Compile Include="DBHelper.cs" />
     <Compile Include="IDBOperate.cs" />
     <Compile Include="LibraryHelper.cs" />
     <Compile Include="Order.cs" />
