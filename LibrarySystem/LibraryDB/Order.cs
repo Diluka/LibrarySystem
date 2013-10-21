@@ -57,7 +57,7 @@ namespace LibraryDB
             }
 
             int result = 0;
-            string sql = "INSERT INTO Orders VALUES(@uid,@bid,@ld);SELECT SCOPE_IDENTITY()";
+            string sql = "declare @oid bigint;exec proc_lease_book @uid,@bid,@ld,@oid out;select @oid";
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             SqlParameter paramUID = new SqlParameter("@uid", SqlDbType.BigInt);
@@ -74,7 +74,7 @@ namespace LibraryDB
 
             object obj = cmd.ExecuteScalar();
 
-            if (!obj.Equals(DBNull.Value))
+            if (!obj.Equals(DBNull.Value) && !obj.Equals(0))
             {
                 OrderID = Convert.ToInt64(obj);
                 result = 1;
@@ -87,7 +87,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("DELETE Orders WHERE OrderID={0}", OrderID);
+            string sql = string.Format("exec proc_del_order {0}", OrderID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 

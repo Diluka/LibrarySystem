@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibraryDB
 {
-    interface IDBOperate
+    public interface IDBOperate
     {
         int Insert(SqlConnection conn);
         int Delete(SqlConnection conn);

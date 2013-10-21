@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,8 @@ namespace LibraryDB
 
         public string Password
         {
-            get { return password; }
-            set { password = value; }
+            private get { return password; }
+            private set { password = value; }
         }
         private int userGroupID;
 
@@ -45,11 +46,6 @@ namespace LibraryDB
             this.username = username;
             this.password = password;
             this.userGroupID = userGroupID;
-        }
-
-        public string GetPasswordEncryption()
-        {
-            return EncryptionHelper.ToSHA1(password);
         }
 
         public static User GetUserByID(long id, SqlConnection conn)
@@ -70,6 +66,46 @@ namespace LibraryDB
             return u;
         }
 
+        public static User GetUserByName(string name, SqlConnection conn)
+        {
+            string sql = string.Format("SELECT * FROM Users WHERE Username='{0}'", name);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+            User u = null;
+            if (dr.Read())
+            {
+                u = new User();
+                u.uid = Convert.ToInt64(dr["UID"]);
+                u.username = dr["Username"].ToString();
+                u.password = dr["Password"].ToString();
+                u.userGroupID = Convert.ToInt32(dr["UserGroupID"]);
+            }
+            dr.Close();
+            return u;
+        }
+
+        public int ChangePassword(string newPassword, SqlConnection conn)
+        {
+            int result = 0;
+
+            string sql = string.Format("exec proc_change_pwd @uid,@pw");
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            SqlParameter paramUID = new SqlParameter("@uid", SqlDbType.BigInt);
+            SqlParameter paramPassword = new SqlParameter("@pw", SqlDbType.VarChar);
+
+            paramUID.Value = uid;
+            paramPassword.Value = newPassword;
+
+            cmd.Parameters.Add(paramUID);
+            cmd.Parameters.Add(paramPassword);
+
+            result = cmd.ExecuteNonQuery();
+
+            return result;
+
+        }
+
 
         #region IDBOperate 成员
 
@@ -81,11 +117,21 @@ namespace LibraryDB
             }
             int result = 0;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("INSERT INTO Users");
-            sb.AppendLine(string.Format("VALUES('{0}','{1}',{2})", username, GetPasswordEncryption(), userGroupID));
-            sb.AppendLine("SELECT SCOPE_IDENTITY()");
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            string sql = "declare @id bigint;exec proc_add_user @un,@pw,@gid,@id out;select @id";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            SqlParameter paramUsername = new SqlParameter("@un", SqlDbType.VarChar);
+            SqlParameter paramPassword = new SqlParameter("@pw", SqlDbType.VarChar);
+            SqlParameter paramUserGroupID = new SqlParameter("@gid", SqlDbType.Int);
+
+            paramUsername.Value = username;
+            paramPassword.Value = password;
+            paramUserGroupID.Value = userGroupID;
+
+            cmd.Parameters.Add(paramUsername);
+            cmd.Parameters.Add(paramPassword);
+            cmd.Parameters.Add(paramUserGroupID);
+
             object obj = cmd.ExecuteScalar();
             if (!obj.Equals(DBNull.Value))
             {
@@ -115,7 +161,7 @@ namespace LibraryDB
 
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("UPDATE Users");
-            sb.AppendLine(string.Format("SET Username='{0}',Password='{1}',UserGroupID={2}", username, GetPasswordEncryption(), userGroupID));
+            sb.AppendLine(string.Format("SET UserGroupID={0}", userGroupID));
             sb.AppendLine(string.Format("WHERE [UID]={0}", uid));
             SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
             result = cmd.ExecuteNonQuery();

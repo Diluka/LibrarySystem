@@ -62,16 +62,6 @@ namespace LibraryDB
             return books;
         }
 
-        public static int AddBook(Book book, SqlConnection conn)
-        {
-            return ((IDBOperate)book).Insert(conn);
-        }
-
-        public static int DelBook(Book book, SqlConnection conn)
-        {
-            return ((IDBOperate)book).Delete(conn);
-        }
-
         public static int DelBookByID(long id, SqlConnection conn)
         {
             int result = 0;
@@ -83,10 +73,6 @@ namespace LibraryDB
             return result;
         }
 
-        public static int ModBook(Book book, SqlConnection conn)
-        {
-            return ((IDBOperate)book).Update(conn);
-        }
 
         #region IDBOperate 成员
 
