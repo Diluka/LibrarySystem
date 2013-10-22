@@ -6,9 +6,18 @@ using System.Text;
 
 namespace LibraryDB
 {
+    /// <summary>
+    /// 书籍简介类
+    /// </summary>
     public class BookBrief : IDBOperate
     {
+        /// <summary>
+        /// 书籍编号
+        /// </summary>
         public long InfoID { get; private set; }
+        /// <summary>
+        /// 简介
+        /// </summary>
         public string BriefText { get; set; }
 
         private BookBrief() { }
@@ -19,6 +28,12 @@ namespace LibraryDB
             BriefText = text;
         }
 
+        /// <summary>
+        /// 通过简介ID获取
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="conn"></param>
+        /// <returns></returns>
         public static BookBrief GetBookBriefByID(long id, SqlConnection conn)
         {
             BookBrief b = null;

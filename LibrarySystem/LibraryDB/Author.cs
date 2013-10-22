@@ -7,19 +7,38 @@ using System.Threading.Tasks;
 
 namespace LibraryDB
 {
+    /// <summary>
+    /// 作者类
+    /// </summary>
     public class Author : IDBOperate
     {
+        /// <summary>
+        /// 作者ID
+        /// </summary>
         public int AuthorID { get; private set; }
+        /// <summary>
+        /// 作者名
+        /// </summary>
         public string AuthorName { get; set; }
 
         private Author() { }
 
+        /// <summary>
+        /// 作者构造函数
+        /// </summary>
+        /// <param name="name">作者名</param>
         public Author(string name)
         {
             this.AuthorID = 0;
             this.AuthorName = name;
         }
 
+        /// <summary>
+        /// 通过作者ID获取作者对象
+        /// </summary>
+        /// <param name="id">作者ID</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>作者对象</returns>
         public static Author GetAuthorByID(int id, SqlConnection conn)
         {
             Author a = null;

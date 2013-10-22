@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace LabeledTextBox
 {
+    /// <summary>
+    /// 带标签的文本框
+    /// </summary>
     public partial class LabelTextBox: TextBox
     {
         private bool hasData;
         private string labelText;
 
         //覆盖原有的Text属性，外部访问Text属性获取的将会是用户输入的文本，而不是显示的文本（可能为标签）
+        /// <summary>
+        /// 获取或者设置文本框内容
+        /// </summary>
         public new string Text
         {
             get
@@ -76,9 +82,12 @@ namespace LabeledTextBox
         /// </summary>
         public Color TextColor { get; set; }
         /// <summary>
-        /// 是否为密码框
+        /// 是否使用系统密码字符
         /// </summary>
         public new bool UseSystemPasswordChar { get; set; }
+        /// <summary>
+        /// 密码字符
+        /// </summary>
         public new char PasswordChar { get; set; }
 
 

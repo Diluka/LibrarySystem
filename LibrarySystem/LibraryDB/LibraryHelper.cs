@@ -7,8 +7,17 @@ using System.Text;
 
 namespace LibraryDB
 {
+    /// <summary>
+    /// 图书馆数据库操作辅助工具
+    /// </summary>
     public class LibraryHelper
     {
+        /// <summary>
+        /// 将预约转换成订单
+        /// </summary>
+        /// <param name="preOrder">预约</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>订单</returns>
         public static Order PreOrderToOrder(PreOrder preOrder, SqlConnection conn)
         {
             Order o = null;
@@ -31,6 +40,12 @@ namespace LibraryDB
             return o;
         }
 
+        /// <summary>
+        /// 还书
+        /// </summary>
+        /// <param name="bookID">书号</param>
+        /// <param name="conn">连接</param>
+        /// <returns>借书记录</returns>
         public static Record ReturnBook(long bookID, SqlConnection conn)
         {
             Record r = null;
@@ -51,11 +66,23 @@ namespace LibraryDB
             return r;
         }
 
+        /// <summary>
+        /// 还书
+        /// </summary>
+        /// <param name="book">书籍</param>
+        /// <param name="conn">连接</param>
+        /// <returns>借书记录</returns>
         public static Record ReturnBook(Book book, SqlConnection conn)
         {
             return ReturnBook(book.BookID, conn);
         }
 
+        /// <summary>
+        /// 获取借阅次数最多的X本图书信息
+        /// </summary>
+        /// <param name="x">X</param>
+        /// <param name="conn">连接</param>
+        /// <returns>书籍信息列表</returns>
         public static List<BookInfo> GetTopXBookInfos(int x, SqlConnection conn)
         {
             List<BookInfo> books = new List<BookInfo>();
@@ -72,6 +99,13 @@ namespace LibraryDB
             return books;
         }
 
+        /// <summary>
+        /// 验证登陆
+        /// </summary>
+        /// <param name="username">用户名</param>
+        /// <param name="password">密码</param>
+        /// <param name="conn">连接</param>
+        /// <returns>用户组编号，失败为0</returns>
         public static int ValidateLogin(string username, string password, SqlConnection conn)
         {
             User u = User.GetUserByName(username, conn);

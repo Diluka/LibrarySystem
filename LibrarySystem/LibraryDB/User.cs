@@ -8,10 +8,16 @@ using System.Threading.Tasks;
 
 namespace LibraryDB
 {
+    /// <summary>
+    /// 用户类
+    /// </summary>
     public class User : IDBOperate
     {
         private long uid;
 
+        /// <summary>
+        /// 用户ID
+        /// </summary>
         public long Uid
         {
             get { return uid; }
@@ -19,6 +25,9 @@ namespace LibraryDB
         }
         private string username;
 
+        /// <summary>
+        /// 用户名
+        /// </summary>
         public string Username
         {
             get { return username; }
@@ -26,13 +35,11 @@ namespace LibraryDB
         }
         private string password;
 
-        public string Password
-        {
-            private get { return password; }
-            private set { password = value; }
-        }
         private int userGroupID;
 
+        /// <summary>
+        /// 用户组ID
+        /// </summary>
         public int UserGroupID
         {
             get { return userGroupID; }
@@ -48,6 +55,12 @@ namespace LibraryDB
             this.userGroupID = userGroupID;
         }
 
+        /// <summary>
+        /// 通过用户UID获取
+        /// </summary>
+        /// <param name="id">UID</param>
+        /// <param name="conn"></param>
+        /// <returns>用户对象</returns>
         public static User GetUserByID(long id, SqlConnection conn)
         {
             string sql = string.Format("SELECT * FROM Users WHERE [UID]={0}", id);
@@ -66,6 +79,12 @@ namespace LibraryDB
             return u;
         }
 
+        /// <summary>
+        /// 通过用户名获取
+        /// </summary>
+        /// <param name="name">用户名</param>
+        /// <param name="conn"></param>
+        /// <returns></returns>
         public static User GetUserByName(string name, SqlConnection conn)
         {
             string sql = string.Format("SELECT * FROM Users WHERE Username='{0}'", name);
@@ -84,6 +103,12 @@ namespace LibraryDB
             return u;
         }
 
+        /// <summary>
+        /// 修改密码
+        /// </summary>
+        /// <param name="newPassword">新密码</param>
+        /// <param name="conn"></param>
+        /// <returns>结果</returns>
         public int ChangePassword(string newPassword, SqlConnection conn)
         {
             int result = 0;

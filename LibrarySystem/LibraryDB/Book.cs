@@ -8,13 +8,30 @@ using System.Threading.Tasks;
 
 namespace LibraryDB
 {
+    /// <summary>
+    /// 书本类
+    /// </summary>
     public class Book : IDBOperate
     {
+        /// <summary>
+        /// 书本编号
+        /// </summary>
         public long BookID { get; private set; }
+        /// <summary>
+        /// 书籍编号
+        /// </summary>
         public long InfoID { get; set; }
+        /// <summary>
+        /// 借出状态
+        /// </summary>
         public bool IsLeased { get; set; }
 
         private Book() { }
+
+        /// <summary>
+        /// 书本构造函数
+        /// </summary>
+        /// <param name="iid">书籍编号</param>
         public Book(long iid)
         {
             this.BookID = 0;
@@ -22,6 +39,12 @@ namespace LibraryDB
             this.IsLeased = false;
         }
 
+        /// <summary>
+        /// 通过书本编号获取书本对象
+        /// </summary>
+        /// <param name="id">书本编号</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>书本对象</returns>
         public static Book GetBookByID(long id, SqlConnection conn)
         {
             string sql = string.Format("SELECT * FROM Books WHERE BookID={0}", id);
@@ -39,6 +62,12 @@ namespace LibraryDB
             return b;
         }
 
+        /// <summary>
+        /// 通过书籍编号获取相同的书本
+        /// </summary>
+        /// <param name="iid">书籍编号</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>书本列表</returns>
         public static List<Book> GetBooksByInfoID(long iid, SqlConnection conn)
         {
             List<Book> books = new List<Book>();
@@ -62,6 +91,12 @@ namespace LibraryDB
             return books;
         }
 
+        /// <summary>
+        /// 通过书本编号删除书本
+        /// </summary>
+        /// <param name="id">书本编号</param>
+        /// <param name="conn">连接</param>
+        /// <returns>操作结果</returns>
         public static int DelBookByID(long id, SqlConnection conn)
         {
             int result = 0;
