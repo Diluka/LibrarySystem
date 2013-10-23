@@ -33,18 +33,33 @@ namespace FormTools
         /// </summary>
         public bool IsFullScreen
         {
-            get;
-            private set;
+            get
+            {
+                return isFullScreen;
+            }
+            set
+            {
+                if (value ^ isFullScreen && value)
+                {
+                    FullScreen();
+                }
+                else
+                {
+                    Restore();
+                }
+            }
         }
+
+        private bool isFullScreen = false;
 
         /// <summary>
         /// 全屏化
         /// </summary>
-        public void FullScreen()
+        private void FullScreen()
         {
-            if (!IsFullScreen)
+            if (!isFullScreen)
             {
-                IsFullScreen = true;
+                isFullScreen = true;
                 SaveCurrentState();
                 target.WindowState = FormWindowState.Maximized;
                 target.FormBorderStyle = FormBorderStyle.None;
@@ -67,13 +82,13 @@ namespace FormTools
         /// <summary>
         /// 还原已保存的窗体状态
         /// </summary>
-        public void Restore()
+        private void Restore()
         {
             target.WindowState = winState;
             target.FormBorderStyle = brdStyle;
             target.TopMost = topMost;
             target.Bounds = bounds;
-            IsFullScreen = false;
+            isFullScreen = false;
         }
     }
 }
