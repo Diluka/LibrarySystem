@@ -29,64 +29,57 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("校园");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("爱情");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("叛逆");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("悬疑");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("爆笑");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("青春", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("世界名著");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("外国小说");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("中国古典小说");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("小说", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("中国古诗词");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("文学", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("设计");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("艺术", new System.Windows.Forms.TreeNode[] {
+            treeNode13});
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("自然/名胜");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("旅游", new System.Windows.Forms.TreeNode[] {
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("两性之间");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("婚恋", new System.Windows.Forms.TreeNode[] {
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("全部", new System.Windows.Forms.TreeNode[] {
+            treeNode6,
+            treeNode10,
+            treeNode12,
+            treeNode14,
+            treeNode16,
+            treeNode18});
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBookManager));
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("校园");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("爱情");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("叛逆");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("悬疑");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("爆笑");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("青春", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21,
-            treeNode22,
-            treeNode23,
-            treeNode24});
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("世界名著");
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("外国小说");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("中国古典小说");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("小说", new System.Windows.Forms.TreeNode[] {
-            treeNode26,
-            treeNode27,
-            treeNode28});
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("中国古诗词");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("文学", new System.Windows.Forms.TreeNode[] {
-            treeNode30});
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("设计");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("艺术", new System.Windows.Forms.TreeNode[] {
-            treeNode32});
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("自然/名胜");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("旅游", new System.Windows.Forms.TreeNode[] {
-            treeNode34});
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("两性之间");
-            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("婚恋", new System.Windows.Forms.TreeNode[] {
-            treeNode36});
-            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("全部", new System.Windows.Forms.TreeNode[] {
-            treeNode25,
-            treeNode29,
-            treeNode31,
-            treeNode33,
-            treeNode35,
-            treeNode37});
             this.tsMenu = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tvAssort = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlBeat = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -108,6 +101,13 @@
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -144,102 +144,35 @@
             this.tsMenu.TabIndex = 0;
             this.tsMenu.Text = "toolStrip1";
             // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton1.Text = "添加书籍";
-            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 64);
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton2.Text = "修改书籍";
-            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(6, 64);
             // 
-            // toolStripButton3
-            // 
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton3.Text = "删除书籍";
-            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
-            // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 64);
-            // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton4.Text = "选择全部";
-            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 64);
             // 
-            // toolStripButton6
-            // 
-            this.toolStripButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton6.Image")));
-            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton6.Text = "取消全选";
-            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 64);
             // 
-            // toolStripButton5
-            // 
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(59, 61);
-            this.toolStripButton5.Text = "删除选中";
-            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 64);
-            // 
-            // toolStripButton7
-            // 
-            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
-            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(47, 61);
-            this.toolStripButton7.Text = "退    出";
-            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
             // splitContainer1
             // 
@@ -275,46 +208,46 @@
             this.tvAssort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvAssort.Location = new System.Drawing.Point(3, 17);
             this.tvAssort.Name = "tvAssort";
-            treeNode20.Name = "校园";
-            treeNode20.Text = "校园";
-            treeNode21.Name = "爱情";
-            treeNode21.Text = "爱情";
-            treeNode22.Name = "叛逆";
-            treeNode22.Text = "叛逆";
-            treeNode23.Name = "悬疑";
-            treeNode23.Text = "悬疑";
-            treeNode24.Name = "爆笑";
-            treeNode24.Text = "爆笑";
-            treeNode25.Name = "青春";
-            treeNode25.Text = "青春";
-            treeNode26.Name = "世界名著";
-            treeNode26.Text = "世界名著";
-            treeNode27.Name = "外国小说";
-            treeNode27.Text = "外国小说";
-            treeNode28.Name = "中国古典小说";
-            treeNode28.Text = "中国古典小说";
-            treeNode29.Name = "小说";
-            treeNode29.Text = "小说";
-            treeNode30.Name = "中国古诗词";
-            treeNode30.Text = "中国古诗词";
-            treeNode31.Name = "文学";
-            treeNode31.Text = "文学";
-            treeNode32.Name = "设计";
-            treeNode32.Text = "设计";
-            treeNode33.Name = "艺术";
-            treeNode33.Text = "艺术";
-            treeNode34.Name = "自然/名胜";
-            treeNode34.Text = "自然/名胜";
-            treeNode35.Name = "旅游";
-            treeNode35.Text = "旅游";
-            treeNode36.Name = "两性之间";
-            treeNode36.Text = "两性之间";
-            treeNode37.Name = "婚恋";
-            treeNode37.Text = "婚恋";
-            treeNode38.Name = "全部";
-            treeNode38.Text = "全部";
+            treeNode1.Name = "校园";
+            treeNode1.Text = "校园";
+            treeNode2.Name = "爱情";
+            treeNode2.Text = "爱情";
+            treeNode3.Name = "叛逆";
+            treeNode3.Text = "叛逆";
+            treeNode4.Name = "悬疑";
+            treeNode4.Text = "悬疑";
+            treeNode5.Name = "爆笑";
+            treeNode5.Text = "爆笑";
+            treeNode6.Name = "青春";
+            treeNode6.Text = "青春";
+            treeNode7.Name = "世界名著";
+            treeNode7.Text = "世界名著";
+            treeNode8.Name = "外国小说";
+            treeNode8.Text = "外国小说";
+            treeNode9.Name = "中国古典小说";
+            treeNode9.Text = "中国古典小说";
+            treeNode10.Name = "小说";
+            treeNode10.Text = "小说";
+            treeNode11.Name = "中国古诗词";
+            treeNode11.Text = "中国古诗词";
+            treeNode12.Name = "文学";
+            treeNode12.Text = "文学";
+            treeNode13.Name = "设计";
+            treeNode13.Text = "设计";
+            treeNode14.Name = "艺术";
+            treeNode14.Text = "艺术";
+            treeNode15.Name = "自然/名胜";
+            treeNode15.Text = "自然/名胜";
+            treeNode16.Name = "旅游";
+            treeNode16.Text = "旅游";
+            treeNode17.Name = "两性之间";
+            treeNode17.Text = "两性之间";
+            treeNode18.Name = "婚恋";
+            treeNode18.Text = "婚恋";
+            treeNode19.Name = "全部";
+            treeNode19.Text = "全部";
             this.tvAssort.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode38});
+            treeNode19});
             this.tvAssort.Size = new System.Drawing.Size(246, 471);
             this.tvAssort.TabIndex = 0;
             // 
@@ -336,7 +269,7 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlBeat.Controls.Add(this.button1);
+            this.pnlBeat.Controls.Add(this.btnSearch);
             this.pnlBeat.Controls.Add(this.textBox1);
             this.pnlBeat.Controls.Add(this.checkBox1);
             this.pnlBeat.Controls.Add(this.radioButton3);
@@ -347,14 +280,14 @@
             this.pnlBeat.Size = new System.Drawing.Size(815, 65);
             this.pnlBeat.TabIndex = 1;
             // 
-            // button1
+            // btnSearch
             // 
-            this.button1.Location = new System.Drawing.Point(733, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 25);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "查   询";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(733, 19);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(64, 25);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "查   询";
+            this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
@@ -505,30 +438,97 @@
             this.删除ToolStripMenuItem,
             this.修改ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
             // 
             // 添加ToolStripMenuItem
             // 
             this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
-            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.添加ToolStripMenuItem.Text = "添加";
             this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
-            // BookManager
+            // toolStripButton1
+            // 
+            this.toolStripButton1.Image = global::LibraryManagement.Properties.Resources.添加按钮;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton1.Text = "添加书籍";
+            this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.Image = global::LibraryManagement.Properties.Resources.修改书籍;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton2.Text = "修改书籍";
+            this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.Image = global::LibraryManagement.Properties.Resources.删除按钮;
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton3.Text = "删除书籍";
+            this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.Image = global::LibraryManagement.Properties.Resources.选择全部;
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton4.Text = "选择全部";
+            this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButton6
+            // 
+            this.toolStripButton6.Image = global::LibraryManagement.Properties.Resources.取消选择;
+            this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton6.Name = "toolStripButton6";
+            this.toolStripButton6.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton6.Text = "取消全选";
+            this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButton5
+            // 
+            this.toolStripButton5.Image = global::LibraryManagement.Properties.Resources.删除选中;
+            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton5.Name = "toolStripButton5";
+            this.toolStripButton5.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton5.Text = "删除选中";
+            this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Image = global::LibraryManagement.Properties.Resources.退出;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(52, 61);
+            this.toolStripButton7.Text = "退    出";
+            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
+            // 
+            // FrmBookManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -538,7 +538,7 @@
             this.Controls.Add(this.tsMenu);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "BookManager";
+            this.Name = "FrmBookManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍管理";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -579,7 +579,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvBookInfo;
         private System.Windows.Forms.Panel pnlBeat;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.RadioButton radioButton3;

@@ -176,14 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="FrmBookAppend.resx">
       <DependentUpon>FrmBookAppend.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,6 +186,11 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -227,6 +227,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\登录背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\主窗体背景.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\添加按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\修改书籍.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\删除按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选择全部.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取消选择.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\删除选中.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\退出.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\书籍租出.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\书籍归还.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\超期信息.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
