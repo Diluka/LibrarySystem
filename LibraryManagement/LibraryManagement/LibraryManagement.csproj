@@ -50,9 +50,6 @@
     <Reference Include="IrisSkin2">
       <HintPath>..\..\WindowsFormsApplication8\WindowsFormsApplication8\IrisSkin2.dll</HintPath>
     </Reference>
-    <Reference Include="LabeledTextBox">
-      <HintPath>C:\Users\Administrator\Source\Repos\LibrarySystem\WinFormsUserControls\LabeledTextBox\bin\Debug\LabeledTextBox.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -223,6 +220,10 @@
     <ProjectReference Include="..\..\LibrarySystem\LibraryDB\LibraryDB.csproj">
       <Project>{c7609518-da39-4b4e-bf6e-ee8742ac1b73}</Project>
       <Name>LibraryDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WinFormsUserControls\LabeledTextBox\LabeledTextBox.csproj">
+      <Project>{c83ab39d-a24a-4007-8988-48fcfec6d8ab}</Project>
+      <Name>LabeledTextBox</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
