@@ -113,6 +113,11 @@ namespace LibraryDB
         {
             User u = User.GetUserByName(username, conn);
 
+            if (u == null)//用户不存在
+            {
+                return 0;
+            }
+
             string sql = string.Format("declare @v bit;exec proc_validate_user @uid,@pw,@v out;select @v");
             SqlCommand cmd = new SqlCommand(sql, conn);
 
