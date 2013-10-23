@@ -31,6 +31,9 @@ namespace LibraryDB
             paramPreOrderID.Value = preOrder.PreOrderID;
             paramLeaseDate.Value = DateTime.Now;
 
+            cmd.Parameters.Add(paramPreOrderID);
+            cmd.Parameters.Add(paramLeaseDate);
+
             object obj = cmd.ExecuteScalar();
             if (!obj.Equals(DBNull.Value) && !obj.Equals(0))
             {
@@ -128,6 +131,19 @@ namespace LibraryDB
             }
 
             return 0;
+        }
+
+        /// <summary>
+        /// 验证登陆
+        /// </summary>
+        /// <param name="username">用户名</param>
+        /// <param name="password">密码</param>
+        /// <param name="conn">连接</param>
+        /// <returns>用户分组信息</returns>
+        public static UserGroupInfo ValidateLogin2(string username, string password, SqlConnection conn)
+        {
+            int groupID = ValidateLogin(username, password, conn);
+            return UserGroupInfo.GetUserGroupInfoByID(groupID, conn);
         }
 
     }
