@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class FrmBookconcernManager : Form
+    public partial class FrmCategoryManager : Form
     {
-        public FrmBookconcernManager()
+        public FrmCategoryManager()
         {
             InitializeComponent();
         }

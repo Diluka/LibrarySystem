@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class FrmAdm : Form
+    public partial class FrmAdminMain : Form
     {
-        public FrmAdm()
+        public FrmAdminMain()
         {
             InitializeComponent();
         }

@@ -23,7 +23,7 @@ namespace LibraryManagement
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmBookAppend t = new FrmBookAppend();
+            FrmBookAdd t = new FrmBookAdd();
             t.Show();
         }
 
@@ -39,19 +39,19 @@ namespace LibraryManagement
 
         private void 添加ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmBookAppend t = new FrmBookAppend();
+            FrmBookAdd t = new FrmBookAdd();
             t.Show();
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            FrmAmend i = new FrmAmend();
+            FrmBookModify i = new FrmBookModify();
             i.Show();
         }
 
         private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAmend i = new FrmAmend();
+            FrmBookModify i = new FrmBookModify();
             i.Show();
         }
 
