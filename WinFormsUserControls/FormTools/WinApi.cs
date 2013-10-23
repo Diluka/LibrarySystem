@@ -18,6 +18,7 @@ namespace FormTools
         [DllImport("user32.dll")]
         public static extern void SetWindowPos(IntPtr hwnd, IntPtr hwndInsertAfter, int X, int Y, int width, int height, uint flags);
 
+
         private const int SM_CXSCREEN = 0;
         private const int SM_CYSCREEN = 1;
         private static IntPtr HWND_TOP = IntPtr.Zero;
