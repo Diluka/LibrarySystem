@@ -77,6 +77,12 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibrarySystem\LibraryDB\LibraryDB.csproj">
+      <Project>{c7609518-da39-4b4e-bf6e-ee8742ac1b73}</Project>
+      <Name>LibraryDB</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
