@@ -1,16 +1,16 @@
 ﻿namespace LibraryManagement
 {
-    partial class FrmLogin
+    partial class frmLogin
     {
         /// <summary>
-        /// 必需的设计器变量。
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// 清理所有正在使用的资源。
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,38 +20,79 @@
             base.Dispose(disposing);
         }
 
-        #region Windows 窗体设计器生成的代码
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// 设计器支持所需的方法 - 不要
-        /// 使用代码编辑器修改此方法的内容。
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            this.labelTextBox1 = new LabeledTextBox.LabelTextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.btnLog = new System.Windows.Forms.Button();
+            this.txtUser = new LabeledTextBox.LabelTextBox();
+            this.txtPwd = new LabeledTextBox.LabelTextBox();
             this.SuspendLayout();
             // 
-            // labelTextBox1
+            // skinEngine1
             // 
-            this.labelTextBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.labelTextBox1.LabelColor = System.Drawing.SystemColors.ControlDark;
-            this.labelTextBox1.LabelText = "用户名";
-            this.labelTextBox1.Location = new System.Drawing.Point(87, 67);
-            this.labelTextBox1.Name = "labelTextBox1";
-            this.labelTextBox1.Size = new System.Drawing.Size(158, 21);
-            this.labelTextBox1.TabIndex = 0;
-            this.labelTextBox1.Text = "用户名";
-            this.labelTextBox1.TextColor = System.Drawing.SystemColors.ControlText;
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = "D:\\MyBackup\\我的文档\\Visual Studio 2012\\Projects\\WindowsFormsApplication11\\WindowsFor" +
+    "msApplication11\\skin\\DiamondBlue.ssk";
+            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
             // 
-            // FrmLogin
+            // btnLog
             // 
+            this.btnLog.Font = new System.Drawing.Font("叶根友毛笔行书2.0版", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLog.Location = new System.Drawing.Point(96, 237);
+            this.btnLog.Name = "btnLog";
+            this.btnLog.Size = new System.Drawing.Size(168, 49);
+            this.btnLog.TabIndex = 4;
+            this.btnLog.Text = "登    录";
+            this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtUser
+            // 
+            this.txtUser.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtUser.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.txtUser.LabelText = "用户名";
+            this.txtUser.Location = new System.Drawing.Point(155, 126);
+            this.txtUser.Name = "txtUser";
+            this.txtUser.Size = new System.Drawing.Size(181, 21);
+            this.txtUser.TabIndex = 5;
+            this.txtUser.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // txtPwd
+            // 
+            this.txtPwd.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtPwd.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.txtPwd.LabelText = "密码";
+            this.txtPwd.Location = new System.Drawing.Point(155, 167);
+            this.txtPwd.Name = "txtPwd";
+            this.txtPwd.Size = new System.Drawing.Size(181, 21);
+            this.txtPwd.TabIndex = 6;
+            this.txtPwd.TextColor = System.Drawing.SystemColors.ControlText;
+            this.txtPwd.UseSystemPasswordChar = true;
+            // 
+            // frmLogin
+            // 
+            this.AcceptButton = this.btnLog;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.labelTextBox1);
-            this.Name = "FrmLogin";
+            this.BackgroundImage = global::LibraryManagement.Properties.Resources.登录背景;
+            this.ClientSize = new System.Drawing.Size(360, 298);
+            this.Controls.Add(this.txtPwd);
+            this.Controls.Add(this.txtUser);
+            this.Controls.Add(this.btnLog);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "登录";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -59,7 +100,9 @@
 
         #endregion
 
-        private LabeledTextBox.LabelTextBox labelTextBox1;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private System.Windows.Forms.Button btnLog;
+        private LabeledTextBox.LabelTextBox txtUser;
+        private LabeledTextBox.LabelTextBox txtPwd;
     }
 }
-
