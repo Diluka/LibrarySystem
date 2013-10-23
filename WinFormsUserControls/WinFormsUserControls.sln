@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabeledTextBox", "LabeledTextBox\LabeledTextBox.csproj", "{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormTools", "FormTools\FormTools.csproj", "{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
