@@ -116,6 +116,9 @@ namespace LibraryDB
             SqlParameter paramUID = new SqlParameter("@uid", SqlDbType.BigInt);
             SqlParameter paramPassword = new SqlParameter("@pw", SqlDbType.VarChar);
 
+            paramUID.Value = u.Uid;
+            paramPassword.Value = password;
+
             cmd.Parameters.Add(paramUID);
             cmd.Parameters.Add(paramPassword);
 
