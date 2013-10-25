@@ -28,8 +28,14 @@ namespace LibraryManagement
             t.Show();
         }
 
+        DataSet ds = new DataSet();
+        DataView dv;
+
         private void Form2_Load(object sender, EventArgs e)
         {
+            treeCategories.Nodes.Clear();
+            treeCategories.Nodes.Add(new TreeNode("全部"));
+
             string sql = "select * from categories";
 
             try
@@ -41,13 +47,21 @@ namespace LibraryManagement
                 while (dr.Read())
                 {
                     string[] cats = dr["Category"].ToString().Split('/');
-                    TreeNode root = treeCategories.Nodes[cats[0]] ?? treeCategories.Nodes[0];
-                    foreach (string item in cats)
+                    TreeNode root = treeCategories.Nodes[0];
+                    for (int i = 0; i < cats.Length; i++)
                     {
-                        TreeNode node = new TreeNode(item);
-                        node.Tag = item;
-                        root.Nodes.Add(node);
-                        root = node;
+                        if (!root.Nodes.ContainsKey(cats[i]))
+                        {
+                            TreeNode node = new TreeNode(cats[i]);
+                            node.Name = cats[i];
+                            node.Tag = cats[i];
+                            root.Nodes.Add(node);
+                            root = node;
+                        }
+                        else
+                        {
+                            root = root.Nodes.Find(cats[i], false)[0];
+                        }
                     }
                 }
 
@@ -62,6 +76,20 @@ namespace LibraryManagement
                 DBHelper.conn.Close();
             }
 
+
+            try
+            {
+                using (SqlDataAdapter da = new SqlDataAdapter("select * from bookmgrview", DBHelper.conn))
+                {
+                    da.Fill(ds, "books");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dv = new DataView(ds.Tables["books"]);
+            dgvBookInfo.DataSource = dv;
 
         }
 
@@ -104,6 +132,18 @@ namespace LibraryManagement
             {
                 MessageBox.Show("删除成功！");
             }
+        }
+
+        private void treeCategories_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            TreeNode node = e.Node;
+            string[] flite = new string[node.Level];
+            while (node.Parent != null)
+            {
+                flite[node.Level - 1] = node.Name;
+                node = node.Parent;
+            }
+            dv.RowFilter = "分类 like '" + string.Join("/", flite) + "%'";
         }
 
 
