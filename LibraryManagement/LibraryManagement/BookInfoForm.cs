@@ -254,6 +254,11 @@ namespace LibraryManagement
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            txtTitle.Text = txtTitle.Text.Trim();
+            txtPrice.Text = txtPrice.Text.Trim();
+            txtAlpha.Text = txtAlpha.Text.Trim();
+            txtISBN.Text = txtISBN.Text.Trim();
+
             try
             {
                 if (bookInfo == null)
