@@ -43,5 +43,13 @@ namespace LibraryManagement
         {
             Application.Exit();
         }
+
+        private void FrmAdminMain_Load(object sender, EventArgs e)
+        {
+            btnBookmanage.Font = new Font(FontMgr.fonts.Families[0], btnBookmanage.Font.Size);
+            btnDatamanage.Font = new Font(FontMgr.fonts.Families[0], btnDatamanage.Font.Size);
+            btnLeasemanage.Font = new Font(FontMgr.fonts.Families[0], btnLeasemanage.Font.Size);
+            btnExit.Font = new Font(FontMgr.fonts.Families[0], btnExit.Font.Size);
+        }
     }
 }

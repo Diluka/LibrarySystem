@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,39 @@ namespace LibraryManagement
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            string sql = "select * from categories";
 
+                try
+                {
+                    DBHelper.conn.Open();
+                    SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        string[] cats = dr["Category"].ToString().Split('/');
+                        TreeNode root = treeCategories.Nodes[0];
+                        foreach (string item in cats)
+                        {
+                            TreeNode node = new TreeNode(item);
+                            node.Tag = item;
+                            root.Nodes.Add(node);
+                            root = node;
+                        }
+                    }
+
+                    dr.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
+
+            
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
