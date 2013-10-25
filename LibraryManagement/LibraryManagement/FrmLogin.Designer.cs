@@ -43,7 +43,6 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLogin.Location = new System.Drawing.Point(96, 237);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(168, 49);
@@ -61,6 +60,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(181, 21);
             this.txtUsername.TabIndex = 5;
+            this.txtUsername.Text = "用户名";
             this.txtUsername.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtPassword
@@ -72,6 +72,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(181, 21);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.Text = "密码";
             this.txtPassword.TextColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.UseSystemPasswordChar = true;
             // 

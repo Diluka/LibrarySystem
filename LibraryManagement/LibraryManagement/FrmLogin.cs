@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Text;
+using FontsPack;
 
 namespace LibraryManagement
 {
@@ -37,19 +38,20 @@ namespace LibraryManagement
             }
             if (info != null && info.IsAdmin)
             {
-                FrmAdminMain fa = new FrmAdminMain();
-                fa.Show();
+                Form form = new FrmAdminMain();
+                form.Show();
                 this.Hide();
             }
             else
             {
-                MessageBox.Show("登录失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("登录失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            btnLogin.Font = new Font(FontMgr.fonts.Families[0], btnLogin.Font.Size);
+            Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
+            btnLogin.Font = font;
         }
     }
 }

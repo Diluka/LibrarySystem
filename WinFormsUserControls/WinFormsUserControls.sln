@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabeledTextBox", "LabeledTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormTools", "FormTools\FormTools.csproj", "{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fonts", "Fonts\Fonts.csproj", "{BE23A5AF-9D21-4C63-9832-08F31C8E574F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45C589A-EB40-4FDF-9155-FAF5AA68CFCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

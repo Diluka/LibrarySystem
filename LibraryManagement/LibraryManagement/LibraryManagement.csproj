@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBHelper.cs" />
-    <Compile Include="FontMgr.cs" />
     <Compile Include="FrmAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +223,10 @@
     <ProjectReference Include="..\..\LibrarySystem\LibraryDB\LibraryDB.csproj">
       <Project>{c7609518-da39-4b4e-bf6e-ee8742ac1b73}</Project>
       <Name>LibraryDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\WinFormsUserControls\Fonts\FontsPack.csproj">
+      <Project>{be23a5af-9d21-4c63-9832-08f31c8e574f}</Project>
+      <Name>FontsPack</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\WinFormsUserControls\LabeledTextBox\LabeledTextBox.csproj">
       <Project>{c83ab39d-a24a-4007-8988-48fcfec6d8ab}</Project>

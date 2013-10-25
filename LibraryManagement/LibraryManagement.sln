@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement", "Librar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabeledTextBox", "..\WinFormsUserControls\LabeledTextBox\LabeledTextBox.csproj", "{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontsPack", "..\WinFormsUserControls\Fonts\FontsPack.csproj", "{BE23A5AF-9D21-4C63-9832-08F31C8E574F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

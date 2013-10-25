@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using FontsPack;
 
 namespace LibraryManagement
 {
@@ -46,10 +47,11 @@ namespace LibraryManagement
 
         private void FrmAdminMain_Load(object sender, EventArgs e)
         {
-            btnBookmanage.Font = new Font(FontMgr.fonts.Families[0], btnBookmanage.Font.Size);
-            btnDatamanage.Font = new Font(FontMgr.fonts.Families[0], btnDatamanage.Font.Size);
-            btnLeasemanage.Font = new Font(FontMgr.fonts.Families[0], btnLeasemanage.Font.Size);
-            btnExit.Font = new Font(FontMgr.fonts.Families[0], btnExit.Font.Size);
+            Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 24);
+            btnBookmanage.Font = font;
+            btnDatamanage.Font = font;
+            btnLeasemanage.Font = font;
+            btnExit.Font = font;
         }
     }
 }
