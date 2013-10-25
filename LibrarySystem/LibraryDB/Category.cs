@@ -42,6 +42,28 @@ namespace LibraryDB
             return c;
         }
 
+        public static List<Category> GetAllCategories(SqlConnection conn)
+        {
+            List<Category> categories = new List<Category>();
+
+            string sql = "select * from categories";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Category c = new Category();
+                c.CatID = Convert.ToInt32(dr["CatID"]);
+                c.CategoryName = dr["Category"].ToString();
+                categories.Add(c);
+            }
+
+            dr.Close();
+
+            return categories;
+        }
+
         #region IDBOperate 成员
 
         int IDBOperate.Insert(SqlConnection conn)

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -34,39 +35,10 @@ namespace LibraryManagement
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            treeCategories.Nodes.Clear();
-            treeCategories.Nodes.Add(new TreeNode("全部"));
-
-            string sql = "select * from categories";
-
             try
             {
                 DBHelper.conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-
-                while (dr.Read())
-                {
-                    string[] cats = dr["Category"].ToString().Split('/');
-                    TreeNode root = treeCategories.Nodes[0];
-                    for (int i = 0; i < cats.Length; i++)
-                    {
-                        if (!root.Nodes.ContainsKey(cats[i]))
-                        {
-                            TreeNode node = new TreeNode(cats[i]);
-                            node.Name = cats[i];
-                            node.Tag = cats[i];
-                            root.Nodes.Add(node);
-                            root = node;
-                        }
-                        else
-                        {
-                            root = root.Nodes.Find(cats[i], false)[0];
-                        }
-                    }
-                }
-
-                dr.Close();
+                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
             }
             catch (Exception ex)
             {

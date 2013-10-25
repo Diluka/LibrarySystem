@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace LibraryDB
 {
@@ -150,6 +151,42 @@ namespace LibraryDB
             int groupID = ValidateLogin(username, password, conn);
             return UserGroupInfo.GetUserGroupInfoByID(groupID, conn);
         }
+
+        /// <summary>
+        /// 生成类别树状图
+        /// </summary>
+        /// <param name="tree">树形视图控件</param>
+        /// <param name="conn">连接</param>
+        public static void MakeCategoryTree(TreeView tree, SqlConnection conn)
+        {
+            tree.Nodes.Clear();
+            tree.Nodes.Add(new TreeNode("全部"));
+
+
+            List<Category> categories = Category.GetAllCategories(conn);
+
+            foreach (Category c in categories)
+            {
+                string[] cats = c.CategoryName.Split('/');
+                TreeNode root = tree.Nodes[0];
+                for (int i = 0; i < cats.Length; i++)
+                {
+                    if (!root.Nodes.ContainsKey(cats[i]))
+                    {
+                        TreeNode node = new TreeNode(cats[i]);
+                        node.Name = cats[i];
+                        node.Tag = c;
+                        root.Nodes.Add(node);
+                        root = node;
+                    }
+                    else
+                    {
+                        root = root.Nodes.Find(cats[i], false)[0];
+                    }
+                }
+            }
+        }
+
 
     }
 }

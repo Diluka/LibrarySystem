@@ -329,6 +329,7 @@
             this.btnCategory.TabIndex = 28;
             this.btnCategory.Text = "查询分类";
             this.btnCategory.UseVisualStyleBackColor = true;
+            this.btnCategory.Click += new System.EventHandler(this.btnCategory_Click);
             // 
             // btnAuthor
             // 
@@ -462,7 +463,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 449);
+            this.ClientSize = new System.Drawing.Size(824, 449);
             this.Controls.Add(this.txtBrief);
             this.Controls.Add(this.btnClearText);
             this.Controls.Add(this.label13);
@@ -500,6 +501,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "BookInfoForm";
             this.Text = "BookInfoForm";
             this.Load += new System.EventHandler(this.BookInfoForm_Load);

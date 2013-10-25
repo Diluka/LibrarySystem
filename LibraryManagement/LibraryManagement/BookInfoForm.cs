@@ -68,7 +68,7 @@ namespace LibraryManagement
 
         private void btnUnlock_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("修改锁定的数据可能会导致数据库完整性受到影响！是否继续？", "警告", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dr = MessageBox.Show("修改锁定的数据将无法保证数据库的完整性！是否继续？", "*警告*", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (dr == DialogResult.Yes)
             {
@@ -236,5 +236,20 @@ namespace LibraryManagement
         }
 
         #endregion
+
+        Form frmCatMgr;
+        private void btnCategory_Click(object sender, EventArgs e)
+        {
+            if (frmCatMgr != null && !frmCatMgr.IsDisposed)
+            {
+                frmCatMgr.Show(this);
+                frmCatMgr.Activate();
+            }
+            else
+            {
+                frmCatMgr = new FrmCategoryManager();
+                frmCatMgr.Show(this);
+            }
+        }
     }
 }
