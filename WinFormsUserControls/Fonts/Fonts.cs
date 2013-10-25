@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace FontsPack
 {
+    /// <summary>
+    /// 可以使用的字体名称枚举
+    /// </summary>
     public enum FontName
     {
         叶根友毛笔行书
@@ -16,6 +19,13 @@ namespace FontsPack
     public static class Fonts
     {
         private static Dictionary<FontName, FontFamily> fontFamilies = new Dictionary<FontName, FontFamily>();
+
+        /// <summary>
+        /// 获得字体
+        /// </summary>
+        /// <param name="name">FontsPack.FontName中的字体名称枚举</param>
+        /// <param name="size">字体大小，Unit单位</param>
+        /// <returns>字体</returns>
         public static Font GetFont(FontName name, float size)
         {
             FontFamily ff;

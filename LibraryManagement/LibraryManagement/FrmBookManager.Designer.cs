@@ -60,6 +60,7 @@
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -251,6 +252,7 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBeat.Controls.Add(this.label1);
             this.pnlBeat.Controls.Add(this.btnSearch);
             this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.chkBlur);
@@ -259,12 +261,12 @@
             this.pnlBeat.Controls.Add(this.rdoISBN);
             this.pnlBeat.Location = new System.Drawing.Point(8, 22);
             this.pnlBeat.Name = "pnlBeat";
-            this.pnlBeat.Size = new System.Drawing.Size(815, 65);
+            this.pnlBeat.Size = new System.Drawing.Size(815, 42);
             this.pnlBeat.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(733, 19);
+            this.btnSearch.Location = new System.Drawing.Point(738, 9);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(64, 25);
             this.btnSearch.TabIndex = 5;
@@ -274,9 +276,9 @@
             // 
             // txtSearchString
             // 
-            this.txtSearchString.Location = new System.Drawing.Point(502, 24);
+            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
             this.txtSearchString.Name = "txtSearchString";
-            this.txtSearchString.Size = new System.Drawing.Size(187, 21);
+            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
             this.txtSearchString.TabIndex = 4;
             // 
             // chkBlur
@@ -284,43 +286,43 @@
             this.chkBlur.AutoSize = true;
             this.chkBlur.Checked = true;
             this.chkBlur.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkBlur.Location = new System.Drawing.Point(374, 29);
+            this.chkBlur.Location = new System.Drawing.Point(301, 13);
             this.chkBlur.Name = "chkBlur";
-            this.chkBlur.Size = new System.Drawing.Size(84, 16);
+            this.chkBlur.Size = new System.Drawing.Size(72, 16);
             this.chkBlur.TabIndex = 3;
-            this.chkBlur.Text = "按模糊查询";
+            this.chkBlur.Text = "模糊查询";
             this.chkBlur.UseVisualStyleBackColor = true;
             // 
             // rdoAuthor
             // 
             this.rdoAuthor.AutoSize = true;
-            this.rdoAuthor.Location = new System.Drawing.Point(247, 28);
+            this.rdoAuthor.Location = new System.Drawing.Point(226, 13);
             this.rdoAuthor.Name = "rdoAuthor";
-            this.rdoAuthor.Size = new System.Drawing.Size(83, 16);
+            this.rdoAuthor.Size = new System.Drawing.Size(47, 16);
             this.rdoAuthor.TabIndex = 2;
-            this.rdoAuthor.Text = "按书籍作者";
+            this.rdoAuthor.Text = "作者";
             this.rdoAuthor.UseVisualStyleBackColor = true;
             // 
             // rdoTitle
             // 
             this.rdoTitle.AutoSize = true;
             this.rdoTitle.Checked = true;
-            this.rdoTitle.Location = new System.Drawing.Point(120, 28);
+            this.rdoTitle.Location = new System.Drawing.Point(84, 13);
             this.rdoTitle.Name = "rdoTitle";
-            this.rdoTitle.Size = new System.Drawing.Size(83, 16);
+            this.rdoTitle.Size = new System.Drawing.Size(71, 16);
             this.rdoTitle.TabIndex = 1;
             this.rdoTitle.TabStop = true;
-            this.rdoTitle.Text = "按书籍名称";
+            this.rdoTitle.Text = "书籍名称";
             this.rdoTitle.UseVisualStyleBackColor = true;
             // 
             // rdoISBN
             // 
             this.rdoISBN.AutoSize = true;
-            this.rdoISBN.Location = new System.Drawing.Point(17, 28);
+            this.rdoISBN.Location = new System.Drawing.Point(168, 13);
             this.rdoISBN.Name = "rdoISBN";
-            this.rdoISBN.Size = new System.Drawing.Size(59, 16);
+            this.rdoISBN.Size = new System.Drawing.Size(47, 16);
             this.rdoISBN.TabIndex = 0;
-            this.rdoISBN.Text = "按ISBN";
+            this.rdoISBN.Text = "ISBN";
             this.rdoISBN.UseVisualStyleBackColor = true;
             // 
             // dgvBookInfo
@@ -333,12 +335,12 @@
             this.dgvBookInfo.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvBookInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBookInfo.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvBookInfo.Location = new System.Drawing.Point(8, 109);
+            this.dgvBookInfo.Location = new System.Drawing.Point(8, 70);
             this.dgvBookInfo.Name = "dgvBookInfo";
             this.dgvBookInfo.ReadOnly = true;
             this.dgvBookInfo.RowTemplate.Height = 23;
             this.dgvBookInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBookInfo.Size = new System.Drawing.Size(815, 370);
+            this.dgvBookInfo.Size = new System.Drawing.Size(815, 409);
             this.dgvBookInfo.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -370,6 +372,15 @@
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "搜索规则：";
             // 
             // FrmBookManager
             // 
@@ -433,5 +444,6 @@
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.TreeView treeCategories;
+        private System.Windows.Forms.Label label1;
     }
 }
