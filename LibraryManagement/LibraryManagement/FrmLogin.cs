@@ -38,6 +38,7 @@ namespace LibraryManagement
             {
                 FrmAdm fa = new FrmAdm();
                 fa.Show();
+                this.Hide();
             }
             else
             {

@@ -27,5 +27,16 @@ namespace LibraryManagement
             FrmSortManager t = new FrmSortManager();
             t.Show();
         }
+
+        private void FrmBookAppend_Load(object sender, EventArgs e)
+        {
+ 
+        }
+
+        private void FrmBookAppend_Activated(object sender, EventArgs e)
+        {
+            textBox5.Clear();
+            textBox5.Text = DBHelper.name;
+        }
     }
 }
