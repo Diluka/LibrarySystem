@@ -29,6 +29,7 @@ namespace LibraryManagement
         }
 
         DataSet ds = new DataSet();
+        SqlDataAdapter da = new SqlDataAdapter("select * from bookmgrview", DBHelper.conn);
         DataView dv;
 
         private void Form2_Load(object sender, EventArgs e)
@@ -79,10 +80,7 @@ namespace LibraryManagement
 
             try
             {
-                using (SqlDataAdapter da = new SqlDataAdapter("select * from bookmgrview", DBHelper.conn))
-                {
-                    da.Fill(ds, "books");
-                }
+                da.Fill(ds, "books");
             }
             catch (Exception ex)
             {
@@ -91,6 +89,7 @@ namespace LibraryManagement
             dv = new DataView(ds.Tables["books"]);
             dgvBookInfo.DataSource = dv;
 
+            treeCategories.Nodes[0].Expand();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -144,6 +143,47 @@ namespace LibraryManagement
                 node = node.Parent;
             }
             dv.RowFilter = "分类 like '" + string.Join("/", flite) + "%'";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            txtSearchString.Text = txtSearchString.Text.Trim();
+            string searchField;
+            if (rdoISBN.Checked)
+            {
+                searchField = "ISBN";
+            }
+            else if (rdoTitle.Checked)
+            {
+                searchField = "书籍标题";
+            }
+            else
+            {
+                searchField = "作者";
+            }
+
+            string sql = string.Format("select * from bookmgrview where {0} like '{1}'", searchField, chkBlur.Checked ? "%" + txtSearchString.Text + "% or " + searchField + " is null" : txtSearchString.Text);
+            if (!chkBlur.Checked && txtSearchString.Text.Equals("null", StringComparison.CurrentCultureIgnoreCase))
+            {
+                sql = "select * from bookmgrview where " + searchField + " is null";
+            }
+
+            da.SelectCommand.CommandText = sql;
+            ds.Tables["books"].Clear();
+            da.Fill(ds, "books");
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            dgvBookInfo.SelectAll();
+        }
+
+        private void toolStripButton6_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in dgvBookInfo.Rows)
+            {
+                item.Selected = false;
+            }
         }
 
 
