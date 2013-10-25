@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class FrmSortManager
+    partial class FrmCategoryManager
     {
         /// <summary>
         /// Required designer variable.
@@ -257,7 +257,7 @@
             treeNode96,
             treeNode107,
             treeNode114});
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSortManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoryManager));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();

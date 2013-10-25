@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace LibraryManagement
 {
@@ -44,6 +45,11 @@ namespace LibraryManagement
             {
                 MessageBox.Show("登录失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            btnLogin.Font = new Font(FontMgr.fonts.Families[0], btnLogin.Font.Size);
         }
     }
 }

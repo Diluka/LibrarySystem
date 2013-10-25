@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="FontMgr.cs" />
     <Compile Include="FrmAdminMain.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -18,7 +18,7 @@ namespace LibraryManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmBookPressManager r = new FrmBookPressManager();
+            frmBookPressManager r = new frmBookPressManager();
             r.Show();
         }
 

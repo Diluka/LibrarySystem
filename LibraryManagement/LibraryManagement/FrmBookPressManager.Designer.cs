@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class FrmBookconcernManager
+    partial class frmBookPressManager
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBookconcernManager));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookPressManager));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lvBookconcern = new System.Windows.Forms.ListView();
             this.出版社名称 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -128,7 +128,7 @@
             this.button3.Text = "取         消";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // FrmBookconcernManager
+            // frmBookPressManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +141,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FrmBookconcernManager";
+            this.Name = "frmBookPressManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出版社设置";
             this.Load += new System.EventHandler(this.FrmBookconcernManager_Load);

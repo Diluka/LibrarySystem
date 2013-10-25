@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace LibraryManagement
 {
-    public partial class FrmBookPressManager : Form
+    public partial class frmBookPressManager : Form
     {
-        public FrmBookPressManager()
+        public frmBookPressManager()
         {
             InitializeComponent();
         }
@@ -27,8 +27,8 @@ namespace LibraryManagement
             string sql = string.Format("select * from Presses order by upper(PressName)");
             try
             {
-                SqlCommand com = new SqlCommand(sql, DBHelper.con);
-                DBHelper.con.Open();
+                SqlCommand com = new SqlCommand(sql, DBHelper.conn);
+                DBHelper.conn.Open();
                 SqlDataReader dr = com.ExecuteReader();
                 ListViewItem item = null;
                 while (dr.Read())
@@ -47,7 +47,7 @@ namespace LibraryManagement
             }
             finally
             {
-                DBHelper.con.Close();
+                DBHelper.conn.Close();
             }
         }
 
@@ -64,8 +64,8 @@ namespace LibraryManagement
                 string sql = string.Format("select * from Presses where PressName like '%{0}%'", textBox2.Text);
                 try
                 {
-                    DBHelper.con.Open();
-                    SqlCommand com = new SqlCommand(sql, DBHelper.con);
+                    DBHelper.conn.Open();
+                    SqlCommand com = new SqlCommand(sql, DBHelper.conn);
                     SqlDataReader dr = com.ExecuteReader();
                     if (!dr.HasRows)
                     {
@@ -89,7 +89,7 @@ namespace LibraryManagement
                 }
                 finally
                 {
-                    DBHelper.con.Close();
+                    DBHelper.conn.Close();
                 }
             }
         }
