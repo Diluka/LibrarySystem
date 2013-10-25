@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace LibraryManagement
 {
-    public partial class FrmBookconcernManager : Form
+    public partial class FrmBookPressManager : Form
     {
-        public FrmBookconcernManager()
+        public FrmBookPressManager()
         {
             InitializeComponent();
         }

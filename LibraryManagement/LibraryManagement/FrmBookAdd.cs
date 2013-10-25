@@ -9,22 +9,22 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class FrmBookAppend : Form
+    public partial class FrmBookAdd : Form
     {
-        public FrmBookAppend()
+        public FrmBookAdd()
         {
             InitializeComponent();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmBookconcernManager r = new FrmBookconcernManager();
+            FrmBookPressManager r = new FrmBookPressManager();
             r.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FrmSortManager t = new FrmSortManager();
+            FrmCategoryManager t = new FrmCategoryManager();
             t.Show();
         }
 

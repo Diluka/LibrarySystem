@@ -19,11 +19,11 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DBHelper.con.Open();
+            DBHelper.conn.Open();
             UserGroupInfo info = null;
             try
             {
-                info = LibraryHelper.ValidateLogin2(txtUser.Text, txtPwd.Text, DBHelper.con);
+                info = LibraryHelper.ValidateLogin2(txtUsername.Text, txtPassword.Text, DBHelper.conn);
             }
             catch (Exception ex)
             {
@@ -32,11 +32,11 @@ namespace LibraryManagement
             }
             finally
             {
-                DBHelper.con.Close();
+                DBHelper.conn.Close();
             }
             if (info != null && info.IsAdmin)
             {
-                FrmAdm fa = new FrmAdm();
+                FrmAdminMain fa = new FrmAdminMain();
                 fa.Show();
                 this.Hide();
             }

@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class FrmSortManager : Form
+    public partial class FrmCategoryManager : Form
     {
-        public FrmSortManager()
+        public FrmCategoryManager()
         {
             InitializeComponent();
         }
