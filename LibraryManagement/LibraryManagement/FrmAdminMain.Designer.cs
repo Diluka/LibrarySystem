@@ -50,7 +50,7 @@
             this.btnBookmanage.BackColor = System.Drawing.Color.Transparent;
             this.btnBookmanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnBookmanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookmanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnBookmanage.Font = new System.Drawing.Font("叶根友毛笔行书2.0版", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnBookmanage.Location = new System.Drawing.Point(146, 50);
             this.btnBookmanage.Name = "btnBookmanage";
             this.btnBookmanage.Size = new System.Drawing.Size(222, 77);
@@ -67,7 +67,7 @@
             this.btnLeasemanage.BackColor = System.Drawing.Color.Transparent;
             this.btnLeasemanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLeasemanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeasemanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnLeasemanage.Font = new System.Drawing.Font("叶根友毛笔行书2.0版", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnLeasemanage.Location = new System.Drawing.Point(146, 216);
             this.btnLeasemanage.Name = "btnLeasemanage";
             this.btnLeasemanage.Size = new System.Drawing.Size(222, 77);
@@ -84,7 +84,7 @@
             this.btnDatamanage.BackColor = System.Drawing.Color.Transparent;
             this.btnDatamanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDatamanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatamanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDatamanage.Font = new System.Drawing.Font("叶根友毛笔行书2.0版", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnDatamanage.Location = new System.Drawing.Point(146, 382);
             this.btnDatamanage.Name = "btnDatamanage";
             this.btnDatamanage.Size = new System.Drawing.Size(222, 77);
@@ -101,7 +101,7 @@
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnExit.Font = new System.Drawing.Font("叶根友毛笔行书2.0版", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.btnExit.Location = new System.Drawing.Point(146, 548);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(222, 77);
@@ -110,7 +110,7 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.button4_Click);
             // 
-            // FrmAdm
+            // FrmAdminMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -123,7 +123,7 @@
             this.Controls.Add(this.btnBookmanage);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FrmAdm";
+            this.Name = "FrmAdminMain";
             this.Text = "管理员";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Adm_FormClosed);
