@@ -32,37 +32,37 @@ namespace LibraryManagement
         {
             string sql = "select * from categories";
 
-                try
-                {
-                    DBHelper.conn.Open();
-                    SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
-                    SqlDataReader dr = cmd.ExecuteReader();
+            try
+            {
+                DBHelper.conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
+                SqlDataReader dr = cmd.ExecuteReader();
 
-                    while (dr.Read())
+                while (dr.Read())
+                {
+                    string[] cats = dr["Category"].ToString().Split('/');
+                    TreeNode root = treeCategories.Nodes[cats[0]] ?? treeCategories.Nodes[0];
+                    foreach (string item in cats)
                     {
-                        string[] cats = dr["Category"].ToString().Split('/');
-                        TreeNode root = treeCategories.Nodes[0];
-                        foreach (string item in cats)
-                        {
-                            TreeNode node = new TreeNode(item);
-                            node.Tag = item;
-                            root.Nodes.Add(node);
-                            root = node;
-                        }
+                        TreeNode node = new TreeNode(item);
+                        node.Tag = item;
+                        root.Nodes.Add(node);
+                        root = node;
                     }
-
-                    dr.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    DBHelper.conn.Close();
                 }
 
-            
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -90,11 +90,11 @@ namespace LibraryManagement
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-          DialogResult result =  MessageBox.Show("确认删除“西游记”?","提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-          if (result == DialogResult.Yes)
-          {
-              MessageBox.Show("删除成功！");
-          }
+            DialogResult result = MessageBox.Show("确认删除“西游记”?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("删除成功！");
+            }
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
