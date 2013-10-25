@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{9BEEFC1B-FFC9-4C62-A5A7-CB2FAFEED4FD}</ProjectGuid>
+    <ProjectGuid>{BE23A5AF-9D21-4C63-9832-08F31C8E574F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FontsPack</RootNamespace>

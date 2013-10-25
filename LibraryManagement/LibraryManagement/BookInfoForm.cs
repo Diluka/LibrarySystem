@@ -251,5 +251,118 @@ namespace LibraryManagement
                 frmCatMgr.Show(this);
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (bookInfo == null)
+                {
+                    bookInfo = new BookInfo(
+                        category == null ? null : (int?)category.CatID,
+                        txtTitle.Text,
+                        txtAlpha.Text[0],
+                       txtISBN.Text,
+                       author == null ? null : (int?)author.AuthorID,
+                       press == null ? null : (int?)press.PressID,
+                       datePressDate.Value,
+                       string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text));
+
+
+
+                    DBHelper.conn.Open();
+                    ((IDBOperate)bookInfo).Insert(DBHelper.conn);
+                    if (txtBrief.Text != "")
+                    {
+                        bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
+                        ((IDBOperate)bookBrief).Insert(DBHelper.conn);
+                    }
+                    if (picCover.Image != null)
+                    {
+                        cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
+                        ((IDBOperate)cover).Insert(DBHelper.conn);
+                    }
+                }
+                else
+                {
+                    bookInfo.Title = txtTitle.Text;
+                    bookInfo.Alphabet = txtAlpha.Text[0];
+                    if (category != null)
+                    {
+                        bookInfo.CatID = category.CatID;
+                    }
+                    if (author != null)
+                    {
+                        bookInfo.AuthorID = author.AuthorID;
+                    }
+                    if (press != null)
+                    {
+                        bookInfo.PressID = press.PressID;
+                    }
+                    bookInfo.PressDate = datePressDate.Value;
+                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
+                    bookInfo.ISBN = txtISBN.Text;
+                    bookInfo.Total = (int)numTotal.Value;
+                    bookInfo.Remain = (int)numRemain.Value;
+
+
+                    DBHelper.conn.Open();
+                    ((IDBOperate)bookInfo).Update(DBHelper.conn);
+
+                    if (bookBrief != null)
+                    {
+                        if (txtBrief.Text != "")
+                        {
+                            bookBrief.BriefText = txtBrief.Text;
+                            ((IDBOperate)bookBrief).Update(DBHelper.conn);
+                        }
+                        else
+                        {
+                            ((IDBOperate)bookBrief).Delete(DBHelper.conn);
+                        }
+                    }
+                    else
+                    {
+                        if (txtBrief.Text != "")
+                        {
+                            bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
+                            ((IDBOperate)bookBrief).Insert(DBHelper.conn);
+                        }
+                    }
+
+                    if (cover != null)
+                    {
+                        if (picCover.Image != null)
+                        {
+                            if (openFileDialog1.OpenFile() != null)
+                            {
+                                cover.ImageStream = openFileDialog1.OpenFile();
+                                ((IDBOperate)cover).Update(DBHelper.conn);
+                            }
+                        }
+                        else
+                        {
+                            ((IDBOperate)cover).Delete(DBHelper.conn);
+                        }
+                    }
+                    else
+                    {
+                        if (picCover.Image != null)
+                        {
+                            cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
+                            ((IDBOperate)cover).Insert(DBHelper.conn);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
     }
 }

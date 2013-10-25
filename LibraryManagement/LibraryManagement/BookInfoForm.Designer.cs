@@ -244,6 +244,7 @@
             this.btnSave.TabIndex = 21;
             this.btnSave.Text = "保    存";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnModify
             // 
