@@ -16,11 +16,15 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-
+       
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmBookManager a = new FrmBookManager();
-            a.Show();
+          
+               FrmBookManager fm = new FrmBookManager();
+                fm.Show();
+               
+   
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

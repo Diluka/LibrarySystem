@@ -22,5 +22,7 @@ namespace LibraryManagement.Properties {
                 return defaultInstance;
             }
         }
+
+        public string mydbConnectionString { get; set; }
     }
 }
