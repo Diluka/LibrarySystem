@@ -14,18 +14,18 @@ namespace LibraryManagement
          ////设置类别
          ////</summary>
          ////<param name="c">类别对象</param>
-        //public void SetCategory(Category c);
+        public void SetCategory(Category c);
 
         /// <summary>
         /// 设置作者
         /// </summary>
         /// <param name="a">作者对象</param>
-        //public void SetAuthor(Author a);
+        public void SetAuthor(Author a);
 
         /// <summary>
         /// 设置出版社
         /// </summary>
         /// <param name="p">出版社对象</param>
-        //public void SetPress(Press p);
+        public void SetPress(Press p);
     }
 }

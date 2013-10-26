@@ -208,32 +208,32 @@ namespace LibraryManagement
 
         #region IChooseCAP 成员
 
-        //public void SetCategory(Category c)
-        //{
-        //    category = c;
-        //    if (category != null)
-        //    {
-        //        txtCategory.Text = category.CategoryName;
-        //    }
-        //}
+        public void SetCategory(Category c)
+        {
+            category = c;
+            if (category != null)
+            {
+                txtCategory.Text = category.CategoryName;
+            }
+        }
 
-        //public void SetAuthor(Author a)
-        //{
-        //    author = a;
-        //    if (author != null)
-        //    {
-        //        txtAuthor.Text = author.AuthorName;
-        //    }
-        //}
+        public void SetAuthor(Author a)
+        {
+            author = a;
+            if (author != null)
+            {
+                txtAuthor.Text = author.AuthorName;
+            }
+        }
 
-        //public void SetPress(Press p)
-        //{
-        //    press = p;
-        //    if (press != null)
-        //    {
-        //        txtPress.Text = press.PressName;
-        //    }
-        //}
+        public void SetPress(Press p)
+        {
+            press = p;
+            if (press != null)
+            {
+                txtPress.Text = press.PressName;
+            }
+        }
 
         #endregion
 
