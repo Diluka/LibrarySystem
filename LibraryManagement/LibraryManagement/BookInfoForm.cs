@@ -208,7 +208,7 @@ namespace LibraryManagement
 
         #region IChooseCAP 成员
 
-        public void SetCategory(Category c)
+        void SetCategory(Category c)
         {
             category = c;
             if (category != null)
@@ -217,7 +217,7 @@ namespace LibraryManagement
             }
         }
 
-        public void SetAuthor(Author a)
+        void SetAuthor(Author a)
         {
             author = a;
             if (author != null)
@@ -226,7 +226,7 @@ namespace LibraryManagement
             }
         }
 
-        public void SetPress(Press p)
+        void SetPress(Press p)
         {
             press = p;
             if (press != null)
