@@ -53,7 +53,7 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox2.Text == "")
+            if ( labelTextBox1.Text == "")
             {
                 aaa();
             }
@@ -61,7 +61,7 @@ namespace LibraryManagement
             {
 
                 lvBookconcern.Items.Clear();
-                string sql = string.Format("select * from Presses where PressName like '%{0}%'", textBox2.Text);
+                string sql = string.Format("select * from Presses where PressName like '%{0}%'", labelTextBox1.Text);
                 try
                 {
                     DBHelper.conn.Open();

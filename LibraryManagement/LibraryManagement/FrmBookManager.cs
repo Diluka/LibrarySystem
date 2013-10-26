@@ -25,8 +25,8 @@ namespace LibraryManagement
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmBookAdd t = new FrmBookAdd();
-            t.Show();
+            BookInfoForm bf = new BookInfoForm();
+            bf.Show();
         }
 
         DataSet ds = new DataSet();
@@ -156,6 +156,11 @@ namespace LibraryManagement
             {
                 item.Selected = false;
             }
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+
         }
 
 

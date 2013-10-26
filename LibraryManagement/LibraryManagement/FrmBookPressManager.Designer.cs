@@ -34,10 +34,10 @@
             this.出版社名称 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.labelTextBox1 = new LabeledTextBox.LabelTextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,8 +73,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.labelTextBox1);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
@@ -91,13 +91,6 @@
             this.label2.Size = new System.Drawing.Size(41, 12);
             this.label2.TabIndex = 4;
             this.label2.Text = "名称：";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(75, 25);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(183, 21);
-            this.textBox2.TabIndex = 2;
             // 
             // button1
             // 
@@ -127,6 +120,18 @@
             this.button3.TabIndex = 3;
             this.button3.Text = "取         消";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // labelTextBox1
+            // 
+            this.labelTextBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.labelTextBox1.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.labelTextBox1.LabelText = "请输入出版社名称";
+            this.labelTextBox1.Location = new System.Drawing.Point(75, 25);
+            this.labelTextBox1.Name = "labelTextBox1";
+            this.labelTextBox1.Size = new System.Drawing.Size(181, 21);
+            this.labelTextBox1.TabIndex = 5;
+            this.labelTextBox1.Text = "请输入出版社名称";
+            this.labelTextBox1.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // frmBookPressManager
             // 
@@ -160,8 +165,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ColumnHeader 出版社名称;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private LabeledTextBox.LabelTextBox labelTextBox1;
     }
 }

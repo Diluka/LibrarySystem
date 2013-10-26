@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using LibraryDB;
-
 namespace LibraryManagement
 {
     /// <summary>
@@ -11,10 +10,10 @@ namespace LibraryManagement
     /// </summary>
     interface ISetCAP
     {
-        /// <summary>
-        /// 设置类别
-        /// </summary>
-        /// <param name="c">类别对象</param>
+         ////<summary>
+         ////设置类别
+         ////</summary>
+         ////<param name="c">类别对象</param>
         public void SetCategory(Category c);
 
         /// <summary>
