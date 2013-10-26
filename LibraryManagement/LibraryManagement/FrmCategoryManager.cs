@@ -37,16 +37,16 @@ namespace LibraryManagement
             treeCategories.Nodes[0].Expand();
         }
 
-        private void treeCategories_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            ISetCAP target = this.ParentForm as ISetCAP;
-            Category c = e.Node.Tag as Category;
+        //private void treeCategories_AfterSelect(object sender, TreeViewEventArgs e)
+        //{
+        //    ISetCAP target = this.ParentForm as ISetCAP;
+        //    Category c = e.Node.Tag as Category;
 
-            if (target != null && c != null)
-            {
-                target.SetCategory(c);
-            }
-        }
+        //    if (target != null && c != null)
+        //    {
+        //        target.SetCategory(c);
+        //    }
+        //}
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -187,18 +187,18 @@ namespace LibraryManagement
 
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            //treeCategories.CollapseAll();
-            //treeCategories.Nodes[0].Expand();
+        //private void btnClear_Click(object sender, EventArgs e)
+        //{
+        //    //treeCategories.CollapseAll();
+        //    //treeCategories.Nodes[0].Expand();
 
-            treeCategories.SelectedNode = null;
-            ISetCAP target = this.ParentForm as ISetCAP;
-            if (target != null)
-            {
-                target.SetCategory(null);
-            }
-        }
+        //    treeCategories.SelectedNode = null;
+        //    ISetCAP target = this.ParentForm as ISetCAP;
+        //    if (target != null)
+        //    {
+        //        target.SetCategory(null);
+        //    }
+        //}
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {

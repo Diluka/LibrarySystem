@@ -121,14 +121,17 @@
   <data name="删除选中" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\删除选中.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="超期信息" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\超期信息.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="书籍租出" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\书籍租出.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="删除按钮" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\删除按钮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="选择全部" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\选择全部.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="修改书籍" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\修改书籍.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="添加按钮" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\添加按钮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,8 +139,8 @@
   <data name="取消选择" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\取消选择.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="修改书籍" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\修改书籍.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="选择全部" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\选择全部.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="书籍归还" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\书籍归还.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,7 +154,7 @@
   <data name="登录背景" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\登录背景.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="超期信息" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\超期信息.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="QQ截图201310gdshshsfhhsdh13161101_副本" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\QQ截图201310gdshshsfhhsdh13161101_副本.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

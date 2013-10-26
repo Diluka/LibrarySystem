@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.btnLogin = new System.Windows.Forms.Button();
-            this.txtUsername = new LabeledTextBox.LabelTextBox();
             this.txtPassword = new LabeledTextBox.LabelTextBox();
+            this.txtUsername = new LabeledTextBox.LabelTextBox();
             this.SuspendLayout();
             // 
             // skinEngine1
@@ -51,18 +51,6 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtUsername
-            // 
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtUsername.LabelColor = System.Drawing.SystemColors.ControlDark;
-            this.txtUsername.LabelText = "用户名";
-            this.txtUsername.Location = new System.Drawing.Point(155, 126);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(181, 21);
-            this.txtUsername.TabIndex = 5;
-            this.txtUsername.Text = "用户名";
-            this.txtUsername.TextColor = System.Drawing.SystemColors.ControlText;
-            // 
             // txtPassword
             // 
             this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlDark;
@@ -72,9 +60,19 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(181, 21);
             this.txtPassword.TabIndex = 6;
-            this.txtPassword.Text = "密码";
             this.txtPassword.TextColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtUsername.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.txtUsername.LabelText = "用户名";
+            this.txtUsername.Location = new System.Drawing.Point(155, 126);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(181, 21);
+            this.txtUsername.TabIndex = 5;
+            this.txtUsername.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // frmLogin
             // 

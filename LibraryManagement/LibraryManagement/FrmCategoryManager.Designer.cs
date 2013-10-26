@@ -54,7 +54,7 @@
             this.treeCategories.Name = "treeCategories";
             this.treeCategories.Size = new System.Drawing.Size(373, 370);
             this.treeCategories.TabIndex = 1;
-            this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect);
+
             // 
             // btnClose
             // 
@@ -118,7 +118,6 @@
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "清除选择";
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnNew
             // 
