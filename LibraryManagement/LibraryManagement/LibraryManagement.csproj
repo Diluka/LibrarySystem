@@ -140,6 +140,12 @@
       <DependentUpon>FrmBookReturn.cs</DependentUpon>
     </Compile>
     <Compile Include="ISetCAP.cs" />
+    <Compile Include="PastDueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PastDueForm.Designer.cs">
+      <DependentUpon>PastDueForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmBookAdd.cs">
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBookReturn.resx">
       <DependentUpon>FrmBookReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PastDueForm.resx">
+      <DependentUpon>PastDueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

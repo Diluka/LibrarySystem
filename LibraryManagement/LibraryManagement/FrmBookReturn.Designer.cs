@@ -124,63 +124,56 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(141, 260);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(29, 12);
+            this.label8.Size = new System.Drawing.Size(0, 12);
             this.label8.TabIndex = 13;
-            this.label8.Text = "20元";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(141, 60);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 12);
+            this.label12.Size = new System.Drawing.Size(0, 12);
             this.label12.TabIndex = 9;
-            this.label12.Text = "2010-10-09";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(141, 140);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.Size = new System.Drawing.Size(0, 12);
             this.label11.TabIndex = 10;
-            this.label11.Text = "2010-10-20";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(141, 180);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(17, 12);
+            this.label10.Size = new System.Drawing.Size(0, 12);
             this.label10.TabIndex = 11;
-            this.label10.Text = "是";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(141, 216);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 12);
+            this.label9.Size = new System.Drawing.Size(0, 12);
             this.label9.TabIndex = 12;
-            this.label9.Text = "10元";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(141, 20);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 12);
+            this.label13.Size = new System.Drawing.Size(0, 12);
             this.label13.TabIndex = 8;
-            this.label13.Text = "西游记";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(141, 100);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 12);
+            this.label14.Size = new System.Drawing.Size(0, 12);
             this.label14.TabIndex = 15;
-            this.label14.Text = "2010-10-15";
             // 
             // label15
             // 
