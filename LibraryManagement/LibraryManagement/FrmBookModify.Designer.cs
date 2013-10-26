@@ -115,6 +115,7 @@
             this.btnDemand.TabIndex = 23;
             this.btnDemand.Text = "查询";
             this.btnDemand.UseVisualStyleBackColor = true;
+            this.btnDemand.Click += new System.EventHandler(this.btnDemand_Click);
             // 
             // txtBookconcern
             // 
@@ -289,14 +290,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "书籍名称：";
             // 
-            // frmAmend
+            // FrmBookModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 522);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmAmend";
+            this.Name = "FrmBookModify";
             this.Text = "修改书籍";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

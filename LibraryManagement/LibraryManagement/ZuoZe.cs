@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class FrmBookModify : Form
+    public partial class ZuoZe : Form
     {
-        public FrmBookModify()
+        public ZuoZe()
         {
             InitializeComponent();
-        }
-
-        private void btnDemand_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

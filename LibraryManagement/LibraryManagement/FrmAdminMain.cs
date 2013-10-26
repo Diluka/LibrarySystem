@@ -19,9 +19,9 @@ namespace LibraryManagement
        
         private void button1_Click(object sender, EventArgs e)
         {
-          
-               FrmBookManager fm = new FrmBookManager();
-               fm.ShowDialog();
+
+            FrmBookManager fb = new FrmBookManager();
+            fb.Show();
                
    
             
@@ -30,19 +30,19 @@ namespace LibraryManagement
         private void button3_Click(object sender, EventArgs e)
         {
             FrmDataManager o = new FrmDataManager();
-            o.ShowDialog();
+            o.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FrmLeaseManager m = new FrmLeaseManager();
-            m.ShowDialog();
+            m.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             GuanYu gy = new GuanYu();
-            gy.ShowDialog();
+            gy.Show();
         }
 
         private void Adm_FormClosed(object sender, FormClosedEventArgs e)
