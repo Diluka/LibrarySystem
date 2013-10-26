@@ -104,13 +104,17 @@ namespace LibraryManagement
                     if (dr == DialogResult.Yes)
                     {
                         Category c = new Category(txtSearchString.Text, 30);
+                        int result2 = 0;
                         try
                         {
                             DBHelper.conn.Open();
-                            ((IDBOperate)c).Insert(DBHelper.conn);
-                            LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                            result2 = ((IDBOperate)c).Insert(DBHelper.conn);
 
-                            treeCategories.Nodes[0].Expand();
+                            if (result2 > 0)
+                            {
+                                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                                treeCategories.Nodes[0].Expand();
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -119,6 +123,11 @@ namespace LibraryManagement
                         finally
                         {
                             DBHelper.conn.Close();
+                        }
+
+                        if (result2 <= 0)
+                        {
+                            MessageBox.Show("添加失败！", "添加提示");
                         }
 
                     }
@@ -147,14 +156,19 @@ namespace LibraryManagement
                 return;
             }
 
+            int result = 0;
+
             try
             {
                 DBHelper.conn.Open();
-                ((IDBOperate)c).Delete(DBHelper.conn);
+                result = ((IDBOperate)c).Delete(DBHelper.conn);
 
-                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                if (result > 0)
+                {
+                    LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
 
-                treeCategories.Nodes[0].Expand();
+                    treeCategories.Nodes[0].Expand();
+                }
 
             }
             catch (Exception ex)
@@ -166,6 +180,10 @@ namespace LibraryManagement
                 DBHelper.conn.Close();
             }
 
+            if (result <= 0)
+            {
+                MessageBox.Show("删除失败！", "删除提示");
+            }
 
         }
 
