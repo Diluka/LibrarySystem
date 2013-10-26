@@ -264,6 +264,7 @@
             this.btnClose.TabIndex = 23;
             this.btnClose.Text = "关    闭";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // txtPrice
             // 
@@ -372,6 +373,7 @@
             this.btnReset.TabIndex = 32;
             this.btnReset.Text = "重    置";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnUnlock
             // 
@@ -449,6 +451,7 @@
             this.btnClearText.TabIndex = 40;
             this.btnClearText.Text = "清除文字";
             this.btnClearText.UseVisualStyleBackColor = true;
+            this.btnClearText.Click += new System.EventHandler(this.btnClearText_Click);
             // 
             // txtBrief
             // 

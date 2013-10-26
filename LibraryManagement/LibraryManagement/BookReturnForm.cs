@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class GuanYu : Form
+    public partial class BookReturnForm : Form
     {
-        public GuanYu()
+        public BookReturnForm()
         {
             InitializeComponent();
         }

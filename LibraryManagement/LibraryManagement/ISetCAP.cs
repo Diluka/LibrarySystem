@@ -8,7 +8,7 @@ namespace LibraryManagement
     /// <summary>
     /// 窗体用于设置类别、作者和出版社的接口
     /// </summary>
-    interface ISetCAP
+    internal interface ISetCAP
     {
         ////<summary>
         ////设置类别

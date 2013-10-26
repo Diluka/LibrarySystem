@@ -29,7 +29,7 @@ namespace LibraryManagement
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            Form9 a = new Form9();
+            BookReturnForm a = new BookReturnForm();
             a.ShowDialog();
         }
 
@@ -46,20 +46,14 @@ namespace LibraryManagement
 
         private void 续期ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmBookDefer m = new FrmBookDefer();
-            m.ShowDialog();
+            Form f = new FrmBookDefer();
+            f.ShowDialog();
         }
 
         private void 归还ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form9 a = new Form9();
-            a.ShowDialog();
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            PastDueForm pf = new PastDueForm();
-            pf.ShowDialog();
+            Form f = new BookReturnForm();
+            f.ShowDialog();
         }
     }
 }

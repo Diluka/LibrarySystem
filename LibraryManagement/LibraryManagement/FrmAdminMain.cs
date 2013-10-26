@@ -19,12 +19,8 @@ namespace LibraryManagement
        
         private void button1_Click(object sender, EventArgs e)
         {
-
             FrmBookManager fb = new FrmBookManager();
-            fb.Show();
-               
-   
-            
+            fb.Show(); 
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -39,12 +35,6 @@ namespace LibraryManagement
             m.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            GuanYu gy = new GuanYu();
-            gy.Show();
-        }
-
         private void Adm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -57,17 +47,6 @@ namespace LibraryManagement
             btnDatamanage.Font = font;
             btnLeasemanage.Font = font;
             btnExit.Font = font;
-            toolStripStatusLabel2.Text = DateTime.Now.ToString();
-        }
-
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
-        {
-            toolStripStatusLabel2.Text = DateTime.Now.ToString();
         }
     }
 }

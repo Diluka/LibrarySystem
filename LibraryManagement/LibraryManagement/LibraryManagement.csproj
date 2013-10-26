@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LibraryManagement.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>libs\DevComponents.DotNetBar2.dll</HintPath>
@@ -66,6 +69,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutBox1.Designer.cs">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </Compile>
     <Compile Include="BookInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,25 +142,13 @@
     <Compile Include="FrmBookDefer.Designer.cs">
       <DependentUpon>FrmBookDefer.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBookReturn.cs">
+    <Compile Include="BookReturnForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBookReturn.Designer.cs">
-      <DependentUpon>FrmBookReturn.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GuanYu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GuanYu.Designer.cs">
-      <DependentUpon>GuanYu.cs</DependentUpon>
+    <Compile Include="BookReturnForm.Designer.cs">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ISetCAP.cs" />
-    <Compile Include="PastDueForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PastDueForm.Designer.cs">
-      <DependentUpon>PastDueForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FrmBookAdd.cs">
@@ -166,6 +163,9 @@
     <Compile Include="ZuoZe.Designer.cs">
       <DependentUpon>ZuoZe.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AboutBox1.resx">
+      <DependentUpon>AboutBox1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,14 +199,8 @@
     <EmbeddedResource Include="FrmBookDefer.resx">
       <DependentUpon>FrmBookDefer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookReturn.resx">
-      <DependentUpon>FrmBookReturn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GuanYu.resx">
-      <DependentUpon>GuanYu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PastDueForm.resx">
-      <DependentUpon>PastDueForm.cs</DependentUpon>
+    <EmbeddedResource Include="BookReturnForm.resx">
+      <DependentUpon>BookReturnForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

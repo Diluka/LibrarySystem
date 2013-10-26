@@ -145,11 +145,12 @@ namespace LibraryManagement
             if (string.IsNullOrEmpty(this.Tag.ToString()))
             {
                 this.Text = "添加图书";
+                txtBookInfoID.Text = "保存时自动生成";
                 btnSave.Enabled = true;
             }
             else
             {
-                this.Text = "书籍信息 ";
+                this.Text = "书籍信息";
 
                 long bid = Convert.ToInt64(this.Tag);
                 try
@@ -208,7 +209,7 @@ namespace LibraryManagement
 
         #region IChooseCAP 成员
 
-        void SetCategory(Category c)
+        public void SetCategory(Category c)
         {
             category = c;
             if (category != null)
@@ -217,7 +218,7 @@ namespace LibraryManagement
             }
         }
 
-        void SetAuthor(Author a)
+        public void SetAuthor(Author a)
         {
             author = a;
             if (author != null)
@@ -226,7 +227,7 @@ namespace LibraryManagement
             }
         }
 
-        void SetPress(Press p)
+        public void SetPress(Press p)
         {
             press = p;
             if (press != null)
@@ -259,14 +260,22 @@ namespace LibraryManagement
             txtAlpha.Text = txtAlpha.Text.Trim();
             txtISBN.Text = txtISBN.Text.Trim();
 
+            if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtAlpha.Text))
+            {
+                MessageBox.Show("有未填写的必填项", "提示");
+                return;
+            }
+
+            int result = 0;
+
             try
             {
                 if (bookInfo == null)
                 {
                     bookInfo = new BookInfo(
-                        category == null ? null : (int?)category.CatID,
-                        txtTitle.Text,
-                        txtAlpha.Text[0],
+                       category == null ? null : (int?)category.CatID,
+                       txtTitle.Text,
+                       txtAlpha.Text[0],
                        txtISBN.Text,
                        author == null ? null : (int?)author.AuthorID,
                        press == null ? null : (int?)press.PressID,
@@ -276,16 +285,16 @@ namespace LibraryManagement
 
 
                     DBHelper.conn.Open();
-                    ((IDBOperate)bookInfo).Insert(DBHelper.conn);
+                    result += ((IDBOperate)bookInfo).Insert(DBHelper.conn);
                     if (txtBrief.Text != "")
                     {
                         bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
-                        ((IDBOperate)bookBrief).Insert(DBHelper.conn);
+                        result += ((IDBOperate)bookBrief).Insert(DBHelper.conn);
                     }
                     if (picCover.Image != null)
                     {
                         cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
-                        ((IDBOperate)cover).Insert(DBHelper.conn);
+                        result += ((IDBOperate)cover).Insert(DBHelper.conn);
                     }
                 }
                 else
@@ -312,18 +321,18 @@ namespace LibraryManagement
 
 
                     DBHelper.conn.Open();
-                    ((IDBOperate)bookInfo).Update(DBHelper.conn);
+                    result += ((IDBOperate)bookInfo).Update(DBHelper.conn);
 
                     if (bookBrief != null)
                     {
                         if (txtBrief.Text != "")
                         {
                             bookBrief.BriefText = txtBrief.Text;
-                            ((IDBOperate)bookBrief).Update(DBHelper.conn);
+                            result += ((IDBOperate)bookBrief).Update(DBHelper.conn);
                         }
                         else
                         {
-                            ((IDBOperate)bookBrief).Delete(DBHelper.conn);
+                            result += ((IDBOperate)bookBrief).Delete(DBHelper.conn);
                         }
                     }
                     else
@@ -331,7 +340,7 @@ namespace LibraryManagement
                         if (txtBrief.Text != "")
                         {
                             bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
-                            ((IDBOperate)bookBrief).Insert(DBHelper.conn);
+                            result += ((IDBOperate)bookBrief).Insert(DBHelper.conn);
                         }
                     }
 
@@ -342,12 +351,12 @@ namespace LibraryManagement
                             if (openFileDialog1.OpenFile() != null)
                             {
                                 cover.ImageStream = openFileDialog1.OpenFile();
-                                ((IDBOperate)cover).Update(DBHelper.conn);
+                                result += ((IDBOperate)cover).Update(DBHelper.conn);
                             }
                         }
                         else
                         {
-                            ((IDBOperate)cover).Delete(DBHelper.conn);
+                            result += ((IDBOperate)cover).Delete(DBHelper.conn);
                         }
                     }
                     else
@@ -355,7 +364,7 @@ namespace LibraryManagement
                         if (picCover.Image != null)
                         {
                             cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
-                            ((IDBOperate)cover).Insert(DBHelper.conn);
+                            result += ((IDBOperate)cover).Insert(DBHelper.conn);
                         }
                     }
                 }
@@ -368,6 +377,120 @@ namespace LibraryManagement
             {
                 DBHelper.conn.Close();
             }
+
+            if (result > 0)
+            {
+                LoadAll();
+                ResetControlState();
+                btnModify.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("没有保存或者保存失败", "保存提示");
+            }
+        }
+
+        private void LoadAll()
+        {
+            if (bookInfo != null)
+            {
+                txtBookInfoID.Text = bookInfo.InfoID.ToString();
+                txtTitle.Text = bookInfo.Title;
+                txtAlpha.Text = bookInfo.Alphabet.ToString();
+                txtISBN.Text = bookInfo.ISBN;
+                txtPrice.Text = bookInfo.Price.ToString();
+
+                numTotal.Value = bookInfo.Total;
+                numRemain.Value = bookInfo.Remain;
+
+
+                try
+                {
+                    DBHelper.conn.Open();
+
+                    if (category == null && bookInfo.CatID != null)
+                    {
+                        category = Category.GetCategoryByID((int)bookInfo.CatID, DBHelper.conn);
+                    }
+                    if (author == null && bookInfo.AuthorID != null)
+                    {
+                        author = Author.GetAuthorByID((int)bookInfo.AuthorID, DBHelper.conn);
+                    }
+                    if (press == null && bookInfo.PressID != null)
+                    {
+                        press = Press.GetPressByID((int)bookInfo.PressID, DBHelper.conn);
+                    }
+                    if (cover == null)
+                    {
+                        cover = Cover.GetCoverByID(bookInfo.InfoID, DBHelper.conn);
+                    }
+                    if (bookBrief == null)
+                    {
+                        bookBrief = BookBrief.GetBookBriefByID(bookInfo.InfoID, DBHelper.conn);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
+
+                if (category != null)
+                {
+                    txtCategory.Text = category.CategoryName;
+                }
+                if (author != null)
+                {
+                    txtAuthor.Text = author.AuthorName;
+                }
+                if (press != null)
+                {
+                    txtPress.Text = press.PressName;
+                }
+                if (cover != null)
+                {
+                    picCover.Image = cover.CoverImage;
+                }
+                if (bookBrief != null)
+                {
+                    txtBrief.Text = bookBrief.BriefText;
+                }
+            }
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            if (btnSave.Enabled)
+            {
+                DialogResult options = MessageBox.Show("有未保存的修改，确定要保存吗？", "退出提示", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                switch (options)
+                {
+                    case DialogResult.Yes:
+                        btnSave_Click(sender, e);
+                        this.Close();
+                        break;
+                    case DialogResult.No:
+                        this.Close();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void btnClearText_Click(object sender, EventArgs e)
+        {
+            txtBrief.Clear();
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            LoadAll();
         }
     }
 }
