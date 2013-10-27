@@ -34,10 +34,10 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtSearchString = new LabeledTextBox.LabelTextBox();
-            this.btnGo = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.txtSearchString = new LabeledTextBox.LabelTextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,7 +54,7 @@
             this.treeCategories.Name = "treeCategories";
             this.treeCategories.Size = new System.Drawing.Size(373, 370);
             this.treeCategories.TabIndex = 1;
-
+            this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect_1);
             // 
             // btnClose
             // 
@@ -88,6 +88,26 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "类别查询";
             // 
+            // btnNew
+            // 
+            this.btnNew.Location = new System.Drawing.Point(291, 11);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(82, 23);
+            this.btnNew.TabIndex = 6;
+            this.btnNew.Text = "新增类别";
+            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
+            // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(210, 11);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.TabIndex = 1;
+            this.btnGo.Text = "搜索";
+            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
             // txtSearchString
             // 
             this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
@@ -100,16 +120,6 @@
             this.txtSearchString.Text = "输入列别名称";
             this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(210, 11);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 1;
-            this.btnGo.Text = "搜索";
-            this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-            // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(235, 459);
@@ -118,16 +128,6 @@
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "清除选择";
             this.btnClear.UseVisualStyleBackColor = true;
-            // 
-            // btnNew
-            // 
-            this.btnNew.Location = new System.Drawing.Point(291, 11);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(82, 23);
-            this.btnNew.TabIndex = 6;
-            this.btnNew.Text = "新增类别";
-            this.btnNew.UseVisualStyleBackColor = true;
-            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnDel
             // 

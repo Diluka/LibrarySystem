@@ -209,5 +209,10 @@ namespace LibraryManagement
         {
             btnDel_Click(sender, e);
         }
+
+        private void treeCategories_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+
+        }
     }
 }

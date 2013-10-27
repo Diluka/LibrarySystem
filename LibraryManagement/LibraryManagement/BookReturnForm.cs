@@ -15,5 +15,10 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
+
+        private void BookReturnForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

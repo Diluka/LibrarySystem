@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBookAdd));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -40,13 +43,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,14 +55,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.textBox7);
@@ -75,13 +75,11 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.dateTimePicker2);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -96,6 +94,31 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "添加书籍信息";
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(325, 487);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(51, 21);
+            this.button5.TabIndex = 28;
+            this.button5.Text = "选择";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(25, 491);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.TabIndex = 27;
+            this.label11.Text = "封面图片：";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(105, 491);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(198, 21);
+            this.textBox7.TabIndex = 26;
             // 
             // button4
             // 
@@ -180,14 +203,6 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(198, 21);
             this.dateTimePicker1.TabIndex = 16;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(105, 360);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(198, 20);
-            this.comboBox1.TabIndex = 13;
-            // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(105, 315);
@@ -224,15 +239,6 @@
             this.label9.Size = new System.Drawing.Size(65, 12);
             this.label9.TabIndex = 8;
             this.label9.Text = "所属类别：";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 363);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 12);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "所属语种：";
             // 
             // label7
             // 
@@ -297,30 +303,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "书籍名称：";
             // 
-            // textBox7
+            // button6
             // 
-            this.textBox7.Location = new System.Drawing.Point(105, 491);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(198, 21);
-            this.textBox7.TabIndex = 26;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 491);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "封面图片：";
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(325, 487);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(51, 21);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "选择";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button6.Location = new System.Drawing.Point(325, 82);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(51, 21);
+            this.button6.TabIndex = 29;
+            this.button6.Text = "查询";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // FrmBookAdd
             // 
@@ -346,7 +336,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -356,7 +345,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
@@ -372,5 +360,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button6;
     }
 }

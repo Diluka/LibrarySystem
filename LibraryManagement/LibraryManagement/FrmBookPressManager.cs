@@ -108,5 +108,10 @@ namespace LibraryManagement
                 MessageBox.Show("请选择出版社！");
             }
         }
+
+        private void lvBookconcern_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
