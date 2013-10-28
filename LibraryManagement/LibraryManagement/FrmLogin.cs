@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Drawing.Text;
 using FontsPack;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace LibraryManagement
 {
@@ -18,6 +19,7 @@ namespace LibraryManagement
         public frmLogin()
         {
             InitializeComponent();
+            skinEngine1.SkinStream = new MemoryStream(Properties.Resources.DeepCyan);
         }
 
         private void button1_Click(object sender, EventArgs e)
