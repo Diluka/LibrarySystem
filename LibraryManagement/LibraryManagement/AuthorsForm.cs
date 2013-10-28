@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace LibraryManagement
 {
-    public partial class ZuoZe : Form
+    public partial class AuthorsForm : Form
     {
-        public ZuoZe()
+        public AuthorsForm()
         {
             InitializeComponent();
         }
