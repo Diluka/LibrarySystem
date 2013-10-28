@@ -390,6 +390,7 @@
             this.txtAlpha.Size = new System.Drawing.Size(199, 21);
             this.txtAlpha.TabIndex = 35;
             this.txtAlpha.TextColor = System.Drawing.SystemColors.ControlText;
+            this.txtAlpha.TextChanged += new System.EventHandler(this.txtAlpha_TextChanged);
             // 
             // txtPress
             // 

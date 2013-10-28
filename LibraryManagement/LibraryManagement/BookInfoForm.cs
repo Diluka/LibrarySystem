@@ -534,5 +534,13 @@ namespace LibraryManagement
         {
             LoadAll();
         }
+
+        private void txtAlpha_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtAlpha.Text))
+            {
+                txtAlpha.Text = txtAlpha.Text.ToUpper()[0].ToString();
+            }
+        }
     }
 }
