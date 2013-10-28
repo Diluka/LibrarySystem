@@ -70,6 +70,7 @@ namespace LibraryManagement
                     }
 
                     result[0].Checked = true;
+                    treeCategories.Nodes[0].Expand();
                 }
             }
         }

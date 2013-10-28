@@ -65,6 +65,8 @@ namespace LibraryDB
                 c.mem = new MemoryStream((byte[])dr["CoverImage"]);//below 4.5
             }
 
+            dr.Close();
+
             return c;
         }
 
