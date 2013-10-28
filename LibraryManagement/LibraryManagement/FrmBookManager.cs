@@ -18,15 +18,10 @@ namespace LibraryManagement
             InitializeComponent();
         }
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmBookAdd fa = new FrmBookAdd();
-            fa.ShowDialog();
+            Form f = new BookInfoForm();
+            f.Show();
         }
 
         DataSet ds = new DataSet();
@@ -35,20 +30,7 @@ namespace LibraryManagement
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            try
-            {
-                DBHelper.conn.Open();
-                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
+            FillTree();
 
             try
             {
@@ -64,6 +46,23 @@ namespace LibraryManagement
             treeCategories.Nodes[0].Expand();
         }
 
+        private void FillTree()
+        {
+            try
+            {
+                DBHelper.conn.Open();
+                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+        }
+
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -75,25 +74,98 @@ namespace LibraryManagement
             t.ShowDialog();
         }
 
+        private List<Form> forms = new List<Form>();
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            FrmBookModify i = new FrmBookModify();
-            i.ShowDialog();
+
+            if (dgvBookInfo.SelectedRows.Count > 0)
+            {
+                Form form = null;
+                string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].ToString();
+
+                foreach (Form f in forms)
+                {
+                    if (f.Tag.Equals(iid))
+                    {
+                        form = f;
+                        break;
+                    }
+                }
+
+                if (form != null && !form.IsDisposed)
+                {
+                    form.Show();
+                    form.Activate();
+                }
+                else
+                {
+                    if (form != null)
+                    {
+                        forms.Remove(form);
+                    }
+
+                    form = new BookInfoForm();
+                    form.Tag = iid;
+                    form.Show();
+
+                    forms.Add(form);
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要编辑的项");
+            }
         }
 
         private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBookModify i = new FrmBookModify();
-            i .ShowDialog();
+            i.ShowDialog();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("确认删除“西游记”?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
+            if (dgvBookInfo.SelectedRows.Count > 0)
             {
-                MessageBox.Show("删除成功！");
+                string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].ToString();
+                long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"]);
+                DialogResult result = MessageBox.Show(string.Format("确认删除《{0}》？", title), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        DBHelper.conn.Open();
+                        if (BookInfo.DelBookInfoByID(iid, DBHelper.conn) > 0)
+                        {
+                            if (ds.Tables["books"] != null)
+                            {
+                                ds.Tables["books"].Clear();
+                            }
+                            da.Fill(ds, "books");
+                        }
+                        else
+                        {
+                            MessageBox.Show("删除失败");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        DBHelper.conn.Close();
+                    }
+
+                }
+
             }
+            else
+            {
+                MessageBox.Show("请选择要删除的项");
+            }
+
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,6 +215,10 @@ namespace LibraryManagement
             da.SelectCommand.CommandText = sql;
             ds.Tables["books"].Clear();
             da.Fill(ds, "books");
+
+            FillTree();
+            treeCategories.Nodes[0].Expand();
+
         }
 
         private void toolStripButton4_Click(object sender, EventArgs e)
@@ -160,7 +236,43 @@ namespace LibraryManagement
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
+            if (dgvBookInfo.SelectedRows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show(string.Format("确认删除已选项？"), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        DBHelper.conn.Open();
+                        foreach (DataGridViewRow row in dgvBookInfo.SelectedRows)
+                        {
+                            long iid = Convert.ToInt64(row.Cells["书籍标题"]);
+                            BookInfo.DelBookInfoByID(iid, DBHelper.conn);
+                        }
 
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        DBHelper.conn.Close();
+                    }
+
+                    if (ds.Tables["books"] != null)
+                    {
+                        ds.Tables["books"].Clear();
+                    }
+                    da.Fill(ds, "books");
+
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("请选择要删除的项");
+            }
         }
 
 
