@@ -28,16 +28,16 @@ namespace LibraryManagement
 
         private void ResetControlState()
         {
-            txtTitle.Enabled = false;
-            txtAlpha.Enabled = false;
-            txtCategory.Enabled = false;
-            txtAuthor.Enabled = false;
-            txtPress.Enabled = false;
-            datePressDate.Enabled = false;
-            txtPrice.Enabled = false;
-            numTotal.Enabled = false;
-            numRemain.Enabled = false;
-            txtISBN.Enabled = false;
+            //txtTitle.Enabled = false;
+            //txtAlpha.Enabled = false;
+            //txtCategory.Enabled = false;
+            //txtAuthor.Enabled = false;
+            //txtPress.Enabled = false;
+            //datePressDate.Enabled = false;
+            //txtPrice.Enabled = false;
+            //numTotal.Enabled = false;
+            //numRemain.Enabled = false;
+            //txtISBN.Enabled = false;
 
             txtTitle.ReadOnly = true;
             txtAlpha.ReadOnly = true;
@@ -142,6 +142,7 @@ namespace LibraryManagement
 
         private void BookInfoForm_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(Tag.ToString());
             if (this.Tag == null)
             {
                 this.Text = "添加图书";
@@ -517,6 +518,10 @@ namespace LibraryManagement
                     default:
                         break;
                 }
+            }
+            else
+            {
+                this.Close();
             }
         }
 

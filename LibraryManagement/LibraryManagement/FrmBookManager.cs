@@ -82,7 +82,7 @@ namespace LibraryManagement
             if (dgvBookInfo.SelectedRows.Count > 0)
             {
                 Form form = null;
-                string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].ToString();
+                string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value.ToString();
 
                 foreach (Form f in forms)
                 {
@@ -128,8 +128,8 @@ namespace LibraryManagement
         {
             if (dgvBookInfo.SelectedRows.Count > 0)
             {
-                string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].ToString();
-                long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"]);
+                string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].Value.ToString();
+                long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
                 DialogResult result = MessageBox.Show(string.Format("确认删除《{0}》？", title), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
@@ -246,7 +246,7 @@ namespace LibraryManagement
                         DBHelper.conn.Open();
                         foreach (DataGridViewRow row in dgvBookInfo.SelectedRows)
                         {
-                            long iid = Convert.ToInt64(row.Cells["书籍标题"]);
+                            long iid = Convert.ToInt64(row.Cells["书籍标题"].Value);
                             BookInfo.DelBookInfoByID(iid, DBHelper.conn);
                         }
 
