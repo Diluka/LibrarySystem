@@ -62,7 +62,7 @@ namespace LibraryDB
         /// <summary>
         /// 获取所有作者
         /// </summary>
-        /// <param name="conn">连接</param>
+        /// <param name="conn">数据库连接</param>
         /// <returns>所有作者列表</returns>
         public static List<Author> GetAllAuthors(SqlConnection conn)
         {

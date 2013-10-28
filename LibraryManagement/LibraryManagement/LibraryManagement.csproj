@@ -265,6 +265,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\叶根友毛笔行书.ttf" />
     <None Include="Resources\登录背景.png" />
   </ItemGroup>
   <ItemGroup>

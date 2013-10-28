@@ -29,13 +29,13 @@ namespace FontsPack
         public static Font GetFont(FontName name, float size)
         {
             FontFamily ff;
-            
+
             if (!fontFamilies.ContainsKey(name))
             {
                 switch (name)
                 {
                     case FontName.叶根友毛笔行书:
-                        ff = GetFontFamily(FontResource.叶根友毛笔行书);
+                        ff = GetFontFamily(FontResource.Fontfile1);
                         fontFamilies.Add(name, ff);
                         break;
                     default:
@@ -58,6 +58,36 @@ namespace FontsPack
             Marshal.Copy(bytes, 0, pFont, bytes.Length);
             privateFonts.AddMemoryFont(pFont, bytes.Length);
             return privateFonts.Families[0];
+        }
+
+        /// <summary>
+        /// 获得字体类型
+        /// </summary>
+        /// <param name="name">FontsPack.FontName中的字体名称枚举</param>
+        /// <returns>字体类型</returns>
+        public static FontFamily GetFontFamily(FontName name)
+        {
+            FontFamily ff;
+
+            if (!fontFamilies.ContainsKey(name))
+            {
+                switch (name)
+                {
+                    case FontName.叶根友毛笔行书:
+                        ff = GetFontFamily(FontResource.Fontfile1);
+                        fontFamilies.Add(name, ff);
+                        break;
+                    default:
+                        ff = null;
+                        break;
+                }
+            }
+            else
+            {
+                ff = fontFamilies[name];
+            }
+            if (ff == null) throw new Exception("字体未定义或者不存在！");
+            return ff;
         }
 
     }

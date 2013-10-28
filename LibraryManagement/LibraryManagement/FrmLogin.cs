@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing.Text;
 using FontsPack;
+using System.Runtime.InteropServices;
 
 namespace LibraryManagement
 {

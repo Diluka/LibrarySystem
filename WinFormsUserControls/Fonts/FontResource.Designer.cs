@@ -63,9 +63,9 @@ namespace FontsPack {
         /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
-        internal static byte[] 叶根友毛笔行书 {
+        internal static byte[] Fontfile1 {
             get {
-                object obj = ResourceManager.GetObject("叶根友毛笔行书", resourceCulture);
+                object obj = ResourceManager.GetObject("Fontfile1", resourceCulture);
                 return ((byte[])(obj));
             }
         }
