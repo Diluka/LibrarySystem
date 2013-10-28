@@ -103,6 +103,17 @@ namespace LibraryDB
             return b;
         }
 
+        public static int DelBookInfoByID(long iid, SqlConnection conn)
+        {
+            int result = 0;
+
+            string sql = string.Format("exec proc_del_bookinfo {0}", iid);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            result = cmd.ExecuteNonQuery();
+
+            return result;
+        }
+
 
         #region IDBOperate 成员
 
@@ -162,7 +173,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("DELETE BookInfo WHERE InfoID={0}", InfoID);
+            string sql = string.Format("exec proc_del_bookinfo {0}", InfoID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 
