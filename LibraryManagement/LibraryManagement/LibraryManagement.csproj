@@ -303,6 +303,15 @@
   <ItemGroup>
     <None Include="Resources\QQ截图201310gdshshsfhhsdh13161101_副本.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未标题-221_副本.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\未标题-1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

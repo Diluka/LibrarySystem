@@ -63,6 +63,16 @@ namespace LibraryManagement.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap LOGO {
+            get {
+                object obj = ResourceManager.GetObject("LOGO", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap QQ截图201310gdshshsfhhsdh13161101_副本 {
             get {
                 object obj = ResourceManager.GetObject("QQ截图201310gdshshsfhhsdh13161101_副本", resourceCulture);
@@ -156,6 +166,26 @@ namespace LibraryManagement.Properties {
         internal static System.Drawing.Bitmap 登录背景 {
             get {
                 object obj = ResourceManager.GetObject("登录背景", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 背景 {
+            get {
+                object obj = ResourceManager.GetObject("背景", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 背景9 {
+            get {
+                object obj = ResourceManager.GetObject("背景9", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

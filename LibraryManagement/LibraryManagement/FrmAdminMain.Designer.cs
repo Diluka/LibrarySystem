@@ -108,6 +108,7 @@
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "关        于";
             this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // FrmAdminMain
             // 
