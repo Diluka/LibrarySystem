@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class ZuoZe
+    partial class AuthorsForm
     {
         /// <summary>
         /// Required designer variable.

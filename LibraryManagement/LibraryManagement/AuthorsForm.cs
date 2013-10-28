@@ -9,9 +9,9 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 namespace LibraryManagement
 {
-    public partial class ZuoZe : Form
+    public partial class AuthorsForm : Form
     {
-        public ZuoZe()
+        public AuthorsForm()
         {
             InitializeComponent();
         }
