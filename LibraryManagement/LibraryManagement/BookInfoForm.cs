@@ -142,7 +142,6 @@ namespace LibraryManagement
 
         private void BookInfoForm_Load(object sender, EventArgs e)
         {
-            MessageBox.Show(Tag.ToString());
             if (this.Tag == null)
             {
                 this.Text = "添加图书";
