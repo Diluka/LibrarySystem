@@ -18,23 +18,7 @@ namespace LibraryManagement
         DataSet ds = new DataSet();
         private void ZuoZe_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("select * from Authors");
-            try
-            {
-                DBHelper.conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
-                SqlDataAdapter da = new SqlDataAdapter();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-
-            }
-            finally 
-            {
-                DBHelper.conn.Close();
-            }
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

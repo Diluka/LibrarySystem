@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookInfoForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -273,6 +274,7 @@
             this.btnAuthor.TabIndex = 29;
             this.btnAuthor.Text = "查询作者";
             this.btnAuthor.UseVisualStyleBackColor = true;
+            this.btnAuthor.Click += new System.EventHandler(this.btnAuthor_Click);
             // 
             // btnPress
             // 
@@ -283,6 +285,7 @@
             this.btnPress.TabIndex = 30;
             this.btnPress.Text = "查询出版社";
             this.btnPress.UseVisualStyleBackColor = true;
+            this.btnPress.Click += new System.EventHandler(this.btnPress_Click);
             // 
             // btnClearCover
             // 
@@ -377,6 +380,7 @@
             this.txtISBN.ReadOnly = true;
             this.txtISBN.Size = new System.Drawing.Size(199, 21);
             this.txtISBN.TabIndex = 37;
+            this.txtISBN.Text = "选填";
             this.txtISBN.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtAlpha
@@ -389,6 +393,7 @@
             this.txtAlpha.ReadOnly = true;
             this.txtAlpha.Size = new System.Drawing.Size(199, 21);
             this.txtAlpha.TabIndex = 35;
+            this.txtAlpha.Text = "必填";
             this.txtAlpha.TextColor = System.Drawing.SystemColors.ControlText;
             this.txtAlpha.TextChanged += new System.EventHandler(this.txtAlpha_TextChanged);
             // 
@@ -402,6 +407,7 @@
             this.txtPress.ReadOnly = true;
             this.txtPress.Size = new System.Drawing.Size(119, 21);
             this.txtPress.TabIndex = 27;
+            this.txtPress.Text = "选填";
             this.txtPress.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtAuthor
@@ -414,6 +420,7 @@
             this.txtAuthor.ReadOnly = true;
             this.txtAuthor.Size = new System.Drawing.Size(119, 21);
             this.txtAuthor.TabIndex = 26;
+            this.txtAuthor.Text = "选填";
             this.txtAuthor.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtCategory
@@ -426,6 +433,7 @@
             this.txtCategory.ReadOnly = true;
             this.txtCategory.Size = new System.Drawing.Size(119, 21);
             this.txtCategory.TabIndex = 25;
+            this.txtCategory.Text = "选填";
             this.txtCategory.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtPrice
@@ -438,6 +446,7 @@
             this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(199, 21);
             this.txtPrice.TabIndex = 24;
+            this.txtPrice.Text = "选填";
             this.txtPrice.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // txtTitle
@@ -450,6 +459,7 @@
             this.txtTitle.ReadOnly = true;
             this.txtTitle.Size = new System.Drawing.Size(200, 21);
             this.txtTitle.TabIndex = 10;
+            this.txtTitle.Text = "必填";
             this.txtTitle.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // BookInfoForm
@@ -495,9 +505,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BookInfoForm";
-            this.Text = "BookInfoForm";
+            this.Text = "修改书籍信息";
             this.Load += new System.EventHandler(this.BookInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemain)).EndInit();

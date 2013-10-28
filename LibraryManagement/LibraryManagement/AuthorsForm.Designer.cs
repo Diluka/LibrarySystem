@@ -36,8 +36,8 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeCategories = new System.Windows.Forms.TreeView();
             this.btnClose = new System.Windows.Forms.Button();
+            this.listAuthors = new System.Windows.Forms.ListBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -94,31 +94,23 @@
             // 
             this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
             this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelText = "输入列别名称";
+            this.txtSearchString.LabelText = "输入作者名称";
             this.txtSearchString.Location = new System.Drawing.Point(6, 12);
             this.txtSearchString.Name = "txtSearchString";
             this.txtSearchString.Size = new System.Drawing.Size(198, 21);
             this.txtSearchString.TabIndex = 0;
-            this.txtSearchString.Text = "输入列别名称";
+            this.txtSearchString.Text = "输入作者名称";
             this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeCategories);
+            this.groupBox1.Controls.Add(this.listAuthors);
             this.groupBox1.Location = new System.Drawing.Point(14, 62);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(379, 390);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "作者选择";
-            // 
-            // treeCategories
-            // 
-            this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeCategories.Location = new System.Drawing.Point(3, 17);
-            this.treeCategories.Name = "treeCategories";
-            this.treeCategories.Size = new System.Drawing.Size(373, 370);
-            this.treeCategories.TabIndex = 1;
             // 
             // btnClose
             // 
@@ -128,6 +120,16 @@
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "关    闭";
             this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // listAuthors
+            // 
+            this.listAuthors.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listAuthors.FormattingEnabled = true;
+            this.listAuthors.ItemHeight = 12;
+            this.listAuthors.Location = new System.Drawing.Point(3, 17);
+            this.listAuthors.Name = "listAuthors";
+            this.listAuthors.Size = new System.Drawing.Size(373, 370);
+            this.listAuthors.TabIndex = 0;
             // 
             // AuthorsForm
             // 
@@ -159,8 +161,8 @@
         private System.Windows.Forms.Button btnGo;
         private LabeledTextBox.LabelTextBox txtSearchString;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeCategories;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ListBox listAuthors;
 
     }
 }
