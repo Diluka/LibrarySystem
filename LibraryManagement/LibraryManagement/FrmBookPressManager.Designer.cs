@@ -29,120 +29,116 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBookPressManager));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lvBookconcern = new System.Windows.Forms.ListView();
-            this.出版社名称 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.labelTextBox1 = new LabeledTextBox.LabelTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.btnNew = new System.Windows.Forms.Button();
+            this.btnGo = new System.Windows.Forms.Button();
+            this.txtSearchString = new LabeledTextBox.LabelTextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeCategories = new System.Windows.Forms.TreeView();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // btnDel
             // 
-            this.groupBox1.Controls.Add(this.lvBookconcern);
-            this.groupBox1.Location = new System.Drawing.Point(12, 89);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 395);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "出版社";
+            this.btnDel.Location = new System.Drawing.Point(13, 455);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(159, 23);
+            this.btnDel.TabIndex = 11;
+            this.btnDel.Text = "删除已选出版社";
+            this.btnDel.UseVisualStyleBackColor = true;
             // 
-            // lvBookconcern
+            // btnClear
             // 
-            this.lvBookconcern.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.lvBookconcern.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.出版社名称});
-            this.lvBookconcern.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lvBookconcern.FullRowSelect = true;
-            this.lvBookconcern.Location = new System.Drawing.Point(3, 17);
-            this.lvBookconcern.Name = "lvBookconcern";
-            this.lvBookconcern.Size = new System.Drawing.Size(350, 374);
-            this.lvBookconcern.TabIndex = 0;
-            this.lvBookconcern.UseCompatibleStateImageBehavior = false;
-            this.lvBookconcern.View = System.Windows.Forms.View.Details;
-            this.lvBookconcern.SelectedIndexChanged += new System.EventHandler(this.lvBookconcern_SelectedIndexChanged);
-            // 
-            // 出版社名称
-            // 
-            this.出版社名称.Text = "出版社名称";
-            this.出版社名称.Width = 346;
+            this.btnClear.Location = new System.Drawing.Point(236, 455);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 10;
+            this.btnClear.Text = "清除选择";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.labelTextBox1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Controls.Add(this.btnNew);
+            this.groupBox2.Controls.Add(this.btnGo);
+            this.groupBox2.Controls.Add(this.txtSearchString);
+            this.groupBox2.Location = new System.Drawing.Point(13, 8);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(356, 71);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Size = new System.Drawing.Size(379, 45);
+            this.groupBox2.TabIndex = 9;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "出版社查询";
             // 
-            // labelTextBox1
+            // btnNew
             // 
-            this.labelTextBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.labelTextBox1.LabelColor = System.Drawing.SystemColors.ControlDark;
-            this.labelTextBox1.LabelText = "请输入出版社名称";
-            this.labelTextBox1.Location = new System.Drawing.Point(75, 25);
-            this.labelTextBox1.Name = "labelTextBox1";
-            this.labelTextBox1.Size = new System.Drawing.Size(181, 21);
-            this.labelTextBox1.TabIndex = 5;
-            this.labelTextBox1.Text = "请输入出版社名称";
-            this.labelTextBox1.TextColor = System.Drawing.SystemColors.ControlText;
+            this.btnNew.Location = new System.Drawing.Point(291, 11);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(82, 23);
+            this.btnNew.TabIndex = 6;
+            this.btnNew.Text = "新增出版社";
+            this.btnNew.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // btnGo
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 12);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "名称：";
+            this.btnGo.Location = new System.Drawing.Point(210, 11);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(75, 23);
+            this.btnGo.TabIndex = 1;
+            this.btnGo.Text = "搜索";
+            this.btnGo.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // txtSearchString
             // 
-            this.button1.Location = new System.Drawing.Point(274, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(47, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "查询";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearchString.LabelText = "输入列别名称";
+            this.txtSearchString.Location = new System.Drawing.Point(6, 12);
+            this.txtSearchString.Name = "txtSearchString";
+            this.txtSearchString.Size = new System.Drawing.Size(198, 21);
+            this.txtSearchString.TabIndex = 0;
+            this.txtSearchString.Text = "输入列别名称";
+            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
-            // button2
+            // groupBox1
             // 
-            this.button2.Location = new System.Drawing.Point(15, 490);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 33);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "确        定";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.groupBox1.Controls.Add(this.treeCategories);
+            this.groupBox1.Location = new System.Drawing.Point(13, 59);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(379, 390);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "出版社选择";
             // 
-            // button3
+            // treeCategories
             // 
-            this.button3.Location = new System.Drawing.Point(213, 490);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 33);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "取         消";
-            this.button3.UseVisualStyleBackColor = true;
+            this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeCategories.Location = new System.Drawing.Point(3, 17);
+            this.treeCategories.Name = "treeCategories";
+            this.treeCategories.Size = new System.Drawing.Size(373, 370);
+            this.treeCategories.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(317, 455);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "关    闭";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // frmBookPressManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 535);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(403, 494);
+            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnClose);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -151,23 +147,24 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出版社设置";
             this.Load += new System.EventHandler(this.FrmBookconcernManager_Load);
-            this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListView lvBookconcern;
+        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ColumnHeader 出版社名称;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private LabeledTextBox.LabelTextBox labelTextBox1;
+        private System.Windows.Forms.Button btnNew;
+        private System.Windows.Forms.Button btnGo;
+        private LabeledTextBox.LabelTextBox txtSearchString;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TreeView treeCategories;
+        private System.Windows.Forms.Button btnClose;
+
     }
 }

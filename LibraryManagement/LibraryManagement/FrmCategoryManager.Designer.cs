@@ -49,6 +49,7 @@
             // 
             // treeCategories
             // 
+            this.treeCategories.ContextMenuStrip = this.contextMenuStrip1;
             this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeCategories.Location = new System.Drawing.Point(3, 17);
             this.treeCategories.Name = "treeCategories";
@@ -69,7 +70,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.treeCategories);
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Location = new System.Drawing.Point(11, 63);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(379, 390);
             this.groupBox1.TabIndex = 3;
@@ -81,7 +82,7 @@
             this.groupBox2.Controls.Add(this.btnNew);
             this.groupBox2.Controls.Add(this.btnGo);
             this.groupBox2.Controls.Add(this.txtSearchString);
-            this.groupBox2.Location = new System.Drawing.Point(12, 12);
+            this.groupBox2.Location = new System.Drawing.Point(11, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(379, 45);
             this.groupBox2.TabIndex = 4;
@@ -122,7 +123,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(235, 459);
+            this.btnClear.Location = new System.Drawing.Point(234, 459);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 5;
@@ -131,7 +132,7 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(12, 459);
+            this.btnDel.Location = new System.Drawing.Point(11, 459);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(159, 23);
             this.btnDel.TabIndex = 6;
@@ -153,6 +154,7 @@
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "修改";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
