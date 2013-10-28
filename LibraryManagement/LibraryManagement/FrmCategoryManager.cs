@@ -203,12 +203,17 @@ namespace LibraryManagement
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            e.Cancel = !(sender is TreeNode) || treeCategories.SelectedNode == null;
+            //e.Cancel = treeCategories.SelectedNode == null;
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnDel_Click(sender, e);
+        }
+
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
         }
 
     }
