@@ -251,7 +251,6 @@ namespace LibraryManagement
             category = c;
             if (category != null)
             {
-                MessageBox.Show(category.CategoryName);
                 txtCategory.Text = category.CategoryName;
             }
         }

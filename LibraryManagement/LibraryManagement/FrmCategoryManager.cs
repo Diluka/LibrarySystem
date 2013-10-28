@@ -39,7 +39,7 @@ namespace LibraryManagement
 
         private void treeCategories_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            ISetCAP target = this.ParentForm as ISetCAP;
+            ISetCAP target = this.Owner as ISetCAP;
             Category c = e.Node.Tag as Category;
 
             if (target != null && c != null)
@@ -193,7 +193,7 @@ namespace LibraryManagement
             //treeCategories.Nodes[0].Expand();
 
             treeCategories.SelectedNode = null;
-            ISetCAP target = this.ParentForm as ISetCAP;
+            ISetCAP target = this.Owner as ISetCAP;
             if (target != null)
             {
                 target.SetCategory(null);
@@ -210,13 +210,5 @@ namespace LibraryManagement
             btnDel_Click(sender, e);
         }
 
-        private void treeCategories_AfterSelect_1(object sender, TreeViewEventArgs e)
-        {
-            ISetCAP target = this.ParentForm as ISetCAP;
-            if (target != null)
-            {
-                target.SetCategory(e.Node.Tag as Category);
-            }
-        }
     }
 }

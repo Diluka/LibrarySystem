@@ -54,7 +54,7 @@
             this.treeCategories.Name = "treeCategories";
             this.treeCategories.Size = new System.Drawing.Size(373, 370);
             this.treeCategories.TabIndex = 1;
-            this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect_1);
+            this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect);
             // 
             // btnClose
             // 

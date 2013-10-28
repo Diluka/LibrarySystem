@@ -449,6 +449,7 @@
             // 
             // txtBrief
             // 
+            this.txtBrief.BackColor = System.Drawing.Color.White;
             this.txtBrief.Enabled = false;
             this.txtBrief.Location = new System.Drawing.Point(509, 49);
             this.txtBrief.Name = "txtBrief";
