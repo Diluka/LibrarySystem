@@ -52,6 +52,9 @@ namespace LibraryManagement
         {
             Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
             btnLogin.Font = font;
+
+            txtUsername.Text = "admin";
+            txtPassword.Text = "admin123";
         }
     }
 }

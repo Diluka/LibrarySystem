@@ -212,7 +212,11 @@ namespace LibraryManagement
 
         private void treeCategories_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
-
+            ISetCAP target = this.ParentForm as ISetCAP;
+            if (target != null)
+            {
+                target.SetCategory(e.Node.Tag as Category);
+            }
         }
     }
 }

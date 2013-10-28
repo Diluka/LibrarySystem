@@ -142,11 +142,48 @@ namespace LibraryManagement
 
         private void BookInfoForm_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(this.Tag.ToString()))
+            if (this.Tag == null)
             {
                 this.Text = "添加图书";
                 txtBookInfoID.Text = "保存时自动生成";
                 btnSave.Enabled = true;
+
+                txtTitle.Enabled = true;
+                txtAlpha.Enabled = true;
+                //txtAuthor.Enabled = true;
+                //txtCategory.Enabled = true;
+                //txtPress.Enabled = true;
+                txtPrice.Enabled = true;
+
+                txtTitle.ReadOnly = false;
+                txtAlpha.ReadOnly = false;
+                txtPrice.ReadOnly = false;
+                txtCategory.ReadOnly = false;
+                txtAuthor.ReadOnly = false;
+                txtPress.ReadOnly = false;
+
+                btnAuthor.Enabled = true;
+                btnCategory.Enabled = true;
+                btnPress.Enabled = true;
+
+                picCover.Enabled = true;
+                btnChooseCover.Enabled = true;
+                btnClearCover.Enabled = true;
+
+                txtBrief.Enabled = true;
+                txtBrief.ReadOnly = false;
+                btnClearText.Enabled = true;
+
+                btnReset.Enabled = true;
+
+                txtBookInfoID.Enabled = true;
+
+                txtISBN.Enabled = true;
+                txtISBN.ReadOnly = false;
+
+                datePressDate.Enabled = true;
+
+                btnUnlock.Enabled = true;
             }
             else
             {
@@ -214,6 +251,7 @@ namespace LibraryManagement
             category = c;
             if (category != null)
             {
+                MessageBox.Show(category.CategoryName);
                 txtCategory.Text = category.CategoryName;
             }
         }

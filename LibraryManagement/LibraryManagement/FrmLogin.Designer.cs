@@ -29,17 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new LabeledTextBox.LabelTextBox();
             this.txtUsername = new LabeledTextBox.LabelTextBox();
             this.SuspendLayout();
-            // 
-            // skinEngine1
-            // 
-            this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = null;
-            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
             // 
             // btnLogin
             // 
@@ -99,7 +92,6 @@
 
         #endregion
 
-        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
         private System.Windows.Forms.Button btnLogin;
         private LabeledTextBox.LabelTextBox txtUsername;
         private LabeledTextBox.LabelTextBox txtPassword;
