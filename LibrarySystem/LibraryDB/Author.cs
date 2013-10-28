@@ -59,6 +59,34 @@ namespace LibraryDB
             return a;
         }
 
+        /// <summary>
+        /// 获取所有作者
+        /// </summary>
+        /// <param name="conn">连接</param>
+        /// <returns>所有作者列表</returns>
+        public static List<Author> GetAllAuthors(SqlConnection conn)
+        {
+            List<Author> authors = new List<Author>();
+
+            string sql = "select * from authors";
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Author a = new Author();
+                a.AuthorID = Convert.ToInt32(dr["AuthorID"]);
+                a.AuthorName = dr["AuthorName"].ToString();
+
+                authors.Add(a);
+            }
+
+            dr.Close();
+
+            return authors;
+        }
+
 
 
         #region IDBOperate 成员
