@@ -280,7 +280,7 @@ namespace LibraryManagement
         {
             if (frmCatMgr != null && !frmCatMgr.IsDisposed)
             {
-                frmCatMgr.Show(this);
+                frmCatMgr.ShowDialog(this);
                 frmCatMgr.Activate();
             }
             else
@@ -540,6 +540,18 @@ namespace LibraryManagement
             {
                 txtAlpha.Text = txtAlpha.Text.ToUpper()[0].ToString();
             }
+        }
+
+        private void btnAuthor_Click(object sender, EventArgs e)
+        {
+            AuthorsForm af = new AuthorsForm();
+            af.ShowDialog(this);
+        }
+
+        private void btnPress_Click(object sender, EventArgs e)
+        {
+            frmBookPressManager fbpm = new frmBookPressManager();
+            fbpm.ShowDialog(this);
         }
     }
 }

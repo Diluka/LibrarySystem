@@ -94,12 +94,6 @@
     <Compile Include="FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBookModify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBookModify.Designer.cs">
-      <DependentUpon>FrmBookModify.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmBookManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,12 +145,6 @@
     <Compile Include="ISetCAP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FrmBookAdd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBookAdd.Designer.cs">
-      <DependentUpon>FrmBookAdd.cs</DependentUpon>
-    </Compile>
     <Compile Include="AuthorsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,9 +162,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookModify.resx">
-      <DependentUpon>FrmBookModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBookManager.resx">
       <DependentUpon>FrmBookManager.cs</DependentUpon>
@@ -206,9 +191,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookAdd.resx">
-      <DependentUpon>FrmBookAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorsForm.resx">
       <DependentUpon>AuthorsForm.cs</DependentUpon>

@@ -32,6 +32,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new LabeledTextBox.LabelTextBox();
             this.txtUsername = new LabeledTextBox.LabelTextBox();
+            this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
             this.SuspendLayout();
             // 
             // btnLogin
@@ -53,6 +54,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(181, 21);
             this.txtPassword.TabIndex = 6;
+            this.txtPassword.Text = "密码";
             this.txtPassword.TextColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
@@ -65,7 +67,15 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(181, 21);
             this.txtUsername.TabIndex = 5;
+            this.txtUsername.Text = "用户名";
             this.txtUsername.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
+            // skinEngine1
+            // 
+            this.skinEngine1.SerialNumber = "";
+            this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
+    "ment\\skin\\DiamondBlue.ssk";
+            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
             // 
             // frmLogin
             // 
@@ -95,5 +105,6 @@
         private System.Windows.Forms.Button btnLogin;
         private LabeledTextBox.LabelTextBox txtUsername;
         private LabeledTextBox.LabelTextBox txtPassword;
+        private Sunisoft.IrisSkin.SkinEngine skinEngine1;
     }
 }
