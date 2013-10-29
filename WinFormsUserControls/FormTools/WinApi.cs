@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using WindowsUtilities;
 
 namespace FormTools
 {
@@ -26,6 +27,7 @@ namespace FormTools
 
         public static int ScreenX
         {
+            
             get { return GetSystemMetrics(SM_CXSCREEN); }
         }
         public static int ScreenY
