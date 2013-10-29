@@ -16,11 +16,11 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-       
+
         private void button1_Click(object sender, EventArgs e)
         {
             FrmBookManager fb = new FrmBookManager();
-            fb.Show(); 
+            fb.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -53,6 +53,24 @@ namespace LibraryManagement
         {
             AboutBox1 ab = new AboutBox1();
             ab.ShowDialog();
+        }
+
+        private void btnExit_MouseEnter(object sender, EventArgs e)
+        {
+            Button b = sender as Button;
+            if (b != null)
+            {
+                b.BackColor = Color.LightCyan;
+            }
+        }
+
+        private void btnExit_MouseLeave(object sender, EventArgs e)
+        {
+            Button b = sender as Button;
+            if (b != null)
+            {
+                b.BackColor = Color.Transparent;
+            }
         }
     }
 }

@@ -159,29 +159,32 @@ namespace LibraryDB
         /// <param name="conn">连接</param>
         public static void MakeCategoryTree(TreeView tree, SqlConnection conn)
         {
-            tree.Nodes.Clear();
-            tree.Nodes.Add(new TreeNode("全部"));
-
-
-            List<Category> categories = Category.GetAllCategories(conn);
-
-            foreach (Category c in categories)
+            if (tree != null)
             {
-                string[] cats = c.CategoryName.Split('/');
-                TreeNode root = tree.Nodes[0];
-                for (int i = 0; i < cats.Length; i++)
+                tree.Nodes.Clear();
+                tree.Nodes.Add(new TreeNode("全部"));
+
+
+                List<Category> categories = Category.GetAllCategories(conn);
+
+                foreach (Category c in categories)
                 {
-                    if (!root.Nodes.ContainsKey(cats[i]))
+                    string[] cats = c.CategoryName.Split('/');
+                    TreeNode root = tree.Nodes[0];
+                    for (int i = 0; i < cats.Length; i++)
                     {
-                        TreeNode node = new TreeNode(cats[i]);
-                        node.Name = cats[i];
-                        node.Tag = c;
-                        root.Nodes.Add(node);
-                        root = node;
-                    }
-                    else
-                    {
-                        root = root.Nodes.Find(cats[i], false)[0];
+                        if (!root.Nodes.ContainsKey(cats[i]))
+                        {
+                            TreeNode node = new TreeNode(cats[i]);
+                            node.Name = cats[i];
+                            node.Tag = c;
+                            root.Nodes.Add(node);
+                            root = node;
+                        }
+                        else
+                        {
+                            root = root.Nodes.Find(cats[i], false)[0];
+                        }
                     }
                 }
             }

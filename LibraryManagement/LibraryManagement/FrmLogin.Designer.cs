@@ -72,10 +72,12 @@
             // 
             // skinEngine1
             // 
+            this.skinEngine1.@__DrawButtonFocusRectangle = true;
+            this.skinEngine1.DisabledButtonTextColor = System.Drawing.Color.Gray;
+            this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
+            this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
-    "ment\\skin\\DeepCyan.ssk";
-            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            this.skinEngine1.SkinFile = null;
             // 
             // frmLogin
             // 

@@ -97,6 +97,7 @@ namespace LabeledTextBox
         public LabelTextBox()
         {
             InitializeComponent();
+            base.Text = "";
 
             TextColor = SystemColors.ControlText;
             LabelColor = SystemColors.ControlDark;

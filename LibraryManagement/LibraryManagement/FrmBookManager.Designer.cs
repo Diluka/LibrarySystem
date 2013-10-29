@@ -51,7 +51,6 @@
             this.pnlBeat = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearchString = new System.Windows.Forms.TextBox();
             this.chkBlur = new System.Windows.Forms.CheckBox();
             this.rdoAuthor = new System.Windows.Forms.RadioButton();
             this.rdoTitle = new System.Windows.Forms.RadioButton();
@@ -61,6 +60,7 @@
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -252,9 +252,9 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.label1);
             this.pnlBeat.Controls.Add(this.btnSearch);
-            this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.chkBlur);
             this.pnlBeat.Controls.Add(this.rdoAuthor);
             this.pnlBeat.Controls.Add(this.rdoTitle);
@@ -282,13 +282,6 @@
             this.btnSearch.Text = "查   询";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearchString
-            // 
-            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
-            this.txtSearchString.Name = "txtSearchString";
-            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
-            this.txtSearchString.TabIndex = 4;
             // 
             // chkBlur
             // 
@@ -382,6 +375,17 @@
             this.修改ToolStripMenuItem.Text = "查看";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
+            // txtSearchString
+            // 
+            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
+            this.txtSearchString.LabelText = "请输入搜索内容...";
+            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
+            this.txtSearchString.Name = "txtSearchString";
+            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
+            this.txtSearchString.TabIndex = 7;
+            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
+            // 
             // FrmBookManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -434,7 +438,6 @@
         private System.Windows.Forms.DataGridView dgvBookInfo;
         private System.Windows.Forms.Panel pnlBeat;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearchString;
         private System.Windows.Forms.CheckBox chkBlur;
         private System.Windows.Forms.RadioButton rdoAuthor;
         private System.Windows.Forms.RadioButton rdoTitle;
@@ -445,5 +448,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.TreeView treeCategories;
         private System.Windows.Forms.Label label1;
+        private LabeledTextBox.LabelTextBox txtSearchString;
     }
 }
