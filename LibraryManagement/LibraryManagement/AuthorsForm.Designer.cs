@@ -96,14 +96,11 @@
             // 
             // txtSearchString
             // 
-            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtSearchString.LabelText = "输入作者名称";
             this.txtSearchString.Location = new System.Drawing.Point(6, 12);
             this.txtSearchString.Name = "txtSearchString";
             this.txtSearchString.Size = new System.Drawing.Size(198, 21);
             this.txtSearchString.TabIndex = 0;
-            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // groupBox1
             // 

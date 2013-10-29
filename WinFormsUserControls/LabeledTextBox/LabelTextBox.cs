@@ -13,52 +13,15 @@ namespace LabeledTextBox
     /// <summary>
     /// 带标签的文本框
     /// </summary>
-    public partial class LabelTextBox: TextBox
+    public class LabelTextBox: TextBox
     {
-        private bool hasData;
         private string labelText;
-
-        //覆盖原有的Text属性，外部访问Text属性获取的将会是用户输入的文本，而不是显示的文本（可能为标签）
-        /// <summary>
-        /// 获取或者设置文本框内容
-        /// </summary>
-        public new string Text
-        {
-            get
-            {
-                if (hasData)
-                {
-                    return base.Text;
-                }
-                else
-                {
-                    return "";
-                }
-            }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                {
-                    base.UseSystemPasswordChar = false;
-                    base.PasswordChar = '\0';
-                    ForeColor = LabelColor;
-                    base.Text = labelText;
-                    hasData = false;
-                }
-                else
-                {
-                    base.UseSystemPasswordChar = UseSystemPasswordChar;
-                    base.PasswordChar = PasswordChar;
-                    ForeColor = TextColor;
-                    base.Text = value;
-                    hasData = true;
-                }
-            }
-        }
+        private const int WM_PAINT = 0x000F;
 
         /// <summary>
         /// 标签文本
         /// </summary>
+        [Description("标签文本")]
         public string LabelText {
             get
             {
@@ -67,81 +30,22 @@ namespace LabeledTextBox
             set
             {
                 labelText = value;
-                if (!hasData)
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            if (m.Msg == WM_PAINT)
+            {
+                using (Graphics g = CreateGraphics())
                 {
-                    base.Text = value;
+                    if (string.IsNullOrEmpty(Text) && !Focused)
+                    {
+                        SizeF size = g.MeasureString(labelText, Font);
+                        g.DrawString(labelText, Font, Brushes.LightGray, new PointF(0, (Height - size.Height) / 2));
+                    }
                 }
-            }
-        }
-        /// <summary>
-        /// 标签颜色
-        /// </summary>
-        public Color LabelColor { get; set; }
-        /// <summary>
-        /// 文本颜色
-        /// </summary>
-        public Color TextColor { get; set; }
-        /// <summary>
-        /// 是否使用系统密码字符
-        /// </summary>
-        public new bool UseSystemPasswordChar { get; set; }
-        /// <summary>
-        /// 密码字符
-        /// </summary>
-        public new char PasswordChar { get; set; }
-
-
-        /// <summary>
-        /// 带标签的文本框
-        /// </summary>
-        public LabelTextBox()
-        {
-            InitializeComponent();
-            base.Text = "";
-
-            TextColor = SystemColors.ControlText;
-            LabelColor = SystemColors.ControlDark;
-
-            this.ForeColor = LabelColor;
-            
-            base.Text = LabelText;
-            hasData = false;
-        }
-
-        private void LabelTextBox_Enter(object sender, EventArgs e)
-        {
-            if (!hasData)
-            {
-                base.Text = string.Empty;
-                this.ForeColor = TextColor;
-                base.UseSystemPasswordChar = UseSystemPasswordChar;
-                base.PasswordChar = PasswordChar;
-            }
-        }
-
-        private void LabelTextBox_Leave(object sender, EventArgs e)
-        {
-            hasData = base.Text != string.Empty;
-
-            if (!hasData)
-            {
-                base.Text = LabelText;
-                this.ForeColor = LabelColor;
-                base.UseSystemPasswordChar = false;
-                base.PasswordChar = '\0';
-            }
-        }
-
-        private void LabelTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            hasData = base.Text != string.Empty;
-        }
-
-        private void LabelTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (hasData)
-            {
-                hasData = base.Text != string.Empty;
             }
         }
     }

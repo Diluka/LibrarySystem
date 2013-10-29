@@ -49,6 +49,7 @@
             this.treeCategories = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlBeat = new System.Windows.Forms.Panel();
+            this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
             this.chkBlur = new System.Windows.Forms.CheckBox();
@@ -60,7 +61,6 @@
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -264,6 +264,14 @@
             this.pnlBeat.Size = new System.Drawing.Size(815, 42);
             this.pnlBeat.TabIndex = 1;
             // 
+            // txtSearchString
+            // 
+            this.txtSearchString.LabelText = "请输入搜索内容...";
+            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
+            this.txtSearchString.Name = "txtSearchString";
+            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
+            this.txtSearchString.TabIndex = 7;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -374,17 +382,6 @@
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.修改ToolStripMenuItem.Text = "查看";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
-            // 
-            // txtSearchString
-            // 
-            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelText = "请输入搜索内容...";
-            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
-            this.txtSearchString.Name = "txtSearchString";
-            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
-            this.txtSearchString.TabIndex = 7;
-            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // FrmBookManager
             // 

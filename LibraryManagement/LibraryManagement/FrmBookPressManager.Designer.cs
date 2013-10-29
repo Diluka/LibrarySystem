@@ -36,8 +36,8 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.listPresses = new System.Windows.Forms.ListBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -96,14 +96,11 @@
             // 
             // txtSearchString
             // 
-            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtSearchString.LabelText = "输入列别名称";
             this.txtSearchString.Location = new System.Drawing.Point(6, 12);
             this.txtSearchString.Name = "txtSearchString";
             this.txtSearchString.Size = new System.Drawing.Size(198, 21);
             this.txtSearchString.TabIndex = 0;
-            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // groupBox1
             // 
@@ -115,16 +112,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "出版社选择";
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(317, 455);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "关    闭";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // listPresses
             // 
             this.listPresses.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -135,6 +122,16 @@
             this.listPresses.Size = new System.Drawing.Size(373, 370);
             this.listPresses.TabIndex = 0;
             this.listPresses.SelectedIndexChanged += new System.EventHandler(this.listPresses_SelectedIndexChanged);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(317, 455);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "关    闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmBookPressManager
             // 
