@@ -317,7 +317,7 @@ namespace LibraryManagement
                         DBHelper.conn.Open();
                         foreach (DataGridViewRow row in dgvBookInfo.SelectedRows)
                         {
-                            long iid = Convert.ToInt64(row.Cells["书籍标题"].Value);
+                            long iid = Convert.ToInt64(row.Cells["书籍编号"].Value);
                             BookInfo.DelBookInfoByID(iid, DBHelper.conn);
                         }
 
