@@ -74,7 +74,7 @@
             // 
             this.skinEngine1.SerialNumber = "";
             this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
-    "ment\\skin\\DiamondBlue.ssk";
+    "ment\\skin\\DeepCyan.ssk";
             this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
             // 
             // frmLogin

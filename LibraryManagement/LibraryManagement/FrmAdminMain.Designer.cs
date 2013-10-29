@@ -115,6 +115,7 @@
             this.Controls.Add(this.btnLeasemanage);
             this.Controls.Add(this.btnBookmanage);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminMain";
             this.Text = "管理员";
