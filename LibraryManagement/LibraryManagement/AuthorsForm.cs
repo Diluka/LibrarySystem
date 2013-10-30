@@ -95,7 +95,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("添加失败");
+                        MessageBox.Show("添加失败","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
             }
@@ -149,7 +149,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("删除失败");
+                        MessageBox.Show("添加失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

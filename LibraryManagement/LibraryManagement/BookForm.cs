@@ -29,7 +29,7 @@ namespace LibraryManagement
 
             if (bookInfo == null)
             {
-                MessageBox.Show("没有书籍信息");
+                MessageBox.Show("没有书籍信息","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 this.Close();
             }
 
@@ -93,7 +93,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("添加失败");
+                MessageBox.Show("添加失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,7 +101,7 @@ namespace LibraryManagement
         {
             if (dgvBooks.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请选择要删除的书本");
+                MessageBox.Show("请选择要删除的书本","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 return;
             }
 
@@ -134,7 +134,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("删除失败，请确定书本不处于借出状态");
+                MessageBox.Show("删除失败，请确定书本不处于借出状态","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
     }

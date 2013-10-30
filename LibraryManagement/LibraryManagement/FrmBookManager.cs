@@ -114,7 +114,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要编辑的项");
+                MessageBox.Show("请选择要编辑的项！","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
 
@@ -156,7 +156,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要编辑的项");
+                MessageBox.Show("请选择要编辑的项！", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -199,7 +199,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要删除的项");
+                MessageBox.Show("请选择要删除的项", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -226,7 +226,7 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败");
+                            MessageBox.Show("删除失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
                     catch (Exception ex)
@@ -243,7 +243,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要删除的项");
+                MessageBox.Show("请选择要删除的项", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -345,7 +345,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要删除的项");
+                MessageBox.Show("请选择要删除的项", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         List<Form> bookForms = new List<Form>();

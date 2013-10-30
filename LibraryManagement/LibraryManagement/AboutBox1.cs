@@ -100,5 +100,10 @@ namespace LibraryManagement
             }
         }
         #endregion
+
+        private void AboutBox1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
