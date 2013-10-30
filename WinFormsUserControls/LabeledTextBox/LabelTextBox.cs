@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsUtilities;
+//using WindowsUtilities;
 
 namespace LabeledTextBox
 {
@@ -36,7 +36,8 @@ namespace LabeledTextBox
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
-            if (m.Msg == (int)WindowsMessages.WM_PAINT)
+            //if (m.Msg == (int)WindowsMessages.WM_PAINT)
+            if (m.Msg == 0xF)
             {
                 using (Graphics g = CreateGraphics())
                 {

@@ -56,7 +56,7 @@ namespace LibraryManagement
             lblCategory.Text = category.CategoryName ?? "[未指定]";
             lblPress.Text = press.PressName ?? "[未指定]";
 
-            //TO-DO: 数据填充
+            dgvBooks.DataSource = books;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
