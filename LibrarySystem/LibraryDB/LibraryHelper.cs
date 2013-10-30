@@ -191,5 +191,10 @@ namespace LibraryDB
         }
 
 
+        //public static int LeaseBook(long iid,long uid, SqlConnection conn)
+        //{
+        //    string sql = string.Format("");
+        //}
+
     }
 }
