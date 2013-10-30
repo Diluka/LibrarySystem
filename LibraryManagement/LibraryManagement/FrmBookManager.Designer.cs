@@ -62,6 +62,7 @@
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看库存书本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -211,7 +212,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(1090, 491);
+            this.splitContainer1.Size = new System.Drawing.Size(1090, 508);
             this.splitContainer1.SplitterDistance = 252;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -221,7 +222,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 491);
+            this.groupBox2.Size = new System.Drawing.Size(252, 508);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "分类";
@@ -231,7 +232,7 @@
             this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeCategories.Location = new System.Drawing.Point(3, 17);
             this.treeCategories.Name = "treeCategories";
-            this.treeCategories.Size = new System.Drawing.Size(246, 471);
+            this.treeCategories.Size = new System.Drawing.Size(246, 488);
             this.treeCategories.TabIndex = 2;
             this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect);
             // 
@@ -244,7 +245,7 @@
             this.groupBox1.Controls.Add(this.dgvBookInfo);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(834, 491);
+            this.groupBox1.Size = new System.Drawing.Size(834, 508);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "书籍信息";
@@ -253,6 +254,7 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBeat.Controls.Add(this.button1);
             this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.label1);
             this.pnlBeat.Controls.Add(this.btnSearch);
@@ -270,7 +272,7 @@
             this.txtSearchString.LabelText = "请输入搜索内容...";
             this.txtSearchString.Location = new System.Drawing.Point(404, 11);
             this.txtSearchString.Name = "txtSearchString";
-            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
+            this.txtSearchString.Size = new System.Drawing.Size(217, 21);
             this.txtSearchString.TabIndex = 7;
             // 
             // label1
@@ -284,7 +286,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(738, 9);
+            this.btnSearch.Location = new System.Drawing.Point(645, 8);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(64, 25);
             this.btnSearch.TabIndex = 5;
@@ -351,7 +353,7 @@
             this.dgvBookInfo.ReadOnly = true;
             this.dgvBookInfo.RowTemplate.Height = 23;
             this.dgvBookInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBookInfo.Size = new System.Drawing.Size(815, 409);
+            this.dgvBookInfo.Size = new System.Drawing.Size(815, 426);
             this.dgvBookInfo.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -362,42 +364,52 @@
             this.修改ToolStripMenuItem,
             this.查看库存书本ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 92);
             // 
             // 添加ToolStripMenuItem
             // 
             this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
-            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加ToolStripMenuItem.Text = "添加";
             this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.修改ToolStripMenuItem.Text = "查看";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 查看库存书本ToolStripMenuItem
             // 
             this.查看库存书本ToolStripMenuItem.Name = "查看库存书本ToolStripMenuItem";
-            this.查看库存书本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看库存书本ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.查看库存书本ToolStripMenuItem.Text = "查看库存书本";
             this.查看库存书本ToolStripMenuItem.Click += new System.EventHandler(this.查看库存书本ToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(732, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(64, 25);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "刷   新";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmBookManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1090, 555);
+            this.ClientSize = new System.Drawing.Size(1090, 572);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tsMenu);
             this.DoubleBuffered = true;
@@ -456,5 +468,6 @@
         private System.Windows.Forms.Label label1;
         private LabeledTextBox.LabelTextBox txtSearchString;
         private System.Windows.Forms.ToolStripMenuItem 查看库存书本ToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

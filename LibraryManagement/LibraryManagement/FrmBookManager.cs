@@ -402,6 +402,28 @@ namespace LibraryManagement
             }
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BBBB();
+        }
+
+        private void BBBB()
+        {
+            ds.Tables["books"].Clear();
+            try
+            {
+                da.Fill(ds, "books");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dv = new DataView(ds.Tables["books"]);
+            dgvBookInfo.DataSource = dv;
+
+            treeCategories.Nodes[0].Expand();
+        }
+
 
     }
 }

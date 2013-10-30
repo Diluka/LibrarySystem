@@ -301,7 +301,8 @@ namespace LibraryManagement
                 frmCatMgr.Show(this);
             }
         }
-
+        
+       
         private void btnSave_Click(object sender, EventArgs e)
         {
             txtTitle.Text = txtTitle.Text.Trim();
@@ -437,7 +438,9 @@ namespace LibraryManagement
             {
                 MessageBox.Show("没有保存或者保存失败", "保存提示");
             }
+            
         }
+
 
         private void LoadAll()
         {
