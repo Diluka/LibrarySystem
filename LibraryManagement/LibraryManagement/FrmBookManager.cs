@@ -424,6 +424,12 @@ namespace LibraryManagement
             treeCategories.Nodes[0].Expand();
         }
 
+        private void toolStripButton8_Click(object sender, EventArgs e)
+        {
+            FrmAddUser fau = new FrmAddUser();
+            fau.ShowDialog();
+        }
+
 
     }
 }
