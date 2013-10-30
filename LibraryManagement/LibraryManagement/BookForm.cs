@@ -57,6 +57,10 @@ namespace LibraryManagement
             lblPress.Text = press.PressName ?? "[未指定]";
 
             dgvBooks.DataSource = books;
+
+            dgvBooks.Columns["InfoID"].Visible = false;
+            dgvBooks.Columns["BookID"].HeaderText = "书本编号";
+            dgvBooks.Columns["IsLeased"].HeaderText = "已借出";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -72,6 +76,7 @@ namespace LibraryManagement
             {
                 DBHelper.conn.Open();
                 result = ((IDBOperate)b).Insert(DBHelper.conn);
+                books = Book.GetBooksByInfoID(bookInfo.InfoID, DBHelper.conn);
             }
             catch (Exception ex)
             {
@@ -84,7 +89,7 @@ namespace LibraryManagement
 
             if (result > 0)
             {
-
+                dgvBooks.DataSource = books;
             }
             else
             {
@@ -100,7 +105,7 @@ namespace LibraryManagement
                 return;
             }
 
-            long bid = Convert.ToInt64(dgvBooks.SelectedRows[0].Cells["书本编号"].Value);
+            long bid = Convert.ToInt64(dgvBooks.SelectedRows[0].Cells["BookID"].Value);
 
             if (MessageBox.Show(string.Format("确定要删除编号为：{0}的书本吗？", bid), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
@@ -112,6 +117,7 @@ namespace LibraryManagement
             {
                 DBHelper.conn.Open();
                 result = Book.DelBookByID(bid, DBHelper.conn);
+                books = Book.GetBooksByInfoID(bookInfo.InfoID, DBHelper.conn);
             }
             catch (Exception ex)
             {
@@ -124,7 +130,7 @@ namespace LibraryManagement
 
             if (result > 0)
             {
-
+                dgvBooks.DataSource = books;
             }
             else
             {

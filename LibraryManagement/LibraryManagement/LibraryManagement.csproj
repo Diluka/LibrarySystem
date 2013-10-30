@@ -163,7 +163,6 @@
     <Compile Include="AuthorsForm.Designer.cs">
       <DependentUpon>AuthorsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SQLDMO.cs" />
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>

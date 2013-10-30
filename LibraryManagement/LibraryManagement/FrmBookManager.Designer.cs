@@ -61,6 +61,7 @@
             this.添加ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看库存书本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -358,30 +359,38 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.添加ToolStripMenuItem,
             this.删除ToolStripMenuItem,
-            this.修改ToolStripMenuItem});
+            this.修改ToolStripMenuItem,
+            this.查看库存书本ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 114);
             // 
             // 添加ToolStripMenuItem
             // 
             this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
-            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.添加ToolStripMenuItem.Text = "添加";
             this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.修改ToolStripMenuItem.Text = "查看";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // 查看库存书本ToolStripMenuItem
+            // 
+            this.查看库存书本ToolStripMenuItem.Name = "查看库存书本ToolStripMenuItem";
+            this.查看库存书本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.查看库存书本ToolStripMenuItem.Text = "查看库存书本";
+            this.查看库存书本ToolStripMenuItem.Click += new System.EventHandler(this.查看库存书本ToolStripMenuItem_Click);
             // 
             // FrmBookManager
             // 
@@ -446,5 +455,6 @@
         private System.Windows.Forms.TreeView treeCategories;
         private System.Windows.Forms.Label label1;
         private LabeledTextBox.LabelTextBox txtSearchString;
+        private System.Windows.Forms.ToolStripMenuItem 查看库存书本ToolStripMenuItem;
     }
 }

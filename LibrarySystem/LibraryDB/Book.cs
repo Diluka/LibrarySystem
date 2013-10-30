@@ -101,7 +101,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("decalre @result int;exec @result=proc_del_book {0};select @result", id);
+            string sql = string.Format("declare @result int;exec @result=proc_del_book {0};select @result", id);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = (int)cmd.ExecuteScalar();
 
@@ -119,7 +119,7 @@ namespace LibraryDB
                 throw new Exception("ID不为0，不能插入");
             }
 
-            string sql = "decalre @bid long;exec proc_add_book @iid,@bid out;select @bid";
+            string sql = "declare @bid bigint;exec proc_add_book @iid,@bid out;select @bid";
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlParameter paramInfoID = new SqlParameter("@iid", SqlDbType.BigInt);
             paramInfoID.Value = InfoID;
@@ -139,7 +139,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("decalre @result int;exec @result=proc_del_book {0};select @result", BookID);
+            string sql = string.Format("declare @result int;exec @result=proc_del_book {0};select @result", BookID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = (int)cmd.ExecuteScalar();
 

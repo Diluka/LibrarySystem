@@ -348,6 +348,59 @@ namespace LibraryManagement
                 MessageBox.Show("请选择要删除的项");
             }
         }
+        List<Form> bookForms = new List<Form>();
+        private void 查看库存书本ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvBookInfo.SelectedRows.Count != 0)
+            {
+                Form f=null;
+                BookInfo bi = null; ;
+                try
+                {
+                    DBHelper.conn.Open();
+                    bi = BookInfo.GetBookInfoByID((long)dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value, DBHelper.conn);
+                    if (bi == null)
+                    {
+                        MessageBox.Show("请选择");
+                        return;
+                    }
+                    foreach (Form form in bookForms)
+                    {
+                        if (((BookInfo)form.Tag).InfoID == bi.InfoID)
+                        {
+                            f = form;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
+
+                if (f != null && !f.IsDisposed)
+                {
+                    f.Show();
+                    f.Activate();
+                }
+                else
+                {
+                    if (f != null)
+                    {
+                        bookForms.Remove(f);
+                    }
+                    f = new BookForm();
+                    f.Tag = bi;
+                    f.Show();
+                    bookForms.Add(f);
+                }
+
+            }
+        }
 
 
     }
