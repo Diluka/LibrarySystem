@@ -65,5 +65,10 @@ namespace LibraryManagement
         {
 
         }
+
+        private void FrmLeaseManager_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

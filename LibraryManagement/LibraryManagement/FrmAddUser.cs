@@ -15,5 +15,10 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
+
+        private void FrmAddUser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -128,7 +128,7 @@ namespace LibraryManagement
 
                         if (result2 <= 0)
                         {
-                            MessageBox.Show("添加失败！", "添加提示");
+                            MessageBox.Show("添加失败！",  "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
@@ -183,7 +183,7 @@ namespace LibraryManagement
 
             if (result <= 0)
             {
-                MessageBox.Show("删除失败！", "删除提示");
+                MessageBox.Show("删除失败！", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
