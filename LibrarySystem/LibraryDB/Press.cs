@@ -40,6 +40,33 @@ namespace LibraryDB
             return p;
         }
 
+        /// <summary>
+        /// 获取所有出版社
+        /// </summary>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>出版社列表</returns>
+        public static List<Press> GetAllPresses(SqlConnection conn)
+        {
+            List<Press> presses = new List<Press>();
+
+            string sql = "select * from presses";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Press p = new Press();
+                p.PressID = Convert.ToInt32(dr["PressID"]);
+                p.PressName = dr["PressName"].ToString();
+
+                presses.Add(p);
+            }
+
+            dr.Close();
+
+            return presses;
+        }
+
 
         #region IDBOperate 成员
 

@@ -36,8 +36,8 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.listAuthors = new System.Windows.Forms.ListBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -50,15 +50,17 @@
             this.btnDel.TabIndex = 11;
             this.btnDel.Text = "删除已选作者";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(237, 458);
+            this.btnClear.Location = new System.Drawing.Point(231, 459);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "清除选择";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // groupBox2
             // 
@@ -80,6 +82,7 @@
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "新增作者";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnGo
             // 
@@ -89,18 +92,15 @@
             this.btnGo.TabIndex = 1;
             this.btnGo.Text = "搜索";
             this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // txtSearchString
             // 
-            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtSearchString.LabelText = "输入作者名称";
             this.txtSearchString.Location = new System.Drawing.Point(6, 12);
             this.txtSearchString.Name = "txtSearchString";
             this.txtSearchString.Size = new System.Drawing.Size(198, 21);
             this.txtSearchString.TabIndex = 0;
-            this.txtSearchString.Text = "输入作者名称";
-            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // groupBox1
             // 
@@ -112,15 +112,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "作者选择";
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(324, 458);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 7;
-            this.btnClose.Text = "关    闭";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
             // listAuthors
             // 
             this.listAuthors.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,6 +121,17 @@
             this.listAuthors.Name = "listAuthors";
             this.listAuthors.Size = new System.Drawing.Size(373, 370);
             this.listAuthors.TabIndex = 0;
+            this.listAuthors.SelectedIndexChanged += new System.EventHandler(this.listAuthors_SelectedIndexChanged);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(318, 459);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 7;
+            this.btnClose.Text = "关    闭";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // AuthorsForm
             // 
@@ -144,7 +146,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AuthorsForm";
             this.Text = "作者设置";
-            this.Load += new System.EventHandler(this.ZuoZe_Load);
+            this.Load += new System.EventHandler(this.AuthorsForm_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

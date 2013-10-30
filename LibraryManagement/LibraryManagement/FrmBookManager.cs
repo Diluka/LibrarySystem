@@ -277,18 +277,21 @@ namespace LibraryManagement
                 searchField = "作者";
             }
 
-            string sql = string.Format("select * from bookmgrview where {0} like '{1}'", searchField, chkBlur.Checked ? "%" + txtSearchString.Text + "% or " + searchField + " is null" : txtSearchString.Text);
+            string sql = string.Format("select * from bookmgrview where {0} like '{1}'", searchField, chkBlur.Checked ? "%" + txtSearchString.Text + "%" : txtSearchString.Text);
             if (!chkBlur.Checked && txtSearchString.Text.Equals("null", StringComparison.CurrentCultureIgnoreCase))
             {
                 sql = "select * from bookmgrview where " + searchField + " is null";
             }
 
+            MessageBox.Show(sql);
             da.SelectCommand.CommandText = sql;
             ds.Tables["books"].Clear();
             da.Fill(ds, "books");
+            //dv = new DataView(ds.Tables["books"]);
+            //dgvBookInfo.DataSource = dv;
 
-            FillTree();
-            treeCategories.Nodes[0].Expand();
+            //FillTree();
+            //treeCategories.Nodes[0].Expand();
 
         }
 

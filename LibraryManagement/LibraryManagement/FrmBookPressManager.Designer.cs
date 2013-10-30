@@ -36,7 +36,7 @@
             this.btnGo = new System.Windows.Forms.Button();
             this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeCategories = new System.Windows.Forms.TreeView();
+            this.listPresses = new System.Windows.Forms.ListBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -50,6 +50,7 @@
             this.btnDel.TabIndex = 11;
             this.btnDel.Text = "删除已选出版社";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnClear
             // 
@@ -59,6 +60,7 @@
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "清除选择";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // groupBox2
             // 
@@ -80,6 +82,7 @@
             this.btnNew.TabIndex = 6;
             this.btnNew.Text = "新增出版社";
             this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnGo
             // 
@@ -89,22 +92,19 @@
             this.btnGo.TabIndex = 1;
             this.btnGo.Text = "搜索";
             this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
             // txtSearchString
             // 
-            this.txtSearchString.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtSearchString.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtSearchString.LabelText = "输入列别名称";
             this.txtSearchString.Location = new System.Drawing.Point(6, 12);
             this.txtSearchString.Name = "txtSearchString";
             this.txtSearchString.Size = new System.Drawing.Size(198, 21);
             this.txtSearchString.TabIndex = 0;
-            this.txtSearchString.Text = "输入列别名称";
-            this.txtSearchString.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeCategories);
+            this.groupBox1.Controls.Add(this.listPresses);
             this.groupBox1.Location = new System.Drawing.Point(13, 59);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(379, 390);
@@ -112,13 +112,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "出版社选择";
             // 
-            // treeCategories
+            // listPresses
             // 
-            this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeCategories.Location = new System.Drawing.Point(3, 17);
-            this.treeCategories.Name = "treeCategories";
-            this.treeCategories.Size = new System.Drawing.Size(373, 370);
-            this.treeCategories.TabIndex = 1;
+            this.listPresses.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listPresses.FormattingEnabled = true;
+            this.listPresses.ItemHeight = 12;
+            this.listPresses.Location = new System.Drawing.Point(3, 17);
+            this.listPresses.Name = "listPresses";
+            this.listPresses.Size = new System.Drawing.Size(373, 370);
+            this.listPresses.TabIndex = 0;
+            this.listPresses.SelectedIndexChanged += new System.EventHandler(this.listPresses_SelectedIndexChanged);
             // 
             // btnClose
             // 
@@ -128,6 +131,7 @@
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "关    闭";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmBookPressManager
             // 
@@ -146,7 +150,7 @@
             this.Name = "frmBookPressManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "出版社设置";
-            this.Load += new System.EventHandler(this.FrmBookconcernManager_Load);
+            this.Load += new System.EventHandler(this.frmBookPressManager_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -163,8 +167,8 @@
         private System.Windows.Forms.Button btnGo;
         private LabeledTextBox.LabelTextBox txtSearchString;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeCategories;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ListBox listPresses;
 
     }
 }

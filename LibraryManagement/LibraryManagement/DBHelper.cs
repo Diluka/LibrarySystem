@@ -8,6 +8,5 @@ namespace LibraryManagement
     class DBHelper
     {
         public static SqlConnection conn = new SqlConnection(@"Data Source=.;Initial Catalog=Library;Integrated Security=True");
-        public static string name = "";
     }
 }

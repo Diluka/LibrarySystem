@@ -47,35 +47,31 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtPassword.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtPassword.LabelText = "密码";
             this.txtPassword.Location = new System.Drawing.Point(155, 167);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(181, 21);
             this.txtPassword.TabIndex = 6;
             this.txtPassword.Text = "密码";
-            this.txtPassword.TextColor = System.Drawing.SystemColors.ControlText;
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
             // 
-            this.txtUsername.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.txtUsername.LabelColor = System.Drawing.SystemColors.ControlDark;
             this.txtUsername.LabelText = "用户名";
             this.txtUsername.Location = new System.Drawing.Point(155, 126);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(181, 21);
             this.txtUsername.TabIndex = 5;
             this.txtUsername.Text = "用户名";
-            this.txtUsername.TextColor = System.Drawing.SystemColors.ControlText;
             // 
             // skinEngine1
             // 
+            this.skinEngine1.@__DrawButtonFocusRectangle = true;
+            this.skinEngine1.DisabledButtonTextColor = System.Drawing.Color.Gray;
+            this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
+            this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
-    "ment\\skin\\DeepCyan.ssk";
-            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            this.skinEngine1.SkinFile = null;
             // 
             // frmLogin
             // 

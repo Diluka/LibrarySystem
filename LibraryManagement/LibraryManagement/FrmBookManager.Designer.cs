@@ -49,9 +49,9 @@
             this.treeCategories = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlBeat = new System.Windows.Forms.Panel();
+            this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearchString = new System.Windows.Forms.TextBox();
             this.chkBlur = new System.Windows.Forms.CheckBox();
             this.rdoAuthor = new System.Windows.Forms.RadioButton();
             this.rdoTitle = new System.Windows.Forms.RadioButton();
@@ -252,9 +252,9 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.label1);
             this.pnlBeat.Controls.Add(this.btnSearch);
-            this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.chkBlur);
             this.pnlBeat.Controls.Add(this.rdoAuthor);
             this.pnlBeat.Controls.Add(this.rdoTitle);
@@ -263,6 +263,14 @@
             this.pnlBeat.Name = "pnlBeat";
             this.pnlBeat.Size = new System.Drawing.Size(815, 42);
             this.pnlBeat.TabIndex = 1;
+            // 
+            // txtSearchString
+            // 
+            this.txtSearchString.LabelText = "请输入搜索内容...";
+            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
+            this.txtSearchString.Name = "txtSearchString";
+            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
+            this.txtSearchString.TabIndex = 7;
             // 
             // label1
             // 
@@ -282,13 +290,6 @@
             this.btnSearch.Text = "查   询";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtSearchString
-            // 
-            this.txtSearchString.Location = new System.Drawing.Point(404, 11);
-            this.txtSearchString.Name = "txtSearchString";
-            this.txtSearchString.Size = new System.Drawing.Size(328, 21);
-            this.txtSearchString.TabIndex = 4;
             // 
             // chkBlur
             // 
@@ -434,7 +435,6 @@
         private System.Windows.Forms.DataGridView dgvBookInfo;
         private System.Windows.Forms.Panel pnlBeat;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtSearchString;
         private System.Windows.Forms.CheckBox chkBlur;
         private System.Windows.Forms.RadioButton rdoAuthor;
         private System.Windows.Forms.RadioButton rdoTitle;
@@ -445,5 +445,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.TreeView treeCategories;
         private System.Windows.Forms.Label label1;
+        private LabeledTextBox.LabelTextBox txtSearchString;
     }
 }

@@ -253,6 +253,10 @@ namespace LibraryManagement
             {
                 txtCategory.Text = category.CategoryName;
             }
+            else
+            {
+                txtCategory.Text = "";
+            }
         }
 
         public void SetAuthor(Author a)
@@ -262,6 +266,10 @@ namespace LibraryManagement
             {
                 txtAuthor.Text = author.AuthorName;
             }
+            else
+            {
+                txtAuthor.Text = "";
+            }
         }
 
         public void SetPress(Press p)
@@ -270,6 +278,10 @@ namespace LibraryManagement
             if (press != null)
             {
                 txtPress.Text = press.PressName;
+            }
+            else
+            {
+                txtPress.Text = "";
             }
         }
 
@@ -429,6 +441,12 @@ namespace LibraryManagement
 
         private void LoadAll()
         {
+            author = null;
+            category = null;
+            press = null;
+            cover = null;
+            bookBrief = null;
+
             if (bookInfo != null)
             {
                 txtBookInfoID.Text = bookInfo.InfoID.ToString();
@@ -445,26 +463,22 @@ namespace LibraryManagement
                 {
                     DBHelper.conn.Open();
 
-                    if (category == null && bookInfo.CatID != null)
+                    if (bookInfo.CatID != null)
                     {
                         category = Category.GetCategoryByID((int)bookInfo.CatID, DBHelper.conn);
                     }
-                    if (author == null && bookInfo.AuthorID != null)
+                    if (bookInfo.AuthorID != null)
                     {
                         author = Author.GetAuthorByID((int)bookInfo.AuthorID, DBHelper.conn);
                     }
-                    if (press == null && bookInfo.PressID != null)
+                    if (bookInfo.PressID != null)
                     {
                         press = Press.GetPressByID((int)bookInfo.PressID, DBHelper.conn);
                     }
-                    if (cover == null)
-                    {
-                        cover = Cover.GetCoverByID(bookInfo.InfoID, DBHelper.conn);
-                    }
-                    if (bookBrief == null)
-                    {
-                        bookBrief = BookBrief.GetBookBriefByID(bookInfo.InfoID, DBHelper.conn);
-                    }
+
+                    cover = Cover.GetCoverByID(bookInfo.InfoID, DBHelper.conn);
+                    bookBrief = BookBrief.GetBookBriefByID(bookInfo.InfoID, DBHelper.conn);
+
                 }
                 catch (Exception ex)
                 {
@@ -474,28 +488,49 @@ namespace LibraryManagement
                 {
                     DBHelper.conn.Close();
                 }
-
-                if (category != null)
-                {
-                    txtCategory.Text = category.CategoryName;
-                }
-                if (author != null)
-                {
-                    txtAuthor.Text = author.AuthorName;
-                }
-                if (press != null)
-                {
-                    txtPress.Text = press.PressName;
-                }
-                if (cover != null)
-                {
-                    picCover.Image = cover.CoverImage;
-                }
-                if (bookBrief != null)
-                {
-                    txtBrief.Text = bookBrief.BriefText;
-                }
             }
+
+            if (category != null)
+            {
+                txtCategory.Text = category.CategoryName;
+            }
+            else
+            {
+                txtCategory.Text = "";
+            }
+            if (author != null)
+            {
+                txtAuthor.Text = author.AuthorName;
+            }
+            else
+            {
+                txtAuthor.Text = "";
+            }
+            if (press != null)
+            {
+                txtPress.Text = press.PressName;
+            }
+            else
+            {
+                txtPress.Text = "";
+            }
+            if (cover != null)
+            {
+                picCover.Image = cover.CoverImage;
+            }
+            else
+            {
+                picCover.Image = null;
+            }
+            if (bookBrief != null)
+            {
+                txtBrief.Text = bookBrief.BriefText;
+            }
+            else
+            {
+                txtBrief.Text = "";
+            }
+
 
         }
 
@@ -553,5 +588,6 @@ namespace LibraryManagement
             frmBookPressManager fbpm = new frmBookPressManager();
             fbpm.ShowDialog(this);
         }
+
     }
 }

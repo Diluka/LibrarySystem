@@ -37,89 +37,80 @@
             // 
             // btnBookmanage
             // 
-            this.btnBookmanage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBookmanage.BackColor = System.Drawing.Color.Transparent;
             this.btnBookmanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnBookmanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBookmanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnBookmanage.Location = new System.Drawing.Point(146, 50);
+            this.btnBookmanage.Location = new System.Drawing.Point(74, 55);
             this.btnBookmanage.Name = "btnBookmanage";
-            this.btnBookmanage.Size = new System.Drawing.Size(222, 77);
+            this.btnBookmanage.Size = new System.Drawing.Size(218, 77);
             this.btnBookmanage.TabIndex = 0;
             this.btnBookmanage.Text = "书籍管理";
             this.btnBookmanage.UseVisualStyleBackColor = false;
             this.btnBookmanage.Click += new System.EventHandler(this.button1_Click);
+            this.btnBookmanage.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnBookmanage.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // btnLeasemanage
             // 
-            this.btnLeasemanage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLeasemanage.BackColor = System.Drawing.Color.Transparent;
             this.btnLeasemanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnLeasemanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLeasemanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnLeasemanage.Location = new System.Drawing.Point(146, 216);
+            this.btnLeasemanage.Location = new System.Drawing.Point(74, 173);
             this.btnLeasemanage.Name = "btnLeasemanage";
-            this.btnLeasemanage.Size = new System.Drawing.Size(222, 77);
+            this.btnLeasemanage.Size = new System.Drawing.Size(218, 77);
             this.btnLeasemanage.TabIndex = 1;
             this.btnLeasemanage.Text = "租借管理";
             this.btnLeasemanage.UseVisualStyleBackColor = false;
             this.btnLeasemanage.Click += new System.EventHandler(this.button2_Click);
+            this.btnLeasemanage.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnLeasemanage.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // btnDatamanage
             // 
-            this.btnDatamanage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDatamanage.BackColor = System.Drawing.Color.Transparent;
             this.btnDatamanage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnDatamanage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDatamanage.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnDatamanage.Location = new System.Drawing.Point(146, 382);
+            this.btnDatamanage.Location = new System.Drawing.Point(74, 291);
             this.btnDatamanage.Name = "btnDatamanage";
-            this.btnDatamanage.Size = new System.Drawing.Size(222, 77);
+            this.btnDatamanage.Size = new System.Drawing.Size(218, 77);
             this.btnDatamanage.TabIndex = 2;
             this.btnDatamanage.Text = "数据管理";
             this.btnDatamanage.UseVisualStyleBackColor = false;
             this.btnDatamanage.Click += new System.EventHandler(this.button3_Click);
+            this.btnDatamanage.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnDatamanage.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // btnExit
             // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.btnExit.Location = new System.Drawing.Point(146, 548);
+            this.btnExit.Location = new System.Drawing.Point(74, 409);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(222, 77);
+            this.btnExit.Size = new System.Drawing.Size(218, 77);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "关        于";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.MouseEnter += new System.EventHandler(this.btnExit_MouseEnter);
+            this.btnExit.MouseLeave += new System.EventHandler(this.btnExit_MouseLeave);
             // 
             // FrmAdminMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.主窗体背景;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1354, 674);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(784, 561);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnDatamanage);
             this.Controls.Add(this.btnLeasemanage);
             this.Controls.Add(this.btnBookmanage);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FrmAdminMain";
             this.Text = "管理员";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Adm_FormClosed);
             this.Load += new System.EventHandler(this.FrmAdminMain_Load);
             this.ResumeLayout(false);
