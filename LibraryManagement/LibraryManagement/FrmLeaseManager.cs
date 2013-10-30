@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -64,6 +66,234 @@ namespace LibraryManagement
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        User user;
+        UserInfo userInfo;
+        UserGroupInfo userGroupInfo;
+        private List<Order> orders;
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            txtUsername.Text = txtUsername.Text.Trim();
+            user = null;
+            userInfo = null;
+            groupUserInfo = null;
+            chkIsReadOnly.Checked = true;
+            orders = null;
+
+            try
+            {
+                DBHelper.conn.Open();
+                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
+                if (user == null)
+                {
+                    MessageBox.Show("用户不存在");
+                    txtUsername.Select();
+                    txtUsername.Focus();
+                    return;
+                }
+                else
+                {
+                    orders = Order.GetOrdersByUID(user.Uid, DBHelper.conn);
+                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
+                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            LoadUserInfo();
+
+            dgvOrders.DataSource = orders;
+            //SetReadOnly();
+
+        }
+
+        private void LoadUserInfo()
+        {
+            if (userInfo != null)
+            {
+                txtName.Text = userInfo.Name;
+                txtEmail.Text = userInfo.Email;
+                txtPhone.Text = userInfo.Phone;
+                txtAddress.Text = userInfo.Address;
+                txtRegDate.Text = userInfo.RegTime.ToString();
+
+                numAge.Value = userInfo.Age ?? 0;
+
+                if (userInfo.Gender != null)
+                {
+                    if (userInfo.Gender == GenderType.男)
+                    {
+                        rdoBoy.Checked = true;
+                    }
+                    else
+                    {
+                        rdoGirl.Checked = true;
+                    }
+                }
+            }
+            else
+            {
+                txtName.Clear();
+                txtEmail.Clear();
+                txtPhone.Clear();
+                txtAddress.Clear();
+                txtRegDate.Clear();
+
+                numAge.Value = 0;
+
+                rdoBoy.Checked = false;
+                rdoGirl.Checked = false;
+            }
+        }
+
+        private void SetReadOnly()
+        {
+            foreach (Control item in this.groupUserInfo.Controls)
+            {
+                if (item is TextBox)
+                {
+                    ((TextBox)item).ReadOnly = chkIsReadOnly.Checked;
+                }
+                else if (item is NumericUpDown)
+                {
+                    ((NumericUpDown)item).ReadOnly = chkIsReadOnly.Checked;
+                }
+                else if (item is RadioButton)
+                {
+                    ((RadioButton)item).Enabled = !chkIsReadOnly.Checked;
+                }
+            }
+
+            txtRegDate.ReadOnly = true;
+            btnOK.Enabled = !chkIsReadOnly.Checked;
+        }
+
+        private void chkIsReadOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            SetReadOnly();
+            if (chkIsReadOnly.Checked)
+            {
+                LoadUserInfo();
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (userInfo == null)
+            {
+                MessageBox.Show("没有用户信息，现在新建用户信息");
+                userInfo = new UserInfo(user.Uid, null, null, null, null, null, null);
+            }
+            foreach (Control item in this.groupUserInfo.Controls)
+            {
+                if (item is TextBox)
+                {
+                    TextBox txt = item as TextBox;
+                    txt.Text = txt.Text.Trim();
+                }
+            }
+
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("必须输入姓名");
+                return;
+            }
+
+
+            int result = 0;
+            try
+            {
+                userInfo.Name = txtName.Text;
+                userInfo.Age = (int)numAge.Value;
+                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? null : (GenderType?)(rdoBoy.Checked ? GenderType.男 : GenderType.女);
+                userInfo.Phone = txtPhone.Text;
+                userInfo.Email = txtEmail.Text;
+
+                DBHelper.conn.Open();
+                if (userInfo.UID == 0)
+                {
+                    result = ((IDBOperate)userInfo).Insert(DBHelper.conn);
+                }
+                else
+                {
+                    result = ((IDBOperate)userInfo).Update(DBHelper.conn);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            if (result > 0)
+            {
+                LoadUserInfo();
+                chkIsReadOnly.Checked = true;
+            }
+            else
+            {
+                MessageBox.Show("保存失败");
+            }
+        }
+
+        private List<BookInfo> books = new List<BookInfo>();
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            txtInfoID.Text = txtInfoID.Text.Trim();
+            if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
+            {
+                MessageBox.Show("不能再借了");
+                return;
+            }
+            BookInfo bookInfo = null;
+            try
+            {
+                DBHelper.conn.Open();
+                bookInfo = BookInfo.GetBookInfoByID(Convert.ToInt64(txtInfoID.Text), DBHelper.conn);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            if (bookInfo != null)
+            {
+                books.Add(bookInfo);
+            }
+            else
+            {
+                MessageBox.Show("书籍不存在");
+            }
+
+        }
+
+        private void FrmLeaseManager_Load(object sender, EventArgs e)
+        {
+            dgvBooks.DataSource = books;
+        }
+
+        private void btnOK2_Click(object sender, EventArgs e)
+        {
+            foreach (BookInfo info in books)
+            {
+                
+            }
         }
     }
 }

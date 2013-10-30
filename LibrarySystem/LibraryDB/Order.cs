@@ -47,6 +47,36 @@ namespace LibraryDB
             return o;
         }
 
+        /// <summary>
+        /// 获取指定用户的所有订单
+        /// </summary>
+        /// <param name="uid">用户UID</param>
+        /// <param name="conn">连接</param>
+        /// <returns>订单列表</returns>
+        public static List<Order> GetOrdersByUID(long uid, SqlConnection conn)
+        {
+            string sql = string.Format("SELECT * FROM Orders WHERE [UID]={0}", uid);
+            List<Order> orders = new List<Order>();
+
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                Order o = new Order();
+                o.OrderID = Convert.ToInt64(dr["OrderID"]);
+                o.UID = Convert.ToInt64(dr["UID"]);
+                o.BookID = Convert.ToInt64(dr["BookID"]);
+                o.LeaseDate = Convert.ToDateTime(dr["LeaseDate"]);
+
+                orders.Add(o);
+            }
+
+            dr.Close();
+
+            return orders;
+        }
+
         #region IDBOperate 成员
 
         int IDBOperate.Insert(SqlConnection conn)
