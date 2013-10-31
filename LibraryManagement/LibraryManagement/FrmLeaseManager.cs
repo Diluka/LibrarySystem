@@ -126,7 +126,7 @@ namespace LibraryManagement
 
                 numAge.Value = userInfo.Age ?? 0;
 
-                if (userInfo.Gender != null)
+                if (userInfo.Gender != GenderType.未指定)
                 {
                     if (userInfo.Gender == GenderType.男)
                     {
@@ -247,21 +247,28 @@ namespace LibraryManagement
             }
         }
 
-        private List<BookInfo> books = new List<BookInfo>();
+        private List<Book> books = new List<Book>();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            txtInfoID.Text = txtInfoID.Text.Trim();
+            txtBookID.Text = txtBookID.Text.Trim();
             if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
             {
                 MessageBox.Show("不能再借了");
                 return;
             }
-            BookInfo bookInfo = null;
+            Book book = null;
             try
             {
                 DBHelper.conn.Open();
-                bookInfo = BookInfo.GetBookInfoByID(Convert.ToInt64(txtInfoID.Text), DBHelper.conn);
+                book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
+                if (book != null)
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
+                    {
+                        da.Fill(ds, "books");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -272,9 +279,9 @@ namespace LibraryManagement
                 DBHelper.conn.Close();
             }
 
-            if (bookInfo != null)
+            if (book != null)
             {
-                books.Add(bookInfo);
+                books.Add(book);
             }
             else
             {
@@ -283,22 +290,22 @@ namespace LibraryManagement
 
         }
 
+        DataSet ds = new DataSet();
         private void FrmLeaseManager_Load(object sender, EventArgs e)
         {
             SetReadOnly();
-            dgvBooks.DataSource = books;
+            ds.Tables.Add(new DataTable("books"));
+            dgvBooks.DataSource = ds.Tables["books"];
         }
 
         private void btnOK2_Click(object sender, EventArgs e)
         {
             try
             {
-                foreach (BookInfo info in books)
+                DBHelper.conn.Open();
+                foreach (Book info in books)
                 {
                     //todo
-
-                    DBHelper.conn.Open();
-
                 }
             }
             catch (Exception ex)
@@ -312,29 +319,5 @@ namespace LibraryManagement
 
         }
 
-        private void btnOK_Click_1(object sender, EventArgs e)
-        {
-            txtUsername.Text = txtUsername.Text.Trim();
-            try
-            {
-                DBHelper.conn.Open();
-                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
-                if (user != null)
-                {
-                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
-                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
-                }
-                LoadUserInfo();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
-        }
     }
 }

@@ -59,6 +59,9 @@ namespace LibraryDB
                 b.InfoID = Convert.ToInt64(dr["InfoID"]);
                 b.IsLeased = Convert.ToBoolean(dr["IsLeased"]);
             }
+
+            dr.Close();
+
             return b;
         }
 

@@ -69,7 +69,7 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtInfoID = new LabeledTextBox.LabelTextBox();
+            this.txtBookID = new LabeledTextBox.LabelTextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.groupOrders = new System.Windows.Forms.GroupBox();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
@@ -434,7 +434,7 @@
             this.btnOK.TabIndex = 25;
             this.btnOK.Text = "确认";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtUsername
             // 
@@ -453,13 +453,13 @@
             this.label1.TabIndex = 23;
             this.label1.Text = "会员卡号：";
             // 
-            // txtInfoID
+            // txtBookID
             // 
-            this.txtInfoID.LabelText = "输入书籍编号";
-            this.txtInfoID.Location = new System.Drawing.Point(598, 104);
-            this.txtInfoID.Name = "txtInfoID";
-            this.txtInfoID.Size = new System.Drawing.Size(236, 21);
-            this.txtInfoID.TabIndex = 27;
+            this.txtBookID.LabelText = "输入书本编号";
+            this.txtBookID.Location = new System.Drawing.Point(598, 104);
+            this.txtBookID.Name = "txtBookID";
+            this.txtBookID.Size = new System.Drawing.Size(236, 21);
+            this.txtBookID.TabIndex = 27;
             // 
             // btnAdd
             // 
@@ -502,7 +502,7 @@
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.groupOrders);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.txtInfoID);
+            this.Controls.Add(this.txtBookID);
             this.Controls.Add(this.btnOK2);
             this.Controls.Add(this.chkIsReadOnly);
             this.Controls.Add(this.btnOK);
@@ -571,7 +571,7 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label1;
-        private LabeledTextBox.LabelTextBox txtInfoID;
+        private LabeledTextBox.LabelTextBox txtBookID;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.GroupBox groupOrders;
         private System.Windows.Forms.DataGridView dgvOrders;
