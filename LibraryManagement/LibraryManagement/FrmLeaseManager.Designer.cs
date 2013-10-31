@@ -46,7 +46,6 @@
             this.续期ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupUserInfo = new System.Windows.Forms.GroupBox();
-            this.btnOK2 = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.numAge = new System.Windows.Forms.NumericUpDown();
             this.txtPhone = new System.Windows.Forms.TextBox();
@@ -63,6 +62,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnOK2 = new System.Windows.Forms.Button();
             this.groupBookList = new System.Windows.Forms.GroupBox();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.chkIsReadOnly = new System.Windows.Forms.CheckBox();
@@ -233,16 +233,6 @@
             this.groupUserInfo.TabStop = false;
             this.groupUserInfo.Text = "用户信息";
             // 
-            // btnOK2
-            // 
-            this.btnOK2.Location = new System.Drawing.Point(900, 103);
-            this.btnOK2.Name = "btnOK2";
-            this.btnOK2.Size = new System.Drawing.Size(54, 23);
-            this.btnOK2.TabIndex = 21;
-            this.btnOK2.Text = "借  出";
-            this.btnOK2.UseVisualStyleBackColor = true;
-            this.btnOK2.Click += new System.EventHandler(this.btnOK2_Click);
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(165, 316);
@@ -387,6 +377,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "姓名：";
             // 
+            // btnOK2
+            // 
+            this.btnOK2.Location = new System.Drawing.Point(900, 103);
+            this.btnOK2.Name = "btnOK2";
+            this.btnOK2.Size = new System.Drawing.Size(54, 23);
+            this.btnOK2.TabIndex = 21;
+            this.btnOK2.Text = "借  出";
+            this.btnOK2.UseVisualStyleBackColor = true;
+            this.btnOK2.Click += new System.EventHandler(this.btnOK2_Click);
+            // 
             // groupBookList
             // 
             this.groupBookList.Controls.Add(this.dgvBooks);
@@ -434,6 +434,7 @@
             this.btnOK.TabIndex = 25;
             this.btnOK.Text = "确认";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
             // 
             // txtUsername
             // 
