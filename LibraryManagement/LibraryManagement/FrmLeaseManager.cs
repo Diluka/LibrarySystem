@@ -172,7 +172,7 @@ namespace LibraryManagement
             }
 
             txtRegDate.ReadOnly = true;
-            btnOK.Enabled = !chkIsReadOnly.Checked;
+            btnSave.Enabled = !chkIsReadOnly.Checked;
         }
 
         private void chkIsReadOnly_CheckedChanged(object sender, EventArgs e)
@@ -212,16 +212,16 @@ namespace LibraryManagement
             {
                 userInfo.Name = txtName.Text;
                 userInfo.Age = (int)numAge.Value;
-                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? null : (GenderType?)(rdoBoy.Checked ? GenderType.男 : GenderType.女);
-                userInfo.Phone = txtPhone.Text;
-                userInfo.Email = txtEmail.Text;
+                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? (GenderType?)(rdoBoy.Checked ? GenderType.男 : GenderType.女) : null;
+                userInfo.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
+                userInfo.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
 
                 DBHelper.conn.Open();
-                if (userInfo.UID == 0)
+                try
                 {
                     result = ((IDBOperate)userInfo).Insert(DBHelper.conn);
                 }
-                else
+                catch
                 {
                     result = ((IDBOperate)userInfo).Update(DBHelper.conn);
                 }
@@ -285,6 +285,7 @@ namespace LibraryManagement
 
         private void FrmLeaseManager_Load(object sender, EventArgs e)
         {
+            SetReadOnly();
             dgvBooks.DataSource = books;
         }
 
@@ -294,10 +295,10 @@ namespace LibraryManagement
             {
                 foreach (BookInfo info in books)
                 {
-                   //todo
+                    //todo
 
                     DBHelper.conn.Open();
-                    
+
                 }
             }
             catch (Exception ex)
@@ -313,6 +314,26 @@ namespace LibraryManagement
 
         private void btnOK_Click_1(object sender, EventArgs e)
         {
+            txtUsername.Text = txtUsername.Text.Trim();
+            try
+            {
+                DBHelper.conn.Open();
+                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
+                if (user != null)
+                {
+                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
+                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
+                }
+                LoadUserInfo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
 
         }
     }

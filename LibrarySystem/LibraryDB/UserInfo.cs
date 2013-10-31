@@ -53,7 +53,7 @@ namespace LibraryDB
                 u.Phone = dr["Phone"].Equals(DBNull.Value) ? null : dr["Phone"].ToString();
                 u.Email = dr["Email"].Equals(DBNull.Value) ? null : dr["Email"].ToString();
                 u.Address = dr["Address"].Equals(DBNull.Value) ? null : dr["Address"].ToString();
-                u.RegTime = Convert.ToDateTime(dr["RegDate"]);
+                u.RegTime = Convert.ToDateTime(dr["RegTime"]);
             }
 
             dr.Close();
@@ -117,7 +117,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("UPDATE UserInfo SET Name=@name,Age=@age,Gender=@gen,Phone=@phone,Email=@email,Address=@addr,RegDate=@rt WHERE [UID]={0}", UID, Name, Age ?? (object)"null", Gender == null ? (object)"null" : Gender == GenderType.男 ? 1 : 0, Phone == null ? "null" : "'" + Phone + "'", Email == null ? "null" : "'" + Email + "'", Address == null ? "null" : "'" + Address + "'", RegTime.ToString("yyyy-MM-dd hh:mm:ss"));
+            string sql = string.Format("UPDATE UserInfo SET Name=@name,Age=@age,Gender=@gen,Phone=@phone,Email=@email,Address=@addr,RegTime=@rt WHERE [UID]={0}", UID, Name, Age ?? (object)"null", Gender == null ? (object)"null" : Gender == GenderType.男 ? 1 : 0, Phone == null ? "null" : "'" + Phone + "'", Email == null ? "null" : "'" + Email + "'", Address == null ? "null" : "'" + Address + "'", RegTime.ToString("yyyy-MM-dd hh:mm:ss"));
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             SqlParameter paramName = new SqlParameter("@name", SqlDbType.NVarChar);
