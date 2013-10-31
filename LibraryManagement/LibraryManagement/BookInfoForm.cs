@@ -83,11 +83,11 @@ namespace LibraryManagement
             numRemain.Enabled = true;
             numRemain.ReadOnly = false;
         }
-
+        Stream img;
         private void btnChooseCover_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            Stream img = openFileDialog1.OpenFile();
+            img = openFileDialog1.OpenFile();
             if (img != null)
             {
                 picCover.Image = Image.FromStream(img);
@@ -301,8 +301,8 @@ namespace LibraryManagement
                 frmCatMgr.Show(this);
             }
         }
-        
-       
+
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             txtTitle.Text = txtTitle.Text.Trim();
@@ -312,7 +312,7 @@ namespace LibraryManagement
 
             if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtAlpha.Text))
             {
-                MessageBox.Show("有未填写的必填项", "青鸟温馨提示提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("有未填写的必填项", "青鸟温馨提示提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -326,7 +326,7 @@ namespace LibraryManagement
                        category == null ? null : (int?)category.CatID,
                        txtTitle.Text,
                        txtAlpha.Text[0],
-                       txtISBN.Text,
+                       string.IsNullOrEmpty(txtISBN.Text) ? null : txtISBN.Text,
                        author == null ? null : (int?)author.AuthorID,
                        press == null ? null : (int?)press.PressID,
                        datePressDate.Value,
@@ -364,8 +364,8 @@ namespace LibraryManagement
                         bookInfo.PressID = press.PressID;
                     }
                     bookInfo.PressDate = datePressDate.Value;
-                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
-                    bookInfo.ISBN = txtISBN.Text;
+                    bookInfo.Price = string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text);
+                    bookInfo.ISBN = string.IsNullOrEmpty(txtISBN.Text) ? null : txtISBN.Text;
                     bookInfo.Total = (int)numTotal.Value;
                     bookInfo.Remain = (int)numRemain.Value;
 
@@ -394,29 +394,52 @@ namespace LibraryManagement
                         }
                     }
 
-                    if (cover != null)
+                    if (img != null)
                     {
-                        if (picCover.Image != null)
+                        cover = cover ?? new Cover(bookInfo.InfoID, img);
+                        try
                         {
-                            if (openFileDialog1.OpenFile() != null)
-                            {
-                                cover.ImageStream = openFileDialog1.OpenFile();
-                                result += ((IDBOperate)cover).Update(DBHelper.conn);
-                            }
+                            result += ((IDBOperate)cover).Insert(DBHelper.conn);
                         }
-                        else
+                        catch (Exception)
                         {
-                            result += ((IDBOperate)cover).Delete(DBHelper.conn);
+                            result += ((IDBOperate)cover).Update(DBHelper.conn);
                         }
                     }
                     else
                     {
-                        if (picCover.Image != null)
+                        if (picCover.Image == null && cover != null)
                         {
-                            cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
-                            result += ((IDBOperate)cover).Insert(DBHelper.conn);
+                            result += ((IDBOperate)cover).Delete(DBHelper.conn);
+                            cover = null;
                         }
                     }
+                    //if (cover != null)
+                    //{
+                    //    if (picCover.Image != null)
+                    //    {
+                    //        if (img != null)
+                    //        {
+                    //            cover.ImageStream = img;
+                    //            result += ((IDBOperate)cover).Update(DBHelper.conn);
+                    //        }
+                    //    }
+                    //    else
+                    //    {
+                    //        result += ((IDBOperate)cover).Delete(DBHelper.conn);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    if (picCover.Image != null)
+                    //    {
+                    //        if (img != null)
+                    //        {
+                    //            cover = new Cover(bookInfo.InfoID, img);
+                    //            result += ((IDBOperate)cover).Insert(DBHelper.conn);
+                    //        }
+                    //    }
+                    //}
                 }
             }
             catch (Exception ex)
@@ -436,9 +459,9 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("没有保存或者保存失败", "青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                MessageBox.Show("没有保存或者保存失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-            
+
         }
 
 
