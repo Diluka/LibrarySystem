@@ -290,10 +290,25 @@ namespace LibraryManagement
 
         private void btnOK2_Click(object sender, EventArgs e)
         {
-            foreach (BookInfo info in books)
+            try
             {
-                
+                foreach (BookInfo info in books)
+                {
+                   //todo
+
+                    DBHelper.conn.Open();
+                    
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
         }
     }
 }

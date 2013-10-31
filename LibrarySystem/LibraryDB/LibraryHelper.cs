@@ -190,11 +190,33 @@ namespace LibraryDB
             }
         }
 
+        /// <summary>
+        /// 借书
+        /// </summary>
+        /// <param name="iid">书籍ID</param>
+        /// <param name="uid">用户UID</param>
+        /// <param name="conn">连接</param>
+        /// <returns>结果</returns>
+        public static int LeaseBook(long iid, long uid, SqlConnection conn)
+        {
+            string sql = "exec proc_lease_bookinfo @iid,@uid,@ld";
 
-        //public static int LeaseBook(long iid,long uid, SqlConnection conn)
-        //{
-        //    string sql = string.Format("");
-        //}
+            SqlCommand cmd = new SqlCommand(sql, conn);
+
+            SqlParameter paramInfoID = new SqlParameter("@iid", SqlDbType.BigInt);
+            SqlParameter paramUID = new SqlParameter("@uid", SqlDbType.BigInt);
+            SqlParameter paramLeaseDate = new SqlParameter("@ld", SqlDbType.DateTime);
+
+            paramInfoID.Value = iid;
+            paramUID.Value = uid;
+            paramLeaseDate.Value = DateTime.Now;
+
+            cmd.Parameters.Add(paramInfoID);
+            cmd.Parameters.Add(paramUID);
+            cmd.Parameters.Add(paramLeaseDate);
+
+            return cmd.ExecuteNonQuery();
+        }
 
     }
 }
