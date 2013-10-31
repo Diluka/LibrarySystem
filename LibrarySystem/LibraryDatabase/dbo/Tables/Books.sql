@@ -8,18 +8,3 @@
 
 
 GO
-create trigger tgr_update_total_and_remain
-on books
-for insert,update,delete
-as
-	if (select count(*) from deleted) is not null
-	begin
-		update BookInfo set Total-=1,Remain-=1
-		where InfoID=(select InfoID from deleted)
-	end
-
-	if (select count(*) from inserted) is not null
-	begin
-		update BookInfo set Total+=1,Remain+=1
-		where InfoID=(select InfoID from inserted)
-	end
