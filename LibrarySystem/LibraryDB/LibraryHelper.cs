@@ -196,8 +196,8 @@ namespace LibraryDB
         /// <param name="iid">书籍ID</param>
         /// <param name="uid">用户UID</param>
         /// <param name="conn">连接</param>
-        /// <returns>结果</returns>
-        public static int LeaseBook(long iid, long uid, SqlConnection conn)
+        /// <returns>订单信息</returns>
+        public static Order LeaseBook(long iid, long uid, SqlConnection conn)
         {
             string sql = "exec proc_lease_bookinfo @iid,@uid,@ld";
 
@@ -215,7 +215,16 @@ namespace LibraryDB
             cmd.Parameters.Add(paramUID);
             cmd.Parameters.Add(paramLeaseDate);
 
-            return cmd.ExecuteNonQuery();
+            object obj = cmd.ExecuteScalar();
+            Order o = null;
+
+            if (!Convert.IsDBNull(obj))
+            {
+                o = Order.GetOrderByID((long)obj, conn);
+            }
+
+
+            return o;
         }
 
     }
