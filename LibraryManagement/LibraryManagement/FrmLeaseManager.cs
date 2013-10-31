@@ -189,7 +189,7 @@ namespace LibraryManagement
             if (userInfo == null)
             {
                 MessageBox.Show("没有用户信息，现在新建用户信息");
-                userInfo = new UserInfo(user.Uid, null, null, null, null, null, null);
+                userInfo = new UserInfo(user.Uid, null, null, GenderType.未指定, null, null, null);
             }
             foreach (Control item in this.groupUserInfo.Controls)
             {
@@ -212,7 +212,7 @@ namespace LibraryManagement
             {
                 userInfo.Name = txtName.Text;
                 userInfo.Age = (int)numAge.Value;
-                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? (GenderType?)(rdoBoy.Checked ? GenderType.男 : GenderType.女) : null;
+                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? (rdoBoy.Checked ? GenderType.男 : GenderType.女) : GenderType.未指定;
                 userInfo.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
                 userInfo.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
 

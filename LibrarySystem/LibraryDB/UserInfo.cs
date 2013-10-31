@@ -9,14 +9,14 @@ namespace LibraryDB
 {
     public enum GenderType
     {
-        女 = 0, 男 = 1
+        未指定 = -1, 女 = 0, 男 = 1
     }
     public class UserInfo : IDBOperate
     {
         public long UID { get; set; }
         public string Name { get; set; }
         public int? Age { get; set; }
-        public GenderType? Gender { get; set; }
+        public GenderType Gender { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -24,7 +24,7 @@ namespace LibraryDB
 
         private UserInfo() { }
 
-        public UserInfo(long uid, string name, int? age, GenderType? gen, string phone, string email, string addr)
+        public UserInfo(long uid, string name, int? age, GenderType gen, string phone, string email, string addr)
         {
             UID = uid;
             Age = age;
@@ -49,7 +49,7 @@ namespace LibraryDB
                 u.UID = Convert.ToInt64(dr["UID"]);
                 u.Name = dr["Name"].ToString();
                 u.Age = dr["Age"].Equals(DBNull.Value) ? (int?)null : Convert.ToInt32(dr["Age"]);
-                u.Gender = dr["Gender"].Equals(DBNull.Value) ? (GenderType?)null : Convert.ToInt32(dr["Gender"]) == 1 ? GenderType.男 : GenderType.女;
+                u.Gender = dr["Gender"].Equals(DBNull.Value) ? GenderType.未指定 : Convert.ToInt32(dr["Gender"]) == 1 ? GenderType.男 : GenderType.女;
                 u.Phone = dr["Phone"].Equals(DBNull.Value) ? null : dr["Phone"].ToString();
                 u.Email = dr["Email"].Equals(DBNull.Value) ? null : dr["Email"].ToString();
                 u.Address = dr["Address"].Equals(DBNull.Value) ? null : dr["Address"].ToString();
@@ -82,7 +82,7 @@ namespace LibraryDB
             paramUID.Value = UID;
             paramName.Value = Name;
             paramAge.Value = Age ?? (object)DBNull.Value;
-            paramGender.Value = Gender ?? (object)DBNull.Value;
+            paramGender.Value = Gender == GenderType.男 ? 1 : Gender == GenderType.女 ? 0 : (object)DBNull.Value;
             paramPhone.Value = Phone ?? (object)DBNull.Value;
             paramEmail.Value = Email ?? (object)DBNull.Value;
             paramAddr.Value = Address ?? (object)DBNull.Value;
@@ -130,7 +130,7 @@ namespace LibraryDB
 
             paramName.Value = Name;
             paramAge.Value = Age ?? (object)DBNull.Value;
-            paramGender.Value = Gender ?? (object)DBNull.Value;
+            paramGender.Value = Gender == GenderType.男 ? 1 : Gender == GenderType.女 ? 0 : (object)DBNull.Value;
             paramPhone.Value = Phone ?? (object)DBNull.Value;
             paramEmail.Value = Email ?? (object)DBNull.Value;
             paramAddr.Value = Address ?? (object)DBNull.Value;
