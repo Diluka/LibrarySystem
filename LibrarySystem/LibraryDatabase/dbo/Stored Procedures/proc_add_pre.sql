@@ -4,4 +4,4 @@ as
 	values(@uid,@iid,default)
 
 	set @pid=SCOPE_IDENTITY()
-	return @pid;
+	select @pid;

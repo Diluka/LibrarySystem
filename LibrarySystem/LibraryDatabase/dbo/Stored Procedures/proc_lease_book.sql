@@ -2,7 +2,7 @@
 as
 begin
 	if (select IsLeased from Books where @bid=BookID)=0
-	AND (select count(*) from Orders where @uid=[UID])<(select MaxOrders from UserGroupInfo where UGID=(select UserGroupID from users where @uid=[uid]))
+	AND (select count(*) from Orders where @uid=[UID])<(select MaxOrders from UserGroupInfo where UGID=(select UserGroupID from Users where @uid=[UID]))
 	begin
 		insert into Orders
 		values(@uid,@bid,@ld)
