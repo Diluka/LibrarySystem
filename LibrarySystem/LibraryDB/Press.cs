@@ -95,7 +95,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("DELETE Presses WHERE PressID={0}", PressID);
+            string sql = string.Format("exec proc_del_press {0}", PressID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 
