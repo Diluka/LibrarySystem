@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("LibraryDB")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("图书馆数据库操作工具")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Chiron")]
 [assembly: AssemblyProduct("LibraryDB")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
