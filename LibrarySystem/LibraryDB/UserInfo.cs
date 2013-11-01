@@ -118,7 +118,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("UPDATE UserInfo SET Name=@name,Age=@age,Gender=@gen,Phone=@phone,Email=@email,Address=@addr,RegTime=@rt WHERE [UID]={0}", UID, Name, Age ?? (object)"null", Gender == null ? (object)"null" : Gender == GenderType.男 ? 1 : 0, Phone == null ? "null" : "'" + Phone + "'", Email == null ? "null" : "'" + Email + "'", Address == null ? "null" : "'" + Address + "'", RegTime.ToString("yyyy-MM-dd hh:mm:ss"));
+            string sql = string.Format("UPDATE UserInfo SET Name=@name,Age=@age,Gender=@gen,Phone=@phone,Email=@email,Address=@addr,RegTime=@rt WHERE [UID]={0}", UID);
             SqlCommand cmd = new SqlCommand(sql, conn);
 
             SqlParameter paramName = new SqlParameter("@name", SqlDbType.NVarChar);
