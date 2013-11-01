@@ -91,7 +91,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("DELETE Categories WHERE CatID={0}", CatID);
+            string sql = string.Format("exec proc_del_category {0}", CatID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 

@@ -116,7 +116,7 @@ namespace LibraryDB
         {
             int result = 0;
 
-            string sql = string.Format("DELETE Authors WHERE AuthorID={0}", AuthorID);
+            string sql = string.Format("exec proc_del_author {0}", AuthorID);
             SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 
