@@ -229,5 +229,6 @@
       <QuotedIdentifier>On</QuotedIdentifier>
     </Build>
     <Build Include="dbo\Views\BookView.sql" />
+    <Build Include="dbo\Views\OrderView.sql" />
   </ItemGroup>
 </Project>
