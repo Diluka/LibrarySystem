@@ -21,14 +21,15 @@ namespace LibraryManagement
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void btnReturnBook_Click(object sender, EventArgs e)
         {
+            txtBookID.Text = txtBookID.Text.Trim();
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            if (string.IsNullOrEmpty(txtBookID.Text))
+            {
+                MessageBox.Show("请输入书本编号");
+                return;
+            }
         }
     }
 }
