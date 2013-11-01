@@ -2,66 +2,25 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using LibraryDB;
-
 namespace LibraryManagement
 {
-    public partial class FrmLeaseManager : Form
+    public partial class frmRent : Form
     {
-        public FrmLeaseManager()
+        public frmRent()
         {
             InitializeComponent();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            FrmBookLease p = new FrmBookLease();p.ShowDialog();
-        }
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            FrmBookDefer m = new FrmBookDefer();
-            m.ShowDialog();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            BookReturnForm a = new BookReturnForm();
-            a.ShowDialog();
-        }
-
-        private void toolStripButton7_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void 租借ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmBookLease p = new FrmBookLease();
-            p.ShowDialog();
-        }
-
-        private void 续期ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form f = new FrmBookDefer();
-            f.ShowDialog();
-        }
-
-        private void 归还ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Form f = new BookReturnForm();
-            f.ShowDialog();
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void frmRent_Load(object sender, EventArgs e)
         {
 
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -72,46 +31,7 @@ namespace LibraryManagement
         private List<Order> orders;
         private void btnOK_Click(object sender, EventArgs e)
         {
-            txtUsername.Text = txtUsername.Text.Trim();
-            user = null;
-            userInfo = null;
-            groupUserInfo = null;
-            chkIsReadOnly.Checked = true;
-            orders = null;
-
-            try
-            {
-                DBHelper.conn.Open();
-                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
-                if (user == null)
-                {
-                    MessageBox.Show("用户不存在", "青鸟温馨提示", MessageBoxButtons.OK);
-                    txtUsername.Select();
-                    txtUsername.Focus();
-                    return;
-                }
-                else
-                {
-                    orders = Order.GetOrdersByUID(user.Uid, DBHelper.conn);
-                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
-                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
-            ShowUserInfo();
-            ShowOrders();
-
-            //dgvOrders.DataSource = orders;
-            //SetReadOnly();
-
+           
         }
 
         private void ShowUserInfo()
@@ -202,7 +122,7 @@ namespace LibraryManagement
 
             if (txtName.Text == "")
             {
-                MessageBox.Show("必须输入姓名","青鸟温馨提示",MessageBoxButtons.OK);
+                MessageBox.Show("必须输入姓名", "青鸟温馨提示", MessageBoxButtons.OK);
                 return;
             }
 
@@ -348,5 +268,9 @@ namespace LibraryManagement
 
         }
 
+        private void btnOK_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
