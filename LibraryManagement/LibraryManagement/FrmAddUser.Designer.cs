@@ -75,7 +75,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "会员信息";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // radioButton2
             // 
@@ -135,7 +134,7 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "联系方式";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+
             // 
             // dateTimePicker1
             // 
@@ -204,7 +203,7 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "注  册";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // button2
             // 
@@ -214,7 +213,7 @@
             this.button2.TabIndex = 16;
             this.button2.Text = "清  空";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+
             // 
             // label9
             // 
@@ -317,7 +316,7 @@
             this.Name = "FrmAddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加用户";
-            this.Load += new System.EventHandler(this.FrmAddUser_Load);
+
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -88,11 +88,11 @@
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmPastDue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmPastDue.Designer.cs">
+      <DependentUpon>FrmPastDue.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAddUser.cs">
       <SubType>Form</SubType>
@@ -184,8 +184,8 @@
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FrmPastDue.resx">
+      <DependentUpon>FrmPastDue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
@@ -330,6 +330,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\未标题-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20131101023456214_easyicon_net_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户管理.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
