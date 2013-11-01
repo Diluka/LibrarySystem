@@ -53,8 +53,8 @@ namespace LibraryManagement
 
         private void 归还ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Form f = new BookReturnForm();
-            f.ShowDialog();
+            //Form f = new BookReturnForm();
+            //f.ShowDialog();
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -66,9 +66,13 @@ namespace LibraryManagement
         {
 
         }
-        User user;
-        UserInfo userInfo;
-        UserGroupInfo userGroupInfo;
+        
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            frmPastDue fpd = new frmPastDue();
+            fpd.ShowDialog();
+        }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)
         //{
@@ -79,7 +83,7 @@ namespace LibraryManagement
         //    chkIsReadOnly.Checked = true;
         //    orders = null;
 
-        //    try
+        //    tryC:\Users\Administrator\Source\Repos\LibrarySystem\LibraryManagement\LibraryManagement\DBHelper.cs
         //    {
         //        DBHelper.conn.Open();
         //        user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
