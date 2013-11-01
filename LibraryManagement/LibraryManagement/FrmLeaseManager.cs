@@ -20,7 +20,8 @@ namespace LibraryManagement
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            FrmBookLease p = new FrmBookLease();p.ShowDialog();
+            FrmBookLease p = new FrmBookLease();
+            p.ShowDialog();
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
