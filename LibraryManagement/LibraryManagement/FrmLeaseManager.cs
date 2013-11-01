@@ -85,7 +85,7 @@ namespace LibraryManagement
                 user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
                 if (user == null)
                 {
-                    MessageBox.Show("用户不存在");
+                    MessageBox.Show("用户不存在", "青鸟温馨提示", MessageBoxButtons.OK);
                     txtUsername.Select();
                     txtUsername.Focus();
                     return;
@@ -202,7 +202,7 @@ namespace LibraryManagement
 
             if (txtName.Text == "")
             {
-                MessageBox.Show("必须输入姓名");
+                MessageBox.Show("必须输入姓名","青鸟温馨提示",MessageBoxButtons.OK);
                 return;
             }
 
@@ -243,7 +243,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("保存失败");
+                MessageBox.Show("保存失败", "青鸟温馨提示", MessageBoxButtons.OK);
             }
         }
 
@@ -285,7 +285,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("书籍不存在");
+                MessageBox.Show("书籍不存在", "青鸟温馨提示", MessageBoxButtons.OK);
             }
 
         }
