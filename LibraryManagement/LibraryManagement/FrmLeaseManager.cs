@@ -107,14 +107,15 @@ namespace LibraryManagement
                 DBHelper.conn.Close();
             }
 
-            LoadUserInfo();
+            ShowUserInfo();
+            ShowOrders();
 
-            dgvOrders.DataSource = orders;
+            //dgvOrders.DataSource = orders;
             //SetReadOnly();
 
         }
 
-        private void LoadUserInfo()
+        private void ShowUserInfo()
         {
             if (userInfo != null)
             {
@@ -180,7 +181,7 @@ namespace LibraryManagement
             SetReadOnly();
             if (chkIsReadOnly.Checked)
             {
-                LoadUserInfo();
+                ShowUserInfo();
             }
         }
 
@@ -238,7 +239,7 @@ namespace LibraryManagement
 
             if (result > 0)
             {
-                LoadUserInfo();
+                ShowUserInfo();
                 chkIsReadOnly.Checked = true;
             }
             else
@@ -303,9 +304,18 @@ namespace LibraryManagement
             try
             {
                 DBHelper.conn.Open();
-                foreach (Book info in books)
+                foreach (Book b in books)
                 {
-                    //todo
+                    Order o = new Order(user.Uid, b.BookID);
+                    int result = ((IDBOperate)o).Insert(DBHelper.conn);
+                    if (result > 0)
+                    {
+                        orders.Add(o);
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("书本：{0}借出失败", b.BookID));
+                    }
                 }
             }
             catch (Exception ex)
@@ -315,6 +325,26 @@ namespace LibraryManagement
             finally
             {
                 DBHelper.conn.Close();
+            }
+
+            books.Clear();
+            ShowOrders();
+        }
+
+        private void ShowOrders()
+        {
+            if (user != null)
+            {
+                if (ds.Tables["orders"] != null)
+                {
+                    ds.Tables["orders"].Clear();
+                }
+                using (SqlDataAdapter da = new SqlDataAdapter("select * from orderview where 用户ID=" + user.Uid, DBHelper.conn))
+                {
+                    da.Fill(ds, "orders");
+                    dgvOrders.DataSource = ds.Tables["orders"];
+                    dgvOrders.Columns["用户ID"].Visible = false;
+                }
             }
 
         }
