@@ -50,7 +50,15 @@ namespace LibraryManagement
             }
             else
             {
-
+                int a = 0;
+                if (radioButton1.Checked == true)
+                {
+                    a = 1;
+                }
+                else
+                {
+                    a = 0;
+                }
 
                 string sql = string.Format("insert into UserInfo values ('{0}',{1},{2},'{3}','{4}','{5}','{6}')");
                 int result = 0;
