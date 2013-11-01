@@ -39,6 +39,7 @@ namespace LibraryDB
         {
             UserInfo u = null;
 
+
             string sql = string.Format("SELECT * FROM UserInfo WHERE [UID]={0}", id);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataReader dr = cmd.ExecuteReader();
