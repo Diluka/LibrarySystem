@@ -4,9 +4,9 @@ SELECT   dbo.BookInfo.InfoID AS 书籍编号, dbo.BookInfo.Title AS 书籍标题
                 dbo.Authors.AuthorName AS 作者, dbo.Presses.PressName AS 出版社, dbo.BookInfo.PressDate AS 出版日期, 
                 dbo.BookInfo.Price AS 单价, dbo.Categories.Category AS 分类, dbo.Categories.MaxDay AS 最大天数, 
                 dbo.BookInfo.Total AS 总数, dbo.BookInfo.Remain AS 剩余库存
-FROM      dbo.BookInfo INNER JOIN
-                dbo.Categories ON dbo.BookInfo.CatID = dbo.Categories.CatID INNER JOIN
-                dbo.Authors ON dbo.BookInfo.AuthorID = dbo.Authors.AuthorID INNER JOIN
+FROM      dbo.BookInfo LEFT JOIN
+                dbo.Categories ON dbo.BookInfo.CatID = dbo.Categories.CatID LEFT JOIN
+                dbo.Authors ON dbo.BookInfo.AuthorID = dbo.Authors.AuthorID LEFT JOIN
                 dbo.Presses ON dbo.BookInfo.PressID = dbo.Presses.PressID
 
 GO

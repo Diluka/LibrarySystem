@@ -52,7 +52,7 @@
             this.treeCategories = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlBeat = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnReflash = new System.Windows.Forms.Button();
             this.txtSearchString = new LabeledTextBox.LabelTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -274,7 +274,7 @@
             // 
             this.pnlBeat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlBeat.Controls.Add(this.button1);
+            this.pnlBeat.Controls.Add(this.btnReflash);
             this.pnlBeat.Controls.Add(this.txtSearchString);
             this.pnlBeat.Controls.Add(this.label1);
             this.pnlBeat.Controls.Add(this.btnSearch);
@@ -287,15 +287,15 @@
             this.pnlBeat.Size = new System.Drawing.Size(815, 42);
             this.pnlBeat.TabIndex = 1;
             // 
-            // button1
+            // btnReflash
             // 
-            this.button1.Location = new System.Drawing.Point(732, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 25);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "刷   新";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnReflash.Location = new System.Drawing.Point(732, 7);
+            this.btnReflash.Name = "btnReflash";
+            this.btnReflash.Size = new System.Drawing.Size(64, 25);
+            this.btnReflash.TabIndex = 8;
+            this.btnReflash.Text = "刷   新";
+            this.btnReflash.UseVisualStyleBackColor = true;
+            this.btnReflash.Click += new System.EventHandler(this.btnReflash_Click);
             // 
             // txtSearchString
             // 
@@ -496,7 +496,7 @@
         private System.Windows.Forms.Label label1;
         private LabeledTextBox.LabelTextBox txtSearchString;
         private System.Windows.Forms.ToolStripMenuItem 查看库存书本ToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnReflash;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
         private System.Windows.Forms.ToolStripButton toolStripButton8;

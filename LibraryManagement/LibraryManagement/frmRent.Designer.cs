@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRent));
             this.groupOrders = new System.Windows.Forms.GroupBox();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -95,6 +96,7 @@
             this.btnAdd.TabIndex = 38;
             this.btnAdd.Text = "添  加";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtBookID
             // 
@@ -112,6 +114,7 @@
             this.btnOK2.TabIndex = 32;
             this.btnOK2.Text = "借  出";
             this.btnOK2.UseVisualStyleBackColor = true;
+            this.btnOK2.Click += new System.EventHandler(this.btnOK2_Click);
             // 
             // chkIsReadOnly
             // 
@@ -133,7 +136,7 @@
             this.btnOK.TabIndex = 35;
             this.btnOK.Text = "确认";
             this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // txtUsername
             // 
@@ -210,6 +213,7 @@
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "保    存";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // numAge
             // 
@@ -360,6 +364,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBookList);
             this.Controls.Add(this.groupUserInfo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRent";
             this.Text = "书籍借出";
             this.Load += new System.EventHandler(this.frmRent_Load);
