@@ -160,6 +160,12 @@
     <Compile Include="BookReturnForm.Designer.cs">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRent.Designer.cs">
+      <DependentUpon>frmRent.cs</DependentUpon>
+    </Compile>
     <Compile Include="ISetCAP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookReturnForm.resx">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRent.resx">
+      <DependentUpon>frmRent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

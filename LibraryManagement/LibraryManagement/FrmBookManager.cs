@@ -283,7 +283,6 @@ namespace LibraryManagement
                 sql = "select * from bookmgrview where " + searchField + " is null";
             }
 
-            MessageBox.Show(sql);
             da.SelectCommand.CommandText = sql;
             ds.Tables["books"].Clear();
             da.Fill(ds, "books");
@@ -402,21 +401,27 @@ namespace LibraryManagement
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnReflash_Click(object sender, EventArgs e)
         {
-            BBBB();
+            Reflash();
         }
 
-        private void BBBB()
+        private void Reflash()
         {
             ds.Tables["books"].Clear();
             try
             {
                 da.Fill(ds, "books");
+                DBHelper.conn.Open();
+                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
             }
             dv = new DataView(ds.Tables["books"]);
             dgvBookInfo.DataSource = dv;

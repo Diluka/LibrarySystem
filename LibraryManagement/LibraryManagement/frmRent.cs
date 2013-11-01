@@ -16,24 +16,53 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-
-        private void frmRent_Load(object sender, EventArgs e)
-        {
-
-        }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
         User user;
         UserInfo userInfo;
         UserGroupInfo userGroupInfo;
         private List<Order> orders;
         private void btnOK_Click(object sender, EventArgs e)
         {
-           
-        }
+            txtUsername.Text = txtUsername.Text.Trim();
+            user = null;
+            userInfo = null;
+            groupUserInfo = null;
+            chkIsReadOnly.Checked = true;
+            orders = null;
 
+            try
+            {
+                DBHelper.conn.Open();
+                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
+                if (user == null)
+                {
+                    MessageBox.Show("用户不存在", "青鸟温馨提示", MessageBoxButtons.OK);
+                    txtUsername.Select();
+                    txtUsername.Focus();
+                    return;
+                }
+                else
+                {
+                    orders = Order.GetOrdersByUID(user.Uid, DBHelper.conn);
+                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
+                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            ShowUserInfo();
+            ShowOrders();
+
+            //dgvOrders.DataSource = orders;
+            //SetReadOnly();
+
+        }
         private void ShowUserInfo()
         {
             if (userInfo != null)
@@ -94,16 +123,103 @@ namespace LibraryManagement
             txtRegDate.ReadOnly = true;
             btnSave.Enabled = !chkIsReadOnly.Checked;
         }
-
-        private void chkIsReadOnly_CheckedChanged(object sender, EventArgs e)
+        private List<Book> books = new List<Book>();
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            SetReadOnly();
-            if (chkIsReadOnly.Checked)
+            txtBookID.Text = txtBookID.Text.Trim();
+            if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
             {
-                ShowUserInfo();
+                MessageBox.Show("不能再借了");
+                return;
+            }
+            Book book = null;
+            try
+            {
+                DBHelper.conn.Open();
+                book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
+                if (book != null)
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
+                    {
+                        da.Fill(ds, "books");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            if (book != null)
+            {
+                books.Add(book);
+            }
+            else
+            {
+                MessageBox.Show("书籍不存在", "青鸟温馨提示", MessageBoxButtons.OK);
             }
         }
+        DataSet ds = new DataSet();
 
+        private void frmRent_Load(object sender, EventArgs e)
+        {
+            SetReadOnly();
+            ds.Tables.Add(new DataTable("books"));
+            dgvBooks.DataSource = ds.Tables["books"];
+        }
+
+        private void btnOK2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DBHelper.conn.Open();
+                foreach (Book b in books)
+                {
+                    Order o = new Order(user.Uid, b.BookID);
+                    int result = ((IDBOperate)o).Insert(DBHelper.conn);
+                    if (result > 0)
+                    {
+                        orders.Add(o);
+                    }
+                    else
+                    {
+                        MessageBox.Show(string.Format("书本：{0}借出失败", b.BookID));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
+            books.Clear();
+            ShowOrders();
+        }
+        private void ShowOrders()
+        {
+            if (user != null)
+            {
+                if (ds.Tables["orders"] != null)
+                {
+                    ds.Tables["orders"].Clear();
+                }
+                using (SqlDataAdapter da = new SqlDataAdapter("select * from orderview where 用户ID=" + user.Uid, DBHelper.conn))
+                {
+                    da.Fill(ds, "orders");
+                    dgvOrders.DataSource = ds.Tables["orders"];
+                    dgvOrders.Columns["用户ID"].Visible = false;
+                }
+            }
+
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (userInfo == null)
@@ -167,110 +283,6 @@ namespace LibraryManagement
             }
         }
 
-        private List<Book> books = new List<Book>();
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            txtBookID.Text = txtBookID.Text.Trim();
-            if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
-            {
-                MessageBox.Show("不能再借了");
-                return;
-            }
-            Book book = null;
-            try
-            {
-                DBHelper.conn.Open();
-                book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
-                if (book != null)
-                {
-                    using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
-                    {
-                        da.Fill(ds, "books");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
-            if (book != null)
-            {
-                books.Add(book);
-            }
-            else
-            {
-                MessageBox.Show("书籍不存在", "青鸟温馨提示", MessageBoxButtons.OK);
-            }
-
-        }
-
-        DataSet ds = new DataSet();
-        private void FrmLeaseManager_Load(object sender, EventArgs e)
-        {
-            SetReadOnly();
-            ds.Tables.Add(new DataTable("books"));
-            dgvBooks.DataSource = ds.Tables["books"];
-        }
-
-        private void btnOK2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DBHelper.conn.Open();
-                foreach (Book b in books)
-                {
-                    Order o = new Order(user.Uid, b.BookID);
-                    int result = ((IDBOperate)o).Insert(DBHelper.conn);
-                    if (result > 0)
-                    {
-                        orders.Add(o);
-                    }
-                    else
-                    {
-                        MessageBox.Show(string.Format("书本：{0}借出失败", b.BookID));
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
-            books.Clear();
-            ShowOrders();
-        }
-
-        private void ShowOrders()
-        {
-            if (user != null)
-            {
-                if (ds.Tables["orders"] != null)
-                {
-                    ds.Tables["orders"].Clear();
-                }
-                using (SqlDataAdapter da = new SqlDataAdapter("select * from orderview where 用户ID=" + user.Uid, DBHelper.conn))
-                {
-                    da.Fill(ds, "orders");
-                    dgvOrders.DataSource = ds.Tables["orders"];
-                    dgvOrders.Columns["用户ID"].Visible = false;
-                }
-            }
-
-        }
-
-        private void btnOK_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
