@@ -232,5 +232,6 @@
     <Build Include="dbo\Views\OrderView.sql" />
     <Build Include="dbo\Stored Procedures\proc_del_author.sql" />
     <Build Include="dbo\Stored Procedures\proc_del_category.sql" />
+    <Build Include="dbo\Stored Procedures\proc_del_press.sql" />
   </ItemGroup>
 </Project>
