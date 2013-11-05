@@ -88,6 +88,12 @@
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="FormUpd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpd.Designer.cs">
+      <DependentUpon>FormUpd.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPastDue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -183,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpd.resx">
+      <DependentUpon>FormUpd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPastDue.resx">
       <DependentUpon>FrmPastDue.cs</DependentUpon>

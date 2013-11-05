@@ -431,8 +431,12 @@ namespace LibraryManagement
 
         private void toolStripButton8_Click(object sender, EventArgs e)
         {
-            FrmAddUser fau = new FrmAddUser();
-            fau.ShowDialog();
+            
+        }
+
+        private void toolStripButton9_Click(object sender, EventArgs e)
+        {
+
         }
 
 

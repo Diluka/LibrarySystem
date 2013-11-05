@@ -19,7 +19,7 @@ namespace LibraryManagement
         public frmLogin()
         {
             InitializeComponent();
-            skinEngine1.SkinStream = new MemoryStream(Properties.Resources.DeepCyan);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)

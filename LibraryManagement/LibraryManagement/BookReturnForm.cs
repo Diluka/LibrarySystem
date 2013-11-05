@@ -51,6 +51,10 @@ namespace LibraryManagement
             {
                 MessageBox.Show("失败");
             }
+            else
+            {
+                MessageBox.Show("图书归还成功！","青鸟温馨提示");
+            }
         }
         User user;
         DataSet ds = new DataSet();

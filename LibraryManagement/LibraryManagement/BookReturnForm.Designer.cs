@@ -34,16 +34,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnReturnBook = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtUsername = new System.Windows.Forms.ToolStripTextBox();
             this.btnOK = new System.Windows.Forms.ToolStripButton();
+            this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.还书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,21 +85,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户未归还书籍";
             // 
-            // dgvOrders
-            // 
-            this.dgvOrders.AllowUserToAddRows = false;
-            this.dgvOrders.AllowUserToDeleteRows = false;
-            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.ContextMenuStrip = this.contextMenuStrip1;
-            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOrders.Location = new System.Drawing.Point(3, 17);
-            this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.ReadOnly = true;
-            this.dgvOrders.RowTemplate.Height = 23;
-            this.dgvOrders.Size = new System.Drawing.Size(622, 303);
-            this.dgvOrders.TabIndex = 3;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -133,18 +118,33 @@
             this.btnOK.Text = "确定";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // dgvOrders
+            // 
+            this.dgvOrders.AllowUserToAddRows = false;
+            this.dgvOrders.AllowUserToDeleteRows = false;
+            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrders.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvOrders.Location = new System.Drawing.Point(3, 17);
+            this.dgvOrders.Name = "dgvOrders";
+            this.dgvOrders.ReadOnly = true;
+            this.dgvOrders.RowTemplate.Height = 23;
+            this.dgvOrders.Size = new System.Drawing.Size(622, 303);
+            this.dgvOrders.TabIndex = 3;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.还书ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 还书ToolStripMenuItem
             // 
             this.还书ToolStripMenuItem.Name = "还书ToolStripMenuItem";
-            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.还书ToolStripMenuItem.Text = "还书";
             this.还书ToolStripMenuItem.Click += new System.EventHandler(this.还书ToolStripMenuItem_Click);
             // 
@@ -160,15 +160,14 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "BookReturnForm";
             this.Text = "书籍归还";
             this.Load += new System.EventHandler(this.BookReturnForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -32,7 +32,7 @@ namespace LibraryManagement
             try
             {
                 DBHelper.conn.Open();
-                user = User.GetUserByName(txtUsername.Text, DBHelper.conn);
+                user = User.GetUserByName(txtUsername.Text.ToString(), DBHelper.conn);
                 if (user == null)
                 {
                     MessageBox.Show("用户不存在", "青鸟温馨提示", MessageBoxButtons.OK);
@@ -49,7 +49,7 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
             finally
             {

@@ -53,6 +53,7 @@
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 1, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel.Font = new System.Drawing.Font("隶书", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.tableLayoutPanel.Location = new System.Drawing.Point(9, 8);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 6;
@@ -143,11 +144,12 @@
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.okButton.Location = new System.Drawing.Point(484, 273);
+            this.okButton.Location = new System.Drawing.Point(480, 267);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 21);
+            this.okButton.Size = new System.Drawing.Size(79, 27);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "确定(&O)";
+            this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // AboutBox1
             // 
@@ -156,6 +158,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 313);
             this.Controls.Add(this.tableLayoutPanel);
+            this.Font = new System.Drawing.Font("隶书", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

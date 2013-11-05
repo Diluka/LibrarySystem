@@ -25,13 +25,15 @@ namespace LibraryManagement
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             FrmBookDefer m = new FrmBookDefer();
+            m.MdiParent = this;
             m.ShowDialog();
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             BookReturnForm a = new BookReturnForm();
-            a.ShowDialog();
+            a.MdiParent = this;
+            a.Show();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -42,6 +44,7 @@ namespace LibraryManagement
         private void 租借ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmBookLease p = new FrmBookLease();
+            p.MdiParent = this;
             p.ShowDialog();
         }
 
@@ -71,7 +74,13 @@ namespace LibraryManagement
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
             frmPastDue fpd = new frmPastDue();
-            fpd.ShowDialog();
+            fpd.MdiParent = this;
+            fpd.Show();
+        }
+
+        private void FrmLeaseManager_Load(object sender, EventArgs e)
+        {
+            
         }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)

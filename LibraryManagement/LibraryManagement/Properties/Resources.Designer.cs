@@ -61,16 +61,6 @@ namespace LibraryManagement.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
-        /// </summary>
-        internal static System.Drawing.Bitmap _20131101023456214_easyicon_net_128 {
-            get {
-                object obj = ResourceManager.GetObject("20131101023456214_easyicon_net_128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找 System.Byte[] 类型的本地化资源。
         /// </summary>
         internal static byte[] DeepCyan {
@@ -176,6 +166,16 @@ namespace LibraryManagement.Properties {
         internal static System.Drawing.Bitmap 添加按钮 {
             get {
                 object obj = ResourceManager.GetObject("添加按钮", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 添加用户 {
+            get {
+                object obj = ResourceManager.GetObject("添加用户", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

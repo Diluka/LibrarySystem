@@ -33,6 +33,7 @@ namespace LibraryManagement
         {
             FrmLeaseManager m = new FrmLeaseManager();
             m.Show();
+            
         }
 
         private void Adm_FormClosed(object sender, FormClosedEventArgs e)
