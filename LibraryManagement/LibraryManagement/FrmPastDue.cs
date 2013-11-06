@@ -17,14 +17,32 @@ namespace LibraryManagement
         }
         DataSet ds = new DataSet();
         SqlDataAdapter da = null;
+        DataView dv = null;
         private void Form1_Load(object sender, EventArgs e)
         {
-            string sql = string.Format("SELECT   UserInfo.Name AS 用户名称, BookInfo.Title AS 图书名称, Records.LeaseDate AS 借出时间,  Records.ReturnDate AS 归还时间, Records.RecordID AS 超期信息编号 FROM  Records INNER JOIN UserInfo ON Records.UID = UserInfo.UID CROSS JOIN BookInfo");
+            //string sql = string.Format("select * from fn_exceeded()");
+            //try
+            //{
+            //    da = new SqlDataAdapter(sql, DBHelper.conn);
+            //    da.Fill(ds, "UUU");
+            //    dataGridView1.DataSource = ds.Tables["UUU"];
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+
+            //}
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string sql = string.Format("select * from fn_exceeded(@uid)", textBox1.Text);
             try
             {
                 da = new SqlDataAdapter(sql, DBHelper.conn);
                 da.Fill(ds, "UUU");
-                dataGridView1.DataSource = ds.Tables["UUU"];
+                dv = new DataView ( ds.Tables["UUU"]);
+                dataGridView1.DataSource = dv;
             }
             catch (Exception ex)
             {
