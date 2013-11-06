@@ -131,6 +131,40 @@ namespace LibraryDB
 
         }
 
+        /// <summary>
+        /// 根据用户ID删除用户
+        /// </summary>
+        /// <param name="id">用户ID</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>操作结果</returns>
+        public static int DelUserByID(long id, SqlConnection conn)
+        {
+            int result = 0;
+
+            string sql = string.Format("exec proc_del_user {0}", id);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            result = cmd.ExecuteNonQuery();
+
+            return result;
+        }
+
+        /// <summary>
+        /// 根据用户名删除用户
+        /// </summary>
+        /// <param name="username">用户名</param>
+        /// <param name="conn">数据库连接</param>
+        /// <returns>操作结果</returns>
+        public static int DelUserByUsername(string username, SqlConnection conn)
+        {
+            int result = 0;
+
+            string sql = string.Format("exec proc_del_user2 {0}", username);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            result = cmd.ExecuteNonQuery();
+
+            return result;
+        }
+
 
         #region IDBOperate 成员
 
@@ -171,10 +205,8 @@ namespace LibraryDB
         {
             int result = 0;
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("DELETE Users");
-            sb.AppendLine(string.Format("WHERE [UID]={0}", uid));
-            SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+            string sql = string.Format("exec proc_del_user {0}", uid);
+            SqlCommand cmd = new SqlCommand(sql, conn);
             result = cmd.ExecuteNonQuery();
 
             return result;

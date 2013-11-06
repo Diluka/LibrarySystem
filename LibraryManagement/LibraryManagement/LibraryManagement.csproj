@@ -88,12 +88,6 @@
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
-    <Compile Include="FormUpd.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUpd.Designer.cs">
-      <DependentUpon>FormUpd.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmPastDue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,11 +136,11 @@
     <Compile Include="FrmLeaseManager.Designer.cs">
       <DependentUpon>FrmLeaseManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmDataManager.cs">
+    <Compile Include="FrmUserManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmDataManager.Designer.cs">
-      <DependentUpon>FrmDataManager.cs</DependentUpon>
+    <Compile Include="FrmUserManager.Designer.cs">
+      <DependentUpon>FrmUserManager.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBookLease.cs">
       <SubType>Form</SubType>
@@ -190,9 +184,6 @@
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormUpd.resx">
-      <DependentUpon>FormUpd.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPastDue.resx">
       <DependentUpon>FrmPastDue.cs</DependentUpon>
     </EmbeddedResource>
@@ -217,8 +208,8 @@
     <EmbeddedResource Include="FrmLeaseManager.resx">
       <DependentUpon>FrmLeaseManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmDataManager.resx">
-      <DependentUpon>FrmDataManager.cs</DependentUpon>
+    <EmbeddedResource Include="FrmUserManager.resx">
+      <DependentUpon>FrmUserManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBookLease.resx">
       <DependentUpon>FrmBookLease.cs</DependentUpon>

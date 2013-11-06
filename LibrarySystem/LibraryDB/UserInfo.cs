@@ -27,6 +27,7 @@ namespace LibraryDB
         public UserInfo(long uid, string name, int? age, GenderType gen, string phone, string email, string addr)
         {
             UID = uid;
+            Name = name;
             Age = age;
             Gender = gen;
             Phone = phone;

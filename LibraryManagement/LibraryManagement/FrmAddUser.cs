@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LibraryDB;
 namespace LibraryManagement
 {
     public partial class FrmAddUser : Form
@@ -15,26 +16,51 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-        
-        private void button1_Click(object sender, EventArgs e)
+
+        User user;
+        UserInfo userInfo;
+        DataSet ds = new DataSet();
+
+
+        private void FrmAddUser_Load(object sender, EventArgs e)
         {
-            if (labelTextBox7.Text != labelTextBox8.Text)
+            try
             {
-                MessageBox.Show("两次密码输入不同", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                using (SqlDataAdapter da = new SqlDataAdapter("select UGID,GroupName From UserGroupInfo", DBHelper.conn))
+                {
+                    da.Fill(ds, "usergroup");
+                }
+
+                cboUserGroup.DataSource = ds.Tables["usergroup"];
+                cboUserGroup.DisplayMember = "GroupName";
+                cboUserGroup.ValueMember = "UGID";
             }
-            else if (labelTextBox1.Text == "" || labelTextBox2.Text == "" || labelTextBox7.Text == "" || labelTextBox8.Text == "" ||labelTextBox3.Text == "" || labelTextBox4.Text == ""|| labelTextBox5.Text == "" || labelTextBox6.Text == "")
+            catch (Exception ex)
             {
-                MessageBox.Show("请完善必填信息！", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(ex.Message);
+            }
+
+
+            if (this.Tag == null)
+            {
+                btnSave.Text = "保  存";
+                this.Text = "添加用户";
+                dateRegDate.Enabled = false;
             }
             else
             {
-                int result = 0;
-                int result2 = 0;
+                btnSave.Text = "修  改";
+                this.Text = "修改用户";
+                txtUsername.Enabled = false;
+
                 try
                 {
+                    long uid = Convert.ToInt64(this.Tag);
+
                     DBHelper.conn.Open();
-                    result = AddU();
-                    result2 = AddUI();
+
+                    user = User.GetUserByID(uid, DBHelper.conn);
+                    userInfo = UserInfo.GetUserInfoByID(uid, DBHelper.conn);
                 }
                 catch (Exception ex)
                 {
@@ -42,94 +68,194 @@ namespace LibraryManagement
                 }
                 finally
                 {
-                    DBHelper.conn.Close();     
+                    DBHelper.conn.Close();
                 }
-                if (result > 0 && result2 > 0)
+
+                ShowData();
+            }
+        }
+
+        private void ShowData()
+        {
+            if (user != null)
+            {
+                txtUsername.Text = user.Username;
+                cboUserGroup.SelectedValue = user.UserGroupID;
+            }
+            if (userInfo != null)
+            {
+                txtName.Text = userInfo.Name;
+                txtAge.Text = userInfo.Age + "";
+                switch (userInfo.Gender)
                 {
-                    string qq = string.Format("注册成功，你的会员号为：{0}",UID);
-                    MessageBox.Show(qq,"青鸟温馨提示");
+                    case GenderType.未指定:
+                        rdoUndefinedGender.Checked = true;
+                        break;
+                    case GenderType.女:
+                        rdoFemale.Checked = true;
+                        break;
+                    case GenderType.男:
+                        rdoMale.Checked = true;
+                        break;
+                    default:
+                        break;
+                }
+                txtPhone.Text = userInfo.Phone;
+                txtEmail.Text = userInfo.Email;
+                txtAddress.Text = userInfo.Address;
+                dateRegDate.Value = userInfo.RegTime;
+            }
+        }
+
+        private bool ValidateInput()
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is GroupBox)
+                {
+                    foreach (Control c in item.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox txt = c as TextBox;
+                            txt.Text = txt.Text.Trim();
+                        }
+                    }
+                }
+            }
+            if (!CheckPassword())
+            {
+                MessageBox.Show("密码不一致");
+                return false;
+            }
+            if (txtName.Text == "" || txtUsername.Text == "")
+            {
+                MessageBox.Show("必填项未填写完整");
+                return false;
+            }
+            return true;
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in this.Controls)
+            {
+                if (item is GroupBox)
+                {
+                    foreach (Control c in item.Controls)
+                    {
+                        if (c is TextBox)
+                        {
+                            TextBox txt = c as TextBox;
+                            txt.Clear();
+                        }
+                        else if (c is ComboBox)
+                        {
+                            ComboBox cbo = c as ComboBox;
+                            cbo.SelectedIndex = 0;
+                        }
+                        else if (c is DateTimePicker)
+                        {
+                            DateTimePicker date = c as DateTimePicker;
+                            date.Value = DateTime.Now;
+                        }
+                    }
+                }
+            }
+            rdoUndefinedGender.Checked = true;
+
+            ShowData();
+        }
+
+        private bool CheckPassword()
+        {
+            return txtPassword.Text == txtPassword2.Text;
+        }
+        private string SetPassword()
+        {
+            return txtPassword.Text == "" ? txtUsername.Text : txtPassword.Text;
+        }
+
+        private int InsertOrUpdate()
+        {
+            int result = 0;
+            try
+            {
+                DBHelper.conn.Open();
+
+                if (this.Tag == null)
+                {
+                    user = new User(txtUsername.Text, SetPassword(), (int)cboUserGroup.SelectedValue);
+                    result += ((IDBOperate)user).Insert(DBHelper.conn);
+                    userInfo = new UserInfo(
+                        user.Uid,
+                        txtName.Text,
+                        txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text),
+                        rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女),
+                        txtPhone.Text == "" ? null : txtPhone.Text,
+                        txtEmail.Text == "" ? null : txtEmail.Text,
+                        txtAddress.Text == "" ? null : txtAddress.Text
+                        );
+                    result += ((IDBOperate)userInfo).Insert(DBHelper.conn);
                 }
                 else
                 {
-                    MessageBox.Show("注册失败","青鸟温馨提示");
+                    user.UserGroupID = (int)cboUserGroup.SelectedValue;
+                    result += ((IDBOperate)user).Update(DBHelper.conn);
+                    if (txtPassword.Text != "")
+                    {
+                        result += user.ChangePassword(txtPassword.Text, DBHelper.conn);
+                    }
+                    if (userInfo == null)
+                    {
+                        userInfo = new UserInfo(
+                            user.Uid,
+                            txtName.Text,
+                            txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text),
+                            rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女),
+                            txtPhone.Text == "" ? null : txtPhone.Text,
+                            txtEmail.Text == "" ? null : txtEmail.Text,
+                            txtAddress.Text == "" ? null : txtAddress.Text
+                        );
+                        result += ((IDBOperate)userInfo).Insert(DBHelper.conn);
+                    }
+                    else
+                    {
+                        userInfo.Name = txtName.Text;
+                        userInfo.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
+                        userInfo.Gender = rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女);
+                        userInfo.Email = txtEmail.Text == "" ? null : txtEmail.Text;
+                        userInfo.Phone = txtPhone.Text == "" ? null : txtPhone.Text;
+                        userInfo.Address = txtAddress.Text == "" ? null : txtAddress.Text;
+                        userInfo.RegTime = dateRegDate.Value;
+                        result += ((IDBOperate)userInfo).Update(DBHelper.conn);
+                    }
                 }
-            }
-        }
-
-        private int AddU()
-        {
-            int result = 0;
-            try
-            {
-                string sql = string.Format("insert into users values('{0}','{1}',2)", labelTextBox1.Text, labelTextBox8.Text);
-                SqlCommand comm = new SqlCommand(sql,DBHelper.conn);
-                result = comm.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());    
+                MessageBox.Show(ex.Message);
             }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+
             return result;
         }
 
-        private int AddUI()
+        private void btnSave_Click(object sender, EventArgs e)
         {
-            int result = 0;
-            string Gender = "女";
-            try
+            if (!ValidateInput()) return;
+
+            if (InsertOrUpdate() > 0)
             {
-                if (radioButton1.Checked == true)
-	            {
-		             Gender = "男";
-	            }
-                string sql = string.Format("insert into userinfo values({0},'{1}',{2},'{3}','{4}','{5}','{6}','{7}')", ID(), labelTextBox2.Text, labelTextBox3.Text,Gender , labelTextBox4.Text, labelTextBox5.Text, labelTextBox6.Text, Convert.ToDateTime(dateTimePicker1.Text));
-                SqlCommand comm = new SqlCommand(sql, DBHelper.conn);
-                result = comm.ExecuteNonQuery();
+                MessageBox.Show(this.Text + "成功");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(this.Text + "失败");
             }
-           
-            return result;
-        }
-
-        int UID = 0;
-
-        private int ID() 
-        {
-            
-            try
-            {
-                string sql = string.Format("select UID from Users where Username = '{0}'", labelTextBox1.Text);
-                SqlCommand comm = new SqlCommand(sql, DBHelper.conn);
-                SqlDataReader dr = comm.ExecuteReader();
-                if (dr.Read())
-                {
-                    UID = Convert.ToInt32(dr["UID"]);
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-            return UID;
-        }
-
-        private void button1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void FrmAddUser_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-        }
-
-        private void FrmAddUser_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

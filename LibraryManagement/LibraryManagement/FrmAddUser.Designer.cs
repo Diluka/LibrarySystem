@@ -30,163 +30,114 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAddUser));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.labelTextBox3 = new LabeledTextBox.LabelTextBox();
+            this.cboUserGroup = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPassword2 = new LabeledTextBox.LabelTextBox();
+            this.txtPassword = new LabeledTextBox.LabelTextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtUsername = new LabeledTextBox.LabelTextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtAge = new LabeledTextBox.LabelTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.labelTextBox2 = new LabeledTextBox.LabelTextBox();
+            this.rdoFemale = new System.Windows.Forms.RadioButton();
+            this.rdoMale = new System.Windows.Forms.RadioButton();
+            this.txtName = new LabeledTextBox.LabelTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.labelTextBox8 = new LabeledTextBox.LabelTextBox();
-            this.labelTextBox7 = new LabeledTextBox.LabelTextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.labelTextBox1 = new LabeledTextBox.LabelTextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.labelTextBox5 = new LabeledTextBox.LabelTextBox();
+            this.txtEmail = new LabeledTextBox.LabelTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.labelTextBox6 = new LabeledTextBox.LabelTextBox();
+            this.txtAddress = new LabeledTextBox.LabelTextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.labelTextBox4 = new LabeledTextBox.LabelTextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtPhone = new LabeledTextBox.LabelTextBox();
+            this.dateRegDate = new System.Windows.Forms.DateTimePicker();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.rdoUndefinedGender = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.labelTextBox3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.labelTextBox2);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cboUserGroup);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.labelTextBox8);
-            this.groupBox1.Controls.Add(this.labelTextBox7);
+            this.groupBox1.Controls.Add(this.txtPassword2);
+            this.groupBox1.Controls.Add(this.txtPassword);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.labelTextBox1);
+            this.groupBox1.Controls.Add(this.txtUsername);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Location = new System.Drawing.Point(23, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 319);
+            this.groupBox1.Size = new System.Drawing.Size(382, 149);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "帐号注册";
             // 
-            // labelTextBox3
+            // cboUserGroup
             // 
-            this.labelTextBox3.LabelText = "请输入年龄";
-            this.labelTextBox3.Location = new System.Drawing.Point(93, 264);
-            this.labelTextBox3.Name = "labelTextBox3";
-            this.labelTextBox3.Size = new System.Drawing.Size(257, 21);
-            this.labelTextBox3.TabIndex = 43;
+            this.cboUserGroup.FormattingEnabled = true;
+            this.cboUserGroup.Location = new System.Drawing.Point(95, 113);
+            this.cboUserGroup.Name = "cboUserGroup";
+            this.cboUserGroup.Size = new System.Drawing.Size(255, 20);
+            this.cboUserGroup.TabIndex = 28;
             // 
-            // label2
+            // label4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 267);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "年    龄：";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(239, 217);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 16);
-            this.radioButton2.TabIndex = 40;
-            this.radioButton2.Text = "女";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(146, 217);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 16);
-            this.radioButton1.TabIndex = 39;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "男";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // labelTextBox2
-            // 
-            this.labelTextBox2.LabelText = "请输入姓名";
-            this.labelTextBox2.Location = new System.Drawing.Point(93, 168);
-            this.labelTextBox2.Name = "labelTextBox2";
-            this.labelTextBox2.Size = new System.Drawing.Size(257, 21);
-            this.labelTextBox2.TabIndex = 42;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 219);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 12);
-            this.label3.TabIndex = 38;
-            this.label3.Text = "性    别：";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 171);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 12);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "姓    名：";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 117);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "用 户 组：";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(25, 123);
+            this.label13.Location = new System.Drawing.Point(25, 87);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 12);
             this.label13.TabIndex = 26;
             this.label13.Text = "确认密码：";
             // 
-            // labelTextBox8
+            // txtPassword2
             // 
-            this.labelTextBox8.LabelText = "重复输入密码";
-            this.labelTextBox8.Location = new System.Drawing.Point(95, 120);
-            this.labelTextBox8.Name = "labelTextBox8";
-            this.labelTextBox8.Size = new System.Drawing.Size(255, 21);
-            this.labelTextBox8.TabIndex = 25;
+            this.txtPassword2.LabelText = "选填";
+            this.txtPassword2.Location = new System.Drawing.Point(95, 83);
+            this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.Size = new System.Drawing.Size(255, 21);
+            this.txtPassword2.TabIndex = 25;
             // 
-            // labelTextBox7
+            // txtPassword
             // 
-            this.labelTextBox7.LabelText = "请输入密码";
-            this.labelTextBox7.Location = new System.Drawing.Point(95, 72);
-            this.labelTextBox7.Name = "labelTextBox7";
-            this.labelTextBox7.Size = new System.Drawing.Size(255, 21);
-            this.labelTextBox7.TabIndex = 24;
+            this.txtPassword.LabelText = "选填";
+            this.txtPassword.Location = new System.Drawing.Point(95, 53);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(255, 21);
+            this.txtPassword.TabIndex = 24;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(25, 75);
+            this.label12.Location = new System.Drawing.Point(25, 57);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 12);
             this.label12.TabIndex = 23;
             this.label12.Text = "密    码：";
             // 
-            // labelTextBox1
+            // txtUsername
             // 
-            this.labelTextBox1.LabelText = "请输入用户名";
-            this.labelTextBox1.Location = new System.Drawing.Point(95, 24);
-            this.labelTextBox1.Name = "labelTextBox1";
-            this.labelTextBox1.Size = new System.Drawing.Size(255, 21);
-            this.labelTextBox1.TabIndex = 22;
+            this.txtUsername.LabelText = "必填";
+            this.txtUsername.Location = new System.Drawing.Point(95, 23);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(255, 21);
+            this.txtUsername.TabIndex = 22;
             // 
             // label11
             // 
@@ -197,68 +148,112 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "用 户 名：";
             // 
-            // button1
+            // txtAge
             // 
-            this.button1.Location = new System.Drawing.Point(23, 563);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(161, 30);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "注  册";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.Paint += new System.Windows.Forms.PaintEventHandler(this.button1_Paint);
+            this.txtAge.LabelText = "选填";
+            this.txtAge.Location = new System.Drawing.Point(95, 77);
+            this.txtAge.Name = "txtAge";
+            this.txtAge.Size = new System.Drawing.Size(257, 21);
+            this.txtAge.TabIndex = 43;
             // 
-            // label9
+            // label2
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(218, 572);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 12);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "温馨提示：";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(27, 81);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "年    龄：";
             // 
-            // label10
+            // rdoFemale
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(284, 572);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 12);
-            this.label10.TabIndex = 21;
-            this.label10.Text = "会员卡号将会自动生成！";
+            this.rdoFemale.AutoSize = true;
+            this.rdoFemale.Location = new System.Drawing.Point(189, 47);
+            this.rdoFemale.Name = "rdoFemale";
+            this.rdoFemale.Size = new System.Drawing.Size(35, 16);
+            this.rdoFemale.TabIndex = 40;
+            this.rdoFemale.Text = "女";
+            this.rdoFemale.UseVisualStyleBackColor = true;
+            // 
+            // rdoMale
+            // 
+            this.rdoMale.AutoSize = true;
+            this.rdoMale.Location = new System.Drawing.Point(98, 47);
+            this.rdoMale.Name = "rdoMale";
+            this.rdoMale.Size = new System.Drawing.Size(35, 16);
+            this.rdoMale.TabIndex = 39;
+            this.rdoMale.Text = "男";
+            this.rdoMale.UseVisualStyleBackColor = true;
+            // 
+            // txtName
+            // 
+            this.txtName.LabelText = "必填";
+            this.txtName.Location = new System.Drawing.Point(95, 13);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(257, 21);
+            this.txtName.TabIndex = 42;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(27, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 12);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "性    别：";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "姓    名：";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(203, 295);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(161, 30);
+            this.btnSave.TabIndex = 15;
+            this.btnSave.Text = "注  册";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.labelTextBox5);
+            this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.labelTextBox6);
+            this.groupBox2.Controls.Add(this.txtAddress);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.labelTextBox4);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Location = new System.Drawing.Point(23, 337);
+            this.groupBox2.Controls.Add(this.txtPhone);
+            this.groupBox2.Controls.Add(this.dateRegDate);
+            this.groupBox2.Location = new System.Drawing.Point(400, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(382, 205);
+            this.groupBox2.Size = new System.Drawing.Size(382, 267);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "请输入电话号码";
+            this.groupBox2.Text = "联系方式";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 81);
+            this.label8.Location = new System.Drawing.Point(21, 78);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 12);
             this.label8.TabIndex = 48;
             this.label8.Text = "电子邮箱：";
             // 
-            // labelTextBox5
+            // txtEmail
             // 
-            this.labelTextBox5.LabelText = "请输入电子邮箱";
-            this.labelTextBox5.Location = new System.Drawing.Point(91, 78);
-            this.labelTextBox5.Name = "labelTextBox5";
-            this.labelTextBox5.Size = new System.Drawing.Size(259, 21);
-            this.labelTextBox5.TabIndex = 49;
+            this.txtEmail.LabelText = "选填";
+            this.txtEmail.Location = new System.Drawing.Point(91, 74);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(259, 21);
+            this.txtEmail.TabIndex = 49;
             // 
             // label5
             // 
@@ -269,18 +264,19 @@
             this.label5.TabIndex = 44;
             this.label5.Text = "联系电话：";
             // 
-            // labelTextBox6
+            // txtAddress
             // 
-            this.labelTextBox6.LabelText = "请输入通讯地址";
-            this.labelTextBox6.Location = new System.Drawing.Point(91, 123);
-            this.labelTextBox6.Name = "labelTextBox6";
-            this.labelTextBox6.Size = new System.Drawing.Size(259, 21);
-            this.labelTextBox6.TabIndex = 47;
+            this.txtAddress.LabelText = "选填";
+            this.txtAddress.Location = new System.Drawing.Point(91, 115);
+            this.txtAddress.Multiline = true;
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(259, 59);
+            this.txtAddress.TabIndex = 47;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 175);
+            this.label7.Location = new System.Drawing.Point(21, 206);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 12);
             this.label7.TabIndex = 32;
@@ -289,81 +285,124 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 126);
+            this.label6.Location = new System.Drawing.Point(20, 119);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 12);
             this.label6.TabIndex = 46;
             this.label6.Text = "通讯地址：";
             // 
-            // labelTextBox4
+            // txtPhone
             // 
-            this.labelTextBox4.LabelText = "请输入电话号码";
-            this.labelTextBox4.Location = new System.Drawing.Point(91, 34);
-            this.labelTextBox4.Name = "labelTextBox4";
-            this.labelTextBox4.Size = new System.Drawing.Size(260, 21);
-            this.labelTextBox4.TabIndex = 45;
+            this.txtPhone.LabelText = "选填";
+            this.txtPhone.Location = new System.Drawing.Point(91, 33);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(260, 21);
+            this.txtPhone.TabIndex = 45;
             // 
-            // dateTimePicker1
+            // dateRegDate
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(92, 169);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(260, 21);
-            this.dateTimePicker1.TabIndex = 34;
+            this.dateRegDate.Location = new System.Drawing.Point(92, 202);
+            this.dateRegDate.Name = "dateRegDate";
+            this.dateRegDate.Size = new System.Drawing.Size(260, 21);
+            this.dateRegDate.TabIndex = 34;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(442, 295);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(143, 30);
+            this.btnReset.TabIndex = 50;
+            this.btnReset.Text = "重  置";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.rdoUndefinedGender);
+            this.groupBox3.Controls.Add(this.txtAge);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.rdoFemale);
+            this.groupBox3.Controls.Add(this.txtName);
+            this.groupBox3.Controls.Add(this.rdoMale);
+            this.groupBox3.Location = new System.Drawing.Point(12, 167);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(382, 112);
+            this.groupBox3.TabIndex = 51;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "用户信息";
+            // 
+            // rdoUndefinedGender
+            // 
+            this.rdoUndefinedGender.AutoSize = true;
+            this.rdoUndefinedGender.Checked = true;
+            this.rdoUndefinedGender.Location = new System.Drawing.Point(280, 47);
+            this.rdoUndefinedGender.Name = "rdoUndefinedGender";
+            this.rdoUndefinedGender.Size = new System.Drawing.Size(59, 16);
+            this.rdoUndefinedGender.TabIndex = 44;
+            this.rdoUndefinedGender.TabStop = true;
+            this.rdoUndefinedGender.Text = "未指定";
+            this.rdoUndefinedGender.UseVisualStyleBackColor = true;
             // 
             // FrmAddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 607);
+            this.ClientSize = new System.Drawing.Size(789, 331);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAddUser";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "添加用户";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAddUser_FormClosed);
             this.Load += new System.EventHandler(this.FrmAddUser_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private LabeledTextBox.LabelTextBox labelTextBox1;
+        private System.Windows.Forms.Button btnSave;
+        private LabeledTextBox.LabelTextBox txtUsername;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private LabeledTextBox.LabelTextBox labelTextBox3;
+        private LabeledTextBox.LabelTextBox txtAge;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private LabeledTextBox.LabelTextBox labelTextBox2;
+        private System.Windows.Forms.RadioButton rdoFemale;
+        private System.Windows.Forms.RadioButton rdoMale;
+        private LabeledTextBox.LabelTextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label13;
-        private LabeledTextBox.LabelTextBox labelTextBox8;
-        private LabeledTextBox.LabelTextBox labelTextBox7;
+        private LabeledTextBox.LabelTextBox txtPassword2;
+        private LabeledTextBox.LabelTextBox txtPassword;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
-        private LabeledTextBox.LabelTextBox labelTextBox6;
+        private LabeledTextBox.LabelTextBox txtAddress;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private LabeledTextBox.LabelTextBox labelTextBox4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private LabeledTextBox.LabelTextBox txtPhone;
+        private System.Windows.Forms.DateTimePicker dateRegDate;
         private System.Windows.Forms.Label label8;
-        private LabeledTextBox.LabelTextBox labelTextBox5;
+        private LabeledTextBox.LabelTextBox txtEmail;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ComboBox cboUserGroup;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RadioButton rdoUndefinedGender;
     }
 }

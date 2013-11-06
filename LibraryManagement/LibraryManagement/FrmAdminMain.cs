@@ -25,7 +25,7 @@ namespace LibraryManagement
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmDataManager o = new FrmDataManager();
+            FrmUserManager o = new FrmUserManager();
             o.Show();
         }
 
