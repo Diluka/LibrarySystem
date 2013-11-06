@@ -57,15 +57,15 @@ namespace LibraryManagement
         {
             if (dgvUsers.SelectedRows.Count > 0)
             {
-                string title = dgvUsers.CurrentRow.Cells["用户名"].Value.ToString();
-                DialogResult result = MessageBox.Show(string.Format("确认要删除编号为《{0}》的用户？", title), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                string username = dgvUsers.CurrentRow.Cells["用户名"].Value.ToString();
+                DialogResult result = MessageBox.Show(string.Format("确认要删除编号为《{0}》的用户？", username), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     int sqlresult = 0;
                     try
                     {
                         DBHelper.conn.Open();
-                        sqlresult = User.DelUserByUsername(title, DBHelper.conn);
+                        sqlresult = User.DelUserByUsername(username, DBHelper.conn);
                     }
                     catch (Exception ex)
                     {
