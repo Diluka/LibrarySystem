@@ -111,6 +111,7 @@
             this.txtPassword2.LabelText = "选填";
             this.txtPassword2.Location = new System.Drawing.Point(95, 83);
             this.txtPassword2.Name = "txtPassword2";
+            this.txtPassword2.PasswordChar = '*';
             this.txtPassword2.Size = new System.Drawing.Size(255, 21);
             this.txtPassword2.TabIndex = 25;
             // 
@@ -119,6 +120,7 @@
             this.txtPassword.LabelText = "选填";
             this.txtPassword.Location = new System.Drawing.Point(95, 53);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(255, 21);
             this.txtPassword.TabIndex = 24;
             // 
