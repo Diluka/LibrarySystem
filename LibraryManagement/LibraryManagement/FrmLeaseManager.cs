@@ -20,7 +20,17 @@ namespace LibraryManagement
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            frmRent fr = new frmRent(); fr.MdiParent = this; fr.Show();
+            if (DBHelper.frt == null)
+            {
+                DBHelper.frt = new frmRent();
+                DBHelper.frt.MdiParent = this;
+                DBHelper.frt.Show();
+            }
+            else
+            {
+                DBHelper.frt.Focus();
+            }
+           
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -31,9 +41,16 @@ namespace LibraryManagement
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            BookReturnForm a = new BookReturnForm();
-            a.MdiParent = this;
-            a.Show();
+            if (DBHelper.brf == null)
+            {
+                DBHelper.brf = new BookReturnForm();
+                DBHelper.brf.MdiParent = this;
+                DBHelper.brf.Show();
+            }
+            else
+            {
+                DBHelper.brf.Focus();
+            }
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -85,9 +102,21 @@ namespace LibraryManagement
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
-            Form1 f1 = new Form1();
-            f1.MdiParent = this;
-            f1.Show();
+            if (DBHelper.f1 == null)
+            {
+                DBHelper.f1 = new Form1();
+                DBHelper.f1.MdiParent = this;
+                DBHelper.f1.Show();
+            }
+            else
+            {
+                DBHelper.f1.Focus();
+            }
+        }
+
+        private void FrmLeaseManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.flm = null;
         }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)

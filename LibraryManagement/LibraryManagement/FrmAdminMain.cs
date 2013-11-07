@@ -19,20 +19,48 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmBookManager fb = new FrmBookManager();
-            fb.Show();
+            if (DBHelper.fbm == null)
+            {
+                DBHelper.fbm = new FrmBookManager();
+                
+                DBHelper.fbm.Show();
+            }
+            else
+            {
+                DBHelper.fbm.Focus();
+            }
+            
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmUserManager o = new FrmUserManager();
-            o.Show();
+
+            if (DBHelper.fum == null)
+            {
+                DBHelper.fum = new FrmUserManager();
+                
+                DBHelper.fum.Show();
+            }
+            else
+            {
+                DBHelper.fum.Focus();
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmLeaseManager m = new FrmLeaseManager();
-            m.Show();
+            if (DBHelper.flm == null)
+            {
+                DBHelper.flm = new FrmLeaseManager();
+                
+                DBHelper.flm.Show();
+            }
+            else
+            {
+                DBHelper.flm.Focus();
+            }
+            
             
         }
 

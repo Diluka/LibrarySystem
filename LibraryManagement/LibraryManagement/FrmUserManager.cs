@@ -120,6 +120,11 @@ namespace LibraryManagement
             }
         }
 
+        private void FrmUserManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.fum = null;
+        }
+
 
     }
 }

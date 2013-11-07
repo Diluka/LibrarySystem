@@ -140,5 +140,10 @@ namespace LibraryManagement
         {
             e.Cancel = dgvOrders.CurrentRow == null;
         }
+
+        private void BookReturnForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.brf = null;
+        }
     }
 }

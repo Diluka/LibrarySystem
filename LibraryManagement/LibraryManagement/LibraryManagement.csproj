@@ -142,6 +142,7 @@
     <Compile Include="FrmLeaseManager.Designer.cs">
       <DependentUpon>FrmLeaseManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmPastDue_2.cs" />
     <Compile Include="FrmUserManager.cs">
       <SubType>Form</SubType>
     </Compile>

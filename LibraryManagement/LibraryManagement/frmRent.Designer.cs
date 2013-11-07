@@ -369,6 +369,7 @@
             this.MaximizeBox = false;
             this.Name = "frmRent";
             this.Text = "书籍借出";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRent_FormClosed);
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.groupOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();

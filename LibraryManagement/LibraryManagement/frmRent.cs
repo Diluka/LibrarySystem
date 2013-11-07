@@ -288,6 +288,11 @@ namespace LibraryManagement
 
         }
 
+        private void frmRent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.frt = null;
+        }
+
        
     }
 }

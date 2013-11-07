@@ -45,5 +45,10 @@ namespace LibraryManagement
         {
             dv.RowFilter = string.Format("书籍名称 like '%{0}%'", textBox1.Text);
         }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.f1 = null;
+        }
     }
 }

@@ -71,7 +71,7 @@
             this.btnAddUser.Image = global::LibraryManagement.Properties.Resources.添加用户;
             this.btnAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(59, 61);
+            this.btnAddUser.Size = new System.Drawing.Size(60, 61);
             this.btnAddUser.Text = "添加用户";
             this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddUser.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -88,7 +88,7 @@
             this.btnDelUser.Image = global::LibraryManagement.Properties.Resources.删除按钮;
             this.btnDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelUser.Name = "btnDelUser";
-            this.btnDelUser.Size = new System.Drawing.Size(59, 61);
+            this.btnDelUser.Size = new System.Drawing.Size(60, 61);
             this.btnDelUser.Text = "删除用户";
             this.btnDelUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDelUser.Click += new System.EventHandler(this.toolStripButton3_Click);
@@ -105,7 +105,7 @@
             this.btnModifyUser.Image = global::LibraryManagement.Properties.Resources.超期信息;
             this.btnModifyUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifyUser.Name = "btnModifyUser";
-            this.btnModifyUser.Size = new System.Drawing.Size(59, 61);
+            this.btnModifyUser.Size = new System.Drawing.Size(60, 61);
             this.btnModifyUser.Text = "修改信息";
             this.btnModifyUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnModifyUser.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -122,7 +122,7 @@
             this.btnExit.Image = global::LibraryManagement.Properties.Resources.退出;
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(51, 61);
+            this.btnExit.Size = new System.Drawing.Size(52, 61);
             this.btnExit.Text = "退    出";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -181,6 +181,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户管理";
             this.Activated += new System.EventHandler(this.FrmDataManager_Activated);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUserManager_FormClosed);
             this.Load += new System.EventHandler(this.FrmDataManager_Load);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();

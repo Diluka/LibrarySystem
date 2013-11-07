@@ -441,7 +441,14 @@ namespace LibraryManagement
 
         private void FrmBookManager_Activated(object sender, EventArgs e)
         {
+         
             //Reflash(); 
+       
+        }
+
+        private void FrmBookManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.fbm = null;
         }
 
 

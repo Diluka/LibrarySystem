@@ -163,6 +163,7 @@
             this.Name = "BookReturnForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍归还";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookReturnForm_FormClosed);
             this.Load += new System.EventHandler(this.BookReturnForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
