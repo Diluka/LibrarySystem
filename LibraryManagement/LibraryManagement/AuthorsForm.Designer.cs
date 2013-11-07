@@ -144,6 +144,8 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AuthorsForm";
             this.Text = "作者设置";
             this.Load += new System.EventHandler(this.AuthorsForm_Load);

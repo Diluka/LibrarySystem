@@ -283,6 +283,11 @@ namespace LibraryManagement
             }
         }
 
+        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
        
     }
 }

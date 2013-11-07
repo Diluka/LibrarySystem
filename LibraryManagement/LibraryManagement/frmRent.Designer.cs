@@ -87,6 +87,7 @@
             this.dgvOrders.RowTemplate.Height = 23;
             this.dgvOrders.Size = new System.Drawing.Size(350, 157);
             this.dgvOrders.TabIndex = 0;
+            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // btnAdd
             // 
@@ -365,6 +366,7 @@
             this.Controls.Add(this.groupBookList);
             this.Controls.Add(this.groupUserInfo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmRent";
             this.Text = "书籍借出";
             this.Load += new System.EventHandler(this.frmRent_Load);

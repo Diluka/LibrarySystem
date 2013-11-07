@@ -82,6 +82,13 @@ namespace LibraryManagement
         {
             
         }
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
+        {
+            Form1 f1 = new Form1();
+            f1.MdiParent = this;
+            f1.Show();
+        }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)
         //{

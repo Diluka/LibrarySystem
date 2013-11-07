@@ -441,6 +441,7 @@
             this.Name = "FrmBookManager";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍管理";
+            this.Activated += new System.EventHandler(this.FrmBookManager_Activated);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.tsMenu.ResumeLayout(false);
             this.tsMenu.PerformLayout();

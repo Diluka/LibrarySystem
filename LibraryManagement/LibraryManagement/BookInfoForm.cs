@@ -615,5 +615,17 @@ namespace LibraryManagement
             fbpm.ShowDialog(this);
         }
 
+        private void BookInfoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           
+
+        }
+
+        private void BookInfoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmBookManager f = new FrmBookManager();
+            f.Activate();
+        }
+
     }
 }

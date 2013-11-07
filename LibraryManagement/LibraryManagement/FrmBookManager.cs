@@ -439,6 +439,11 @@ namespace LibraryManagement
 
         }
 
+        private void FrmBookManager_Activated(object sender, EventArgs e)
+        {
+            //Reflash(); 
+        }
+
 
     }
 }
