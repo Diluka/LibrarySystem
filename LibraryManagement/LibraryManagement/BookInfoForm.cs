@@ -298,7 +298,7 @@ namespace LibraryManagement
             else
             {
                 frmCatMgr = new FrmCategoryManager();
-                frmCatMgr.Show(this);
+                frmCatMgr.ShowDialog(this);
             }
         }
 

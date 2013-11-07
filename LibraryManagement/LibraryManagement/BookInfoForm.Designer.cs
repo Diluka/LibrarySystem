@@ -480,6 +480,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "BookInfoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改书籍信息";
             this.Load += new System.EventHandler(this.BookInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();

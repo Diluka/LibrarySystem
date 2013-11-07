@@ -27,6 +27,7 @@ namespace LibraryManagement
                 }
 
                 dv = new DataView(ds.Tables["exceeded"]);
+                dataGridView1.DataSource = dv;
             }
             catch (Exception ex)
             {

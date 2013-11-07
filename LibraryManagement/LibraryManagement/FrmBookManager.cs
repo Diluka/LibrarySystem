@@ -21,7 +21,7 @@ namespace LibraryManagement
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Form f = new BookInfoForm();
-            f.Show();
+            f.ShowDialog();
         }
 
         DataSet ds = new DataSet();
@@ -95,7 +95,7 @@ namespace LibraryManagement
 
                 if (form != null && !form.IsDisposed)
                 {
-                    form.Show();
+                    form.ShowDialog();
                     form.Activate();
                 }
                 else
@@ -107,7 +107,7 @@ namespace LibraryManagement
 
                     form = new BookInfoForm();
                     form.Tag = iid;
-                    form.Show();
+                    form.ShowDialog();
 
                     forms.Add(form);
                 }
@@ -137,7 +137,7 @@ namespace LibraryManagement
 
                 if (form != null && !form.IsDisposed)
                 {
-                    form.Show();
+                    form.ShowDialog();
                     form.Activate();
                 }
                 else
@@ -149,7 +149,7 @@ namespace LibraryManagement
 
                     form = new BookInfoForm();
                     form.Tag = iid;
-                    form.Show();
+                    form.ShowDialog();
 
                     forms.Add(form);
                 }
@@ -182,7 +182,7 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败");
+                            MessageBox.Show("删除失败","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                         }
                     }
                     catch (Exception ex)
@@ -360,7 +360,7 @@ namespace LibraryManagement
                     bi = BookInfo.GetBookInfoByID((long)dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value, DBHelper.conn);
                     if (bi == null)
                     {
-                        MessageBox.Show("请选择");
+                        MessageBox.Show("请选择","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
                         return;
                     }
                     foreach (Form form in bookForms)
@@ -383,7 +383,7 @@ namespace LibraryManagement
 
                 if (f != null && !f.IsDisposed)
                 {
-                    f.Show();
+                    f.ShowDialog();
                     f.Activate();
                 }
                 else
@@ -394,7 +394,7 @@ namespace LibraryManagement
                     }
                     f = new BookForm();
                     f.Tag = bi;
-                    f.Show();
+                    f.ShowDialog();
                     bookForms.Add(f);
                 }
 

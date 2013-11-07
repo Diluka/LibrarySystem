@@ -238,6 +238,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BookForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书本管理";
             this.Load += new System.EventHandler(this.BookForm_Load);
             this.groupBox1.ResumeLayout(false);
