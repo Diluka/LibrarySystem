@@ -31,7 +31,7 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("没有超期信息！","青鸟温馨提示");
             }
         }
 
