@@ -22,7 +22,7 @@ namespace LibraryManagement
         {
             if (DBHelper.frt == null)
             {
-                DBHelper.frt = new frmRent();
+                DBHelper.frt = new FrmRent();
                 DBHelper.frt.MdiParent = this;
                 DBHelper.frt.Show();
             }
@@ -30,7 +30,7 @@ namespace LibraryManagement
             {
                 DBHelper.frt.Focus();
             }
-           
+
         }
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
@@ -86,25 +86,33 @@ namespace LibraryManagement
         {
 
         }
-        
+
 
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
-            frmPastDue fpd = new frmPastDue();
-            fpd.MdiParent = this;
-            fpd.Show();
+            if (DBHelper.fpd == null)
+            {
+                DBHelper.fpd = new frmPastDue();
+                DBHelper.fpd.MdiParent = this;
+                DBHelper.fpd.Show();
+            }
+            else
+            {
+                DBHelper.fpd.Focus();
+            }
+
         }
 
         private void FrmLeaseManager_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
             if (DBHelper.f1 == null)
             {
-                DBHelper.f1 = new Form1();
+                DBHelper.f1 = new OrderForm();
                 DBHelper.f1.MdiParent = this;
                 DBHelper.f1.Show();
             }
@@ -117,6 +125,23 @@ namespace LibraryManagement
         private void FrmLeaseManager_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.flm = null;
+        }
+        private Form recordForm;
+        private Form RecordForm
+        {
+            get
+            {
+                if (recordForm == null || recordForm.IsDisposed)
+                {
+                    recordForm = new RecordForm();
+                    recordForm.MdiParent = this;
+                }
+                return recordForm;
+            }
+        }
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            RecordForm.Show();
         }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)

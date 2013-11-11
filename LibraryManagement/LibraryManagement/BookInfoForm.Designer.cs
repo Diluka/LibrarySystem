@@ -482,8 +482,6 @@
             this.Name = "BookInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改书籍信息";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookInfoForm_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookInfoForm_FormClosed);
             this.Load += new System.EventHandler(this.BookInfoForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRemain)).EndInit();

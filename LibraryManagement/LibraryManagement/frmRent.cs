@@ -10,9 +10,9 @@ using System.Data.SqlClient;
 using LibraryDB;
 namespace LibraryManagement
 {
-    public partial class frmRent : Form
+    public partial class FrmRent : Form
     {
-        public frmRent()
+        public FrmRent()
         {
             InitializeComponent();
         }
@@ -129,7 +129,7 @@ namespace LibraryManagement
             txtBookID.Text = txtBookID.Text.Trim();
             if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
             {
-                MessageBox.Show("不能再借了");
+                MessageBox.Show("不能再借了","青鸟温馨提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                 return;
             }
             Book book = null;

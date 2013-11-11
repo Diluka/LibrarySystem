@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class Form1
+    partial class RecordForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OrderForm));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new LabeledTextBox.LabelTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,7 +55,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(280, 17);
+            this.button1.Location = new System.Drawing.Point(382, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 5;
@@ -72,13 +72,6 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "书籍名称：";
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(110, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(135, 21);
-            this.textBox1.TabIndex = 7;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView1);
@@ -87,22 +80,30 @@
             this.groupBox1.Size = new System.Drawing.Size(751, 341);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "租借信息";
+            this.groupBox1.Text = "历史记录";
+            // 
+            // textBox1
+            // 
+            this.textBox1.LabelText = "请输入书籍名称";
+            this.textBox1.Location = new System.Drawing.Point(84, 19);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(278, 21);
+            this.textBox1.TabIndex = 9;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 400);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "已租书籍";
+            this.Text = "已归还书籍信息";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -117,7 +118,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private LabeledTextBox.LabelTextBox textBox1;
     }
 }

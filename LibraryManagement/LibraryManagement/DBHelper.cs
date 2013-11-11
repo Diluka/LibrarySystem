@@ -12,7 +12,8 @@ namespace LibraryManagement
         public static FrmLeaseManager flm = null;
         public static FrmUserManager fum = null;
         public static BookReturnForm brf = null;
-        public static Form1 f1 = null;
-        public static frmRent frt = null;
+        public static OrderForm f1 = null;
+        public static FrmRent frt = null;
+        public static frmPastDue fpd = null;
     }
 }

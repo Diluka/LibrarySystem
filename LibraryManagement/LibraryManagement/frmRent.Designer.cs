@@ -1,6 +1,6 @@
 ﻿namespace LibraryManagement
 {
-    partial class frmRent
+    partial class FrmRent
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRent));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRent));
             this.groupOrders = new System.Windows.Forms.GroupBox();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -369,6 +369,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmRent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍借出";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRent_FormClosed);
             this.Load += new System.EventHandler(this.frmRent_Load);

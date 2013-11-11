@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPastDue));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAll = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAll);
             this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
@@ -51,6 +53,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "租借日期";
+            // 
+            // btnAll
+            // 
+            this.btnAll.Location = new System.Drawing.Point(496, 31);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(75, 23);
+            this.btnAll.TabIndex = 7;
+            this.btnAll.Text = "显示全部";
+            this.btnAll.UseVisualStyleBackColor = true;
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // dateTimePicker1
             // 
@@ -113,6 +125,7 @@
             this.Name = "frmPastDue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "超期信息";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPastDue_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -130,6 +143,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnAll;
 
     }
 }

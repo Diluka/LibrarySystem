@@ -61,16 +61,6 @@ namespace LibraryManagement.Properties {
         }
         
         /// <summary>
-        ///   查找 System.Byte[] 类型的本地化资源。
-        /// </summary>
-        internal static byte[] DeepCyan {
-            get {
-                object obj = ResourceManager.GetObject("DeepCyan", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
         internal static System.Drawing.Bitmap LOGO {
@@ -156,6 +146,16 @@ namespace LibraryManagement.Properties {
         internal static System.Drawing.Bitmap 取消选择 {
             get {
                 object obj = ResourceManager.GetObject("取消选择", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 归还信息 {
+            get {
+                object obj = ResourceManager.GetObject("归还信息", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

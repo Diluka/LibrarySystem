@@ -29,7 +29,7 @@ namespace LibraryManagement
                 dv = new DataView(ds.Tables["exceeded"]);
                 dataGridView1.DataSource = dv;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("没有超期信息！","青鸟温馨提示");
             }
@@ -37,7 +37,17 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dv.RowFilter = string.Format("DATEDIFF(D,借出日期,'{0}') < 1",dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            dv.RowFilter = string.Format("借出日期 >= '{0}' and 借出日期 < '{1}'", dateTimePicker1.Value.ToString("yyyy-MM-dd"), dateTimePicker1.Value.AddDays(1).ToString("yyyy-MM-dd"));
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            dv.RowFilter = "";
+        }
+
+        private void frmPastDue_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DBHelper.fpd = null;
         }
     }
 }

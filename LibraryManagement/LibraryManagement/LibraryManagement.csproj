@@ -49,6 +49,9 @@
   <PropertyGroup>
     <StartupObject>LibraryManagement.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>窗体图标.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>libs\DevComponents.DotNetBar2.dll</HintPath>
@@ -88,11 +91,17 @@
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="RecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RecordForm.Designer.cs">
+      <DependentUpon>RecordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPastDue.cs">
       <SubType>Form</SubType>
@@ -142,7 +151,6 @@
     <Compile Include="FrmLeaseManager.Designer.cs">
       <DependentUpon>FrmLeaseManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPastDue_2.cs" />
     <Compile Include="FrmUserManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,11 +175,11 @@
     <Compile Include="BookReturnForm.Designer.cs">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRent.cs">
+    <Compile Include="FrmRent.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRent.Designer.cs">
-      <DependentUpon>frmRent.cs</DependentUpon>
+    <Compile Include="FrmRent.Designer.cs">
+      <DependentUpon>FrmRent.cs</DependentUpon>
     </Compile>
     <Compile Include="ISetCAP.cs" />
     <Compile Include="Program.cs" />
@@ -182,6 +190,11 @@
     <Compile Include="AuthorsForm.Designer.cs">
       <DependentUpon>AuthorsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Skin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Skin.resx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </EmbeddedResource>
@@ -191,8 +204,11 @@
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="RecordForm.resx">
+      <DependentUpon>RecordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPastDue.resx">
       <DependentUpon>FrmPastDue.cs</DependentUpon>
@@ -230,8 +246,8 @@
     <EmbeddedResource Include="BookReturnForm.resx">
       <DependentUpon>BookReturnForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRent.resx">
-      <DependentUpon>frmRent.cs</DependentUpon>
+    <EmbeddedResource Include="FrmRent.resx">
+      <DependentUpon>FrmRent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -240,6 +256,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorsForm.resx">
       <DependentUpon>AuthorsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Skin.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Skin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -255,7 +275,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="skin\Calmness.ssk" />
     <None Include="skin\DeepCyan.ssk" />
+    <None Include="skin\DiamondBlue.ssk" />
+    <None Include="skin\Eighteen.ssk" />
+    <None Include="skin\Emerald.ssk" />
+    <None Include="skin\GlassBrown.ssk" />
+    <None Include="skin\Longhorn.ssk" />
+    <None Include="skin\MacOS.ssk" />
+    <None Include="skin\Midsummer.ssk" />
+    <None Include="skin\MP10.ssk" />
+    <None Include="skin\MSN.ssk" />
+    <None Include="skin\OneBlue.ssk" />
+    <None Include="skin\Page.ssk" />
+    <None Include="skin\RealOne.ssk" />
+    <None Include="skin\Silver.ssk" />
+    <None Include="skin\SportsBlack.ssk" />
+    <None Include="skin\SteelBlack.ssk" />
+    <None Include="skin\Vista1.ssk" />
+    <None Include="skin\Vista2.ssk" />
+    <None Include="skin\Warm.ssk" />
+    <None Include="skin\Wave.ssk" />
+    <None Include="skin\XPSilver.ssk" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0">
@@ -346,6 +387,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\用户管理.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\归还信息.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="窗体图标.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

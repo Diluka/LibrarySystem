@@ -87,7 +87,11 @@ namespace LibraryManagement
         private void btnChooseCover_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            img = openFileDialog1.OpenFile();
+            try
+            {
+                img = openFileDialog1.OpenFile();
+            }
+            catch (IOException) { }
             if (img != null)
             {
                 picCover.Image = Image.FromStream(img);
@@ -239,6 +243,7 @@ namespace LibraryManagement
                     txtBrief.Text = bookBrief.BriefText;
                 }
 
+                ResetControlState();
                 btnModify.Enabled = true;
             }
 
@@ -456,6 +461,7 @@ namespace LibraryManagement
                 LoadAll();
                 ResetControlState();
                 btnModify.Enabled = true;
+                img = null;
             }
             else
             {
@@ -613,18 +619,6 @@ namespace LibraryManagement
         {
             frmBookPressManager fbpm = new frmBookPressManager();
             fbpm.ShowDialog(this);
-        }
-
-        private void BookInfoForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-
-        }
-
-        private void BookInfoForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FrmBookManager f = new FrmBookManager();
-            f.Activate();
         }
 
     }

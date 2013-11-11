@@ -33,6 +33,8 @@
             this.txtPassword = new LabeledTextBox.LabelTextBox();
             this.txtUsername = new LabeledTextBox.LabelTextBox();
             this.skinEngine1 = new Sunisoft.IrisSkin.SkinEngine(((System.ComponentModel.Component)(this)));
+            this.cboSkins = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnLogin
@@ -71,9 +73,52 @@
             this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
-    "ment\\skin\\DiamondBlue.ssk";
-            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
+            this.skinEngine1.SkinFile = "";
+            // 
+            // cboSkins
+            // 
+            this.cboSkins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSkins.FormattingEnabled = true;
+            this.cboSkins.Items.AddRange(new object[] {
+            "[系统默认]",
+            "平静",
+            "深青",
+            "砖石蓝",
+            "十八",
+            "祖母绿",
+            "玻璃棕",
+            "长角",
+            "苹果系统",
+            "仲夏",
+            "Media Player 10",
+            "MSN",
+            "OneBlue",
+            "页面",
+            "RealOne",
+            "银色",
+            "运动黑",
+            "质感黑",
+            "Vista1",
+            "Vista2",
+            "温暖",
+            "波纹",
+            "XP银"});
+            this.cboSkins.Location = new System.Drawing.Point(224, 208);
+            this.cboSkins.Name = "cboSkins";
+            this.cboSkins.Size = new System.Drawing.Size(112, 20);
+            this.cboSkins.TabIndex = 7;
+            this.cboSkins.SelectedIndexChanged += new System.EventHandler(this.cboSkins_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(153, 211);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(65, 12);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "界面风格：";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // frmLogin
             // 
@@ -81,7 +126,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::LibraryManagement.Properties.Resources.登录背景;
-            this.ClientSize = new System.Drawing.Size(360, 298);
+            this.ClientSize = new System.Drawing.Size(360, 300);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboSkins);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnLogin);
@@ -104,5 +151,7 @@
         private LabeledTextBox.LabelTextBox txtUsername;
         private LabeledTextBox.LabelTextBox txtPassword;
         private Sunisoft.IrisSkin.SkinEngine skinEngine1;
+        private System.Windows.Forms.ComboBox cboSkins;
+        private System.Windows.Forms.Label label1;
     }
 }

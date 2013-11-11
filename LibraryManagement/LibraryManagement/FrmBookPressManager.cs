@@ -61,7 +61,7 @@ namespace LibraryManagement
 
             if (!string.IsNullOrEmpty(txtSearchString.Text) && listPresses.FindStringExact(txtSearchString.Text) == -1)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否添加出版社“{0}”？", txtSearchString.Text), "添加提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否添加出版社“{0}”？", txtSearchString.Text), "青鸟温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
 
@@ -108,7 +108,7 @@ namespace LibraryManagement
 
             if (p != null)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否要删除出版社“{0}”？", p.PressName), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否要删除出版社“{0}”？", p.PressName), "青鸟温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     int res = 0;
