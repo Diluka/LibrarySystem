@@ -82,19 +82,22 @@ namespace LibraryManagement
             numTotal.ReadOnly = false;
             numRemain.Enabled = true;
             numRemain.ReadOnly = false;
+            btnUnlock.Visible = false;
         }
         Stream img;
         private void btnChooseCover_Click(object sender, EventArgs e)
         {
-            openFileDialog1.ShowDialog();
             try
             {
+                openFileDialog1.ShowDialog();
                 img = openFileDialog1.OpenFile();
-            }
-            catch (IOException) { }
-            if (img != null)
-            {
                 picCover.Image = Image.FromStream(img);
+            }
+            catch (IOException)
+            {
+                openFileDialog1.Reset();
+                img.Dispose();
+                img = null;
             }
         }
 
@@ -335,9 +338,8 @@ namespace LibraryManagement
                        author == null ? null : (int?)author.AuthorID,
                        press == null ? null : (int?)press.PressID,
                        datePressDate.Value,
-                       string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text));
-
-
+                       string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text)
+                       );
 
                     DBHelper.conn.Open();
                     result += ((IDBOperate)bookInfo).Insert(DBHelper.conn);
@@ -346,9 +348,9 @@ namespace LibraryManagement
                         bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
                         result += ((IDBOperate)bookBrief).Insert(DBHelper.conn);
                     }
-                    if (picCover.Image != null)
+                    if (img != null)
                     {
-                        cover = new Cover(bookInfo.InfoID, openFileDialog1.OpenFile());
+                        cover = new Cover(bookInfo.InfoID, img);
                         result += ((IDBOperate)cover).Insert(DBHelper.conn);
                     }
                 }

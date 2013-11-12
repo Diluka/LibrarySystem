@@ -14,7 +14,7 @@ namespace FontsPack
     /// </summary>
     public enum FontName
     {
-        叶根友毛笔行书
+        叶根友毛笔行书,方正粗圆简体
     }
     public static class Fonts
     {
@@ -36,6 +36,10 @@ namespace FontsPack
                 {
                     case FontName.叶根友毛笔行书:
                         ff = GetFontFamily(FontResource.Fontfile1);
+                        fontFamilies.Add(name, ff);
+                        break;
+                    case FontName.方正粗圆简体:
+                        ff = GetFontFamily(FontResource.Fontfile2);
                         fontFamilies.Add(name, ff);
                         break;
                     default:
@@ -75,6 +79,10 @@ namespace FontsPack
                 {
                     case FontName.叶根友毛笔行书:
                         ff = GetFontFamily(FontResource.Fontfile1);
+                        fontFamilies.Add(name, ff);
+                        break;
+                    case FontName.方正粗圆简体:
+                        ff = GetFontFamily(FontResource.Fontfile2);
                         fontFamilies.Add(name, ff);
                         break;
                     default:
