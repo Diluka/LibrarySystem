@@ -32,6 +32,7 @@ namespace LibraryDB
         private MemoryStream FromStream(Stream s)
         {
             MemoryStream m = new MemoryStream();
+            s.Position = 0;//这里必须指定为开头，默认居然是结尾
             while (true)
             {
                 int read = s.ReadByte();
