@@ -43,7 +43,7 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dv.RowFilter = string.Format("书籍名称 like '%{0}%'", textBox1.Text);
+            dv.RowFilter = string.Format("书籍标题 like '%{0}%'", textBox1.Text);
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)

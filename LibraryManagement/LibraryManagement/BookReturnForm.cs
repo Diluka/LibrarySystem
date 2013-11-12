@@ -17,14 +17,35 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-
+        DataSet dc = new DataSet();
+        DataView dv = null;
+        SqlDataAdapter da = null;
         private void BookReturnForm_Load(object sender, EventArgs e)
         {
+            NNN();
+        }
 
+        private void NNN()
+        {
+            string sql = string.Format("select * from OrderView");
+            try
+            {
+                da = new SqlDataAdapter(sql, DBHelper.conn);
+                da.Fill(dc, "WWW");
+                dv = new DataView(dc.Tables["WWW"]);
+                dgvOrders.DataSource = dv;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
+            }
         }
 
         private void btnReturnBook_Click(object sender, EventArgs e)
         {
+            
             txtBookID.Text = txtBookID.Text.Trim();
 
             if (string.IsNullOrEmpty(txtBookID.Text))
@@ -55,7 +76,11 @@ namespace LibraryManagement
             {
                 GHTC ghtc = new GHTC();
                 ghtc.Show();
+                dc.Tables["WWW"].Clear();
+                NNN();
             }
+            
+            
         }
         User user;
         DataSet ds = new DataSet();
@@ -63,7 +88,7 @@ namespace LibraryManagement
         {
             txtUsername.Text = txtUsername.Text.Trim();
 
-            if (string.IsNullOrEmpty(txtUsername.Text))
+            if (string.IsNullOrEmpty(txtUsername.Text) )
             {
                 MessageBox.Show("请输入用户名","迅邦温馨提示");
                 return;
@@ -90,6 +115,7 @@ namespace LibraryManagement
         private void ShowOrders()
         {
             if (user != null)
+            {
                 using (SqlDataAdapter da = new SqlDataAdapter("select * from orderview where 用户ID=" + user.Uid, DBHelper.conn))
                 {
                     if (ds.Tables["orders"] != null)
@@ -99,8 +125,13 @@ namespace LibraryManagement
                     da.Fill(ds, "orders");
                     dgvOrders.DataSource = ds.Tables["orders"];
                     dgvOrders.Columns["用户ID"].Visible = false;
-                   
+
                 }
+            }
+            else
+            {
+                MessageBox.Show("用户不存在！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            }
         }
 
         private void 还书ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,6 +163,8 @@ namespace LibraryManagement
                     ShowOrders();
                     GHTC ghtc = new GHTC();
                     ghtc.Show();
+                    dc.Tables["WWW"].Clear();
+                    NNN();
                 }
             }
             else
@@ -173,6 +206,20 @@ namespace LibraryManagement
         private void btnGo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Trim() == "")
+            {
+                dc.Tables["WWW"].Clear();
+                NNN();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

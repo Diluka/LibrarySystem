@@ -57,6 +57,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupOrders.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.groupBookList.SuspendLayout();
@@ -68,9 +69,9 @@
             // groupOrders
             // 
             this.groupOrders.Controls.Add(this.dgvOrders);
-            this.groupOrders.Location = new System.Drawing.Point(600, 242);
+            this.groupOrders.Location = new System.Drawing.Point(546, 242);
             this.groupOrders.Name = "groupOrders";
-            this.groupOrders.Size = new System.Drawing.Size(356, 177);
+            this.groupOrders.Size = new System.Drawing.Size(420, 177);
             this.groupOrders.TabIndex = 39;
             this.groupOrders.TabStop = false;
             this.groupOrders.Text = "未归还图书";
@@ -85,13 +86,14 @@
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
             this.dgvOrders.RowTemplate.Height = 23;
-            this.dgvOrders.Size = new System.Drawing.Size(350, 157);
+            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrders.Size = new System.Drawing.Size(414, 157);
             this.dgvOrders.TabIndex = 0;
             this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(842, 15);
+            this.btnAdd.Location = new System.Drawing.Point(788, 15);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(54, 23);
             this.btnAdd.TabIndex = 38;
@@ -102,14 +104,14 @@
             // txtBookID
             // 
             this.txtBookID.LabelText = "输入书本编号";
-            this.txtBookID.Location = new System.Drawing.Point(600, 16);
+            this.txtBookID.Location = new System.Drawing.Point(546, 16);
             this.txtBookID.Name = "txtBookID";
             this.txtBookID.Size = new System.Drawing.Size(236, 21);
             this.txtBookID.TabIndex = 37;
             // 
             // btnOK2
             // 
-            this.btnOK2.Location = new System.Drawing.Point(902, 15);
+            this.btnOK2.Location = new System.Drawing.Point(848, 15);
             this.btnOK2.Name = "btnOK2";
             this.btnOK2.Size = new System.Drawing.Size(54, 23);
             this.btnOK2.TabIndex = 32;
@@ -122,7 +124,7 @@
             this.chkIsReadOnly.AutoSize = true;
             this.chkIsReadOnly.Checked = true;
             this.chkIsReadOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkIsReadOnly.Location = new System.Drawing.Point(512, 17);
+            this.chkIsReadOnly.Location = new System.Drawing.Point(485, 20);
             this.chkIsReadOnly.Name = "chkIsReadOnly";
             this.chkIsReadOnly.Size = new System.Drawing.Size(48, 16);
             this.chkIsReadOnly.TabIndex = 36;
@@ -131,7 +133,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(440, 13);
+            this.btnOK.Location = new System.Drawing.Point(413, 16);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(62, 25);
             this.btnOK.TabIndex = 35;
@@ -141,7 +143,7 @@
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(183, 15);
+            this.txtUsername.Location = new System.Drawing.Point(156, 18);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(251, 21);
             this.txtUsername.TabIndex = 34;
@@ -150,7 +152,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(68, 15);
+            this.label1.Location = new System.Drawing.Point(41, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 20);
             this.label1.TabIndex = 33;
@@ -159,9 +161,9 @@
             // groupBookList
             // 
             this.groupBookList.Controls.Add(this.dgvBooks);
-            this.groupBookList.Location = new System.Drawing.Point(600, 60);
+            this.groupBookList.Location = new System.Drawing.Point(546, 60);
             this.groupBookList.Name = "groupBookList";
-            this.groupBookList.Size = new System.Drawing.Size(359, 179);
+            this.groupBookList.Size = new System.Drawing.Size(420, 179);
             this.groupBookList.TabIndex = 31;
             this.groupBookList.TabStop = false;
             this.groupBookList.Text = "书籍信息";
@@ -178,8 +180,10 @@
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.ReadOnly = true;
             this.dgvBooks.RowTemplate.Height = 23;
-            this.dgvBooks.Size = new System.Drawing.Size(353, 159);
+            this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBooks.Size = new System.Drawing.Size(414, 159);
             this.dgvBooks.TabIndex = 0;
+            this.dgvBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellContentClick);
             // 
             // groupUserInfo
             // 
@@ -201,7 +205,7 @@
             this.groupUserInfo.Controls.Add(this.label2);
             this.groupUserInfo.Location = new System.Drawing.Point(14, 60);
             this.groupUserInfo.Name = "groupUserInfo";
-            this.groupUserInfo.Size = new System.Drawing.Size(580, 359);
+            this.groupUserInfo.Size = new System.Drawing.Size(517, 359);
             this.groupUserInfo.TabIndex = 30;
             this.groupUserInfo.TabStop = false;
             this.groupUserInfo.Text = "用户信息";
@@ -227,28 +231,28 @@
             // 
             this.txtPhone.Location = new System.Drawing.Point(219, 186);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(334, 21);
+            this.txtPhone.Size = new System.Drawing.Size(269, 21);
             this.txtPhone.TabIndex = 17;
             // 
             // txtRegDate
             // 
             this.txtRegDate.Location = new System.Drawing.Point(219, 119);
             this.txtRegDate.Name = "txtRegDate";
-            this.txtRegDate.Size = new System.Drawing.Size(334, 21);
+            this.txtRegDate.Size = new System.Drawing.Size(269, 21);
             this.txtRegDate.TabIndex = 16;
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(219, 48);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(334, 21);
+            this.txtEmail.Size = new System.Drawing.Size(269, 21);
             this.txtEmail.TabIndex = 15;
             // 
             // txtAddress
             // 
             this.txtAddress.Location = new System.Drawing.Point(32, 262);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(521, 21);
+            this.txtAddress.Size = new System.Drawing.Size(456, 21);
             this.txtAddress.TabIndex = 14;
             // 
             // rdoGirl
@@ -350,11 +354,22 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "姓名：";
             // 
-            // frmRent
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(912, 14);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(54, 23);
+            this.button1.TabIndex = 40;
+            this.button1.Text = "清  空";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // FrmRent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(977, 438);
+            this.ClientSize = new System.Drawing.Size(978, 438);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupOrders);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtBookID);
@@ -368,7 +383,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "frmRent";
+            this.Name = "FrmRent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍借出";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRent_FormClosed);
@@ -415,5 +430,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

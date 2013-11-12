@@ -51,6 +51,7 @@
             this.dgvOrders.RowTemplate.Height = 23;
             this.dgvOrders.Size = new System.Drawing.Size(628, 321);
             this.dgvOrders.TabIndex = 4;
+            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // btnGo
             // 

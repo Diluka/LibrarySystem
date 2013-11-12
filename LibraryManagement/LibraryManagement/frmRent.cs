@@ -35,7 +35,7 @@ namespace LibraryManagement
                 user = User.GetUserByName(txtUsername.Text.ToString(), DBHelper.conn);
                 if (user == null)
                 {
-                    MessageBox.Show("用户不存在", "青鸟温馨提示", MessageBoxButtons.OK);
+                    MessageBox.Show("用户不存在", "迅邦温馨提示", MessageBoxButtons.OK,MessageBoxIcon.Question);
                     txtUsername.Select();
                     txtUsername.Focus();
                     return;
@@ -128,7 +128,7 @@ namespace LibraryManagement
         {
             if (txtBookID.Text.Trim() == "")
             {
-                ds.Tables["books"].Clear();
+                
                 MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else if (txtUsername.Text.Trim() == "")
@@ -142,7 +142,7 @@ namespace LibraryManagement
                 txtBookID.Text = txtBookID.Text.Trim();
                 if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
                 {
-                    MessageBox.Show("不能再借了", "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    MessageBox.Show("不能再借了，用户借阅书籍数量上线（3本）", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     return;
                 }
                 Book book = null;
@@ -196,6 +196,11 @@ namespace LibraryManagement
             {
                 MessageBox.Show("请选择书籍！","迅邦温馨提示");
             }
+            else if (books.Count  >= userGroupInfo.MaxOrders)
+            {
+                MessageBox.Show("已达到最大借书量", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+
             else
             {
 
@@ -228,6 +233,7 @@ namespace LibraryManagement
 
                 books.Clear();
                 ShowOrders();
+                ds.Tables["books"].Clear();
             }
         }
         private void ShowOrders()
@@ -318,6 +324,18 @@ namespace LibraryManagement
         private void frmRent_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.frt = null;
+        }
+
+        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            books.Clear();
+            ds.Tables["books"].Clear();
         }
 
        

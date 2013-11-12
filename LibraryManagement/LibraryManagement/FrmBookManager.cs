@@ -162,7 +162,7 @@ namespace LibraryManagement
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0)
+            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
             {
                 string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].Value.ToString();
                 long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
@@ -197,16 +197,71 @@ namespace LibraryManagement
                 }
 
             }
+            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
+            {
+                MessageBox.Show("书籍已借出，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
             else
             {
                 MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
+        public int b()
+        {
+            int num2 = 0;
+            string sql = string.Format("select Remain from BookInfo where InfoID = {0}", dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
+            try
+            {
+                DBHelper.conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    num2 = Convert.ToInt32(dr["Remain"]);
+                }
+                dr.Close();
 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                DBHelper.conn.Close();
+            }
+            return num2;
+        }
+        public  int a() 
+        {
+            int num1 = 0;
+            string sql = string.Format("select Total from BookInfo where InfoID = {0}",dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
+            try
+            {
+                DBHelper.conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    num1 = Convert.ToInt32(dr["Total"]);
+                }
+                dr.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally 
+            {
+                DBHelper.conn.Close();
+            }
+            return num1;
+        }
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0)
+            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
             {
                 string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].Value.ToString();
                 long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
@@ -240,6 +295,10 @@ namespace LibraryManagement
 
                 }
 
+            }
+            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
+            {
+                MessageBox.Show("书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
             }
             else
             {
@@ -309,7 +368,7 @@ namespace LibraryManagement
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0)
+            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
             {
                 DialogResult result = MessageBox.Show(string.Format("确认删除已选项？"), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -342,6 +401,11 @@ namespace LibraryManagement
                 }
 
             }
+            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
+            {
+                MessageBox.Show("有书籍书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            }
+            
             else
             {
                 MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);

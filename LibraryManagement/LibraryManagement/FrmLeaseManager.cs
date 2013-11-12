@@ -60,9 +60,7 @@ namespace LibraryManagement
 
         private void 租借ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmBookLease p = new FrmBookLease();
-            p.MdiParent = this;
-            p.ShowDialog();
+            
         }
 
         private void 续期ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,16 +108,7 @@ namespace LibraryManagement
 
         private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
-            if (DBHelper.f1 == null)
-            {
-                DBHelper.f1 = new OrderForm();
-                DBHelper.f1.MdiParent = this;
-                DBHelper.f1.Show();
-            }
-            else
-            {
-                DBHelper.f1.Focus();
-            }
+         
         }
 
         private void FrmLeaseManager_FormClosed(object sender, FormClosedEventArgs e)

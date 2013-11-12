@@ -43,11 +43,22 @@ namespace LibraryManagement
         private void btnAll_Click(object sender, EventArgs e)
         {
             dv.RowFilter = "";
-        }
+            dateTimePicker1.Text = DateTime.Now.ToString();
+        }       
 
         private void frmPastDue_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.fpd = null;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -52,10 +52,35 @@ namespace LibraryManagement
                 MessageBox.Show(ex.Message);
             }
         }
+        public int  str() 
+        {
+            string sql = string.Format(" select UID from Orders where UID = {0}",dgvUsers.CurrentRow.Cells["用户ID"].Value);
+            int c = 0;
+            try
+            {
+                DBHelper.conn.Open();
+                SqlCommand cmd = new SqlCommand(sql,DBHelper.conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    c = Convert.ToInt32(dr["UID"]);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
+            }
+            finally 
+            {
+                DBHelper.conn.Close();
+            }
+            return c;
+        }
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (dgvUsers.SelectedRows.Count > 0)
+            if (dgvUsers.SelectedRows.Count > 0 && Convert.ToInt32( dgvUsers.CurrentRow.Cells["用户ID"].Value) != str() )
             {
                 string username = dgvUsers.CurrentRow.Cells["用户名"].Value.ToString();
                 DialogResult result = MessageBox.Show(string.Format("确认要删除编号为《{0}》的用户？", username), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -78,15 +103,19 @@ namespace LibraryManagement
 
                     if (sqlresult > 0)
                     {
-                        MessageBox.Show("删除成功！");
+                        MessageBox.Show("删除失败！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
                         GetAll();
                     }
                     else
                     {
-                        MessageBox.Show("删除失败！");
+                        MessageBox.Show("删除成功！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.None);
                     }
                 }
 
+            }
+            else if (dgvUsers.SelectedRows.Count > 0 && Convert.ToInt32( dgvUsers.CurrentRow.Cells["用户ID"].Value) == str() )
+            {
+                MessageBox.Show("此用户借有书籍，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else
             {

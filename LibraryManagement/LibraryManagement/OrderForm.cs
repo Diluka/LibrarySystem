@@ -28,10 +28,7 @@ namespace LibraryManagement
                 da.Fill(ds, "WWW");
                 dv = new DataView(ds.Tables["WWW"]);
                 dgvOrders.DataSource = dv;
-                if (ds.Tables["WWW"] == null)
-                {
-                    MessageBox.Show()
-                }
+               
             }
             catch (Exception ex)
             {
@@ -48,6 +45,11 @@ namespace LibraryManagement
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.f1 = null;
+        }
+
+        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
