@@ -92,6 +92,11 @@ namespace LibraryManagement
                 openFileDialog1.ShowDialog();
                 img = openFileDialog1.OpenFile();
                 picCover.Image = Image.FromStream(img);
+                if (cover != null)
+                {
+                    img.Position = 0;
+                    cover.ImageStream = img;
+                }
             }
             catch (IOException)
             {
@@ -105,6 +110,7 @@ namespace LibraryManagement
         {
             openFileDialog1.Reset();
             picCover.Image.Dispose();
+            picCover.Image = null;
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -403,12 +409,12 @@ namespace LibraryManagement
 
                     if (img != null)
                     {
-                        cover = cover ?? new Cover(bookInfo.InfoID, img);
-                        try
+                        if (cover == null)
                         {
+                            cover = new Cover(bookInfo.InfoID, img);
                             result += ((IDBOperate)cover).Insert(DBHelper.conn);
                         }
-                        catch (Exception)
+                        else
                         {
                             result += ((IDBOperate)cover).Update(DBHelper.conn);
                         }
