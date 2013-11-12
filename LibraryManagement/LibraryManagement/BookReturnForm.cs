@@ -29,7 +29,7 @@ namespace LibraryManagement
 
             if (string.IsNullOrEmpty(txtBookID.Text))
             {
-                MessageBox.Show("请输入书本编号");
+                MessageBox.Show("请输入书本编号","迅邦温馨提示");
                 return;
             }
             Record record = null;
@@ -49,11 +49,12 @@ namespace LibraryManagement
 
             if (record == null)
             {
-                MessageBox.Show("失败");
+                MessageBox.Show("此书不存在！","迅邦温馨提示");
             }
             else
             {
-                MessageBox.Show("图书归还成功！","青鸟温馨提示");
+                GHTC ghtc = new GHTC();
+                ghtc.Show();
             }
         }
         User user;
@@ -64,7 +65,7 @@ namespace LibraryManagement
 
             if (string.IsNullOrEmpty(txtUsername.Text))
             {
-                MessageBox.Show("请输入用户名");
+                MessageBox.Show("请输入用户名","迅邦温馨提示");
                 return;
             }
             else
@@ -98,6 +99,7 @@ namespace LibraryManagement
                     da.Fill(ds, "orders");
                     dgvOrders.DataSource = ds.Tables["orders"];
                     dgvOrders.Columns["用户ID"].Visible = false;
+                   
                 }
         }
 
@@ -123,16 +125,18 @@ namespace LibraryManagement
 
                 if (record == null)
                 {
-                    MessageBox.Show("失败");
+                    MessageBox.Show("失败","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
                 else
                 {
                     ShowOrders();
+                    GHTC ghtc = new GHTC();
+                    ghtc.Show();
                 }
             }
             else
             {
-                MessageBox.Show("请选择");
+                MessageBox.Show("请选择","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
             }
         }
 
@@ -144,6 +148,31 @@ namespace LibraryManagement
         private void BookReturnForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.brf = null;
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

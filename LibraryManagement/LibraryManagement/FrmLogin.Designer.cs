@@ -138,7 +138,7 @@
             this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LibraryManagement.Properties.Resources.登录背景;
+            this.BackgroundImage = global::LibraryManagement.Properties.Resources._2222222222222222;
             this.ClientSize = new System.Drawing.Size(360, 300);
             this.Controls.Add(this.pnlHidden);
             this.Controls.Add(this.txtPassword);

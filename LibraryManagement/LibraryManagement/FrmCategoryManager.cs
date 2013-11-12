@@ -101,7 +101,7 @@ namespace LibraryManagement
 
                 if (result == 0)
                 {
-                    DialogResult dr = MessageBox.Show(string.Format("是否要创建新类别'{0}'？这时应该是用'/'符号表示层次关系。(默认借阅天数：30天)", txtSearchString.Text), "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    DialogResult dr = MessageBox.Show(string.Format("是否要创建新类别'{0}'？这时应该是用'/'符号表示层次关系。(默认借阅天数：30天)", txtSearchString.Text), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
                         Category c = new Category(txtSearchString.Text, 30);
@@ -128,7 +128,7 @@ namespace LibraryManagement
 
                         if (result2 <= 0)
                         {
-                            MessageBox.Show("添加失败！",  "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("添加失败！",  "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
@@ -183,7 +183,7 @@ namespace LibraryManagement
 
             if (result <= 0)
             {
-                MessageBox.Show("删除失败！", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("删除失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }

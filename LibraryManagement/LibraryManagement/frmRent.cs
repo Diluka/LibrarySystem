@@ -126,41 +126,55 @@ namespace LibraryManagement
         private List<Book> books = new List<Book>();
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            txtBookID.Text = txtBookID.Text.Trim();
-            if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
+            if (txtBookID.Text.Trim() == "")
             {
-                MessageBox.Show("不能再借了","青鸟温馨提示",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                return;
+                ds.Tables["books"].Clear();
+                MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-            Book book = null;
-            try
+            else if (txtUsername.Text.Trim() == "")
             {
-                DBHelper.conn.Open();
-                book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
-                if (book != null)
-                {
-                    using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
-                    {
-                        da.Fill(ds, "books");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-
-            if (book != null)
-            {
-                books.Add(book);
+                MessageBox.Show("请输入会员卡号", "迅邦温馨提示");
             }
             else
             {
-                MessageBox.Show("书籍不存在", "青鸟温馨提示", MessageBoxButtons.OK);
+
+
+                txtBookID.Text = txtBookID.Text.Trim();
+                if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
+                {
+                    MessageBox.Show("不能再借了", "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    return;
+                }
+                Book book = null;
+                try
+                {
+                    DBHelper.conn.Open();
+                    book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
+                    if (book != null)
+                    {
+                        using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
+                        {
+                            da.Fill(ds, "books");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
+
+                if (book != null)
+                {
+                    books.Add(book);
+                }
+                else
+                {
+                    MessageBox.Show("书籍不存在", "迅邦温馨提示", MessageBoxButtons.OK);
+                }
             }
         }
         DataSet ds = new DataSet();
@@ -174,34 +188,47 @@ namespace LibraryManagement
 
         private void btnOK2_Click(object sender, EventArgs e)
         {
-            try
+            if (txtUsername.Text.Trim() == "" )
             {
-                DBHelper.conn.Open();
-                foreach (Book b in books)
+                MessageBox.Show("请输入会员卡号！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            }
+            else if ( txtBookID.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择书籍！","迅邦温馨提示");
+            }
+            else
+            {
+
+
+                try
                 {
-                    Order o = new Order(user.Uid, b.BookID);
-                    int result = ((IDBOperate)o).Insert(DBHelper.conn);
-                    if (result > 0)
+                    DBHelper.conn.Open();
+                    foreach (Book b in books)
                     {
-                        orders.Add(o);
-                    }
-                    else
-                    {
-                        MessageBox.Show(string.Format("书本：{0}借出失败", b.BookID));
+                        Order o = new Order(user.Uid, b.BookID);
+                        int result = ((IDBOperate)o).Insert(DBHelper.conn);
+                        if (result > 0)
+                        {
+                            orders.Add(o);
+                        }
+                        else
+                        {
+                            MessageBox.Show(string.Format("书本：{0}借出失败（没有库存了！/请输入此书其余库存编号借出）", b.BookID));
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    DBHelper.conn.Close();
+                }
 
-            books.Clear();
-            ShowOrders();
+                books.Clear();
+                ShowOrders();
+            }
         }
         private void ShowOrders()
         {
@@ -224,7 +251,7 @@ namespace LibraryManagement
         {
             if (userInfo == null)
             {
-                MessageBox.Show("没有用户信息，现在新建用户信息");
+                MessageBox.Show("没有用户信息，现在新建用户信息","迅邦温馨提示");
                 userInfo = new UserInfo(user.Uid, null, null, GenderType.未指定, null, null, null);
             }
             foreach (Control item in this.groupUserInfo.Controls)
@@ -238,7 +265,7 @@ namespace LibraryManagement
 
             if (txtName.Text == "")
             {
-                MessageBox.Show("必须输入姓名", "青鸟温馨提示", MessageBoxButtons.OK);
+                MessageBox.Show("必须输入姓名", "迅邦温馨提示", MessageBoxButtons.OK);
                 return;
             }
 
@@ -279,7 +306,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("保存失败", "青鸟温馨提示", MessageBoxButtons.OK);
+                MessageBox.Show("保存失败", "迅邦温馨提示", MessageBoxButtons.OK);
             }
         }
 

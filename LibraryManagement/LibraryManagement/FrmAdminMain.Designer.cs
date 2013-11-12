@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LibraryManagement.Properties.Resources.主窗体背景;
+            this.BackgroundImage = global::LibraryManagement.Properties.Resources.背景图片5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1082, 696);
             this.Controls.Add(this.btnExit);

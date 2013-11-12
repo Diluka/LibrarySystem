@@ -91,6 +91,12 @@
       <DependentUpon>BookInfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="GHTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GHTC.Designer.cs">
+      <DependentUpon>GHTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="RecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GHTC.resx">
+      <DependentUpon>GHTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RecordForm.resx">
       <DependentUpon>RecordForm.cs</DependentUpon>
@@ -392,6 +401,13 @@
     <None Include="Resources\归还信息.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\背景图片5.png" />
+    <None Include="Resources\背景图片7.png" />
+    <None Include="Resources\登录背景111.png" />
+    <None Include="Resources\登录背景11111.png" />
+    <None Include="Resources\背景9999.png" />
+    <None Include="Resources\1111111111111111.png" />
+    <None Include="Resources\2222222222222222.png" />
     <Content Include="窗体图标.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -73,7 +73,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("登录失败！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -82,7 +82,7 @@ namespace LibraryManagement
             skinEngine1.MenuFont = Fonts.GetFont(FontName.方正粗圆简体, 10);
             //this.Font = Fonts.GetFont(FontName.方正粗圆简体, 9);
             skinEngine1.TitleFont = new Font("幼圆", 12, FontStyle.Bold);
-            cboSkins.SelectedIndex = 0;
+            cboSkins.SelectedIndex = 2;
 
             Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
             btnLogin.Font = font;

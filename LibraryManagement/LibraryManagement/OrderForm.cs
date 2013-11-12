@@ -28,6 +28,10 @@ namespace LibraryManagement
                 da.Fill(ds, "WWW");
                 dv = new DataView(ds.Tables["WWW"]);
                 dgvOrders.DataSource = dv;
+                if (ds.Tables["WWW"] == null)
+                {
+                    MessageBox.Show()
+                }
             }
             catch (Exception ex)
             {

@@ -29,7 +29,7 @@ namespace LibraryManagement
 
             if (bookInfo == null)
             {
-                MessageBox.Show("没有书籍信息","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("没有书籍信息","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
                 this.Close();
             }
 
@@ -93,7 +93,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("添加失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("添加失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,13 +101,13 @@ namespace LibraryManagement
         {
             if (dgvBooks.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请选择要删除的书本","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                MessageBox.Show("请选择要删除的书本","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
                 return;
             }
 
             long bid = Convert.ToInt64(dgvBooks.SelectedRows[0].Cells["BookID"].Value);
 
-            if (MessageBox.Show(string.Format("确定要删除编号为：{0}的书本吗？", bid), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+            if (MessageBox.Show(string.Format("确定要删除编号为：{0}的书本吗？", bid), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
                 return;
             }
@@ -134,7 +134,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("删除失败，请确定书本不处于借出状态","青鸟温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("删除失败，请确定书本不处于借出状态","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
         }
     }

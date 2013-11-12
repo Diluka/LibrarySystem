@@ -49,7 +49,7 @@
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
             this.dgvOrders.RowTemplate.Height = 23;
-            this.dgvOrders.Size = new System.Drawing.Size(745, 321);
+            this.dgvOrders.Size = new System.Drawing.Size(628, 321);
             this.dgvOrders.TabIndex = 4;
             // 
             // btnGo
@@ -76,7 +76,7 @@
             this.groupBox1.Controls.Add(this.dgvOrders);
             this.groupBox1.Location = new System.Drawing.Point(12, 53);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 341);
+            this.groupBox1.Size = new System.Drawing.Size(634, 341);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "租借信息";
@@ -93,7 +93,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 400);
+            this.ClientSize = new System.Drawing.Size(655, 400);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);

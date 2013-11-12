@@ -61,7 +61,7 @@ namespace LibraryManagement
 
             if (!string.IsNullOrEmpty(txtSearchString.Text) && listPresses.FindStringExact(txtSearchString.Text) == -1)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否添加出版社“{0}”？", txtSearchString.Text), "青鸟温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否添加出版社“{0}”？", txtSearchString.Text), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
 
@@ -96,7 +96,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("添加失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("添加失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
@@ -108,7 +108,7 @@ namespace LibraryManagement
 
             if (p != null)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否要删除出版社“{0}”？", p.PressName), "青鸟温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否要删除出版社“{0}”？", p.PressName), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     int res = 0;
@@ -135,7 +135,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("删除失败", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

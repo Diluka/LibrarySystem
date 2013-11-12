@@ -37,10 +37,10 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtUsername = new System.Windows.Forms.ToolStripTextBox();
-            this.btnOK = new System.Windows.Forms.ToolStripButton();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.还书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnOK = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
@@ -50,15 +50,15 @@
             // txtBookID
             // 
             this.txtBookID.LabelText = "请输入书本编号...";
-            this.txtBookID.Location = new System.Drawing.Point(195, 20);
+            this.txtBookID.Location = new System.Drawing.Point(124, 20);
             this.txtBookID.Name = "txtBookID";
-            this.txtBookID.Size = new System.Drawing.Size(277, 21);
+            this.txtBookID.Size = new System.Drawing.Size(229, 21);
             this.txtBookID.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(88, 24);
+            this.label1.Location = new System.Drawing.Point(17, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 12);
             this.label1.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             // btnReturnBook
             // 
-            this.btnReturnBook.Location = new System.Drawing.Point(490, 19);
+            this.btnReturnBook.Location = new System.Drawing.Point(359, 19);
             this.btnReturnBook.Name = "btnReturnBook";
             this.btnReturnBook.Size = new System.Drawing.Size(75, 23);
             this.btnReturnBook.TabIndex = 2;
@@ -80,10 +80,11 @@
             this.groupBox1.Controls.Add(this.dgvOrders);
             this.groupBox1.Location = new System.Drawing.Point(12, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(628, 323);
+            this.groupBox1.Size = new System.Drawing.Size(597, 263);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "用户未归还书籍";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // toolStrip1
             // 
@@ -93,7 +94,7 @@
             this.btnOK});
             this.toolStrip1.Location = new System.Drawing.Point(3, 17);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(622, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(591, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -108,21 +109,11 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(200, 25);
             // 
-            // btnOK
-            // 
-            this.btnOK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
-            this.btnOK.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(36, 22);
-            this.btnOK.Text = "确定";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
             // dgvOrders
             // 
+            this.dgvOrders.AllowDrop = true;
             this.dgvOrders.AllowUserToAddRows = false;
             this.dgvOrders.AllowUserToDeleteRows = false;
-            this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOrders.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -130,8 +121,9 @@
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
             this.dgvOrders.RowTemplate.Height = 23;
-            this.dgvOrders.Size = new System.Drawing.Size(622, 303);
+            this.dgvOrders.Size = new System.Drawing.Size(591, 243);
             this.dgvOrders.TabIndex = 3;
+            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // contextMenuStrip1
             // 
@@ -148,11 +140,21 @@
             this.还书ToolStripMenuItem.Text = "还书";
             this.还书ToolStripMenuItem.Click += new System.EventHandler(this.还书ToolStripMenuItem_Click);
             // 
+            // btnOK
+            // 
+            this.btnOK.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnOK.Image = ((System.Drawing.Image)(resources.GetObject("btnOK.Image")));
+            this.btnOK.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(36, 22);
+            this.btnOK.Text = "确定";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // BookReturnForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 384);
+            this.ClientSize = new System.Drawing.Size(620, 323);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnReturnBook);
             this.Controls.Add(this.label1);

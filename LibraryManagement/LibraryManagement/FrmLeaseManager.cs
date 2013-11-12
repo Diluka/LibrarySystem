@@ -143,6 +143,11 @@ namespace LibraryManagement
         {
             RecordForm.Show();
         }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
         //private List<Order> orders;
         //private void btnOK_Click(object sender, EventArgs e)
         //{

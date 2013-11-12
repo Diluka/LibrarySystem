@@ -90,7 +90,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要删除的项", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -116,7 +116,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要修改的用户", "青鸟温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要修改的用户", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
