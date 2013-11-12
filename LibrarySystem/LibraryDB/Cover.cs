@@ -18,35 +18,41 @@ namespace LibraryDB
         {
             get
             {
-                return Image.FromStream(mem);
+                if (mem.Length == 0) return null;
+                MemoryStream ms = new MemoryStream();
+                mem.CopyTo(ms);
+                return Image.FromStream(ms);
             }
         }
         public Stream ImageStream
         {
             set
             {
-                mem = FromStream(value);
+                if (value.Length == 0) return;
+                mem = new MemoryStream();
+                value.CopyTo(mem);
             }
         }
 
-        private MemoryStream FromStream(Stream s)
-        {
-            MemoryStream m = new MemoryStream();
-            s.Position = 0;//这里必须指定为开头，默认居然是结尾
-            while (true)
-            {
-                int read = s.ReadByte();
-                if (read == -1) break;
-                m.WriteByte((byte)read);
-            }
-            m.Position = 0;
-            return m;
-        }
+        //private MemoryStream FromStream(Stream s)
+        //{
+        //    MemoryStream m = new MemoryStream();
+        //    s.Position = 0;//这里必须指定为开头，默认居然是结尾
+        //    while (true)
+        //    {
+        //        int read = s.ReadByte();
+        //        if (read == -1) break;
+        //        m.WriteByte((byte)read);
+        //    }
+        //    m.Position = 0;
+        //    return m;
+        //}
 
         private Cover() { }
         public Cover(long iid, Stream s)
         {
-            mem = FromStream(s);
+            mem = new MemoryStream();
+            s.CopyTo(mem);
             this.InfoID = iid;
         }
 

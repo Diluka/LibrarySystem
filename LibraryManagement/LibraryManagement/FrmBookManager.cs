@@ -429,23 +429,6 @@ namespace LibraryManagement
             treeCategories.Nodes[0].Expand();
         }
 
-        private void toolStripButton8_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void toolStripButton9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmBookManager_Activated(object sender, EventArgs e)
-        {
-         
-            //Reflash(); 
-       
-        }
-
         private void FrmBookManager_FormClosed(object sender, FormClosedEventArgs e)
         {
             DBHelper.fbm = null;
