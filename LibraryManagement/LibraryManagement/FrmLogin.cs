@@ -17,29 +17,29 @@ namespace LibraryManagement
     public partial class frmLogin : Form
     {
 
-        byte[][] skins ={new byte[0],
-            Skin.Calmness,
-Skin.DeepCyan,
-Skin.DiamondBlue,
-Skin.Eighteen,
-Skin.Emerald,
-Skin.GlassBrown,
-Skin.Longhorn,
-Skin.MacOS,
-Skin.Midsummer,
-Skin.MP10,
-Skin.MSN,
-Skin.OneBlue,
-Skin.Page,
-Skin.RealOne,
-Skin.Silver,
-Skin.SportsBlack,
-Skin.SteelBlack,
-Skin.Vista1,
-Skin.Vista2,
-Skin.Warm,
-Skin.Wave,
-            Skin.XPSilver, };
+//        byte[][] skins ={new byte[0],
+//            Skin.Calmness,
+//Skin.DeepCyan,
+//Skin.DiamondBlue,
+//Skin.Eighteen,
+//Skin.Emerald,
+//Skin.GlassBrown,
+//Skin.Longhorn,
+//Skin.MacOS,
+//Skin.Midsummer,
+//Skin.MP10,
+//Skin.MSN,
+//Skin.OneBlue,
+//Skin.Page,
+//Skin.RealOne,
+//Skin.Silver,
+//Skin.SportsBlack,
+//Skin.SteelBlack,
+//Skin.Vista1,
+//Skin.Vista2,
+//Skin.Warm,
+//Skin.Wave,
+//            Skin.XPSilver, };
         public frmLogin()
         {
             InitializeComponent();
@@ -87,7 +87,7 @@ Skin.Wave,
 
         private void cboSkins_SelectedIndexChanged(object sender, EventArgs e)
         {
-            skinEngine1.SkinStream = new MemoryStream(skins[cboSkins.SelectedIndex]);
+            //skinEngine1.SkinStream = new MemoryStream(skins[cboSkins.SelectedIndex]);
         }
 
         private void label1_Click(object sender, EventArgs e)

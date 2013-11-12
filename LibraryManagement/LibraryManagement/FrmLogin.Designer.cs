@@ -73,7 +73,9 @@
             this.skinEngine1.DisabledMenuFontColor = System.Drawing.SystemColors.GrayText;
             this.skinEngine1.InactiveCaptionColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.skinEngine1.SerialNumber = "";
-            this.skinEngine1.SkinFile = "";
+            this.skinEngine1.SkinFile = "C:\\Users\\Administrator\\Source\\Repos\\LibrarySystem\\LibraryManagement\\LibraryManage" +
+    "ment\\skin\\DiamondBlue.ssk";
+            this.skinEngine1.SkinStreamMain = ((System.IO.Stream)(resources.GetObject("skinEngine1.SkinStreamMain")));
             // 
             // cboSkins
             // 
