@@ -56,12 +56,21 @@
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>libs\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0-rc1\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="IrisSkin">
       <HintPath>libs\IrisSkin.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -78,17 +87,35 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Author.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Book.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BookForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookForm.Designer.cs">
       <DependentUpon>BookForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="BookInfo.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="BookInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BookInfoForm.Designer.cs">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BookInfoListView.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BookView.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
     <Compile Include="GHTC.cs">
@@ -97,23 +124,32 @@
     <Compile Include="GHTC.Designer.cs">
       <DependentUpon>GHTC.cs</DependentUpon>
     </Compile>
+    <Compile Include="LibraryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LibraryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Press.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Record.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="RecordForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RecordForm.Designer.cs">
       <DependentUpon>RecordForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="OrderForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="OrderForm.Designer.cs">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPastDue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPastDue.Designer.cs">
-      <DependentUpon>FrmPastDue.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAddUser.cs">
       <SubType>Form</SubType>
@@ -163,24 +199,6 @@
     <Compile Include="FrmUserManager.Designer.cs">
       <DependentUpon>FrmUserManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBookLease.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBookLease.Designer.cs">
-      <DependentUpon>FrmBookLease.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBookDefer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBookDefer.Designer.cs">
-      <DependentUpon>FrmBookDefer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BookReturnForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BookReturnForm.Designer.cs">
-      <DependentUpon>BookReturnForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmRent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,10 +214,23 @@
     <Compile Include="AuthorsForm.Designer.cs">
       <DependentUpon>AuthorsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="RecordView.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Skin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Skin.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools.cs" />
+    <Compile Include="User.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserGroupInfo.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserView.cs">
+      <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AboutBox1.resx">
       <DependentUpon>AboutBox1.cs</DependentUpon>
@@ -215,12 +246,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RecordForm.resx">
       <DependentUpon>RecordForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="OrderForm.resx">
-      <DependentUpon>OrderForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmPastDue.resx">
-      <DependentUpon>FrmPastDue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddUser.resx">
       <DependentUpon>FrmAddUser.cs</DependentUpon>
@@ -246,15 +271,6 @@
     <EmbeddedResource Include="FrmUserManager.resx">
       <DependentUpon>FrmUserManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookLease.resx">
-      <DependentUpon>FrmBookLease.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmBookDefer.resx">
-      <DependentUpon>FrmBookDefer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BookReturnForm.resx">
-      <DependentUpon>BookReturnForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmRent.resx">
       <DependentUpon>FrmRent.cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +286,25 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Skin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="LibraryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LibraryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="LibraryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="LibraryModel.edmx.diagram">
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+    </None>
+    <None Include="LibraryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LibraryModel.edmx</DependentUpon>
+      <LastGenOutput>LibraryModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -330,10 +365,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LibrarySystem\LibraryDB\LibraryDB.csproj">
-      <Project>{c7609518-da39-4b4e-bf6e-ee8742ac1b73}</Project>
-      <Name>LibraryDB</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\WinFormsUserControls\Fonts\FontsPack.csproj">
       <Project>{be23a5af-9d21-4c63-9832-08f31c8e574f}</Project>
       <Name>FontsPack</Name>
@@ -409,6 +440,9 @@
     <None Include="Resources\1111111111111111.png" />
     <None Include="Resources\2222222222222222.png" />
     <Content Include="窗体图标.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

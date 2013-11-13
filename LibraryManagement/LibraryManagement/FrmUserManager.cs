@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibraryDB;
+using System.Data.Entity;
+
 namespace LibraryManagement
 {
     public partial class FrmUserManager : Form
@@ -23,99 +24,62 @@ namespace LibraryManagement
             form.ShowDialog();
             GetAll();
         }
-        DataSet ds = new DataSet();
-        DataView dv;
         private void FrmDataManager_Load(object sender, EventArgs e)
         {
             GetAll();
 
         }
-
+        private DbSet<UserView> userViews;
         public void GetAll()
         {
             try
             {
-                if (ds.Tables["users"] != null)
-                {
-                    ds.Tables["users"].Clear();
-                }
-                using (SqlDataAdapter da = new SqlDataAdapter("select * from userview", DBHelper.conn))
-                {
-                    da.Fill(ds, "users");
-                    dv = new DataView(ds.Tables["users"]);
-                }
+                userViews = DBHelper.Entities.UserViews;
 
-                dgvUsers.DataSource = dv;
+                dgvUsers.DataSource = userViews;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-        public int  str() 
-        {
-            string sql = string.Format(" select UID from Orders where UID = {0}",dgvUsers.CurrentRow.Cells["用户ID"].Value);
-            int c = 0;
-            try
-            {
-                DBHelper.conn.Open();
-                SqlCommand cmd = new SqlCommand(sql,DBHelper.conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    c = Convert.ToInt32(dr["UID"]);
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
 
-            }
-            finally 
-            {
-                DBHelper.conn.Close();
-            }
-            return c;
-        }
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (dgvUsers.SelectedRows.Count > 0 && Convert.ToInt32( dgvUsers.CurrentRow.Cells["用户ID"].Value) != str() )
+            if (dgvUsers.SelectedRows.Count > 0)
             {
-                string username = dgvUsers.CurrentRow.Cells["用户名"].Value.ToString();
+                string username = dgvUsers.CurrentRow.Cells["账户"].Value.ToString();
                 DialogResult result = MessageBox.Show(string.Format("确认要删除编号为《{0}》的用户？", username), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     int sqlresult = 0;
                     try
                     {
-                        DBHelper.conn.Open();
-                        sqlresult = User.DelUserByUsername(username, DBHelper.conn);
+                        IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(username, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
+                        if (ie.MoveNext())
+                        {
+                            DBHelper.Entities.Users.Remove(ie.Current);
+                            sqlresult = DBHelper.Entities.SaveChanges();
+                        }
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally
-                    {
-                        DBHelper.conn.Close();
-                    }
+
 
                     if (sqlresult > 0)
                     {
-                        MessageBox.Show("删除失败！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                        MessageBox.Show("删除失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         GetAll();
                     }
                     else
                     {
-                        MessageBox.Show("删除成功！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.None);
+                        MessageBox.Show("删除成功！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                 }
 
-            }
-            else if (dgvUsers.SelectedRows.Count > 0 && Convert.ToInt32( dgvUsers.CurrentRow.Cells["用户ID"].Value) == str() )
-            {
-                MessageBox.Show("此用户借有书籍，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else
             {
@@ -139,7 +103,7 @@ namespace LibraryManagement
             if (dgvUsers.SelectedRows.Count > 0)
             {
                 Form form = new FrmAddUser();
-                form.Tag = dgvUsers.CurrentRow.Cells["用户ID"].Value;
+                form.Tag = dgvUsers.CurrentRow.Cells["用户编号"].Value;
                 form.ShowDialog();
                 GetAll();
             }
@@ -151,7 +115,7 @@ namespace LibraryManagement
 
         private void FrmUserManager_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DBHelper.fum = null;
+
         }
 
 

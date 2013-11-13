@@ -17,50 +17,59 @@ namespace LibraryManagement
             InitializeComponent();
         }
 
+        private Form frmBookManager;
+        private Form FrmBookManager
+        {
+            get
+            {
+                if (frmBookManager == null || frmBookManager.IsDisposed)
+                {
+                    frmBookManager = new FrmBookManager();
+                }
+                return frmBookManager;
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            if (DBHelper.fbm == null)
+            FrmBookManager.Show();
+        }
+
+        private Form frmUserManager;
+        private Form FrmUserManager
+        {
+            get
             {
-                DBHelper.fbm = new FrmBookManager();
-                
-                DBHelper.fbm.Show();
+                if (frmUserManager == null || frmUserManager.IsDisposed)
+                {
+                    frmUserManager = new FrmUserManager();
+                }
+                return frmUserManager;
             }
-            else
-            {
-                DBHelper.fbm.Focus();
-            }
-            
-            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
 
-            if (DBHelper.fum == null)
+            FrmUserManager.Show();
+        }
+
+        private Form frmLeaseManager;
+        private Form FrmLeaseManager
+        {
+            get
             {
-                DBHelper.fum = new FrmUserManager();
-                
-                DBHelper.fum.Show();
-            }
-            else
-            {
-                DBHelper.fum.Focus();
+                if (frmLeaseManager == null || frmLeaseManager.IsDisposed)
+                {
+                    frmLeaseManager = new FrmLeaseManager();
+                }
+                return frmLeaseManager;
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (DBHelper.flm == null)
-            {
-                DBHelper.flm = new FrmLeaseManager();
-                
-                DBHelper.flm.Show();
-            }
-            else
-            {
-                DBHelper.flm.Focus();
-            }
-            
+            FrmLeaseManager.Show(); 
             
         }
 

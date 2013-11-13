@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -22,16 +21,11 @@ namespace LibraryManagement
         {
             try
             {
-                DBHelper.conn.Open();
-                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                DBHelper.MakeCategoryTree(treeCategories);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
             }
 
             treeCategories.Nodes[0].Expand();
@@ -104,16 +98,21 @@ namespace LibraryManagement
                     DialogResult dr = MessageBox.Show(string.Format("是否要创建新类别'{0}'？这时应该是用'/'符号表示层次关系。(默认借阅天数：30天)", txtSearchString.Text), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        Category c = new Category(txtSearchString.Text, 30);
+                        Category c = new Category();
+                        c.CategoryName = txtSearchString.Text;
+                        c.MaxDay = 30;
                         int result2 = 0;
+
                         try
                         {
-                            DBHelper.conn.Open();
-                            result2 = ((IDBOperate)c).Insert(DBHelper.conn);
+
+                            DBHelper.Entities.Categories.Add(c);
+                            result2 = DBHelper.Entities.SaveChanges();
+
 
                             if (result2 > 0)
                             {
-                                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                                DBHelper.MakeCategoryTree(treeCategories);
                                 treeCategories.Nodes[0].Expand();
                             }
                         }
@@ -121,14 +120,10 @@ namespace LibraryManagement
                         {
                             MessageBox.Show(ex.Message);
                         }
-                        finally
-                        {
-                            DBHelper.conn.Close();
-                        }
 
                         if (result2 <= 0)
                         {
-                            MessageBox.Show("添加失败！",  "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("添加失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
 
                     }
@@ -161,12 +156,12 @@ namespace LibraryManagement
 
             try
             {
-                DBHelper.conn.Open();
-                result = ((IDBOperate)c).Delete(DBHelper.conn);
+                DBHelper.Entities.Categories.Remove(c);
+                result = DBHelper.Entities.SaveChanges();
 
                 if (result > 0)
                 {
-                    LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                    DBHelper.MakeCategoryTree(treeCategories);
 
                     treeCategories.Nodes[0].Expand();
                 }
@@ -175,10 +170,6 @@ namespace LibraryManagement
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
             }
 
             if (result <= 0)
@@ -213,7 +204,7 @@ namespace LibraryManagement
 
         private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
     }

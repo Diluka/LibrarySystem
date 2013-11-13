@@ -44,13 +44,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.numAge = new System.Windows.Forms.NumericUpDown();
             this.txtPhone = new System.Windows.Forms.TextBox();
-            this.txtRegDate = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.rdoGirl = new System.Windows.Forms.RadioButton();
             this.rdoBoy = new System.Windows.Forms.RadioButton();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -190,13 +188,11 @@
             this.groupUserInfo.Controls.Add(this.btnSave);
             this.groupUserInfo.Controls.Add(this.numAge);
             this.groupUserInfo.Controls.Add(this.txtPhone);
-            this.groupUserInfo.Controls.Add(this.txtRegDate);
             this.groupUserInfo.Controls.Add(this.txtEmail);
             this.groupUserInfo.Controls.Add(this.txtAddress);
             this.groupUserInfo.Controls.Add(this.rdoGirl);
             this.groupUserInfo.Controls.Add(this.rdoBoy);
             this.groupUserInfo.Controls.Add(this.txtName);
-            this.groupUserInfo.Controls.Add(this.label8);
             this.groupUserInfo.Controls.Add(this.label7);
             this.groupUserInfo.Controls.Add(this.label6);
             this.groupUserInfo.Controls.Add(this.label5);
@@ -222,24 +218,17 @@
             // 
             // numAge
             // 
-            this.numAge.Location = new System.Drawing.Point(32, 120);
+            this.numAge.Location = new System.Drawing.Point(32, 145);
             this.numAge.Name = "numAge";
             this.numAge.Size = new System.Drawing.Size(106, 21);
             this.numAge.TabIndex = 18;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(219, 186);
+            this.txtPhone.Location = new System.Drawing.Point(219, 117);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(269, 21);
             this.txtPhone.TabIndex = 17;
-            // 
-            // txtRegDate
-            // 
-            this.txtRegDate.Location = new System.Drawing.Point(219, 119);
-            this.txtRegDate.Name = "txtRegDate";
-            this.txtRegDate.Size = new System.Drawing.Size(269, 21);
-            this.txtRegDate.TabIndex = 16;
             // 
             // txtEmail
             // 
@@ -250,15 +239,16 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(32, 262);
+            this.txtAddress.Location = new System.Drawing.Point(220, 192);
+            this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(456, 21);
+            this.txtAddress.Size = new System.Drawing.Size(268, 102);
             this.txtAddress.TabIndex = 14;
             // 
             // rdoGirl
             // 
             this.rdoGirl.AutoSize = true;
-            this.rdoGirl.Location = new System.Drawing.Point(102, 187);
+            this.rdoGirl.Location = new System.Drawing.Point(102, 235);
             this.rdoGirl.Name = "rdoGirl";
             this.rdoGirl.Size = new System.Drawing.Size(35, 16);
             this.rdoGirl.TabIndex = 13;
@@ -269,7 +259,7 @@
             // rdoBoy
             // 
             this.rdoBoy.AutoSize = true;
-            this.rdoBoy.Location = new System.Drawing.Point(32, 187);
+            this.rdoBoy.Location = new System.Drawing.Point(32, 235);
             this.rdoBoy.Name = "rdoBoy";
             this.rdoBoy.Size = new System.Drawing.Size(35, 16);
             this.rdoBoy.TabIndex = 12;
@@ -284,21 +274,11 @@
             this.txtName.Size = new System.Drawing.Size(106, 21);
             this.txtName.TabIndex = 11;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.Location = new System.Drawing.Point(216, 94);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 15);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "注册时间：";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.Location = new System.Drawing.Point(28, 234);
+            this.label7.Location = new System.Drawing.Point(216, 164);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
             this.label7.TabIndex = 8;
@@ -318,7 +298,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(216, 164);
+            this.label5.Location = new System.Drawing.Point(216, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(82, 15);
             this.label5.TabIndex = 6;
@@ -328,7 +308,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(29, 164);
+            this.label4.Location = new System.Drawing.Point(29, 212);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 15);
             this.label4.TabIndex = 5;
@@ -338,7 +318,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(29, 94);
+            this.label3.Location = new System.Drawing.Point(29, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 15);
             this.label3.TabIndex = 4;
@@ -417,13 +397,11 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown numAge;
         private System.Windows.Forms.TextBox txtPhone;
-        private System.Windows.Forms.TextBox txtRegDate;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.RadioButton rdoGirl;
         private System.Windows.Forms.RadioButton rdoBoy;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

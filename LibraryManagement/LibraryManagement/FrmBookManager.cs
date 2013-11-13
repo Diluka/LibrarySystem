@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -25,12 +24,12 @@ namespace LibraryManagement
         }
 
         DataSet ds = new DataSet();
-        SqlDataAdapter da = new SqlDataAdapter("select * from bookmgrview", DBHelper.conn);
+        SqlDataAdapter da = new SqlDataAdapter("select * from BookInfoListView", DBHelper.conn);
         DataView dv;
 
         private void Form2_Load(object sender, EventArgs e)
         {
-             FillTree();
+            FillTree();
 
             try
             {
@@ -48,19 +47,7 @@ namespace LibraryManagement
 
         private void FillTree()
         {
-            try
-            {
-                DBHelper.conn.Open();
-                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+            DBHelper.MakeCategoryTree(treeCategories);
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -114,7 +101,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要编辑的项！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("请选择要编辑的项！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -162,17 +149,19 @@ namespace LibraryManagement
 
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
+            if (dgvBookInfo.SelectedRows.Count > 0)
             {
                 string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].Value.ToString();
-                long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
+                int iid = Convert.ToInt32(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
                 DialogResult result = MessageBox.Show(string.Format("确认删除《{0}》？", title), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     try
                     {
-                        DBHelper.conn.Open();
-                        if (BookInfo.DelBookInfoByID(iid, DBHelper.conn) > 0)
+
+                        BookInfo bookInfo = DBHelper.Entities.BookInfoes.Find(iid);
+                        DBHelper.Entities.BookInfoes.Remove(bookInfo);
+                        if (DBHelper.Entities.SaveChanges() > 0)
                         {
                             if (ds.Tables["books"] != null)
                             {
@@ -182,96 +171,44 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                            MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally
-                    {
-                        DBHelper.conn.Close();
-                    }
 
                 }
 
             }
-            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
-            {
-                MessageBox.Show("书籍已借出，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
-            }
+            //else if (dgvBookInfo.SelectedRows.Count > 0)
+            //{
+            //    MessageBox.Show("书籍已借出，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            //}
             else
             {
                 MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
-        public int b()
-        {
-            int num2 = 0;
-            string sql = string.Format("select Remain from BookInfo where InfoID = {0}", dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
-            try
-            {
-                DBHelper.conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    num2 = Convert.ToInt32(dr["Remain"]);
-                }
-                dr.Close();
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
-            return num2;
-        }
-        public  int a() 
-        {
-            int num1 = 0;
-            string sql = string.Format("select Total from BookInfo where InfoID = {0}",dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
-            try
-            {
-                DBHelper.conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, DBHelper.conn);
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    num1 = Convert.ToInt32(dr["Total"]);
-                }
-                dr.Close();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally 
-            {
-                DBHelper.conn.Close();
-            }
-            return num1;
-        }
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
+            if (dgvBookInfo.SelectedRows.Count > 0)
             {
                 string title = dgvBookInfo.SelectedRows[0].Cells["书籍标题"].Value.ToString();
-                long iid = Convert.ToInt64(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
+                int iid = Convert.ToInt32(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
                 DialogResult result = MessageBox.Show(string.Format("确认删除《{0}》？", title), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     try
                     {
-                        DBHelper.conn.Open();
-                        if (BookInfo.DelBookInfoByID(iid, DBHelper.conn) > 0)
+
+                        BookInfo bookInfo = DBHelper.Entities.BookInfoes.Find(iid);
+                        DBHelper.Entities.BookInfoes.Remove(bookInfo);
+                        if (DBHelper.Entities.SaveChanges() > 0)
                         {
                             if (ds.Tables["books"] != null)
                             {
@@ -281,25 +218,22 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
+
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally
-                    {
-                        DBHelper.conn.Close();
-                    }
 
                 }
 
             }
-            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
-            {
-                MessageBox.Show("书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
-            }
+            //else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
+            //{
+            //    MessageBox.Show("书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            //}
             else
             {
                 MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -316,7 +250,7 @@ namespace LibraryManagement
                 flite[node.Level - 1] = node.Name;
                 node = node.Parent;
             }
-            dv.RowFilter = "分类 like '" + string.Join("/", flite) + "%'";
+            dv.RowFilter = "类别 like '" + string.Join("/", flite) + "%'";
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -329,27 +263,16 @@ namespace LibraryManagement
             }
             else if (rdoTitle.Checked)
             {
-                searchField = "书籍标题";
+                searchField = "标题";
             }
             else
             {
                 searchField = "作者";
             }
+            string ch = chkBlur.Checked ? "%" : "";
+            string fliter = string.Format("{0} like '{2}{1}{2}'", searchField, txtSearchString.Text, ch);
+            dv.RowFilter = fliter;
 
-            string sql = string.Format("select * from bookmgrview where {0} like '{1}'", searchField, chkBlur.Checked ? "%" + txtSearchString.Text + "%" : txtSearchString.Text);
-            if (!chkBlur.Checked && txtSearchString.Text.Equals("null", StringComparison.CurrentCultureIgnoreCase))
-            {
-                sql = "select * from bookmgrview where " + searchField + " is null";
-            }
-
-            da.SelectCommand.CommandText = sql;
-            ds.Tables["books"].Clear();
-            da.Fill(ds, "books");
-            //dv = new DataView(ds.Tables["books"]);
-            //dgvBookInfo.DataSource = dv;
-
-            //FillTree();
-            //treeCategories.Nodes[0].Expand();
 
         }
 
@@ -368,28 +291,27 @@ namespace LibraryManagement
 
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
-            if (dgvBookInfo.SelectedRows.Count > 0 && a() == b())
+            if (dgvBookInfo.SelectedRows.Count > 0)
             {
                 DialogResult result = MessageBox.Show(string.Format("确认删除已选项？"), "删除提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     try
                     {
-                        DBHelper.conn.Open();
+
                         foreach (DataGridViewRow row in dgvBookInfo.SelectedRows)
                         {
-                            long iid = Convert.ToInt64(row.Cells["书籍编号"].Value);
-                            BookInfo.DelBookInfoByID(iid, DBHelper.conn);
+                            int iid = Convert.ToInt32(row.Cells["书籍编号"].Value);
+                            BookInfo bookInfo = DBHelper.Entities.BookInfoes.Find(iid);
+                            DBHelper.Entities.BookInfoes.Remove(bookInfo);
                         }
+                        DBHelper.Entities.SaveChanges();
+
 
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        DBHelper.conn.Close();
                     }
 
                     if (ds.Tables["books"] != null)
@@ -401,11 +323,11 @@ namespace LibraryManagement
                 }
 
             }
-            else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
-            {
-                MessageBox.Show("有书籍书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
-            }
-            
+            //else if (dgvBookInfo.SelectedRows.Count > 0)
+            //{
+            //    MessageBox.Show("有书籍书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            //}
+
             else
             {
                 MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -416,20 +338,23 @@ namespace LibraryManagement
         {
             if (dgvBookInfo.SelectedRows.Count != 0)
             {
-                Form f=null;
+                Form f = null;
                 BookInfo bi = null; ;
                 try
                 {
-                    DBHelper.conn.Open();
-                    bi = BookInfo.GetBookInfoByID((long)dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value, DBHelper.conn);
+                    using (LibraryEntities le = new LibraryEntities())
+                    {
+                        bi = le.BookInfoes.Find(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
+                    }
+
                     if (bi == null)
                     {
-                        MessageBox.Show("请选择","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+                        MessageBox.Show("请选择", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         return;
                     }
                     foreach (Form form in bookForms)
                     {
-                        if (((BookInfo)form.Tag).InfoID == bi.InfoID)
+                        if (((BookInfo)form.Tag).BookInfoID == bi.BookInfoID)
                         {
                             f = form;
                             break;
@@ -476,17 +401,13 @@ namespace LibraryManagement
             try
             {
                 da.Fill(ds, "books");
-                DBHelper.conn.Open();
-                LibraryHelper.MakeCategoryTree(treeCategories, DBHelper.conn);
+                DBHelper.MakeCategoryTree(treeCategories);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+
             dv = new DataView(ds.Tables["books"]);
             dgvBookInfo.DataSource = dv;
 
@@ -495,7 +416,7 @@ namespace LibraryManagement
 
         private void FrmBookManager_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DBHelper.fbm = null;
+
         }
 
 

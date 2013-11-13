@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -18,10 +17,7 @@ namespace LibraryManagement
         }
 
         private BookInfo bookInfo;
-        private Author author;
-        private Press press;
-        private Category category;
-        private List<Book> books;
+        private IQueryable<Book> books;
 
         private void BookForm_Load(object sender, EventArgs e)
         {
@@ -29,38 +25,40 @@ namespace LibraryManagement
 
             if (bookInfo == null)
             {
-                MessageBox.Show("没有书籍信息","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("没有书籍信息", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
             }
 
             try
             {
-                DBHelper.conn.Open();
-                books = Book.GetBooksByInfoID(bookInfo.InfoID, DBHelper.conn);
-                category = Category.GetCategoryByID(bookInfo.CatID ?? 0, DBHelper.conn);
-                author = Author.GetAuthorByID(bookInfo.AuthorID ?? 0, DBHelper.conn);
-                press = Press.GetPressByID(bookInfo.PressID ?? 0, DBHelper.conn);
+                LoadBooks();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+            LoadInfo();
 
-            lblTitle.Text = bookInfo.Title;
-            lblInfoID.Text = bookInfo.InfoID.ToString();
-            lblAuthor.Text = author.AuthorName ?? "[未指定]";
-            lblCategory.Text = category.CategoryName ?? "[未指定]";
-            lblPress.Text = press.PressName ?? "[未指定]";
-
-            dgvBooks.DataSource = books;
-
-            dgvBooks.Columns["InfoID"].Visible = false;
+            dgvBooks.Columns["BookInfoID"].Visible = false;
             dgvBooks.Columns["BookID"].HeaderText = "书本编号";
-            dgvBooks.Columns["IsLeased"].HeaderText = "已借出";
+            dgvBooks.Columns["IsRent"].HeaderText = "已借出";
+        }
+
+        private void LoadInfo()
+        {
+            IEnumerator<BookView> ie = DBHelper.Entities.BookViews.Where(f => f.书籍编号 == bookInfo.BookInfoID).GetEnumerator();
+            if (ie.MoveNext())
+            {
+                BookView bookView = ie.Current;
+
+                lblTitle.Text = bookView.书籍标题;
+                lblInfoID.Text = bookView.书籍编号.ToString();
+                lblAuthor.Text = bookView.作者 ?? "[未指定]";
+                lblCategory.Text = bookView.类别 ?? "[未指定]";
+                lblPress.Text = bookView.出版社 ?? "[未指定]";
+                lblAll.Text = bookView.总库存.ToString();
+                lblNow.Text = bookView.现库存.ToString();
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -70,26 +68,26 @@ namespace LibraryManagement
 
         private void btnNew_Click(object sender, EventArgs e)
         {
-            Book b = new Book(bookInfo.InfoID);
+            Book b = new Book();
+            b.BookInfoID = bookInfo.BookInfoID;
             int result = 0;
             try
             {
-                DBHelper.conn.Open();
-                result = ((IDBOperate)b).Insert(DBHelper.conn);
-                books = Book.GetBooksByInfoID(bookInfo.InfoID, DBHelper.conn);
+
+                DBHelper.Entities.Books.Add(b);
+                result = DBHelper.Entities.SaveChanges();
+                books = DBHelper.Entities.Books.Where(f => f.BookInfoID == bookInfo.BookInfoID);
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
 
             if (result > 0)
             {
-                dgvBooks.DataSource = books;
+                LoadBooks();
+                LoadInfo();
             }
             else
             {
@@ -97,15 +95,23 @@ namespace LibraryManagement
             }
         }
 
+        private void LoadBooks()
+        {
+
+            books = DBHelper.Entities.Books.Where(f => f.BookInfoID == bookInfo.BookInfoID);
+
+            dgvBooks.DataSource = books;
+        }
+
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dgvBooks.SelectedRows.Count == 0)
             {
-                MessageBox.Show("请选择要删除的书本","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                MessageBox.Show("请选择要删除的书本", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 return;
             }
 
-            long bid = Convert.ToInt64(dgvBooks.SelectedRows[0].Cells["BookID"].Value);
+            int bid = Convert.ToInt32(dgvBooks.SelectedRows[0].Cells["BookID"].Value);
 
             if (MessageBox.Show(string.Format("确定要删除编号为：{0}的书本吗？", bid), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
@@ -115,9 +121,11 @@ namespace LibraryManagement
             int result = 0;
             try
             {
-                DBHelper.conn.Open();
-                result = Book.DelBookByID(bid, DBHelper.conn);
-                books = Book.GetBooksByInfoID(bookInfo.InfoID, DBHelper.conn);
+
+                Book b = DBHelper.Entities.Books.Find(bid);
+                DBHelper.Entities.Books.Remove(b);
+                result = DBHelper.Entities.SaveChanges();
+
             }
             catch (Exception ex)
             {
@@ -130,11 +138,12 @@ namespace LibraryManagement
 
             if (result > 0)
             {
-                dgvBooks.DataSource = books;
+                LoadBooks();
+                LoadInfo();
             }
             else
             {
-                MessageBox.Show("删除失败，请确定书本不处于借出状态","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("删除失败，请确定书本不处于借出状态", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

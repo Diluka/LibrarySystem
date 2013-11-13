@@ -47,6 +47,10 @@
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblNow = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblAll = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
@@ -55,6 +59,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblAll);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.lblNow);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.lblCategory);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.lblPress);
@@ -75,7 +83,7 @@
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
-            this.lblCategory.Location = new System.Drawing.Point(92, 296);
+            this.lblCategory.Location = new System.Drawing.Point(92, 216);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(47, 12);
             this.lblCategory.TabIndex = 9;
@@ -84,7 +92,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(20, 296);
+            this.label9.Location = new System.Drawing.Point(20, 216);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(53, 12);
             this.label9.TabIndex = 8;
@@ -93,7 +101,7 @@
             // lblPress
             // 
             this.lblPress.AutoSize = true;
-            this.lblPress.Location = new System.Drawing.Point(92, 164);
+            this.lblPress.Location = new System.Drawing.Point(92, 124);
             this.lblPress.Name = "lblPress";
             this.lblPress.Size = new System.Drawing.Size(41, 12);
             this.lblPress.TabIndex = 7;
@@ -102,7 +110,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 164);
+            this.label7.Location = new System.Drawing.Point(20, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
@@ -111,7 +119,7 @@
             // lblAuthor
             // 
             this.lblAuthor.AutoSize = true;
-            this.lblAuthor.Location = new System.Drawing.Point(92, 230);
+            this.lblAuthor.Location = new System.Drawing.Point(92, 170);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(41, 12);
             this.lblAuthor.TabIndex = 5;
@@ -120,7 +128,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 230);
+            this.label5.Location = new System.Drawing.Point(20, 170);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 4;
@@ -129,7 +137,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(92, 98);
+            this.lblTitle.Location = new System.Drawing.Point(92, 78);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(41, 12);
             this.lblTitle.TabIndex = 3;
@@ -138,7 +146,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 98);
+            this.label3.Location = new System.Drawing.Point(20, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
@@ -224,6 +232,42 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 262);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "现 库 存";
+            // 
+            // lblNow
+            // 
+            this.lblNow.AutoSize = true;
+            this.lblNow.Location = new System.Drawing.Point(92, 262);
+            this.lblNow.Name = "lblNow";
+            this.lblNow.Size = new System.Drawing.Size(41, 12);
+            this.lblNow.TabIndex = 11;
+            this.lblNow.Text = "label4";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 308);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "总 库 存";
+            // 
+            // lblAll
+            // 
+            this.lblAll.AutoSize = true;
+            this.lblAll.Location = new System.Drawing.Point(92, 308);
+            this.lblAll.Name = "lblAll";
+            this.lblAll.Size = new System.Drawing.Size(41, 12);
+            this.lblAll.TabIndex = 13;
+            this.lblAll.Text = "label8";
+            // 
             // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -269,5 +313,9 @@
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dgvBooks;
+        private System.Windows.Forms.Label lblAll;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblNow;
+        private System.Windows.Forms.Label label2;
     }
 }

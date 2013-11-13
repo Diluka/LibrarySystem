@@ -51,10 +51,8 @@
             this.txtEmail = new LabeledTextBox.LabelTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAddress = new LabeledTextBox.LabelTextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPhone = new LabeledTextBox.LabelTextBox();
-            this.dateRegDate = new System.Windows.Forms.DateTimePicker();
             this.btnReset = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.rdoUndefinedGender = new System.Windows.Forms.RadioButton();
@@ -229,10 +227,8 @@
             this.groupBox2.Controls.Add(this.txtEmail);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.txtAddress);
-            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.txtPhone);
-            this.groupBox2.Controls.Add(this.dateRegDate);
             this.groupBox2.Location = new System.Drawing.Point(400, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(382, 267);
@@ -272,17 +268,8 @@
             this.txtAddress.Location = new System.Drawing.Point(91, 115);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(259, 59);
+            this.txtAddress.Size = new System.Drawing.Size(259, 133);
             this.txtAddress.TabIndex = 47;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 206);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 12);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "注册时间：";
             // 
             // label6
             // 
@@ -300,13 +287,6 @@
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(260, 21);
             this.txtPhone.TabIndex = 45;
-            // 
-            // dateRegDate
-            // 
-            this.dateRegDate.Location = new System.Drawing.Point(92, 202);
-            this.dateRegDate.Name = "dateRegDate";
-            this.dateRegDate.Size = new System.Drawing.Size(260, 21);
-            this.dateRegDate.TabIndex = 34;
             // 
             // btnReset
             // 
@@ -395,10 +375,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
         private LabeledTextBox.LabelTextBox txtAddress;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private LabeledTextBox.LabelTextBox txtPhone;
-        private System.Windows.Forms.DateTimePicker dateRegDate;
         private System.Windows.Forms.Label label8;
         private LabeledTextBox.LabelTextBox txtEmail;
         private System.Windows.Forms.Button btnReset;

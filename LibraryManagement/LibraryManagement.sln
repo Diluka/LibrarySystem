@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.20827.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryDB", "..\LibrarySystem\LibraryDB\LibraryDB.csproj", "{C7609518-DA39-4B4E-BF6E-EE8742AC1B73}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement", "LibraryManagement\LibraryManagement.csproj", "{1F54C746-07FF-4DAA-87A1-23C4CEBE92A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabeledTextBox", "..\WinFormsUserControls\LabeledTextBox\LabeledTextBox.csproj", "{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C7609518-DA39-4B4E-BF6E-EE8742AC1B73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7609518-DA39-4B4E-BF6E-EE8742AC1B73}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7609518-DA39-4B4E-BF6E-EE8742AC1B73}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7609518-DA39-4B4E-BF6E-EE8742AC1B73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F54C746-07FF-4DAA-87A1-23C4CEBE92A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1F54C746-07FF-4DAA-87A1-23C4CEBE92A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F54C746-07FF-4DAA-87A1-23C4CEBE92A9}.Release|Any CPU.ActiveCfg = Release|Any CPU

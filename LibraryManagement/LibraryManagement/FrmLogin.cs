@@ -1,8 +1,8 @@
-﻿using LibraryDB;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,6 +11,7 @@ using System.Drawing.Text;
 using FontsPack;
 using System.Runtime.InteropServices;
 using System.IO;
+using System.Data.Common;
 
 namespace LibraryManagement
 {
@@ -48,24 +49,19 @@ namespace LibraryManagement
             InitializeComponent();
         }
 
+        private User user;
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            DBHelper.conn.Open();
-            UserGroupInfo info = null;
-            try
-            {
-                info = LibraryHelper.ValidateLogin2(txtUsername.Text, txtPassword.Text, DBHelper.conn);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
 
-            }
-            finally
+            IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
+
+            if (ie.MoveNext())
             {
-                DBHelper.conn.Close();
+                user = ie.Current;
             }
-            if (info != null && info.IsAdmin)
+
+            if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)))
             {
                 Form form = new FrmAdminMain();
                 form.Show();
@@ -75,6 +71,10 @@ namespace LibraryManagement
             {
                 MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+
+            //MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
         }
 
         private void frmLogin_Load(object sender, EventArgs e)

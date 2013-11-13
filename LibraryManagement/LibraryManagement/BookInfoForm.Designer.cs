@@ -36,12 +36,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.txtBookInfoID = new System.Windows.Forms.TextBox();
             this.datePressDate = new System.Windows.Forms.DateTimePicker();
-            this.numTotal = new System.Windows.Forms.NumericUpDown();
-            this.numRemain = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.picCover = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -54,21 +50,16 @@
             this.btnPress = new System.Windows.Forms.Button();
             this.btnClearCover = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            this.btnUnlock = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnClearText = new System.Windows.Forms.Button();
             this.txtBrief = new System.Windows.Forms.RichTextBox();
             this.txtISBN = new LabeledTextBox.LabelTextBox();
-            this.txtAlpha = new LabeledTextBox.LabelTextBox();
             this.txtPress = new LabeledTextBox.LabelTextBox();
             this.txtAuthor = new LabeledTextBox.LabelTextBox();
             this.txtCategory = new LabeledTextBox.LabelTextBox();
             this.txtPrice = new LabeledTextBox.LabelTextBox();
             this.txtTitle = new LabeledTextBox.LabelTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.numTotal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 64);
+            this.label2.Location = new System.Drawing.Point(25, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 12);
             this.label2.TabIndex = 1;
@@ -93,7 +84,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 152);
+            this.label3.Location = new System.Drawing.Point(25, 138);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 2;
@@ -102,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 186);
+            this.label4.Location = new System.Drawing.Point(25, 174);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 3;
@@ -111,7 +102,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(25, 220);
+            this.label5.Location = new System.Drawing.Point(25, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(53, 12);
             this.label5.TabIndex = 4;
@@ -120,7 +111,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(25, 254);
+            this.label6.Location = new System.Drawing.Point(25, 246);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 12);
             this.label6.TabIndex = 5;
@@ -129,29 +120,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(25, 288);
+            this.label7.Location = new System.Drawing.Point(25, 282);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 6;
             this.label7.Text = "书籍定价";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(25, 322);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(53, 12);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "馆藏总数";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 356);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 12);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "现 库 存";
             // 
             // txtBookInfoID
             // 
@@ -163,28 +136,10 @@
             // 
             // datePressDate
             // 
-            this.datePressDate.Location = new System.Drawing.Point(87, 250);
+            this.datePressDate.Location = new System.Drawing.Point(87, 242);
             this.datePressDate.Name = "datePressDate";
             this.datePressDate.Size = new System.Drawing.Size(200, 21);
             this.datePressDate.TabIndex = 12;
-            // 
-            // numTotal
-            // 
-            this.numTotal.Enabled = false;
-            this.numTotal.Location = new System.Drawing.Point(88, 318);
-            this.numTotal.Name = "numTotal";
-            this.numTotal.ReadOnly = true;
-            this.numTotal.Size = new System.Drawing.Size(200, 21);
-            this.numTotal.TabIndex = 16;
-            // 
-            // numRemain
-            // 
-            this.numRemain.Enabled = false;
-            this.numRemain.Location = new System.Drawing.Point(88, 352);
-            this.numRemain.Name = "numRemain";
-            this.numRemain.ReadOnly = true;
-            this.numRemain.Size = new System.Drawing.Size(200, 21);
-            this.numRemain.TabIndex = 17;
             // 
             // label10
             // 
@@ -226,7 +181,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(161, 401);
+            this.btnSave.Location = new System.Drawing.Point(161, 340);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 21;
@@ -236,7 +191,7 @@
             // 
             // btnModify
             // 
-            this.btnModify.Location = new System.Drawing.Point(242, 401);
+            this.btnModify.Location = new System.Drawing.Point(242, 340);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
             this.btnModify.TabIndex = 22;
@@ -246,7 +201,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(581, 401);
+            this.btnClose.Location = new System.Drawing.Point(581, 340);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 23;
@@ -257,7 +212,7 @@
             // btnCategory
             // 
             this.btnCategory.Enabled = false;
-            this.btnCategory.Location = new System.Drawing.Point(213, 147);
+            this.btnCategory.Location = new System.Drawing.Point(213, 133);
             this.btnCategory.Name = "btnCategory";
             this.btnCategory.Size = new System.Drawing.Size(75, 23);
             this.btnCategory.TabIndex = 28;
@@ -268,7 +223,7 @@
             // btnAuthor
             // 
             this.btnAuthor.Enabled = false;
-            this.btnAuthor.Location = new System.Drawing.Point(213, 181);
+            this.btnAuthor.Location = new System.Drawing.Point(213, 169);
             this.btnAuthor.Name = "btnAuthor";
             this.btnAuthor.Size = new System.Drawing.Size(75, 23);
             this.btnAuthor.TabIndex = 29;
@@ -279,7 +234,7 @@
             // btnPress
             // 
             this.btnPress.Enabled = false;
-            this.btnPress.Location = new System.Drawing.Point(213, 215);
+            this.btnPress.Location = new System.Drawing.Point(213, 205);
             this.btnPress.Name = "btnPress";
             this.btnPress.Size = new System.Drawing.Size(75, 23);
             this.btnPress.TabIndex = 30;
@@ -301,7 +256,7 @@
             // btnReset
             // 
             this.btnReset.Enabled = false;
-            this.btnReset.Location = new System.Drawing.Point(323, 401);
+            this.btnReset.Location = new System.Drawing.Point(323, 340);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 32;
@@ -309,32 +264,10 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // btnUnlock
-            // 
-            this.btnUnlock.Enabled = false;
-            this.btnUnlock.ForeColor = System.Drawing.Color.Red;
-            this.btnUnlock.Location = new System.Drawing.Point(294, 351);
-            this.btnUnlock.Name = "btnUnlock";
-            this.btnUnlock.Size = new System.Drawing.Size(38, 23);
-            this.btnUnlock.TabIndex = 33;
-            this.btnUnlock.Text = "解锁";
-            this.btnUnlock.UseVisualStyleBackColor = true;
-            this.btnUnlock.Visible = false;
-            this.btnUnlock.Click += new System.EventHandler(this.btnUnlock_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(25, 98);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 12);
-            this.label11.TabIndex = 34;
-            this.label11.Text = "首 字 母";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 126);
+            this.label12.Location = new System.Drawing.Point(28, 102);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(47, 12);
             this.label12.TabIndex = 36;
@@ -352,7 +285,7 @@
             // btnClearText
             // 
             this.btnClearText.Enabled = false;
-            this.btnClearText.Location = new System.Drawing.Point(729, 380);
+            this.btnClearText.Location = new System.Drawing.Point(729, 319);
             this.btnClearText.Name = "btnClearText";
             this.btnClearText.Size = new System.Drawing.Size(75, 23);
             this.btnClearText.TabIndex = 40;
@@ -366,33 +299,23 @@
             this.txtBrief.Location = new System.Drawing.Point(509, 49);
             this.txtBrief.Name = "txtBrief";
             this.txtBrief.ReadOnly = true;
-            this.txtBrief.Size = new System.Drawing.Size(295, 319);
+            this.txtBrief.Size = new System.Drawing.Size(295, 256);
             this.txtBrief.TabIndex = 41;
             this.txtBrief.Text = "";
             // 
             // txtISBN
             // 
             this.txtISBN.LabelText = "选填";
-            this.txtISBN.Location = new System.Drawing.Point(88, 122);
+            this.txtISBN.Location = new System.Drawing.Point(88, 98);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.ReadOnly = true;
             this.txtISBN.Size = new System.Drawing.Size(199, 21);
             this.txtISBN.TabIndex = 37;
             // 
-            // txtAlpha
-            // 
-            this.txtAlpha.LabelText = "必填";
-            this.txtAlpha.Location = new System.Drawing.Point(88, 94);
-            this.txtAlpha.Name = "txtAlpha";
-            this.txtAlpha.ReadOnly = true;
-            this.txtAlpha.Size = new System.Drawing.Size(199, 21);
-            this.txtAlpha.TabIndex = 35;
-            this.txtAlpha.TextChanged += new System.EventHandler(this.txtAlpha_TextChanged);
-            // 
             // txtPress
             // 
             this.txtPress.LabelText = "选填";
-            this.txtPress.Location = new System.Drawing.Point(88, 216);
+            this.txtPress.Location = new System.Drawing.Point(88, 206);
             this.txtPress.Name = "txtPress";
             this.txtPress.ReadOnly = true;
             this.txtPress.Size = new System.Drawing.Size(119, 21);
@@ -401,7 +324,7 @@
             // txtAuthor
             // 
             this.txtAuthor.LabelText = "选填";
-            this.txtAuthor.Location = new System.Drawing.Point(88, 182);
+            this.txtAuthor.Location = new System.Drawing.Point(88, 170);
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.ReadOnly = true;
             this.txtAuthor.Size = new System.Drawing.Size(119, 21);
@@ -410,7 +333,7 @@
             // txtCategory
             // 
             this.txtCategory.LabelText = "选填";
-            this.txtCategory.Location = new System.Drawing.Point(88, 148);
+            this.txtCategory.Location = new System.Drawing.Point(88, 134);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.ReadOnly = true;
             this.txtCategory.Size = new System.Drawing.Size(119, 21);
@@ -419,7 +342,7 @@
             // txtPrice
             // 
             this.txtPrice.LabelText = "选填";
-            this.txtPrice.Location = new System.Drawing.Point(88, 284);
+            this.txtPrice.Location = new System.Drawing.Point(88, 278);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.ReadOnly = true;
             this.txtPrice.Size = new System.Drawing.Size(199, 21);
@@ -428,7 +351,7 @@
             // txtTitle
             // 
             this.txtTitle.LabelText = "必填";
-            this.txtTitle.Location = new System.Drawing.Point(88, 60);
+            this.txtTitle.Location = new System.Drawing.Point(88, 62);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.ReadOnly = true;
             this.txtTitle.Size = new System.Drawing.Size(200, 21);
@@ -438,15 +361,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 449);
+            this.ClientSize = new System.Drawing.Size(824, 375);
             this.Controls.Add(this.txtBrief);
             this.Controls.Add(this.btnClearText);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.txtISBN);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.txtAlpha);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.btnUnlock);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnClearCover);
             this.Controls.Add(this.btnPress);
@@ -462,13 +382,9 @@
             this.Controls.Add(this.btnChooseCover);
             this.Controls.Add(this.picCover);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.numRemain);
-            this.Controls.Add(this.numTotal);
             this.Controls.Add(this.datePressDate);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.txtBookInfoID);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -482,9 +398,8 @@
             this.Name = "BookInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改书籍信息";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BookInfoForm_FormClosed);
             this.Load += new System.EventHandler(this.BookInfoForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numTotal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRemain)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -500,13 +415,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtBookInfoID;
         private LabeledTextBox.LabelTextBox txtTitle;
         private System.Windows.Forms.DateTimePicker datePressDate;
-        private System.Windows.Forms.NumericUpDown numTotal;
-        private System.Windows.Forms.NumericUpDown numRemain;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.PictureBox picCover;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
@@ -523,9 +434,6 @@
         private System.Windows.Forms.Button btnPress;
         private System.Windows.Forms.Button btnClearCover;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnUnlock;
-        private System.Windows.Forms.Label label11;
-        private LabeledTextBox.LabelTextBox txtAlpha;
         private System.Windows.Forms.Label label12;
         private LabeledTextBox.LabelTextBox txtISBN;
         private System.Windows.Forms.Label label13;

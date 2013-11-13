@@ -1,0 +1,812 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="AuthorName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BookInfoID" Type="int" Nullable="false" />
+          <Property Name="IsRent" Type="bit" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+          </Key>
+          <Property Name="BookInfoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISBN" Type="char" MaxLength="13" />
+          <Property Name="Author" Type="nvarchar" MaxLength="50" />
+          <Property Name="Press" Type="nvarchar" MaxLength="50" />
+          <Property Name="Category" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="money" />
+          <Property Name="PublishDate" Type="datetime" />
+          <Property Name="Brief" Type="text" />
+          <Property Name="Cover" Type="image" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryName" />
+          </Key>
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MaxDay" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Press">
+          <Key>
+            <PropertyRef Name="PressName" />
+          </Key>
+          <Property Name="PressName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="BookID" Type="int" Nullable="false" />
+          <Property Name="OutDate" Type="datetime" Nullable="false" />
+          <Property Name="ReturnDate" Type="datetime" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="UserPWD" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="UserGroupID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="nchar" MaxLength="1" />
+          <Property Name="Phone" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="UserGroupInfo">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsAdmin" Type="bit" Nullable="false" />
+          <Property Name="Max" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“Library.dbo.BookInfoListView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="BookInfoListView">
+          <Key>
+            <PropertyRef Name="书籍编号" />
+            <PropertyRef Name="书籍标题" />
+          </Key>
+          <Property Name="书籍编号" Type="int" Nullable="false" />
+          <Property Name="书籍标题" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISBN" Type="char" MaxLength="13" />
+          <Property Name="作者" Type="nvarchar" MaxLength="50" />
+          <Property Name="出版社" Type="nvarchar" MaxLength="50" />
+          <Property Name="类别" Type="nvarchar" MaxLength="50" />
+          <Property Name="定价" Type="money" />
+          <Property Name="出版日期" Type="datetime" />
+          <Property Name="总库存" Type="int" />
+          <Property Name="现库存" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“Library.dbo.BookView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="BookView">
+          <Key>
+            <PropertyRef Name="书籍标题" />
+            <PropertyRef Name="书籍编号" />
+          </Key>
+          <Property Name="书籍标题" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ISBN" Type="char" MaxLength="13" />
+          <Property Name="作者" Type="nvarchar" MaxLength="50" />
+          <Property Name="出版社" Type="nvarchar" MaxLength="50" />
+          <Property Name="总库存" Type="int" />
+          <Property Name="现库存" Type="int" />
+          <Property Name="书籍编号" Type="int" Nullable="false" />
+          <Property Name="类别" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="RecordView">
+          <Key>
+            <PropertyRef Name="订单编号" />
+            <PropertyRef Name="账户" />
+            <PropertyRef Name="标题" />
+            <PropertyRef Name="借出日期" />
+            <PropertyRef Name="类别" />
+            <PropertyRef Name="最大天数" />
+          </Key>
+          <Property Name="订单编号" Type="int" Nullable="false" />
+          <Property Name="账户" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="标题" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="作者" Type="nvarchar" MaxLength="50" />
+          <Property Name="用户姓名" Type="nvarchar" MaxLength="50" />
+          <Property Name="借出日期" Type="datetime" Nullable="false" />
+          <Property Name="归还日期" Type="datetime" />
+          <Property Name="类别" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="最大天数" Type="int" Nullable="false" />
+          <Property Name="借阅天数" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserView">
+          <Key>
+            <PropertyRef Name="用户编号" />
+            <PropertyRef Name="账户" />
+            <PropertyRef Name="分组" />
+            <PropertyRef Name="管理员" />
+            <PropertyRef Name="最大借阅数" />
+          </Key>
+          <Property Name="用户编号" Type="int" Nullable="false" />
+          <Property Name="账户" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="姓名" Type="nvarchar" MaxLength="50" />
+          <Property Name="年龄" Type="int" />
+          <Property Name="性别" Type="nchar" MaxLength="1" />
+          <Property Name="电话" Type="varchar" MaxLength="50" />
+          <Property Name="电邮" Type="varchar" MaxLength="200" />
+          <Property Name="地址" Type="nvarchar" MaxLength="200" />
+          <Property Name="分组" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="管理员" Type="bit" Nullable="false" />
+          <Property Name="最大借阅数" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BookInfo_Authors">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookInfo_Categories">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookInfo_Presses">
+          <End Role="Press" Type="Self.Press" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Press">
+              <PropertyRef Name="PressName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Press" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Books_BookInfo">
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Books">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Users">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserGroupInfo">
+          <End Role="UserGroupInfo" Type="Self.UserGroupInfo" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroupInfo">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryModelStoreContainer">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Press" EntityType="Self.Press" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="UserGroupInfo" EntityType="Self.UserGroupInfo" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BookInfoListView" EntityType="Self.BookInfoListView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+    [BookInfoListView].[书籍编号] AS [书籍编号], 
+    [BookInfoListView].[书籍标题] AS [书籍标题], 
+    [BookInfoListView].[ISBN] AS [ISBN], 
+    [BookInfoListView].[作者] AS [作者], 
+    [BookInfoListView].[出版社] AS [出版社], 
+    [BookInfoListView].[类别] AS [类别], 
+    [BookInfoListView].[定价] AS [定价], 
+    [BookInfoListView].[出版日期] AS [出版日期], 
+    [BookInfoListView].[总库存] AS [总库存], 
+    [BookInfoListView].[现库存] AS [现库存]
+    FROM [dbo].[BookInfoListView] AS [BookInfoListView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BookView" EntityType="Self.BookView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+    [BookView].[书籍标题] AS [书籍标题], 
+    [BookView].[ISBN] AS [ISBN], 
+    [BookView].[作者] AS [作者], 
+    [BookView].[出版社] AS [出版社], 
+    [BookView].[总库存] AS [总库存], 
+    [BookView].[现库存] AS [现库存], 
+    [BookView].[书籍编号] AS [书籍编号], 
+    [BookView].[类别] AS [类别]
+    FROM [dbo].[BookView] AS [BookView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RecordView" EntityType="Self.RecordView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+    [RecordView].[订单编号] AS [订单编号], 
+    [RecordView].[账户] AS [账户], 
+    [RecordView].[标题] AS [标题], 
+    [RecordView].[作者] AS [作者], 
+    [RecordView].[用户姓名] AS [用户姓名], 
+    [RecordView].[借出日期] AS [借出日期], 
+    [RecordView].[归还日期] AS [归还日期], 
+    [RecordView].[类别] AS [类别], 
+    [RecordView].[最大天数] AS [最大天数], 
+    [RecordView].[借阅天数] AS [借阅天数]
+    FROM [dbo].[RecordView] AS [RecordView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserView" EntityType="Self.UserView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+    [UserView].[用户编号] AS [用户编号], 
+    [UserView].[账户] AS [账户], 
+    [UserView].[姓名] AS [姓名], 
+    [UserView].[年龄] AS [年龄], 
+    [UserView].[性别] AS [性别], 
+    [UserView].[电话] AS [电话], 
+    [UserView].[电邮] AS [电邮], 
+    [UserView].[地址] AS [地址], 
+    [UserView].[分组] AS [分组], 
+    [UserView].[管理员] AS [管理员], 
+    [UserView].[最大借阅数] AS [最大借阅数]
+    FROM [dbo].[UserView] AS [UserView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_BookInfo_Authors" Association="Self.FK_BookInfo_Authors">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="BookInfo" EntitySet="BookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookInfo_Categories" Association="Self.FK_BookInfo_Categories">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="BookInfo" EntitySet="BookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookInfo_Presses" Association="Self.FK_BookInfo_Presses">
+            <End Role="Press" EntitySet="Press" />
+            <End Role="BookInfo" EntitySet="BookInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Books_BookInfo" Association="Self.FK_Books_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfo" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Books" Association="Self.FK_Records_Books">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Users" Association="Self.FK_Records_Users">
+            <End Role="User" EntitySet="User" />
+            <End Role="Record" EntitySet="Record" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserGroupInfo" Association="Self.FK_Users_UserGroupInfo">
+            <End Role="UserGroupInfo" EntitySet="UserGroupInfo" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LibraryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorName" />
+          </Key>
+          <Property Name="AuthorName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BookInfoes" Relationship="Self.FK_BookInfo_Authors" FromRole="Author" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="BookID" />
+          </Key>
+          <Property Name="BookID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BookInfoID" Type="Int32" Nullable="false" />
+          <Property Name="IsRent" Type="Boolean" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BookInfo" Relationship="Self.FK_Books_BookInfo" FromRole="Book" ToRole="BookInfo" />
+          <NavigationProperty Name="Records" Relationship="Self.FK_Records_Books" FromRole="Book" ToRole="Record" />
+        </EntityType>
+        <EntityType Name="BookInfo">
+          <Key>
+            <PropertyRef Name="BookInfoID" />
+          </Key>
+          <Property Name="BookInfoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="Author" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Press" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PublishDate" Type="DateTime" Precision="3" />
+          <Property Name="Brief" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Cover" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Author1" Relationship="Self.FK_BookInfo_Authors" FromRole="BookInfo" ToRole="Author" />
+          <NavigationProperty Name="Books" Relationship="Self.FK_Books_BookInfo" FromRole="BookInfo" ToRole="Book" />
+          <NavigationProperty Name="Category1" Relationship="Self.FK_BookInfo_Categories" FromRole="BookInfo" ToRole="Category" />
+          <NavigationProperty Name="Press1" Relationship="Self.FK_BookInfo_Presses" FromRole="BookInfo" ToRole="Press" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryName" />
+          </Key>
+          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MaxDay" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="BookInfoes" Relationship="Self.FK_BookInfo_Categories" FromRole="Category" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="Press">
+          <Key>
+            <PropertyRef Name="PressName" />
+          </Key>
+          <Property Name="PressName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="BookInfoes" Relationship="Self.FK_BookInfo_Presses" FromRole="Press" ToRole="BookInfo" />
+        </EntityType>
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="BookID" Type="Int32" Nullable="false" />
+          <Property Name="OutDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ReturnDate" Type="DateTime" Precision="3" />
+          <Property Name="Remark" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Book" Relationship="Self.FK_Records_Books" FromRole="Record" ToRole="Book" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Records_Users" FromRole="Record" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UserPWD" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="UserGroupID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Records" Relationship="Self.FK_Records_Users" FromRole="User" ToRole="Record" />
+          <NavigationProperty Name="UserGroupInfo" Relationship="Self.FK_Users_UserGroupInfo" FromRole="User" ToRole="UserGroupInfo" />
+        </EntityType>
+        <EntityType Name="UserGroupInfo">
+          <Key>
+            <PropertyRef Name="GroupID" />
+          </Key>
+          <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="Max" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Users_UserGroupInfo" FromRole="UserGroupInfo" ToRole="User" />
+        </EntityType>
+        <EntityType Name="BookInfoListView">
+          <Key>
+            <PropertyRef Name="书籍编号" />
+            <PropertyRef Name="书籍标题" />
+          </Key>
+          <Property Name="书籍编号" Type="Int32" Nullable="false" />
+          <Property Name="书籍标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="作者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="出版社" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="类别" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="定价" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="出版日期" Type="DateTime" Precision="3" />
+          <Property Name="总库存" Type="Int32" />
+          <Property Name="现库存" Type="Int32" />
+        </EntityType>
+        <EntityType Name="BookView">
+          <Key>
+            <PropertyRef Name="书籍标题" />
+            <PropertyRef Name="书籍编号" />
+          </Key>
+          <Property Name="书籍标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ISBN" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
+          <Property Name="作者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="出版社" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="总库存" Type="Int32" />
+          <Property Name="现库存" Type="Int32" />
+          <Property Name="书籍编号" Type="Int32" Nullable="false" />
+          <Property Name="类别" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="RecordView">
+          <Key>
+            <PropertyRef Name="订单编号" />
+            <PropertyRef Name="账户" />
+            <PropertyRef Name="标题" />
+            <PropertyRef Name="借出日期" />
+            <PropertyRef Name="类别" />
+            <PropertyRef Name="最大天数" />
+          </Key>
+          <Property Name="订单编号" Type="Int32" Nullable="false" />
+          <Property Name="账户" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="作者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="用户姓名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="借出日期" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="归还日期" Type="DateTime" Precision="3" />
+          <Property Name="类别" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="最大天数" Type="Int32" Nullable="false" />
+          <Property Name="借阅天数" Type="Int32" />
+        </EntityType>
+        <EntityType Name="UserView">
+          <Key>
+            <PropertyRef Name="用户编号" />
+            <PropertyRef Name="账户" />
+            <PropertyRef Name="分组" />
+            <PropertyRef Name="管理员" />
+            <PropertyRef Name="最大借阅数" />
+          </Key>
+          <Property Name="用户编号" Type="Int32" Nullable="false" />
+          <Property Name="账户" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="姓名" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="年龄" Type="Int32" />
+          <Property Name="性别" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="电话" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="电邮" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="地址" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="分组" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="管理员" Type="Boolean" Nullable="false" />
+          <Property Name="最大借阅数" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BookInfo_Authors">
+          <End Role="Author" Type="Self.Author" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Author" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Books_BookInfo">
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BookInfo">
+              <PropertyRef Name="BookInfoID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="BookInfoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Books">
+          <End Role="Book" Type="Self.Book" Multiplicity="1" />
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="BookID" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="BookID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookInfo_Categories">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BookInfo_Presses">
+          <End Role="Press" Type="Self.Press" Multiplicity="0..1" />
+          <End Role="BookInfo" Type="Self.BookInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Press">
+              <PropertyRef Name="PressName" />
+            </Principal>
+            <Dependent Role="BookInfo">
+              <PropertyRef Name="Press" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Users">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Record" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Record">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Users_UserGroupInfo">
+          <End Role="UserGroupInfo" Type="Self.UserGroupInfo" Multiplicity="1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserGroupInfo">
+              <PropertyRef Name="GroupID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="UserGroupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LibraryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Authors" EntityType="Self.Author" />
+          <EntitySet Name="Books" EntityType="Self.Book" />
+          <EntitySet Name="BookInfoes" EntityType="Self.BookInfo" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Presses" EntityType="Self.Press" />
+          <EntitySet Name="Records" EntityType="Self.Record" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <EntitySet Name="UserGroupInfoes" EntityType="Self.UserGroupInfo" />
+          <EntitySet Name="BookInfoListViews" EntityType="Self.BookInfoListView" />
+          <EntitySet Name="BookViews" EntityType="Self.BookView" />
+          <EntitySet Name="RecordViews" EntityType="Self.RecordView" />
+          <EntitySet Name="UserViews" EntityType="Self.UserView" />
+          <AssociationSet Name="FK_BookInfo_Authors" Association="Self.FK_BookInfo_Authors">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="BookInfo" EntitySet="BookInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Books_BookInfo" Association="Self.FK_Books_BookInfo">
+            <End Role="BookInfo" EntitySet="BookInfoes" />
+            <End Role="Book" EntitySet="Books" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Books" Association="Self.FK_Records_Books">
+            <End Role="Book" EntitySet="Books" />
+            <End Role="Record" EntitySet="Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookInfo_Categories" Association="Self.FK_BookInfo_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="BookInfo" EntitySet="BookInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BookInfo_Presses" Association="Self.FK_BookInfo_Presses">
+            <End Role="Press" EntitySet="Presses" />
+            <End Role="BookInfo" EntitySet="BookInfoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Users" Association="Self.FK_Records_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Record" EntitySet="Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Users_UserGroupInfo" Association="Self.FK_Users_UserGroupInfo">
+            <End Role="UserGroupInfo" EntitySet="UserGroupInfoes" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LibraryModelStoreContainer" CdmEntityContainer="LibraryEntities">
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="LibraryModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="AuthorName" ColumnName="AuthorName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Books">
+            <EntityTypeMapping TypeName="LibraryModel.Book">
+              <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="BookInfoID" ColumnName="BookInfoID" />
+                <ScalarProperty Name="IsRent" ColumnName="IsRent" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookInfoes">
+            <EntityTypeMapping TypeName="LibraryModel.BookInfo">
+              <MappingFragment StoreEntitySet="BookInfo">
+                <ScalarProperty Name="BookInfoID" ColumnName="BookInfoID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="Author" ColumnName="Author" />
+                <ScalarProperty Name="Press" ColumnName="Press" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="PublishDate" ColumnName="PublishDate" />
+                <ScalarProperty Name="Brief" ColumnName="Brief" />
+                <ScalarProperty Name="Cover" ColumnName="Cover" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="LibraryModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="MaxDay" ColumnName="MaxDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presses">
+            <EntityTypeMapping TypeName="LibraryModel.Press">
+              <MappingFragment StoreEntitySet="Press">
+                <ScalarProperty Name="PressName" ColumnName="PressName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="LibraryModel.Record">
+              <MappingFragment StoreEntitySet="Record">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="BookID" ColumnName="BookID" />
+                <ScalarProperty Name="OutDate" ColumnName="OutDate" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="LibraryModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPWD" ColumnName="UserPWD" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserGroupInfoes">
+            <EntityTypeMapping TypeName="LibraryModel.UserGroupInfo">
+              <MappingFragment StoreEntitySet="UserGroupInfo">
+                <ScalarProperty Name="GroupID" ColumnName="GroupID" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+                <ScalarProperty Name="Max" ColumnName="Max" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookInfoListViews">
+            <EntityTypeMapping TypeName="LibraryModel.BookInfoListView">
+              <MappingFragment StoreEntitySet="BookInfoListView">
+                <ScalarProperty Name="书籍编号" ColumnName="书籍编号" />
+                <ScalarProperty Name="书籍标题" ColumnName="书籍标题" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="作者" ColumnName="作者" />
+                <ScalarProperty Name="出版社" ColumnName="出版社" />
+                <ScalarProperty Name="类别" ColumnName="类别" />
+                <ScalarProperty Name="定价" ColumnName="定价" />
+                <ScalarProperty Name="出版日期" ColumnName="出版日期" />
+                <ScalarProperty Name="总库存" ColumnName="总库存" />
+                <ScalarProperty Name="现库存" ColumnName="现库存" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BookViews">
+            <EntityTypeMapping TypeName="LibraryModel.BookView">
+              <MappingFragment StoreEntitySet="BookView">
+                <ScalarProperty Name="书籍标题" ColumnName="书籍标题" />
+                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
+                <ScalarProperty Name="作者" ColumnName="作者" />
+                <ScalarProperty Name="出版社" ColumnName="出版社" />
+                <ScalarProperty Name="总库存" ColumnName="总库存" />
+                <ScalarProperty Name="现库存" ColumnName="现库存" />
+                <ScalarProperty Name="书籍编号" ColumnName="书籍编号" />
+                <ScalarProperty Name="类别" ColumnName="类别" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RecordViews">
+            <EntityTypeMapping TypeName="LibraryModel.RecordView">
+              <MappingFragment StoreEntitySet="RecordView">
+                <ScalarProperty Name="订单编号" ColumnName="订单编号" />
+                <ScalarProperty Name="账户" ColumnName="账户" />
+                <ScalarProperty Name="标题" ColumnName="标题" />
+                <ScalarProperty Name="作者" ColumnName="作者" />
+                <ScalarProperty Name="用户姓名" ColumnName="用户姓名" />
+                <ScalarProperty Name="借出日期" ColumnName="借出日期" />
+                <ScalarProperty Name="归还日期" ColumnName="归还日期" />
+                <ScalarProperty Name="类别" ColumnName="类别" />
+                <ScalarProperty Name="最大天数" ColumnName="最大天数" />
+                <ScalarProperty Name="借阅天数" ColumnName="借阅天数" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserViews">
+            <EntityTypeMapping TypeName="LibraryModel.UserView">
+              <MappingFragment StoreEntitySet="UserView">
+                <ScalarProperty Name="用户编号" ColumnName="用户编号" />
+                <ScalarProperty Name="账户" ColumnName="账户" />
+                <ScalarProperty Name="姓名" ColumnName="姓名" />
+                <ScalarProperty Name="年龄" ColumnName="年龄" />
+                <ScalarProperty Name="性别" ColumnName="性别" />
+                <ScalarProperty Name="电话" ColumnName="电话" />
+                <ScalarProperty Name="电邮" ColumnName="电邮" />
+                <ScalarProperty Name="地址" ColumnName="地址" />
+                <ScalarProperty Name="分组" ColumnName="分组" />
+                <ScalarProperty Name="管理员" ColumnName="管理员" />
+                <ScalarProperty Name="最大借阅数" ColumnName="最大借阅数" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

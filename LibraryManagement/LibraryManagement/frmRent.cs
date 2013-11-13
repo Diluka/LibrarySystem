@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibraryDB;
+using System.Data.Entity;
+
 namespace LibraryManagement
 {
     public partial class FrmRent : Form
@@ -17,34 +18,43 @@ namespace LibraryManagement
             InitializeComponent();
         }
         User user;
-        UserInfo userInfo;
+        private List<Record> records = new List<Record>();
         UserGroupInfo userGroupInfo;
-        private List<Order> orders;
+
         private void btnOK_Click(object sender, EventArgs e)
         {
             txtUsername.Text = txtUsername.Text.Trim();
             user = null;
-            userInfo = null;
-            groupUserInfo = null;
+            userGroupInfo = null;
             chkIsReadOnly.Checked = true;
-            orders = null;
 
             try
             {
-                DBHelper.conn.Open();
-                user = User.GetUserByName(txtUsername.Text.ToString(), DBHelper.conn);
+                IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
+                if (ie.MoveNext())
+                {
+                    user = ie.Current;
+                }
                 if (user == null)
                 {
-                    MessageBox.Show("用户不存在", "迅邦温馨提示", MessageBoxButtons.OK,MessageBoxIcon.Question);
+                    MessageBox.Show("用户不存在", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     txtUsername.Select();
                     txtUsername.Focus();
                     return;
                 }
                 else
                 {
-                    orders = Order.GetOrdersByUID(user.Uid, DBHelper.conn);
-                    userInfo = UserInfo.GetUserInfoByID(user.Uid, DBHelper.conn);
-                    userGroupInfo = UserGroupInfo.GetUserGroupInfoByID(user.UserGroupID, DBHelper.conn);
+                    IEnumerator<UserGroupInfo> ie2 = DBHelper.Entities.UserGroupInfoes.Where(f => f.GroupID == user.UserGroupID).GetEnumerator();
+                    if (ie2.MoveNext())
+                    {
+                        userGroupInfo = ie2.Current;
+                    }
+                    IEnumerator<Record> ie3 = DBHelper.Entities.Records.Where(f => f.UserID == user.UserID).GetEnumerator();
+                    while (ie3.MoveNext())
+                    {
+                        records.Add(ie3.Current);
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -57,7 +67,7 @@ namespace LibraryManagement
             }
 
             ShowUserInfo();
-            ShowOrders();
+            ShowRecords();
 
             //dgvOrders.DataSource = orders;
             //SetReadOnly();
@@ -65,19 +75,18 @@ namespace LibraryManagement
         }
         private void ShowUserInfo()
         {
-            if (userInfo != null)
+            if (user != null)
             {
-                txtName.Text = userInfo.Name;
-                txtEmail.Text = userInfo.Email;
-                txtPhone.Text = userInfo.Phone;
-                txtAddress.Text = userInfo.Address;
-                txtRegDate.Text = userInfo.RegTime.ToString();
+                txtName.Text = user.Name;
+                txtEmail.Text = user.Email;
+                txtPhone.Text = user.Phone;
+                txtAddress.Text = user.Address;
 
-                numAge.Value = userInfo.Age ?? 0;
+                numAge.Value = user.Age ?? 0;
 
-                if (userInfo.Gender != GenderType.未指定)
+                if (user.Gender != null)
                 {
-                    if (userInfo.Gender == GenderType.男)
+                    if (user.Gender == "男")
                     {
                         rdoBoy.Checked = true;
                     }
@@ -93,7 +102,6 @@ namespace LibraryManagement
                 txtEmail.Clear();
                 txtPhone.Clear();
                 txtAddress.Clear();
-                txtRegDate.Clear();
 
                 numAge.Value = 0;
 
@@ -120,7 +128,6 @@ namespace LibraryManagement
                 }
             }
 
-            txtRegDate.ReadOnly = true;
             btnSave.Enabled = !chkIsReadOnly.Checked;
         }
         private List<Book> books = new List<Book>();
@@ -128,7 +135,7 @@ namespace LibraryManagement
         {
             if (txtBookID.Text.Trim() == "")
             {
-                
+
                 MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else if (txtUsername.Text.Trim() == "")
@@ -140,31 +147,24 @@ namespace LibraryManagement
 
 
                 txtBookID.Text = txtBookID.Text.Trim();
-                if (books.Count + orders.Count >= userGroupInfo.MaxOrders)
+                if (books.Count + records.Count >= userGroupInfo.Max)
                 {
-                    MessageBox.Show("不能再借了，用户借阅书籍数量上线（3本）", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("不能再借了，用户借阅书籍数量上线（" + userGroupInfo.Max + "本）", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     return;
                 }
                 Book book = null;
                 try
                 {
-                    DBHelper.conn.Open();
-                    book = Book.GetBookByID(Convert.ToInt64(txtBookID.Text), DBHelper.conn);
-                    if (book != null)
+                    IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == int.Parse(txtBookID.Text)).GetEnumerator();
+                    if (ie.MoveNext())
                     {
-                        using (SqlDataAdapter da = new SqlDataAdapter("select * from bookview where 书本编号=" + book.BookID, DBHelper.conn))
-                        {
-                            da.Fill(ds, "books");
-                        }
+                        book = ie.Current;
                     }
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    DBHelper.conn.Close();
                 }
 
                 if (book != null)
@@ -177,26 +177,23 @@ namespace LibraryManagement
                 }
             }
         }
-        DataSet ds = new DataSet();
 
         private void frmRent_Load(object sender, EventArgs e)
         {
             SetReadOnly();
-            ds.Tables.Add(new DataTable("books"));
-            dgvBooks.DataSource = ds.Tables["books"];
         }
 
         private void btnOK2_Click(object sender, EventArgs e)
         {
-            if (txtUsername.Text.Trim() == "" )
+            if (txtUsername.Text.Trim() == "")
             {
                 MessageBox.Show("请输入会员卡号！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
-            else if ( txtBookID.Text.Trim() == "")
+            else if (txtBookID.Text.Trim() == "")
             {
-                MessageBox.Show("请选择书籍！","迅邦温馨提示");
+                MessageBox.Show("请选择书籍！", "迅邦温馨提示");
             }
-            else if (books.Count  >= userGroupInfo.MaxOrders)
+            else if (books.Count >= userGroupInfo.Max)
             {
                 MessageBox.Show("已达到最大借书量", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
@@ -210,56 +207,46 @@ namespace LibraryManagement
                     DBHelper.conn.Open();
                     foreach (Book b in books)
                     {
-                        Order o = new Order(user.Uid, b.BookID);
-                        int result = ((IDBOperate)o).Insert(DBHelper.conn);
-                        if (result > 0)
+                        if (b.IsRent)
                         {
-                            orders.Add(o);
+                            MessageBox.Show(string.Format("书本：{0}借出失败（没有库存了！/请输入此书其余库存编号借出）", b.BookInfo.Title));
+                            continue;
                         }
-                        else
-                        {
-                            MessageBox.Show(string.Format("书本：{0}借出失败（没有库存了！/请输入此书其余库存编号借出）", b.BookID));
-                        }
+                        Record r = new Record();
+                        r.User = user;
+                        r.Book = b;
+                        r.OutDate = DateTime.Now;
+
+                        DBHelper.Entities.Records.Add(r);
+
                     }
+                    DBHelper.Entities.SaveChanges();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally
-                {
-                    DBHelper.conn.Close();
-                }
+
 
                 books.Clear();
-                ShowOrders();
-                ds.Tables["books"].Clear();
+                ShowRecords();
             }
         }
-        private void ShowOrders()
+        private void ShowRecords()
         {
             if (user != null)
             {
-                if (ds.Tables["orders"] != null)
+                IEnumerator<Record> ie3 = DBHelper.Entities.Records.Where(f => f.UserID == user.UserID).GetEnumerator();
+                while (ie3.MoveNext())
                 {
-                    ds.Tables["orders"].Clear();
+                    records.Add(ie3.Current);
                 }
-                using (SqlDataAdapter da = new SqlDataAdapter("select * from orderview where 用户ID=" + user.Uid, DBHelper.conn))
-                {
-                    da.Fill(ds, "orders");
-                    dgvOrders.DataSource = ds.Tables["orders"];
-                    dgvOrders.Columns["用户ID"].Visible = false;
-                }
+                dgvOrders.DataSource = records;
             }
 
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (userInfo == null)
-            {
-                MessageBox.Show("没有用户信息，现在新建用户信息","迅邦温馨提示");
-                userInfo = new UserInfo(user.Uid, null, null, GenderType.未指定, null, null, null);
-            }
             foreach (Control item in this.groupUserInfo.Controls)
             {
                 if (item is TextBox)
@@ -279,31 +266,21 @@ namespace LibraryManagement
             int result = 0;
             try
             {
-                userInfo.Name = txtName.Text;
-                userInfo.Age = (int)numAge.Value;
-                userInfo.Gender = rdoBoy.Checked | rdoGirl.Checked ? (rdoBoy.Checked ? GenderType.男 : GenderType.女) : GenderType.未指定;
-                userInfo.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
-                userInfo.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
+                user.Name = txtName.Text;
+                user.Age = (int)numAge.Value;
+                user.Gender = rdoBoy.Checked | rdoGirl.Checked ? (rdoBoy.Checked ? "男" : "女") : null;
+                user.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
+                user.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
+                user.Address = txtAddress.Text;
 
-                DBHelper.conn.Open();
-                try
-                {
-                    result = ((IDBOperate)userInfo).Insert(DBHelper.conn);
-                }
-                catch
-                {
-                    result = ((IDBOperate)userInfo).Update(DBHelper.conn);
-                }
+                result = DBHelper.Entities.SaveChanges();
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+
 
             if (result > 0)
             {
@@ -323,7 +300,6 @@ namespace LibraryManagement
 
         private void frmRent_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DBHelper.frt = null;
         }
 
         private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -333,11 +309,9 @@ namespace LibraryManagement
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             books.Clear();
-            ds.Tables["books"].Clear();
         }
 
-       
+
     }
 }

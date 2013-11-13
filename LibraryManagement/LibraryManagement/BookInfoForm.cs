@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using LibraryDB;
 
 namespace LibraryManagement
 {
@@ -17,8 +16,6 @@ namespace LibraryManagement
         private Author author;
         private Press press;
         private Category category;
-        private Cover cover;
-        private BookBrief bookBrief;
 
         public BookInfoForm()
         {
@@ -40,12 +37,9 @@ namespace LibraryManagement
             //txtISBN.Enabled = false;
 
             txtTitle.ReadOnly = true;
-            txtAlpha.ReadOnly = true;
             txtCategory.ReadOnly = true;
             txtAuthor.ReadOnly = true;
             txtPress.ReadOnly = true;
-            numTotal.ReadOnly = true;
-            numRemain.ReadOnly = true;
             txtISBN.ReadOnly = true;
 
             btnAuthor.Enabled = false;
@@ -57,33 +51,12 @@ namespace LibraryManagement
             btnReset.Enabled = false;
             btnModify.Enabled = false;
 
-            btnUnlock.Enabled = false;
-            btnUnlock.Visible = false;
-
             txtBrief.Enabled = false;
             txtBrief.ReadOnly = true;
 
             btnClearText.Enabled = false;
         }
 
-        private void btnUnlock_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("修改锁定的数据将无法保证数据库的完整性！是否继续？", "*警告*", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dr == DialogResult.Yes)
-            {
-                UnlockNumbers();
-            }
-        }
-
-        private void UnlockNumbers()
-        {
-            numTotal.Enabled = true;
-            numTotal.ReadOnly = false;
-            numRemain.Enabled = true;
-            numRemain.ReadOnly = false;
-            btnUnlock.Visible = false;
-        }
         Stream img;
         private void btnChooseCover_Click(object sender, EventArgs e)
         {
@@ -92,17 +65,17 @@ namespace LibraryManagement
                 openFileDialog1.ShowDialog();
                 img = openFileDialog1.OpenFile();
                 picCover.Image = Image.FromStream(img);
-                if (cover != null)
-                {
-                    img.Position = 0;
-                    cover.ImageStream = img;
-                }
+
             }
             catch (IOException)
             {
                 openFileDialog1.Reset();
-                img.Dispose();
-                img = null;
+                if (img != null)
+                {
+                    img.Dispose();
+                    img = null;
+                }
+
             }
         }
 
@@ -119,9 +92,6 @@ namespace LibraryManagement
 
             txtTitle.Enabled = true;
             txtTitle.ReadOnly = false;
-
-            txtAlpha.Enabled = true;
-            txtAlpha.ReadOnly = false;
 
             txtAuthor.Enabled = true;
             txtCategory.Enabled = true;
@@ -144,9 +114,6 @@ namespace LibraryManagement
             btnChooseCover.Enabled = true;
             btnClearCover.Enabled = true;
 
-            btnUnlock.Visible = true;
-            btnUnlock.Enabled = true;
-
             txtBrief.Enabled = true;
             txtBrief.ReadOnly = false;
 
@@ -162,14 +129,12 @@ namespace LibraryManagement
                 btnSave.Enabled = true;
 
                 txtTitle.Enabled = true;
-                txtAlpha.Enabled = true;
                 //txtAuthor.Enabled = true;
                 //txtCategory.Enabled = true;
                 //txtPress.Enabled = true;
                 txtPrice.Enabled = true;
 
                 txtTitle.ReadOnly = false;
-                txtAlpha.ReadOnly = false;
                 txtPrice.ReadOnly = false;
                 txtCategory.ReadOnly = false;
                 txtAuthor.ReadOnly = false;
@@ -196,22 +161,16 @@ namespace LibraryManagement
 
                 datePressDate.Enabled = true;
 
-                btnUnlock.Enabled = true;
             }
             else
             {
                 this.Text = "书籍信息";
 
-                long bid = Convert.ToInt64(this.Tag);
                 try
                 {
-                    DBHelper.conn.Open();
-                    bookInfo = BookInfo.GetBookInfoByID(bid, DBHelper.conn);
-                    author = Author.GetAuthorByID(bookInfo.AuthorID ?? 0, DBHelper.conn);
-                    category = Category.GetCategoryByID(bookInfo.CatID ?? 0, DBHelper.conn);
-                    press = Press.GetPressByID(bookInfo.PressID ?? 0, DBHelper.conn);
-                    cover = Cover.GetCoverByID(bookInfo.InfoID, DBHelper.conn);
-                    bookBrief = BookBrief.GetBookBriefByID(bookInfo.InfoID, DBHelper.conn);
+
+                    bookInfo = DBHelper.Entities.BookInfoes.Find(this.Tag);
+
                 }
                 catch (Exception ex)
                 {
@@ -222,35 +181,27 @@ namespace LibraryManagement
                     DBHelper.conn.Close();
                 }
 
-                txtBookInfoID.Text = bookInfo.InfoID.ToString();
+                txtBookInfoID.Text = bookInfo.BookInfoID.ToString();
                 txtTitle.Text = bookInfo.Title;
-                txtAlpha.Text = bookInfo.Alphabet.ToString();
-                if (category != null)
-                {
-                    txtCategory.Text = category.CategoryName;
-                }
-                if (author != null)
-                {
-                    txtAuthor.Text = author.AuthorName;
-                }
-                if (press != null)
-                {
-                    txtPress.Text = press.PressName;
-                }
-                datePressDate.Value = bookInfo.PressDate ?? DateTime.Now;
+
+                txtCategory.Text = bookInfo.Category;
+
+
+                txtAuthor.Text = bookInfo.Author;
+
+
+                txtPress.Text = bookInfo.Press;
+
+                datePressDate.Value = bookInfo.PublishDate ?? DateTime.Now;
                 txtISBN.Text = bookInfo.ISBN;
                 txtPrice.Text = bookInfo.Price.ToString();
-                numTotal.Value = bookInfo.Total;
-                numRemain.Value = bookInfo.Remain;
 
-                if (cover != null)
+                if (bookInfo.Cover != null)
                 {
-                    picCover.Image = cover.CoverImage;
+                    picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
                 }
-                if (bookBrief != null)
-                {
-                    txtBrief.Text = bookBrief.BriefText;
-                }
+                txtBrief.Text = bookInfo.Brief;
+
 
                 ResetControlState();
                 btnModify.Enabled = true;
@@ -321,10 +272,9 @@ namespace LibraryManagement
         {
             txtTitle.Text = txtTitle.Text.Trim();
             txtPrice.Text = txtPrice.Text.Trim();
-            txtAlpha.Text = txtAlpha.Text.Trim();
             txtISBN.Text = txtISBN.Text.Trim();
 
-            if (string.IsNullOrEmpty(txtTitle.Text) || string.IsNullOrEmpty(txtAlpha.Text))
+            if (string.IsNullOrEmpty(txtTitle.Text))
             {
                 MessageBox.Show("有未填写的必填项", "迅邦温馨提示提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -336,133 +286,62 @@ namespace LibraryManagement
             {
                 if (bookInfo == null)
                 {
-                    bookInfo = new BookInfo(
-                       category == null ? null : (int?)category.CatID,
-                       txtTitle.Text,
-                       txtAlpha.Text[0],
-                       string.IsNullOrEmpty(txtISBN.Text) ? null : txtISBN.Text,
-                       author == null ? null : (int?)author.AuthorID,
-                       press == null ? null : (int?)press.PressID,
-                       datePressDate.Value,
-                       string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text)
-                       );
+                    bookInfo = new BookInfo();
+                    bookInfo.Title = txtTitle.Text;
+                    bookInfo.ISBN = txtISBN.Text;
+                    bookInfo.Author = txtAuthor.Text;
+                    bookInfo.Press = txtPress.Text;
+                    bookInfo.Category = txtCategory.Text;
+                    bookInfo.PublishDate = datePressDate.Value;
+                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
 
-                    DBHelper.conn.Open();
-                    result += ((IDBOperate)bookInfo).Insert(DBHelper.conn);
-                    if (txtBrief.Text != "")
-                    {
-                        bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
-                        result += ((IDBOperate)bookBrief).Insert(DBHelper.conn);
-                    }
                     if (img != null)
                     {
-                        cover = new Cover(bookInfo.InfoID, img);
-                        result += ((IDBOperate)cover).Insert(DBHelper.conn);
+                        MemoryStream mem = new MemoryStream();
+                        img.Position = 0;
+                        img.CopyTo(mem);
+                        bookInfo.Cover = mem.GetBuffer();
                     }
+
+                    bookInfo.Brief = txtBrief.Text;
+
+
+                    DBHelper.Entities.BookInfoes.Add(bookInfo);
+                    result = DBHelper.Entities.SaveChanges();
+
                 }
                 else
                 {
                     bookInfo.Title = txtTitle.Text;
-                    bookInfo.Alphabet = txtAlpha.Text[0];
-                    if (category != null)
-                    {
-                        bookInfo.CatID = category.CatID;
-                    }
-                    if (author != null)
-                    {
-                        bookInfo.AuthorID = author.AuthorID;
-                    }
-                    if (press != null)
-                    {
-                        bookInfo.PressID = press.PressID;
-                    }
-                    bookInfo.PressDate = datePressDate.Value;
-                    bookInfo.Price = string.IsNullOrEmpty(txtPrice.Text) ? null : (decimal?)Convert.ToDecimal(txtPrice.Text);
-                    bookInfo.ISBN = string.IsNullOrEmpty(txtISBN.Text) ? null : txtISBN.Text;
-                    bookInfo.Total = (int)numTotal.Value;
-                    bookInfo.Remain = (int)numRemain.Value;
-
-
-                    DBHelper.conn.Open();
-                    result += ((IDBOperate)bookInfo).Update(DBHelper.conn);
-
-                    if (bookBrief != null)
-                    {
-                        if (txtBrief.Text != "")
-                        {
-                            bookBrief.BriefText = txtBrief.Text;
-                            result += ((IDBOperate)bookBrief).Update(DBHelper.conn);
-                        }
-                        else
-                        {
-                            result += ((IDBOperate)bookBrief).Delete(DBHelper.conn);
-                        }
-                    }
-                    else
-                    {
-                        if (txtBrief.Text != "")
-                        {
-                            bookBrief = new BookBrief(bookInfo.InfoID, txtBrief.Text);
-                            result += ((IDBOperate)bookBrief).Insert(DBHelper.conn);
-                        }
-                    }
+                    bookInfo.ISBN = txtISBN.Text;
+                    bookInfo.Author = txtAuthor.Text;
+                    bookInfo.Press = txtPress.Text;
+                    bookInfo.Category = txtCategory.Text;
+                    bookInfo.PublishDate = datePressDate.Value;
+                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
 
                     if (img != null)
                     {
-                        if (cover == null)
-                        {
-                            cover = new Cover(bookInfo.InfoID, img);
-                            result += ((IDBOperate)cover).Insert(DBHelper.conn);
-                        }
-                        else
-                        {
-                            result += ((IDBOperate)cover).Update(DBHelper.conn);
-                        }
+                        MemoryStream mem = new MemoryStream();
+                        img.Position = 0;
+                        img.CopyTo(mem);
+                        bookInfo.Cover = mem.GetBuffer();
                     }
-                    else
-                    {
-                        if (picCover.Image == null && cover != null)
-                        {
-                            result += ((IDBOperate)cover).Delete(DBHelper.conn);
-                            cover = null;
-                        }
-                    }
-                    //if (cover != null)
-                    //{
-                    //    if (picCover.Image != null)
-                    //    {
-                    //        if (img != null)
-                    //        {
-                    //            cover.ImageStream = img;
-                    //            result += ((IDBOperate)cover).Update(DBHelper.conn);
-                    //        }
-                    //    }
-                    //    else
-                    //    {
-                    //        result += ((IDBOperate)cover).Delete(DBHelper.conn);
-                    //    }
-                    //}
-                    //else
-                    //{
-                    //    if (picCover.Image != null)
-                    //    {
-                    //        if (img != null)
-                    //        {
-                    //            cover = new Cover(bookInfo.InfoID, img);
-                    //            result += ((IDBOperate)cover).Insert(DBHelper.conn);
-                    //        }
-                    //    }
-                    //}
+
+                    bookInfo.Brief = txtBrief.Text;
+
+
+
+                    result = DBHelper.Entities.SaveChanges();
+
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
+
 
             if (result > 0)
             {
@@ -481,97 +360,31 @@ namespace LibraryManagement
 
         private void LoadAll()
         {
-            author = null;
-            category = null;
-            press = null;
-            cover = null;
-            bookBrief = null;
 
             if (bookInfo != null)
             {
-                txtBookInfoID.Text = bookInfo.InfoID.ToString();
+                txtBookInfoID.Text = bookInfo.BookInfoID.ToString();
                 txtTitle.Text = bookInfo.Title;
-                txtAlpha.Text = bookInfo.Alphabet.ToString();
                 txtISBN.Text = bookInfo.ISBN;
                 txtPrice.Text = bookInfo.Price.ToString();
-
-                numTotal.Value = bookInfo.Total;
-                numRemain.Value = bookInfo.Remain;
-
-
-                try
-                {
-                    DBHelper.conn.Open();
-
-                    if (bookInfo.CatID != null)
-                    {
-                        category = Category.GetCategoryByID((int)bookInfo.CatID, DBHelper.conn);
-                    }
-                    if (bookInfo.AuthorID != null)
-                    {
-                        author = Author.GetAuthorByID((int)bookInfo.AuthorID, DBHelper.conn);
-                    }
-                    if (bookInfo.PressID != null)
-                    {
-                        press = Press.GetPressByID((int)bookInfo.PressID, DBHelper.conn);
-                    }
-
-                    cover = Cover.GetCoverByID(bookInfo.InfoID, DBHelper.conn);
-                    bookBrief = BookBrief.GetBookBriefByID(bookInfo.InfoID, DBHelper.conn);
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    DBHelper.conn.Close();
-                }
-            }
-
-            if (category != null)
-            {
-                txtCategory.Text = category.CategoryName;
+                txtAuthor.Text = bookInfo.Author;
+                txtCategory.Text = bookInfo.Category;
+                txtPress.Text = bookInfo.Press;
+                picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
+                txtBrief.Text = bookInfo.Brief;
             }
             else
             {
-                txtCategory.Text = "";
-            }
-            if (author != null)
-            {
-                txtAuthor.Text = author.AuthorName;
-            }
-            else
-            {
-                txtAuthor.Text = "";
-            }
-            if (press != null)
-            {
-                txtPress.Text = press.PressName;
-            }
-            else
-            {
-                txtPress.Text = "";
-            }
-            if (cover != null)
-            {
-                picCover.Image = cover.CoverImage;
-            }
-            else
-            {
+                txtBookInfoID.Clear();
+                txtTitle.Clear();
+                txtISBN.Clear();
+                txtPrice.Clear();
+                txtAuthor.Clear();
+                txtCategory.Clear();
+                txtPress.Clear();
                 picCover.Image = null;
+                txtBrief.Clear();
             }
-            if (bookBrief != null)
-            {
-                txtBrief.Text = bookBrief.BriefText;
-            }
-            else
-            {
-                txtBrief.Text = "";
-            }
-
-
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -609,14 +422,6 @@ namespace LibraryManagement
             LoadAll();
         }
 
-        private void txtAlpha_TextChanged(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtAlpha.Text))
-            {
-                txtAlpha.Text = txtAlpha.Text.ToUpper()[0].ToString();
-            }
-        }
-
         private void btnAuthor_Click(object sender, EventArgs e)
         {
             AuthorsForm af = new AuthorsForm();
@@ -627,6 +432,19 @@ namespace LibraryManagement
         {
             frmBookPressManager fbpm = new frmBookPressManager();
             fbpm.ShowDialog(this);
+        }
+
+        private void BookInfoForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                img.Close();
+            }
+            catch (Exception)
+            {
+
+
+            }
         }
 
     }

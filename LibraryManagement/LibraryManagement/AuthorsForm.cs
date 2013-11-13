@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibraryDB;
+
 namespace LibraryManagement
 {
     public partial class AuthorsForm : Form
@@ -16,27 +16,24 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-        List<Author> authors;
+        private IQueryable<Author> authors;
 
         private void AuthorsForm_Load(object sender, EventArgs e)
         {
             try
             {
-                DBHelper.conn.Open();
-                authors = Author.GetAllAuthors(DBHelper.conn);
+
+                authors = DBHelper.Entities.Authors;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
 
             listAuthors.DataSource = authors;
             listAuthors.DisplayMember = "AuthorName";
-            listAuthors.ValueMember = "AuthorID";
+            listAuthors.ValueMember = "AuthorName";
         }
 
         private void btnGo_Click(object sender, EventArgs e)
@@ -67,20 +64,19 @@ namespace LibraryManagement
                     int res = 0;
                     try
                     {
-                        DBHelper.conn.Open();
-                        Author a = new Author(txtSearchString.Text);
-                        res = ((IDBOperate)a).Insert(DBHelper.conn);
-                        authors = Author.GetAllAuthors(DBHelper.conn);
+                        Author a = new Author();
+                        a.AuthorName = txtSearchString.Text;
+
+                        DBHelper.Entities.Authors.Add(a);
+                        res = DBHelper.Entities.SaveChanges();
+                        authors = DBHelper.Entities.Authors;
+
                         listAuthors.DataSource = authors;
                         listAuthors.EndUpdate();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        DBHelper.conn.Close();
                     }
 
                     if (res > 0)
@@ -95,7 +91,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("添加失败","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("添加失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -128,19 +124,17 @@ namespace LibraryManagement
                     int res = 0;
                     try
                     {
-                        DBHelper.conn.Open();
-                        res = ((IDBOperate)a).Delete(DBHelper.conn);
-                        authors = Author.GetAllAuthors(DBHelper.conn);
+
+                        DBHelper.Entities.Authors.Remove(a);
+                        res = DBHelper.Entities.SaveChanges();
+                        authors = DBHelper.Entities.Authors;
+
                         listAuthors.DataSource = authors;
                         listAuthors.EndUpdate();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        DBHelper.conn.Close();
                     }
 
                     if (res > 0)

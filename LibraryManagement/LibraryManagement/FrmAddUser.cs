@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibraryDB;
+
 namespace LibraryManagement
 {
     public partial class FrmAddUser : Form
@@ -18,7 +18,7 @@ namespace LibraryManagement
         }
 
         User user;
-        UserInfo userInfo;
+
         DataSet ds = new DataSet();
 
 
@@ -26,14 +26,14 @@ namespace LibraryManagement
         {
             try
             {
-                using (SqlDataAdapter da = new SqlDataAdapter("select UGID,GroupName From UserGroupInfo", DBHelper.conn))
+                using (SqlDataAdapter da = new SqlDataAdapter("select GroupID,GroupName From UserGroupInfo", DBHelper.conn))
                 {
                     da.Fill(ds, "usergroup");
                 }
 
                 cboUserGroup.DataSource = ds.Tables["usergroup"];
                 cboUserGroup.DisplayMember = "GroupName";
-                cboUserGroup.ValueMember = "UGID";
+                cboUserGroup.ValueMember = "GroupID";
             }
             catch (Exception ex)
             {
@@ -45,7 +45,6 @@ namespace LibraryManagement
             {
                 btnSave.Text = "保  存";
                 this.Text = "添加用户";
-                dateRegDate.Enabled = false;
             }
             else
             {
@@ -55,21 +54,19 @@ namespace LibraryManagement
 
                 try
                 {
-                    long uid = Convert.ToInt64(this.Tag);
+                    int uid = Convert.ToInt32(this.Tag);
 
-                    DBHelper.conn.Open();
-
-                    user = User.GetUserByID(uid, DBHelper.conn);
-                    userInfo = UserInfo.GetUserInfoByID(uid, DBHelper.conn);
+                    IEnumerator<User> ie = DBHelper.Entities.Users.Where(f=>f.UserID==uid).GetEnumerator();
+                    if (ie.MoveNext())
+                    {
+                        user = ie.Current;
+                    }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                finally
-                {
-                    DBHelper.conn.Close();
-                }
+
 
                 ShowData();
             }
@@ -79,31 +76,29 @@ namespace LibraryManagement
         {
             if (user != null)
             {
-                txtUsername.Text = user.Username;
+                txtUsername.Text = user.UserName;
                 cboUserGroup.SelectedValue = user.UserGroupID;
-            }
-            if (userInfo != null)
-            {
-                txtName.Text = userInfo.Name;
-                txtAge.Text = userInfo.Age + "";
-                switch (userInfo.Gender)
+
+                txtName.Text = user.Name;
+                txtAge.Text = user.Age + "";
+                switch (user.Gender)
                 {
-                    case GenderType.未指定:
+                    case null:
                         rdoUndefinedGender.Checked = true;
                         break;
-                    case GenderType.女:
+                    case "女":
                         rdoFemale.Checked = true;
                         break;
-                    case GenderType.男:
+                    case "男":
                         rdoMale.Checked = true;
                         break;
                     default:
                         break;
                 }
-                txtPhone.Text = userInfo.Phone;
-                txtEmail.Text = userInfo.Email;
-                txtAddress.Text = userInfo.Address;
-                dateRegDate.Value = userInfo.RegTime;
+                txtPhone.Text = user.Phone;
+                txtEmail.Text = user.Email;
+                txtAddress.Text = user.Address;
+
             }
         }
 
@@ -185,60 +180,38 @@ namespace LibraryManagement
 
                 if (this.Tag == null)
                 {
-                    user = new User(txtUsername.Text, SetPassword(), (int)cboUserGroup.SelectedValue);
-                    result += ((IDBOperate)user).Insert(DBHelper.conn);
-                    userInfo = new UserInfo(
-                        user.Uid,
-                        txtName.Text,
-                        txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text),
-                        rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女),
-                        txtPhone.Text == "" ? null : txtPhone.Text,
-                        txtEmail.Text == "" ? null : txtEmail.Text,
-                        txtAddress.Text == "" ? null : txtAddress.Text
-                        );
-                    result += ((IDBOperate)userInfo).Insert(DBHelper.conn);
+                    user = new User();
+                    user.UserName = txtUsername.Text;
+                    user.UserPWD = Tools.ToSHA1(txtPassword.Text);
+                    user.UserGroupID = Convert.ToInt32(cboUserGroup.SelectedValue);
+                    user.Name = txtName.Text;
+                    user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
+                    user.Gender = rdoUndefinedGender.Checked ? null : (rdoMale.Checked ? "男" : "女");
+                    user.Phone = txtPhone.Text == "" ? null : txtPhone.Text;
+                    user.Email = txtEmail.Text == "" ? null : txtEmail.Text;
+                    user.Address = txtAddress.Text == "" ? null : txtAddress.Text;
+
+                    DBHelper.Entities.Users.Add(user);
+                    result = DBHelper.Entities.SaveChanges();
                 }
                 else
                 {
-                    user.UserGroupID = (int)cboUserGroup.SelectedValue;
-                    result += ((IDBOperate)user).Update(DBHelper.conn);
-                    if (txtPassword.Text != "")
-                    {
-                        result += user.ChangePassword(txtPassword.Text, DBHelper.conn);
-                    }
-                    if (userInfo == null)
-                    {
-                        userInfo = new UserInfo(
-                            user.Uid,
-                            txtName.Text,
-                            txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text),
-                            rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女),
-                            txtPhone.Text == "" ? null : txtPhone.Text,
-                            txtEmail.Text == "" ? null : txtEmail.Text,
-                            txtAddress.Text == "" ? null : txtAddress.Text
-                        );
-                        result += ((IDBOperate)userInfo).Insert(DBHelper.conn);
-                    }
-                    else
-                    {
-                        userInfo.Name = txtName.Text;
-                        userInfo.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
-                        userInfo.Gender = rdoUndefinedGender.Checked ? GenderType.未指定 : (rdoMale.Checked ? GenderType.男 : GenderType.女);
-                        userInfo.Email = txtEmail.Text == "" ? null : txtEmail.Text;
-                        userInfo.Phone = txtPhone.Text == "" ? null : txtPhone.Text;
-                        userInfo.Address = txtAddress.Text == "" ? null : txtAddress.Text;
-                        userInfo.RegTime = dateRegDate.Value;
-                        result += ((IDBOperate)userInfo).Update(DBHelper.conn);
-                    }
+                    user.UserName = txtUsername.Text;
+                    user.UserPWD = Tools.ToSHA1(txtPassword.Text);
+                    user.UserGroupID = Convert.ToInt32(cboUserGroup.SelectedValue);
+                    user.Name = txtName.Text;
+                    user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
+                    user.Gender = rdoUndefinedGender.Checked ? null : (rdoMale.Checked ? "男" : "女");
+                    user.Phone = txtPhone.Text == "" ? null : txtPhone.Text;
+                    user.Email = txtEmail.Text == "" ? null : txtEmail.Text;
+                    user.Address = txtAddress.Text == "" ? null : txtAddress.Text;
+
+                    result = DBHelper.Entities.SaveChanges();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                DBHelper.conn.Close();
             }
 
             return result;

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibraryDB;
+
 namespace LibraryManagement
 {
     public partial class frmBookPressManager : Form
@@ -32,27 +32,22 @@ namespace LibraryManagement
             }
         }
 
-        private List<Press> presses;
+        private IQueryable<Press> presses;
         private void frmBookPressManager_Load(object sender, EventArgs e)
         {
             try
             {
-                DBHelper.conn.Open();
-                presses = Press.GetAllPresses(DBHelper.conn);
+                presses = DBHelper.Entities.Presses;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
 
             listPresses.DataSource = presses;
             listPresses.DisplayMember = "PressName";
-            listPresses.ValueMember = "PressID";
-            
+            listPresses.ValueMember = "PressName";
+
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -68,20 +63,17 @@ namespace LibraryManagement
                     int res = 0;
                     try
                     {
-                        DBHelper.conn.Open();
-                        Press p = new Press(txtSearchString.Text);
-                        res = ((IDBOperate)p).Insert(DBHelper.conn);
-                        presses = Press.GetAllPresses(DBHelper.conn);
+                        Press p = new Press();
+                        p.PressName = txtSearchString.Text;
+                        DBHelper.Entities.Presses.Add(p);
+                        res = DBHelper.Entities.SaveChanges();
+                        presses = DBHelper.Entities.Presses;
                         listPresses.DataSource = presses;
                         listPresses.EndUpdate();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        DBHelper.conn.Close();
                     }
 
                     if (res > 0)
@@ -114,19 +106,15 @@ namespace LibraryManagement
                     int res = 0;
                     try
                     {
-                        DBHelper.conn.Open();
-                        res = ((IDBOperate)p).Delete(DBHelper.conn);
-                        presses = Press.GetAllPresses(DBHelper.conn);
+                        DBHelper.Entities.Presses.Remove(p);
+                        res = DBHelper.Entities.SaveChanges();
+                        presses = DBHelper.Entities.Presses;
                         listPresses.DataSource = presses;
                         listPresses.EndUpdate();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message);
-                    }
-                    finally
-                    {
-                        DBHelper.conn.Close();
                     }
 
                     if (res > 0)
