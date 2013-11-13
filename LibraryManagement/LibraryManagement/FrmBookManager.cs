@@ -69,7 +69,7 @@ namespace LibraryManagement
             if (dgvBookInfo.SelectedRows.Count > 0)
             {
                 Form form = null;
-                string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value.ToString();
+                int iid = Convert.ToInt32(dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value);
 
                 foreach (Form f in forms)
                 {
@@ -263,7 +263,7 @@ namespace LibraryManagement
             }
             else if (rdoTitle.Checked)
             {
-                searchField = "标题";
+                searchField = "书籍标题";
             }
             else
             {

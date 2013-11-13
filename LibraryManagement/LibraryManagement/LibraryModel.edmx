@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="AuthorName" />
@@ -83,8 +83,8 @@
           <Property Name="IsAdmin" Type="bit" Nullable="false" />
           <Property Name="Max" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: 表/视图“Library.dbo.BookInfoListView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Library.dbo.BookInfoListView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="BookInfoListView">
           <Key>
             <PropertyRef Name="书籍编号" />
@@ -101,8 +101,8 @@ warning 6002: 表/视图“Library.dbo.BookInfoListView”未定义主键。已�
           <Property Name="总库存" Type="int" />
           <Property Name="现库存" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: 表/视图“Library.dbo.BookView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Library.dbo.BookView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="BookView">
           <Key>
             <PropertyRef Name="书籍标题" />
@@ -117,11 +117,12 @@ warning 6002: 表/视图“Library.dbo.BookView”未定义主键。已推断出
           <Property Name="书籍编号" Type="int" Nullable="false" />
           <Property Name="类别" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="RecordView">
           <Key>
             <PropertyRef Name="订单编号" />
+            <PropertyRef Name="藏书号" />
             <PropertyRef Name="账户" />
             <PropertyRef Name="标题" />
             <PropertyRef Name="借出日期" />
@@ -129,6 +130,7 @@ warning 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断�
             <PropertyRef Name="最大天数" />
           </Key>
           <Property Name="订单编号" Type="int" Nullable="false" />
+          <Property Name="藏书号" Type="int" Nullable="false" />
           <Property Name="账户" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="标题" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="作者" Type="nvarchar" MaxLength="50" />
@@ -139,8 +141,8 @@ warning 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断�
           <Property Name="最大天数" Type="int" Nullable="false" />
           <Property Name="借阅天数" Type="int" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="UserView">
           <Key>
             <PropertyRef Name="用户编号" />
@@ -246,15 +248,15 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="LibraryModelStoreContainer">
-          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Press" EntityType="Self.Press" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="UserGroupInfo" EntityType="Self.UserGroupInfo" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
-          <EntitySet Name="BookInfoListView" EntityType="Self.BookInfoListView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="Author" EntityType="Self.Author" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Book" EntityType="Self.Book" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookInfo" EntityType="Self.BookInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Press" EntityType="Self.Press" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Record" EntityType="Self.Record" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserGroupInfo" EntityType="Self.UserGroupInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BookInfoListView" EntityType="Self.BookInfoListView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [BookInfoListView].[书籍编号] AS [书籍编号], 
     [BookInfoListView].[书籍标题] AS [书籍标题], 
@@ -268,7 +270,7 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
     [BookInfoListView].[现库存] AS [现库存]
     FROM [dbo].[BookInfoListView] AS [BookInfoListView]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="BookView" EntityType="Self.BookView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="BookView" EntityType="Self.BookView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [BookView].[书籍标题] AS [书籍标题], 
     [BookView].[ISBN] AS [ISBN], 
@@ -280,9 +282,10 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
     [BookView].[类别] AS [类别]
     FROM [dbo].[BookView] AS [BookView]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="RecordView" EntityType="Self.RecordView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="RecordView" EntityType="Self.RecordView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [RecordView].[订单编号] AS [订单编号], 
+    [RecordView].[藏书号] AS [藏书号], 
     [RecordView].[账户] AS [账户], 
     [RecordView].[标题] AS [标题], 
     [RecordView].[作者] AS [作者], 
@@ -294,7 +297,7 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
     [RecordView].[借阅天数] AS [借阅天数]
     FROM [dbo].[RecordView] AS [RecordView]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="UserView" EntityType="Self.UserView" p3:Type="Views" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+          <EntitySet Name="UserView" EntityType="Self.UserView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [UserView].[用户编号] AS [用户编号], 
     [UserView].[账户] AS [账户], 
@@ -468,6 +471,7 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
         <EntityType Name="RecordView">
           <Key>
             <PropertyRef Name="订单编号" />
+            <PropertyRef Name="藏书号" />
             <PropertyRef Name="账户" />
             <PropertyRef Name="标题" />
             <PropertyRef Name="借出日期" />
@@ -475,6 +479,7 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
             <PropertyRef Name="最大天数" />
           </Key>
           <Property Name="订单编号" Type="Int32" Nullable="false" />
+          <Property Name="藏书号" Type="Int32" Nullable="false" />
           <Property Name="账户" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="作者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
@@ -757,6 +762,7 @@ warning 6002: 表/视图“Library.dbo.UserView”未定义主键。已推断出
             <EntityTypeMapping TypeName="LibraryModel.RecordView">
               <MappingFragment StoreEntitySet="RecordView">
                 <ScalarProperty Name="订单编号" ColumnName="订单编号" />
+                <ScalarProperty Name="藏书号" ColumnName="藏书号" />
                 <ScalarProperty Name="账户" ColumnName="账户" />
                 <ScalarProperty Name="标题" ColumnName="标题" />
                 <ScalarProperty Name="作者" ColumnName="作者" />

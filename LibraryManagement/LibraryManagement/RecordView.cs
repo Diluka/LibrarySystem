@@ -15,6 +15,7 @@ namespace LibraryManagement
     public partial class RecordView
     {
         public int 订单编号 { get; set; }
+        public int 藏书号 { get; set; }
         public string 账户 { get; set; }
         public string 标题 { get; set; }
         public string 作者 { get; set; }

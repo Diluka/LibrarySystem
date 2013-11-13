@@ -72,7 +72,8 @@ namespace LibraryManagement
             TreeNode node = e.Node;
             while (node.Parent != null)
             {
-                strs[e.Node.Level] = e.Node.Tag.ToString();
+                strs[node.Level - 1] = node.Tag.ToString();
+                node = node.Parent;
             }
             fliter2 = string.Join(" AND ", strs);
 
