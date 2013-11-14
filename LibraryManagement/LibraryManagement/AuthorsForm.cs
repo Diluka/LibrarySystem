@@ -23,9 +23,7 @@ namespace LibraryManagement
         {
             try
             {
-
                 authors = DBHelper.Entities.Authors;
-
             }
             catch (Exception ex)
             {

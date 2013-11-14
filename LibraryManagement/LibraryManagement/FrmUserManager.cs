@@ -122,12 +122,5 @@ namespace LibraryManagement
                 MessageBox.Show("请选择要修改的用户", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void FrmUserManager_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-
     }
 }

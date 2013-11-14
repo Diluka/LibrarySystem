@@ -18,7 +18,7 @@ namespace LibraryManagement
             InitializeComponent();
         }
         User user;
-        private List<Record> records = new List<Record>();
+        private List<Record> records;
         UserGroupInfo userGroupInfo;
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -26,6 +26,7 @@ namespace LibraryManagement
             txtUsername.Text = txtUsername.Text.Trim();
             user = null;
             userGroupInfo = null;
+            records = new List<Record>();
             chkIsReadOnly.Checked = true;
 
             try
@@ -135,7 +136,6 @@ namespace LibraryManagement
         {
             if (txtBookID.Text.Trim() == "")
             {
-
                 MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else if (txtUsername.Text.Trim() == "")
@@ -155,7 +155,7 @@ namespace LibraryManagement
                 Book book = null;
                 try
                 {
-                    IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == int.Parse(txtBookID.Text)).GetEnumerator();
+                    IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == Convert.ToInt32(txtBookID.Text)).GetEnumerator();
                     if (ie.MoveNext())
                     {
                         book = ie.Current;
@@ -213,8 +213,8 @@ namespace LibraryManagement
                             continue;
                         }
                         Record r = new Record();
-                        r.User = user;
-                        r.Book = b;
+                        r.UserID = user.UserID;
+                        r.BookID = b.BookID;
                         r.OutDate = DateTime.Now;
 
                         DBHelper.Entities.Records.Add(r);
@@ -291,20 +291,6 @@ namespace LibraryManagement
             {
                 MessageBox.Show("保存失败", "迅邦温馨提示", MessageBoxButtons.OK);
             }
-        }
-
-        private void dgvOrders_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void frmRent_FormClosed(object sender, FormClosedEventArgs e)
-        {
-        }
-
-        private void dgvBooks_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

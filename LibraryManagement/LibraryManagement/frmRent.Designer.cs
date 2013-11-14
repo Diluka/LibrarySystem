@@ -87,7 +87,6 @@
             this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrders.Size = new System.Drawing.Size(414, 157);
             this.dgvOrders.TabIndex = 0;
-            this.dgvOrders.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrders_CellContentClick);
             // 
             // btnAdd
             // 
@@ -181,7 +180,6 @@
             this.dgvBooks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBooks.Size = new System.Drawing.Size(414, 159);
             this.dgvBooks.TabIndex = 0;
-            this.dgvBooks.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBooks_CellContentClick);
             // 
             // groupUserInfo
             // 
@@ -366,7 +364,6 @@
             this.Name = "FrmRent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍借出";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmRent_FormClosed);
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.groupOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();

@@ -181,7 +181,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "用户管理";
             this.Activated += new System.EventHandler(this.FrmDataManager_Activated);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmUserManager_FormClosed);
             this.Load += new System.EventHandler(this.FrmDataManager_Load);
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
