@@ -52,7 +52,7 @@
           <Key>
             <PropertyRef Name="RecordID" />
           </Key>
-          <Property Name="RecordID" Type="int" Nullable="false" />
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="BookID" Type="int" Nullable="false" />
           <Property Name="OutDate" Type="datetime" Nullable="false" />
@@ -105,23 +105,22 @@
 警告 6002: 表/视图“Library.dbo.BookView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="BookView">
           <Key>
+            <PropertyRef Name="藏书号" />
             <PropertyRef Name="书籍标题" />
-            <PropertyRef Name="书籍编号" />
+            <PropertyRef Name="已借出" />
           </Key>
+          <Property Name="藏书号" Type="int" Nullable="false" />
           <Property Name="书籍标题" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="ISBN" Type="char" MaxLength="13" />
           <Property Name="作者" Type="nvarchar" MaxLength="50" />
-          <Property Name="出版社" Type="nvarchar" MaxLength="50" />
-          <Property Name="总库存" Type="int" />
-          <Property Name="现库存" Type="int" />
-          <Property Name="书籍编号" Type="int" Nullable="false" />
-          <Property Name="类别" Type="nvarchar" MaxLength="50" />
+          <Property Name="已借出" Type="bit" Nullable="false" />
+          <Property Name="备注" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <!--生成过程中发现错误:
 警告 6002: 表/视图“Library.dbo.RecordView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
         <EntityType Name="RecordView">
           <Key>
             <PropertyRef Name="订单编号" />
+            <PropertyRef Name="用户编号" />
             <PropertyRef Name="藏书号" />
             <PropertyRef Name="账户" />
             <PropertyRef Name="标题" />
@@ -130,6 +129,7 @@
             <PropertyRef Name="最大天数" />
           </Key>
           <Property Name="订单编号" Type="int" Nullable="false" />
+          <Property Name="用户编号" Type="int" Nullable="false" />
           <Property Name="藏书号" Type="int" Nullable="false" />
           <Property Name="账户" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="标题" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -272,19 +272,17 @@
           </EntitySet>
           <EntitySet Name="BookView" EntityType="Self.BookView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
+    [BookView].[藏书号] AS [藏书号], 
     [BookView].[书籍标题] AS [书籍标题], 
-    [BookView].[ISBN] AS [ISBN], 
     [BookView].[作者] AS [作者], 
-    [BookView].[出版社] AS [出版社], 
-    [BookView].[总库存] AS [总库存], 
-    [BookView].[现库存] AS [现库存], 
-    [BookView].[书籍编号] AS [书籍编号], 
-    [BookView].[类别] AS [类别]
+    [BookView].[已借出] AS [已借出], 
+    [BookView].[备注] AS [备注]
     FROM [dbo].[BookView] AS [BookView]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="RecordView" EntityType="Self.RecordView" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [RecordView].[订单编号] AS [订单编号], 
+    [RecordView].[用户编号] AS [用户编号], 
     [RecordView].[藏书号] AS [藏书号], 
     [RecordView].[账户] AS [账户], 
     [RecordView].[标题] AS [标题], 
@@ -402,7 +400,7 @@
           <Key>
             <PropertyRef Name="RecordID" />
           </Key>
-          <Property Name="RecordID" Type="Int32" Nullable="false" />
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="BookID" Type="Int32" Nullable="false" />
           <Property Name="OutDate" Type="DateTime" Nullable="false" Precision="3" />
@@ -456,21 +454,20 @@
         </EntityType>
         <EntityType Name="BookView">
           <Key>
+            <PropertyRef Name="藏书号" />
             <PropertyRef Name="书籍标题" />
-            <PropertyRef Name="书籍编号" />
+            <PropertyRef Name="已借出" />
           </Key>
+          <Property Name="藏书号" Type="Int32" Nullable="false" />
           <Property Name="书籍标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="ISBN" Type="String" MaxLength="13" FixedLength="true" Unicode="false" />
           <Property Name="作者" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="出版社" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="总库存" Type="Int32" />
-          <Property Name="现库存" Type="Int32" />
-          <Property Name="书籍编号" Type="Int32" Nullable="false" />
-          <Property Name="类别" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="已借出" Type="Boolean" Nullable="false" />
+          <Property Name="备注" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="RecordView">
           <Key>
             <PropertyRef Name="订单编号" />
+            <PropertyRef Name="用户编号" />
             <PropertyRef Name="藏书号" />
             <PropertyRef Name="账户" />
             <PropertyRef Name="标题" />
@@ -479,6 +476,7 @@
             <PropertyRef Name="最大天数" />
           </Key>
           <Property Name="订单编号" Type="Int32" Nullable="false" />
+          <Property Name="用户编号" Type="Int32" Nullable="false" />
           <Property Name="藏书号" Type="Int32" Nullable="false" />
           <Property Name="账户" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="标题" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -747,14 +745,11 @@
           <EntitySetMapping Name="BookViews">
             <EntityTypeMapping TypeName="LibraryModel.BookView">
               <MappingFragment StoreEntitySet="BookView">
+                <ScalarProperty Name="藏书号" ColumnName="藏书号" />
                 <ScalarProperty Name="书籍标题" ColumnName="书籍标题" />
-                <ScalarProperty Name="ISBN" ColumnName="ISBN" />
                 <ScalarProperty Name="作者" ColumnName="作者" />
-                <ScalarProperty Name="出版社" ColumnName="出版社" />
-                <ScalarProperty Name="总库存" ColumnName="总库存" />
-                <ScalarProperty Name="现库存" ColumnName="现库存" />
-                <ScalarProperty Name="书籍编号" ColumnName="书籍编号" />
-                <ScalarProperty Name="类别" ColumnName="类别" />
+                <ScalarProperty Name="已借出" ColumnName="已借出" />
+                <ScalarProperty Name="备注" ColumnName="备注" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -762,6 +757,7 @@
             <EntityTypeMapping TypeName="LibraryModel.RecordView">
               <MappingFragment StoreEntitySet="RecordView">
                 <ScalarProperty Name="订单编号" ColumnName="订单编号" />
+                <ScalarProperty Name="用户编号" ColumnName="用户编号" />
                 <ScalarProperty Name="藏书号" ColumnName="藏书号" />
                 <ScalarProperty Name="账户" ColumnName="账户" />
                 <ScalarProperty Name="标题" ColumnName="标题" />

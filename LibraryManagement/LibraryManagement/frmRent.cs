@@ -19,7 +19,22 @@ namespace LibraryManagement
         }
         User user;
         private List<Record> records;
+        private List<RecordView> recordView;
         UserGroupInfo userGroupInfo;
+        List<BookView> bookView;
+
+        private void ShowBookView()
+        {
+            if (user != null)
+            {
+                bookView = new List<BookView>();
+                foreach (Book b in books)
+                {
+                    bookView.AddRange(DBHelper.Entities.BookViews.Where(f => f.藏书号 == b.BookID));
+                }
+                dgvBooks.DataSource = bookView;
+            }
+        }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -27,7 +42,8 @@ namespace LibraryManagement
             user = null;
             userGroupInfo = null;
             records = new List<Record>();
-            chkIsReadOnly.Checked = true;
+            books = new List<Book>();
+            //chkIsReadOnly.Checked = true;
 
             try
             {
@@ -111,27 +127,27 @@ namespace LibraryManagement
             }
         }
 
-        private void SetReadOnly()
-        {
-            foreach (Control item in this.groupUserInfo.Controls)
-            {
-                if (item is TextBox)
-                {
-                    ((TextBox)item).ReadOnly = chkIsReadOnly.Checked;
-                }
-                else if (item is NumericUpDown)
-                {
-                    ((NumericUpDown)item).ReadOnly = chkIsReadOnly.Checked;
-                }
-                else if (item is RadioButton)
-                {
-                    ((RadioButton)item).Enabled = !chkIsReadOnly.Checked;
-                }
-            }
+        //private void SetReadOnly()
+        //{
+        //    foreach (Control item in this.groupUserInfo.Controls)
+        //    {
+        //        if (item is TextBox)
+        //        {
+        //            ((TextBox)item).ReadOnly = chkIsReadOnly.Checked;
+        //        }
+        //        else if (item is NumericUpDown)
+        //        {
+        //            ((NumericUpDown)item).ReadOnly = chkIsReadOnly.Checked;
+        //        }
+        //        else if (item is RadioButton)
+        //        {
+        //            ((RadioButton)item).Enabled = !chkIsReadOnly.Checked;
+        //        }
+        //    }
 
-            btnSave.Enabled = !chkIsReadOnly.Checked;
-        }
-        private List<Book> books = new List<Book>();
+        //    btnSave.Enabled = !chkIsReadOnly.Checked;
+        //}
+        private List<Book> books;
         private void btnAdd_Click(object sender, EventArgs e)
         {
             if (txtBookID.Text.Trim() == "")
@@ -144,8 +160,6 @@ namespace LibraryManagement
             }
             else
             {
-
-
                 txtBookID.Text = txtBookID.Text.Trim();
                 if (books.Count + records.Count >= userGroupInfo.Max)
                 {
@@ -171,6 +185,7 @@ namespace LibraryManagement
                 if (book != null)
                 {
                     books.Add(book);
+                    ShowBookView();
                 }
                 else
                 {
@@ -181,7 +196,7 @@ namespace LibraryManagement
 
         private void frmRent_Load(object sender, EventArgs e)
         {
-            SetReadOnly();
+            //SetReadOnly();
         }
 
         private void btnOK2_Click(object sender, EventArgs e)
@@ -201,11 +216,8 @@ namespace LibraryManagement
 
             else
             {
-
-
                 try
                 {
-                    DBHelper.conn.Open();
                     foreach (Book b in books)
                     {
                         if (b.IsRent)
@@ -219,6 +231,7 @@ namespace LibraryManagement
                         r.OutDate = DateTime.Now;
 
                         DBHelper.Entities.Records.Add(r);
+                        b.IsRent = true;
 
                     }
                     DBHelper.Entities.SaveChanges();
@@ -228,8 +241,9 @@ namespace LibraryManagement
                     MessageBox.Show(ex.Message);
                 }
 
-
+                
                 books.Clear();
+                ShowBookView();
                 ShowRecords();
             }
         }
@@ -237,66 +251,71 @@ namespace LibraryManagement
         {
             if (user != null)
             {
-                IEnumerator<Record> ie3 = DBHelper.Entities.Records.Where(f => f.UserID == user.UserID).GetEnumerator();
-                while (ie3.MoveNext())
-                {
-                    records.Add(ie3.Current);
-                }
-                dgvOrders.DataSource = records;
+                //records = new List<Record>();
+                //IEnumerator<Record> ie3 = DBHelper.Entities.Records.Where(f => f.UserID == user.UserID).GetEnumerator();
+                //while (ie3.MoveNext())
+                //{
+                //    records.Add(ie3.Current);
+                //}
+                //dgvOrders.DataSource = records;
+                recordView = new List<RecordView>();
+                recordView.AddRange(DBHelper.Entities.RecordViews.Where(f => f.用户编号 == user.UserID));
+                dgvRecords.DataSource = recordView;
             }
 
         }
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            foreach (Control item in this.groupUserInfo.Controls)
-            {
-                if (item is TextBox)
-                {
-                    TextBox txt = item as TextBox;
-                    txt.Text = txt.Text.Trim();
-                }
-            }
+        //private void btnSave_Click(object sender, EventArgs e)
+        //{
+        //    foreach (Control item in this.groupUserInfo.Controls)
+        //    {
+        //        if (item is TextBox)
+        //        {
+        //            TextBox txt = item as TextBox;
+        //            txt.Text = txt.Text.Trim();
+        //        }
+        //    }
 
-            if (txtName.Text == "")
-            {
-                MessageBox.Show("必须输入姓名", "迅邦温馨提示", MessageBoxButtons.OK);
-                return;
-            }
-
-
-            int result = 0;
-            try
-            {
-                user.Name = txtName.Text;
-                user.Age = (int)numAge.Value;
-                user.Gender = rdoBoy.Checked | rdoGirl.Checked ? (rdoBoy.Checked ? "男" : "女") : null;
-                user.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
-                user.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
-                user.Address = txtAddress.Text;
-
-                result = DBHelper.Entities.SaveChanges();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        //    if (txtName.Text == "")
+        //    {
+        //        MessageBox.Show("必须输入姓名", "迅邦温馨提示", MessageBoxButtons.OK);
+        //        return;
+        //    }
 
 
-            if (result > 0)
-            {
-                ShowUserInfo();
-                chkIsReadOnly.Checked = true;
-            }
-            else
-            {
-                MessageBox.Show("保存失败", "迅邦温馨提示", MessageBoxButtons.OK);
-            }
-        }
+        //    int result = 0;
+        //    try
+        //    {
+        //        user.Name = txtName.Text;
+        //        user.Age = (int)numAge.Value;
+        //        user.Gender = rdoBoy.Checked | rdoGirl.Checked ? (rdoBoy.Checked ? "男" : "女") : null;
+        //        user.Phone = string.IsNullOrEmpty(txtPhone.Text) ? null : txtPhone.Text;
+        //        user.Email = string.IsNullOrEmpty(txtEmail.Text) ? null : txtEmail.Text;
+        //        user.Address = txtAddress.Text;
+
+        //        result = DBHelper.Entities.SaveChanges();
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+
+        //    if (result > 0)
+        //    {
+        //        ShowUserInfo();
+        //        chkIsReadOnly.Checked = true;
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("保存失败", "迅邦温馨提示", MessageBoxButtons.OK);
+        //    }
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
             books.Clear();
+            ShowBookView();
         }
 
 

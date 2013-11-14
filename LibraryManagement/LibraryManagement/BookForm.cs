@@ -46,18 +46,18 @@ namespace LibraryManagement
 
         private void LoadInfo()
         {
-            IEnumerator<BookView> ie = DBHelper.Entities.BookViews.Where(f => f.书籍编号 == bookInfo.BookInfoID).GetEnumerator();
+            IEnumerator<BookInfoListView> ie = DBHelper.Entities.BookInfoListViews.Where(f => f.书籍编号 == bookInfo.BookInfoID).GetEnumerator();
             if (ie.MoveNext())
             {
-                BookView bookView = ie.Current;
+                BookInfoListView bookInfoListView = ie.Current;
 
-                lblTitle.Text = bookView.书籍标题;
-                lblInfoID.Text = bookView.书籍编号.ToString();
-                lblAuthor.Text = bookView.作者 ?? "[未指定]";
-                lblCategory.Text = bookView.类别 ?? "[未指定]";
-                lblPress.Text = bookView.出版社 ?? "[未指定]";
-                lblAll.Text = bookView.总库存.ToString();
-                lblNow.Text = bookView.现库存.ToString();
+                lblTitle.Text = bookInfoListView.书籍标题;
+                lblInfoID.Text = bookInfoListView.书籍编号.ToString();
+                lblAuthor.Text = bookInfoListView.作者 ?? "[未指定]";
+                lblCategory.Text = bookInfoListView.类别 ?? "[未指定]";
+                lblPress.Text = bookInfoListView.出版社 ?? "[未指定]";
+                lblAll.Text = bookInfoListView.总库存 == null ? "0" : bookInfoListView.总库存.ToString();
+                lblNow.Text = bookInfoListView.现库存 == null ? "0" : bookInfoListView.现库存.ToString();
             }
         }
 
@@ -100,7 +100,10 @@ namespace LibraryManagement
 
             books = DBHelper.Entities.Books.Where(f => f.BookInfoID == bookInfo.BookInfoID);
 
-            dgvBooks.DataSource = books;
+            dgvBooks.DataSource = books.ToArray<Book>();
+            dgvBooks.Columns["Remark"].Visible = false;
+            dgvBooks.Columns["Records"].Visible = false;
+            dgvBooks.Columns["BookInfo"].Visible = false;
         }
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)

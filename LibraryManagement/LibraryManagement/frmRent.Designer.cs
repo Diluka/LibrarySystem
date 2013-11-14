@@ -30,18 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRent));
             this.groupOrders = new System.Windows.Forms.GroupBox();
-            this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.dgvRecords = new System.Windows.Forms.DataGridView();
             this.btnAdd = new System.Windows.Forms.Button();
             this.txtBookID = new LabeledTextBox.LabelTextBox();
             this.btnOK2 = new System.Windows.Forms.Button();
-            this.chkIsReadOnly = new System.Windows.Forms.CheckBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBookList = new System.Windows.Forms.GroupBox();
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.groupUserInfo = new System.Windows.Forms.GroupBox();
-            this.btnSave = new System.Windows.Forms.Button();
             this.numAge = new System.Windows.Forms.NumericUpDown();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,7 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupOrders.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.groupBookList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
             this.groupUserInfo.SuspendLayout();
@@ -66,27 +64,27 @@
             // 
             // groupOrders
             // 
-            this.groupOrders.Controls.Add(this.dgvOrders);
+            this.groupOrders.Controls.Add(this.dgvRecords);
             this.groupOrders.Location = new System.Drawing.Point(546, 242);
             this.groupOrders.Name = "groupOrders";
             this.groupOrders.Size = new System.Drawing.Size(420, 177);
             this.groupOrders.TabIndex = 39;
             this.groupOrders.TabStop = false;
-            this.groupOrders.Text = "未归还图书";
+            this.groupOrders.Text = "借书记录";
             // 
-            // dgvOrders
+            // dgvRecords
             // 
-            this.dgvOrders.AllowUserToAddRows = false;
-            this.dgvOrders.AllowUserToDeleteRows = false;
-            this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvOrders.Location = new System.Drawing.Point(3, 17);
-            this.dgvOrders.Name = "dgvOrders";
-            this.dgvOrders.ReadOnly = true;
-            this.dgvOrders.RowTemplate.Height = 23;
-            this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrders.Size = new System.Drawing.Size(414, 157);
-            this.dgvOrders.TabIndex = 0;
+            this.dgvRecords.AllowUserToAddRows = false;
+            this.dgvRecords.AllowUserToDeleteRows = false;
+            this.dgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvRecords.Location = new System.Drawing.Point(3, 17);
+            this.dgvRecords.Name = "dgvRecords";
+            this.dgvRecords.ReadOnly = true;
+            this.dgvRecords.RowTemplate.Height = 23;
+            this.dgvRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRecords.Size = new System.Drawing.Size(414, 157);
+            this.dgvRecords.TabIndex = 0;
             // 
             // btnAdd
             // 
@@ -115,18 +113,6 @@
             this.btnOK2.Text = "借  出";
             this.btnOK2.UseVisualStyleBackColor = true;
             this.btnOK2.Click += new System.EventHandler(this.btnOK2_Click);
-            // 
-            // chkIsReadOnly
-            // 
-            this.chkIsReadOnly.AutoSize = true;
-            this.chkIsReadOnly.Checked = true;
-            this.chkIsReadOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkIsReadOnly.Location = new System.Drawing.Point(485, 20);
-            this.chkIsReadOnly.Name = "chkIsReadOnly";
-            this.chkIsReadOnly.Size = new System.Drawing.Size(48, 16);
-            this.chkIsReadOnly.TabIndex = 36;
-            this.chkIsReadOnly.Text = "只读";
-            this.chkIsReadOnly.UseVisualStyleBackColor = true;
             // 
             // btnOK
             // 
@@ -183,7 +169,6 @@
             // 
             // groupUserInfo
             // 
-            this.groupUserInfo.Controls.Add(this.btnSave);
             this.groupUserInfo.Controls.Add(this.numAge);
             this.groupUserInfo.Controls.Add(this.txtPhone);
             this.groupUserInfo.Controls.Add(this.txtEmail);
@@ -203,16 +188,6 @@
             this.groupUserInfo.TabIndex = 30;
             this.groupUserInfo.TabStop = false;
             this.groupUserInfo.Text = "用户信息";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(165, 316);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(250, 23);
-            this.btnSave.TabIndex = 19;
-            this.btnSave.Text = "保    存";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // numAge
             // 
@@ -240,7 +215,7 @@
             this.txtAddress.Location = new System.Drawing.Point(220, 192);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(268, 102);
+            this.txtAddress.Size = new System.Drawing.Size(268, 135);
             this.txtAddress.TabIndex = 14;
             // 
             // rdoGirl
@@ -352,7 +327,6 @@
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.txtBookID);
             this.Controls.Add(this.btnOK2);
-            this.Controls.Add(this.chkIsReadOnly);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
@@ -366,7 +340,7 @@
             this.Text = "书籍借出";
             this.Load += new System.EventHandler(this.frmRent_Load);
             this.groupOrders.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).EndInit();
             this.groupBookList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).EndInit();
             this.groupUserInfo.ResumeLayout(false);
@@ -380,18 +354,16 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupOrders;
-        private System.Windows.Forms.DataGridView dgvOrders;
+        private System.Windows.Forms.DataGridView dgvRecords;
         private System.Windows.Forms.Button btnAdd;
         private LabeledTextBox.LabelTextBox txtBookID;
         private System.Windows.Forms.Button btnOK2;
-        private System.Windows.Forms.CheckBox chkIsReadOnly;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBookList;
         private System.Windows.Forms.DataGridView dgvBooks;
         private System.Windows.Forms.GroupBox groupUserInfo;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.NumericUpDown numAge;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
