@@ -21,6 +21,8 @@ namespace LibraryManagement
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            cboType.SelectedIndex = 0;
+
             string sql = string.Format("select * from RecordView");
             try
             {
@@ -92,6 +94,102 @@ namespace LibraryManagement
                     dv.RowFilter = fliter2;
                 }
             }
+        }
+
+        private void btnReturnBook_Click(object sender, EventArgs e)
+        {
+            txtBookID.Text = txtBookID.Text.Trim();
+
+            if (txtBookID.Text == "")
+            {
+                MessageBox.Show("请输入藏书号");
+                txtBookID.Focus();
+                return;
+            }
+
+            try
+            {
+                ReturnBook(Convert.ToInt32(txtBookID.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ReturnBook(int bookID)
+        {
+            int result = 0;
+            Record record = null;
+
+            try
+            {
+                Book book = DBHelper.Entities.Books.Find(bookID);
+                if (book == null)
+                {
+                    MessageBox.Show("没有此书！");
+                    txtBookID.Focus();
+                    return;
+                }
+                else if (book.IsRent)
+                {
+                    record = book.Records.Where(f => f.ReturnDate == null).ToArray()[0];
+                    record.ReturnDate = DateTime.Now;
+                    book.IsRent = false;
+                    result = DBHelper.Entities.SaveChanges();
+                }
+                else
+                {
+                    MessageBox.Show("此书没有借出！");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            if (result > 0)
+            {
+                Form form = new GHTC();
+                form.Tag = record;
+                form.ShowDialog();
+
+                if (ds.Tables["records"] != null)
+                {
+                    ds.Tables["records"].Clear();
+                }
+                da.Fill(ds, "records");
+            }
+            else
+            {
+                MessageBox.Show("归还失败");
+            }
+        }
+
+        private void 还书ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ReturnBook(Convert.ToInt32(dgvRecords.CurrentRow.Cells["订单编号"].Value));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvRecords.CurrentRow != null)
+            {
+                if (dgvRecords.CurrentRow.Cells["归还日期"].Value == null)
+                {
+                    return;
+                }
+            }
+
+            e.Cancel = true;
         }
     }
 }

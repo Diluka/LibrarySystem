@@ -59,14 +59,13 @@
             this.toolStrip1.Size = new System.Drawing.Size(1044, 64);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripButton1
             // 
             this.toolStripButton1.Image = global::LibraryManagement.Properties.Resources.书籍租出;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton1.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton1.Text = "书籍租出";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -78,11 +77,11 @@
             // 
             // toolStripButton5
             // 
-            this.toolStripButton5.Image = global::LibraryManagement.Properties.Resources.归还信息;
+            this.toolStripButton5.Image = global::LibraryManagement.Properties.Resources.超期信息;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(60, 61);
-            this.toolStripButton5.Text = "历史记录";
+            this.toolStripButton5.Size = new System.Drawing.Size(59, 61);
+            this.toolStripButton5.Text = "借阅记录";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
@@ -96,7 +95,7 @@
             this.toolStripButton7.Image = global::LibraryManagement.Properties.Resources.退出;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(52, 61);
+            this.toolStripButton7.Size = new System.Drawing.Size(51, 61);
             this.toolStripButton7.Text = "退    出";
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -108,28 +107,25 @@
             this.续期ToolStripMenuItem,
             this.归还ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 70);
             // 
             // 租借ToolStripMenuItem
             // 
             this.租借ToolStripMenuItem.Name = "租借ToolStripMenuItem";
-            this.租借ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.租借ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.租借ToolStripMenuItem.Text = "租借";
-            this.租借ToolStripMenuItem.Click += new System.EventHandler(this.租借ToolStripMenuItem_Click);
             // 
             // 续期ToolStripMenuItem
             // 
             this.续期ToolStripMenuItem.Name = "续期ToolStripMenuItem";
-            this.续期ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.续期ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.续期ToolStripMenuItem.Text = "续期";
-            this.续期ToolStripMenuItem.Click += new System.EventHandler(this.续期ToolStripMenuItem_Click);
             // 
             // 归还ToolStripMenuItem
             // 
             this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
-            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.归还ToolStripMenuItem.Text = "归还";
-            this.归还ToolStripMenuItem.Click += new System.EventHandler(this.归还ToolStripMenuItem_Click);
             // 
             // FrmLeaseManager
             // 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("正常");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("超期");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("未归还", new System.Windows.Forms.TreeNode[] {
@@ -51,6 +52,11 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBookID = new LabeledTextBox.LabelTextBox();
+            this.btnReturnBook = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.还书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -58,6 +64,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvRecords
@@ -66,6 +73,7 @@
             this.dgvRecords.AllowUserToDeleteRows = false;
             this.dgvRecords.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvRecords.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecords.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvRecords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvRecords.Location = new System.Drawing.Point(3, 17);
             this.dgvRecords.Name = "dgvRecords";
@@ -186,11 +194,56 @@
             this.cboType.Size = new System.Drawing.Size(121, 20);
             this.cboType.TabIndex = 11;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(16, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "快捷还书：";
+            // 
+            // txtBookID
+            // 
+            this.txtBookID.LabelText = "请输入藏书号";
+            this.txtBookID.Location = new System.Drawing.Point(82, 24);
+            this.txtBookID.Name = "txtBookID";
+            this.txtBookID.Size = new System.Drawing.Size(223, 21);
+            this.txtBookID.TabIndex = 13;
+            // 
+            // btnReturnBook
+            // 
+            this.btnReturnBook.Location = new System.Drawing.Point(311, 23);
+            this.btnReturnBook.Name = "btnReturnBook";
+            this.btnReturnBook.Size = new System.Drawing.Size(75, 23);
+            this.btnReturnBook.TabIndex = 14;
+            this.btnReturnBook.Text = "还书";
+            this.btnReturnBook.UseVisualStyleBackColor = true;
+            this.btnReturnBook.Click += new System.EventHandler(this.btnReturnBook_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.还书ToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // 还书ToolStripMenuItem
+            // 
+            this.还书ToolStripMenuItem.Name = "还书ToolStripMenuItem";
+            this.还书ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.还书ToolStripMenuItem.Text = "还书";
+            this.还书ToolStripMenuItem.Click += new System.EventHandler(this.还书ToolStripMenuItem_Click);
+            // 
             // RecordForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1011, 500);
+            this.Controls.Add(this.btnReturnBook);
+            this.Controls.Add(this.txtBookID);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.cboType);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.textBox1);
@@ -201,7 +254,7 @@
             this.MaximizeBox = false;
             this.Name = "RecordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "历史记录";
+            this.Text = "借阅记录";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -210,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +280,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 还书ToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private LabeledTextBox.LabelTextBox txtBookID;
+        private System.Windows.Forms.Button btnReturnBook;
     }
 }

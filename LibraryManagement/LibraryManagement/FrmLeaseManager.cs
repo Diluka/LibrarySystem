@@ -36,42 +36,12 @@ namespace LibraryManagement
             FrmRent.Show();
 
         }
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void 租借ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void 续期ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void 归还ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Form f = new BookReturnForm();
-            //f.ShowDialog();
-        }
-
-        
-   
-
-  
         private Form recordForm;
         private Form RecordForm
         {
@@ -90,13 +60,8 @@ namespace LibraryManagement
             RecordForm.Show();
         }
 
-        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        }
-    
-
     }
+
+
 }
+
