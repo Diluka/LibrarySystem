@@ -14,13 +14,10 @@ namespace LibraryManagement
     
     public partial class BookView
     {
+        public int 藏书号 { get; set; }
         public string 书籍标题 { get; set; }
-        public string ISBN { get; set; }
         public string 作者 { get; set; }
-        public string 出版社 { get; set; }
-        public Nullable<int> 总库存 { get; set; }
-        public Nullable<int> 现库存 { get; set; }
-        public int 书籍编号 { get; set; }
-        public string 类别 { get; set; }
+        public bool 已借出 { get; set; }
+        public string 备注 { get; set; }
     }
 }

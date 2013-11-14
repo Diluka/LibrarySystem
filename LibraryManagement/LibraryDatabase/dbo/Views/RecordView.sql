@@ -1,9 +1,9 @@
 ﻿CREATE VIEW dbo.RecordView
 AS
-SELECT   dbo.Record.RecordID AS 订单编号, dbo.Record.BookID AS 藏书号, dbo.[User].UserName AS 账户, 
-                dbo.BookInfo.Title AS 标题, dbo.BookInfo.Author AS 作者, dbo.[User].Name AS 用户姓名, 
+SELECT   dbo.Record.RecordID AS 订单编号, dbo.Record.UserID AS 用户编号, dbo.Record.BookID AS 藏书号, 
+                dbo.[User].UserName AS 账户, dbo.BookInfo.Title AS 标题, dbo.BookInfo.Author AS 作者, dbo.[User].Name AS 用户姓名, 
                 dbo.Record.OutDate AS 借出日期, dbo.Record.ReturnDate AS 归还日期, dbo.Category.CategoryName AS 类别, 
-                dbo.Category.MaxDay AS 最大天数, DATEDIFF(D, ISNULL(dbo.Record.ReturnDate, GETDATE()), dbo.Record.OutDate) 
+                dbo.Category.MaxDay AS 最大天数, DATEDIFF(D, dbo.Record.OutDate, ISNULL(dbo.Record.ReturnDate, GETDATE())) 
                 AS 借阅天数
 FROM      dbo.Record INNER JOIN
                 dbo.[User] ON dbo.Record.UserID = dbo.[User].UserID INNER JOIN
@@ -17,7 +17,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[41] 4[33] 2[7] 3) )"
+         Configuration = "(H (1[42] 4[17] 2[24] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -97,7 +97,7 @@ Begin DesignProperties =
             Begin Extent = 
                Top = 6
                Left = 230
-               Bottom = 145
+               Bottom = 136
                Right = 396
             End
             DisplayFlags = 280
@@ -156,11 +156,11 @@ Begin DesignProperties =
          Or = 1350
          Or = 1350
          Or = 1350
-      E', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'RecordView';
+      ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'RecordView';
 
 
 GO
-EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'nd
+EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane2', @value = N'End
    End
 End
 ', @level0type = N'SCHEMA', @level0name = N'dbo', @level1type = N'VIEW', @level1name = N'RecordView';

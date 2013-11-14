@@ -1,7 +1,9 @@
 ﻿CREATE VIEW dbo.BookView
 AS
-SELECT   书籍标题, ISBN, 作者, 出版社, 总库存, 现库存, 书籍编号, 类别
-FROM      dbo.BookInfoListView
+SELECT   dbo.Book.BookID AS 藏书号, dbo.BookInfo.Title AS 书籍标题, dbo.BookInfo.Author AS 作者, dbo.Book.IsRent AS 已借出, 
+                dbo.Book.Remark AS 备注
+FROM      dbo.Book INNER JOIN
+                dbo.BookInfo ON dbo.Book.BookInfoID = dbo.BookInfo.BookInfoID
 
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
@@ -75,15 +77,25 @@ Begin DesignProperties =
          Left = 0
       End
       Begin Tables = 
-         Begin Table = "BookInfoListView"
+         Begin Table = "Book"
             Begin Extent = 
                Top = 6
                Left = 38
-               Bottom = 145
-               Right = 180
+               Bottom = 136
+               Right = 194
             End
             DisplayFlags = 280
-            TopColumn = 3
+            TopColumn = 0
+         End
+         Begin Table = "BookInfo"
+            Begin Extent = 
+               Top = 6
+               Left = 232
+               Bottom = 136
+               Right = 389
+            End
+            DisplayFlags = 280
+            TopColumn = 0
          End
       End
    End

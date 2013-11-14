@@ -1,5 +1,5 @@
 ﻿CREATE TABLE [dbo].[Record] (
-    [RecordID]   INT           NOT NULL,
+    [RecordID]   INT           IDENTITY (1, 1) NOT NULL,
     [UserID]     INT           NOT NULL,
     [BookID]     INT           NOT NULL,
     [OutDate]    DATETIME      NOT NULL,
