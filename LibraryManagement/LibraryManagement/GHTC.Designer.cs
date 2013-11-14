@@ -161,6 +161,7 @@
             this.picCover.Location = new System.Drawing.Point(233, 55);
             this.picCover.Name = "picCover";
             this.picCover.Size = new System.Drawing.Size(113, 149);
+            this.picCover.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCover.TabIndex = 12;
             this.picCover.TabStop = false;
             // 

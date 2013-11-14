@@ -30,6 +30,8 @@ namespace LibraryManagement
                 da.Fill(ds, "records");
                 dv = new DataView(ds.Tables["records"]);
                 dgvRecords.DataSource = dv;
+                //dgvRecords.Columns["归还日期"].DefaultCellStyle = new DataGridViewCellStyle();
+                dgvRecords.Columns["归还日期"].DefaultCellStyle.NullValue = "[未归还]";
             }
             catch (Exception ex)
             {
@@ -43,6 +45,10 @@ namespace LibraryManagement
             if (cboType.Text == "全部")
             {
                 fliter1 = "";
+            }
+            else if (cboType.Text == "藏书号")
+            {
+                fliter1 = string.Format("藏书号 = {0}", textBox1.Text);
             }
             else
             {
@@ -171,7 +177,7 @@ namespace LibraryManagement
         {
             try
             {
-                ReturnBook(Convert.ToInt32(dgvRecords.CurrentRow.Cells["订单编号"].Value));
+                ReturnBook(Convert.ToInt32(dgvRecords.CurrentRow.Cells["藏书号"].Value));
             }
             catch (Exception ex)
             {
@@ -183,7 +189,7 @@ namespace LibraryManagement
         {
             if (dgvRecords.CurrentRow != null)
             {
-                if (dgvRecords.CurrentRow.Cells["归还日期"].Value == null)
+                if (dgvRecords.CurrentRow.Cells["归还日期"].Value.ToString() == "")
                 {
                     return;
                 }

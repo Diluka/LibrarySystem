@@ -34,7 +34,6 @@ namespace LibraryManagement
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FrmRent.Show();
-
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
