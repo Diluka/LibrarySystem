@@ -25,6 +25,7 @@ namespace LibraryManagement
                 if (frmRent == null || frmRent.IsDisposed)
                 {
                     frmRent = new FrmRent();
+                    frmRent.MdiParent = this;
                 }
                 return frmRent;
             }
@@ -67,37 +68,10 @@ namespace LibraryManagement
             //f.ShowDialog();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
+        
+   
 
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-
-
-        }
-
-        private void FrmLeaseManager_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripButton2_Click_1(object sender, EventArgs e)
-        {
-         
-        }
-
-        private void FrmLeaseManager_FormClosed(object sender, FormClosedEventArgs e)
-        {
-           
-        }
+  
         private Form recordForm;
         private Form RecordForm
         {
@@ -119,6 +93,23 @@ namespace LibraryManagement
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+        private Form frmGH;
+        private Form FrmGH 
+        {
+            get 
+            {
+                if (frmGH == null|| frmGH.IsDisposed)
+                {
+                    frmGH = new FrmGH();
+                    frmGH.MdiParent = this;
+                }
+                return frmGH;
+            }
+        }
+        private void toolStripButton2_Click_2(object sender, EventArgs e)
+        {
+            FrmGH.Show();
         }
 
     }
