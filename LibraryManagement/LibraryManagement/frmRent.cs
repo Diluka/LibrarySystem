@@ -162,7 +162,7 @@ namespace LibraryManagement
             {
                 txtBookID.Text = txtBookID.Text.Trim();
 
-                int notReturnBook = DBHelper.Entities.Records.Count(f=>f.UserID==user.UserID&&f.ReturnDate==null);
+                int notReturnBook = DBHelper.Entities.Records.Count(f => f.UserID == user.UserID && f.ReturnDate == null);
 
                 if (books.Count + notReturnBook >= userGroupInfo.Max)
                 {
@@ -195,11 +195,6 @@ namespace LibraryManagement
                     MessageBox.Show("书籍不存在", "迅邦温馨提示", MessageBoxButtons.OK);
                 }
             }
-        }
-
-        private void frmRent_Load(object sender, EventArgs e)
-        {
-            //SetReadOnly();
         }
 
         private void btnOK2_Click(object sender, EventArgs e)
@@ -244,7 +239,7 @@ namespace LibraryManagement
                     MessageBox.Show(ex.Message);
                 }
 
-                
+
                 books.Clear();
                 ShowBookView();
                 ShowRecords();

@@ -345,7 +345,6 @@
             this.Name = "FrmRent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "书籍借出";
-            this.Load += new System.EventHandler(this.frmRent_Load);
             this.groupOrders.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecords)).EndInit();
             this.groupBookList.ResumeLayout(false);
