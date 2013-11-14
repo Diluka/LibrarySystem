@@ -292,12 +292,19 @@ namespace LibraryManagement
                 {
                     bookInfo = new BookInfo();
                     bookInfo.Title = txtTitle.Text;
-                    bookInfo.ISBN = txtISBN.Text;
-                    bookInfo.Author = txtAuthor.Text;
-                    bookInfo.Press = txtPress.Text;
-                    bookInfo.Category = txtCategory.Text;
+                    bookInfo.ISBN = txtISBN.Text == "" ? null : txtISBN.Text;
+                    bookInfo.Author = txtAuthor.Text == "" ? null : txtAuthor.Text;
+                    bookInfo.Press = txtPress.Text == "" ? null : txtPress.Text;
+                    bookInfo.Category = txtCategory.Text == "" ? null : txtCategory.Text;
                     bookInfo.PublishDate = datePressDate.Value;
-                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
+                    if (txtPrice.Text != "")
+                    {
+                        bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
+                    }
+                    else
+                    {
+                        bookInfo.Price = null;
+                    }
 
                     if (img != null)
                     {
@@ -306,8 +313,12 @@ namespace LibraryManagement
                         img.CopyTo(mem);
                         bookInfo.Cover = mem.GetBuffer();
                     }
+                    else
+                    {
+                        bookInfo.Cover = null;
+                    }
 
-                    bookInfo.Brief = txtBrief.Text;
+                    bookInfo.Brief = txtBrief.Text == "" ? null : txtBrief.Text;
 
 
                     DBHelper.Entities.BookInfoes.Add(bookInfo);
@@ -317,12 +328,19 @@ namespace LibraryManagement
                 else
                 {
                     bookInfo.Title = txtTitle.Text;
-                    bookInfo.ISBN = txtISBN.Text;
-                    bookInfo.Author = txtAuthor.Text;
-                    bookInfo.Press = txtPress.Text;
-                    bookInfo.Category = txtCategory.Text;
+                    bookInfo.ISBN = txtISBN.Text == "" ? null : txtISBN.Text;
+                    bookInfo.Author = txtAuthor.Text == "" ? null : txtAuthor.Text;
+                    bookInfo.Press = txtPress.Text == "" ? null : txtPress.Text;
+                    bookInfo.Category = txtCategory.Text == "" ? null : txtCategory.Text;
                     bookInfo.PublishDate = datePressDate.Value;
-                    bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
+                    if (txtPrice.Text != "")
+                    {
+                        bookInfo.Price = Convert.ToDecimal(txtPrice.Text);
+                    }
+                    else
+                    {
+                        bookInfo.Price = null;
+                    }
 
                     if (img != null)
                     {
@@ -331,9 +349,12 @@ namespace LibraryManagement
                         img.CopyTo(mem);
                         bookInfo.Cover = mem.GetBuffer();
                     }
+                    else
+                    {
+                        bookInfo.Cover = null;
+                    }
 
-                    bookInfo.Brief = txtBrief.Text;
-
+                    bookInfo.Brief = txtBrief.Text == "" ? null : txtBrief.Text;
 
 
                     result = DBHelper.Entities.SaveChanges();
@@ -374,7 +395,14 @@ namespace LibraryManagement
                 txtAuthor.Text = bookInfo.Author;
                 txtCategory.Text = bookInfo.Category;
                 txtPress.Text = bookInfo.Press;
-                picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
+                if (bookInfo.Cover != null)
+                {
+                    picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
+                }
+                else
+                {
+                    picCover.Image = null;
+                }
                 txtBrief.Text = bookInfo.Brief;
             }
             else
