@@ -107,44 +107,44 @@ namespace LibraryManagement
 
         private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            toolStripButton2_Click(sender, e);
+            //if (dgvBookInfo.SelectedRows.Count > 0)
+            //{
+            //    Form form = null;
+            //    string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value.ToString();
 
-            if (dgvBookInfo.SelectedRows.Count > 0)
-            {
-                Form form = null;
-                string iid = dgvBookInfo.SelectedRows[0].Cells["书籍编号"].Value.ToString();
+            //    foreach (Form f in forms)
+            //    {
+            //        if (f.Tag.Equals(iid))
+            //        {
+            //            form = f;
+            //            break;
+            //        }
+            //    }
 
-                foreach (Form f in forms)
-                {
-                    if (f.Tag.Equals(iid))
-                    {
-                        form = f;
-                        break;
-                    }
-                }
+            //    if (form != null && !form.IsDisposed)
+            //    {
+            //        form.ShowDialog();
+            //        form.Activate();
+            //    }
+            //    else
+            //    {
+            //        if (form != null)
+            //        {
+            //            forms.Remove(form);
+            //        }
 
-                if (form != null && !form.IsDisposed)
-                {
-                    form.ShowDialog();
-                    form.Activate();
-                }
-                else
-                {
-                    if (form != null)
-                    {
-                        forms.Remove(form);
-                    }
+            //        form = new BookInfoForm();
+            //        form.Tag = iid;
+            //        form.ShowDialog();
 
-                    form = new BookInfoForm();
-                    form.Tag = iid;
-                    form.ShowDialog();
-
-                    forms.Add(form);
-                }
-            }
-            else
-            {
-                MessageBox.Show("请选择要编辑的项！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            //        forms.Add(form);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("请选择要编辑的项！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //}
         }
 
         private void toolStripButton3_Click(object sender, EventArgs e)
