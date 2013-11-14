@@ -155,7 +155,8 @@ namespace LibraryManagement
                 Book book = null;
                 try
                 {
-                    IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == Convert.ToInt32(txtBookID.Text)).GetEnumerator();
+                    int bid = Convert.ToInt32(txtBookID.Text);
+                    IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == bid).GetEnumerator();
                     if (ie.MoveNext())
                     {
                         book = ie.Current;
