@@ -61,7 +61,7 @@ namespace LibraryManagement
                 user = ie.Current;
             }
 
-            if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)))
+            if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)) && user.UserGroupInfo.IsAdmin)
             {
                 Form form = new FrmAdminMain();
                 form.Show();
