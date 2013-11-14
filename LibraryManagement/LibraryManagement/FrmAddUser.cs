@@ -19,19 +19,20 @@ namespace LibraryManagement
 
         User user;
 
-        DataSet ds = new DataSet();
+        //DataSet ds = new DataSet();
 
 
         private void FrmAddUser_Load(object sender, EventArgs e)
         {
             try
             {
-                using (SqlDataAdapter da = new SqlDataAdapter("select GroupID,GroupName From UserGroupInfo", DBHelper.conn))
-                {
-                    da.Fill(ds, "usergroup");
-                }
+                //using (SqlDataAdapter da = new SqlDataAdapter("select GroupID,GroupName From UserGroupInfo", DBHelper.conn))
+                //{
+                //    da.Fill(ds, "usergroup");
+                //}
 
-                cboUserGroup.DataSource = ds.Tables["usergroup"];
+                //cboUserGroup.DataSource = ds.Tables["usergroup"];
+                cboUserGroup.DataSource = DBHelper.Entities.UserGroupInfoes.ToArray<UserGroupInfo>();
                 cboUserGroup.DisplayMember = "GroupName";
                 cboUserGroup.ValueMember = "GroupID";
             }
@@ -56,7 +57,7 @@ namespace LibraryManagement
                 {
                     int uid = Convert.ToInt32(this.Tag);
 
-                    IEnumerator<User> ie = DBHelper.Entities.Users.Where(f=>f.UserID==uid).GetEnumerator();
+                    IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserID == uid).GetEnumerator();
                     if (ie.MoveNext())
                     {
                         user = ie.Current;
@@ -176,14 +177,12 @@ namespace LibraryManagement
             int result = 0;
             try
             {
-                DBHelper.conn.Open();
-
                 if (this.Tag == null)
                 {
                     user = new User();
                     user.UserName = txtUsername.Text;
                     user.UserPWD = Tools.ToSHA1(txtPassword.Text);
-                    user.UserGroupID = Convert.ToInt32(cboUserGroup.SelectedValue);
+                    user.UserGroupID = ((UserGroupInfo)cboUserGroup.SelectedItem).GroupID;
                     user.Name = txtName.Text;
                     user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
                     user.Gender = rdoUndefinedGender.Checked ? null : (rdoMale.Checked ? "男" : "女");
@@ -198,7 +197,7 @@ namespace LibraryManagement
                 {
                     user.UserName = txtUsername.Text;
                     user.UserPWD = Tools.ToSHA1(txtPassword.Text);
-                    user.UserGroupID = Convert.ToInt32(cboUserGroup.SelectedValue);
+                    user.UserGroupID = ((UserGroupInfo)cboUserGroup.SelectedItem).GroupID;
                     user.Name = txtName.Text;
                     user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
                     user.Gender = rdoUndefinedGender.Checked ? null : (rdoMale.Checked ? "男" : "女");
