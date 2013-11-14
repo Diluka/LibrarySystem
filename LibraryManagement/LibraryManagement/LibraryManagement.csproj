@@ -448,6 +448,7 @@
     <None Include="Resources\背景9999.png" />
     <None Include="Resources\1111111111111111.png" />
     <None Include="Resources\2222222222222222.png" />
+    <None Include="Resources\搜索.png" />
     <Content Include="窗体图标.ico" />
   </ItemGroup>
   <ItemGroup>
