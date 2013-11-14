@@ -8,7 +8,7 @@ SELECT   dbo.Record.RecordID AS 订单编号, dbo.Record.UserID AS 用户编号,
 FROM      dbo.Record INNER JOIN
                 dbo.[User] ON dbo.Record.UserID = dbo.[User].UserID INNER JOIN
                 dbo.Book ON dbo.Record.BookID = dbo.Book.BookID INNER JOIN
-                dbo.BookInfo ON dbo.Book.BookInfoID = dbo.BookInfo.BookInfoID INNER JOIN
+                dbo.BookInfo ON dbo.Book.BookInfoID = dbo.BookInfo.BookInfoID LEFT JOIN
                 dbo.Category ON dbo.BookInfo.Category = dbo.Category.CategoryName
 
 GO

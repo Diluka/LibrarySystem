@@ -80,6 +80,7 @@
             // 
             // cboUserGroup
             // 
+            this.cboUserGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboUserGroup.FormattingEnabled = true;
             this.cboUserGroup.Location = new System.Drawing.Point(95, 113);
             this.cboUserGroup.Name = "cboUserGroup";

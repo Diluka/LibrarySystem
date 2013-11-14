@@ -94,22 +94,22 @@ namespace LibraryManagement
         {
 
         }
-        private Form frmGH;
-        private Form FrmGH
-        {
-            get
-            {
-                if (frmGH == null || frmGH.IsDisposed)
-                {
-                    frmGH = new FrmGH();
-                    frmGH.MdiParent = this;
-                }
-                return frmGH;
-            }
-        }
+        //private Form frmGH;
+        //private Form FrmGH 
+        //{
+        //    get 
+        //    {
+        //        if (frmGH == null|| frmGH.IsDisposed)
+        //        {
+        //            frmGH = new FrmGH();
+        //            frmGH.MdiParent = this;
+        //        }
+        //        return frmGH;
+        //    }
+        //}
         private void toolStripButton2_Click_2(object sender, EventArgs e)
         {
-            FrmGH.Show();
+            //FrmGH.Show();
         }
 
     }
