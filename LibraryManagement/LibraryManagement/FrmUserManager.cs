@@ -29,14 +29,20 @@ namespace LibraryManagement
             GetAll();
 
         }
-        private DbSet<UserView> userViews;
+
+        private DataSet ds = new DataSet();
+        private DataView dv;
         public void GetAll()
         {
             try
             {
-                userViews = DBHelper.Entities.UserViews;
+                using (SqlDataAdapter da = new SqlDataAdapter("select * from userview", DBHelper.conn))
+                {
+                    da.Fill(ds, "users");
+                    dv = new DataView(ds.Tables["users"]);
+                }
 
-                dgvUsers.DataSource = userViews;
+                dgvUsers.DataSource = dv;
             }
             catch (Exception ex)
             {

@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryManagement", "LibraryManagement\LibraryManagement.csproj", "{1F54C746-07FF-4DAA-87A1-23C4CEBE92A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabeledTextBox", "..\WinFormsUserControls\LabeledTextBox\LabeledTextBox.csproj", "{C83AB39D-A24A-4007-8988-48FCFEC6D8AB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontsPack", "..\WinFormsUserControls\Fonts\FontsPack.csproj", "{BE23A5AF-9D21-4C63-9832-08F31C8E574F}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LibraryDatabase", "LibraryDatabase\LibraryDatabase.sqlproj", "{6144270C-A571-4713-8007-4733D57BE31B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,12 @@ Global
 		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE23A5AF-9D21-4C63-9832-08F31C8E574F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6144270C-A571-4713-8007-4733D57BE31B}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
