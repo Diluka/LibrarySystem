@@ -53,6 +53,9 @@ namespace LibraryManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            Form wait = new WaitForm();
+            wait.Show();
+            this.Hide();
 
             IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
 
@@ -61,15 +64,19 @@ namespace LibraryManagement
                 user = ie.Current;
             }
 
+            
+
             if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)) && user.UserGroupInfo.IsAdmin)
             {
                 Form form = new FrmAdminMain();
                 form.Show();
-                this.Hide();
+                wait.Close();
+                //this.Hide();
             }
             else
             {
                 MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Show();
             }
 
 
@@ -79,6 +86,8 @@ namespace LibraryManagement
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
+            DBHelper.Entities.Database.Initialize(false);
+
             skinEngine1.MenuFont = Fonts.GetFont(FontName.方正粗圆简体, 10);
             //this.Font = Fonts.GetFont(FontName.方正粗圆简体, 9);
             skinEngine1.TitleFont = new Font("幼圆", 12, FontStyle.Bold);
