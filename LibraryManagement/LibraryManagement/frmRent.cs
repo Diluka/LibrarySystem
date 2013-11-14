@@ -161,14 +161,9 @@ namespace LibraryManagement
             else
             {
                 txtBookID.Text = txtBookID.Text.Trim();
-                int notReturnBook = 0;
-                foreach (Record r in records)
-                {
-                    if (r.ReturnDate == null)
-                    {
-                        notReturnBook++;
-                    }
-                }
+
+                int notReturnBook = DBHelper.Entities.Records.Count(f=>f.UserID==user.UserID&&f.ReturnDate==null);
+
                 if (books.Count + notReturnBook >= userGroupInfo.Max)
                 {
                     MessageBox.Show("不能再借了，用户借阅书籍数量上线（" + userGroupInfo.Max + "本）", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
