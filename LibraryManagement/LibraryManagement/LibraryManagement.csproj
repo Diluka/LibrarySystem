@@ -116,6 +116,12 @@
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DBHelper.cs" />
+    <Compile Include="FrmGH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGH.Designer.cs">
+      <DependentUpon>FrmGH.cs</DependentUpon>
+    </Compile>
     <Compile Include="GHTC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Skin.resx</DependentUpon>
     </Compile>
+    <Compile Include="SlpashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SlpashForm.Designer.cs">
+      <DependentUpon>SlpashForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tools.cs" />
     <Compile Include="User.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
@@ -238,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BookInfoForm.resx">
       <DependentUpon>BookInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGH.resx">
+      <DependentUpon>FrmGH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GHTC.resx">
       <DependentUpon>GHTC.cs</DependentUpon>
@@ -283,6 +298,9 @@
     <EmbeddedResource Include="Skin.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Skin.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SlpashForm.resx">
+      <DependentUpon>SlpashForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <EntityDeploy Include="LibraryModel.edmx">
@@ -437,6 +455,7 @@
     <None Include="Resources\背景9999.png" />
     <None Include="Resources\1111111111111111.png" />
     <None Include="Resources\2222222222222222.png" />
+    <None Include="Resources\欢迎动画1.png" />
     <Content Include="窗体图标.ico" />
   </ItemGroup>
   <ItemGroup>
