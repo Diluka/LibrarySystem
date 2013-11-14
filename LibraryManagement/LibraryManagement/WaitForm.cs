@@ -15,5 +15,11 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            base.OnPaintBackground(e);
+            e.Graphics.DrawString("请稍候……", SystemFonts.DefaultFont, SystemBrushes.ControlText, new PointF(this.Width / 3, this.Height / 2));
+        }
     }
 }

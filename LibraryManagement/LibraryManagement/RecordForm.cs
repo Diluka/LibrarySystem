@@ -42,36 +42,42 @@ namespace LibraryManagement
         private string fliter2 = "";
         private void button1_Click(object sender, EventArgs e)
         {
-            if (cboType.Text == "全部")
+            try
             {
-                fliter1 = "";
-            }
-            else if (cboType.Text == "藏书号")
-            {
-                fliter1 = string.Format("藏书号 = {0}", textBox1.Text);
-            }
-            else
-            {
-                fliter1 = string.Format("{0} like '{1}%'", cboType.Text, textBox1.Text);
-            }
-
-            dv.RowFilter = fliter1;
-            if (fliter1 != "")
-            {
-                if (fliter2 != "")
+                if (cboType.Text == "全部")
                 {
-                    dv.RowFilter += " AND " + fliter2;
+                    fliter1 = "";
                 }
-            }
-            else
-            {
-                if (fliter2 != "")
+                else if (cboType.Text == "藏书号")
                 {
-                    dv.RowFilter = fliter2;
+                    fliter1 = string.Format("藏书号 = {0}", Convert.ToInt32(textBox1.Text));
                 }
+                else
+                {
+                    fliter1 = string.Format("{0} like '{1}%'", cboType.Text, textBox1.Text);
+                }
+
+                dv.RowFilter = fliter1;
+                if (fliter1 != "")
+                {
+                    if (fliter2 != "")
+                    {
+                        dv.RowFilter += " AND " + fliter2;
+                    }
+                }
+                else
+                {
+                    if (fliter2 != "")
+                    {
+                        dv.RowFilter = fliter2;
+                    }
+                }
+
             }
-
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
