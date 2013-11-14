@@ -349,7 +349,7 @@ namespace LibraryManagement
                         img.CopyTo(mem);
                         bookInfo.Cover = mem.GetBuffer();
                     }
-                    else
+                    else if (picCover.Image == null)
                     {
                         bookInfo.Cover = null;
                     }

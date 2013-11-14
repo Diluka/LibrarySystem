@@ -95,11 +95,11 @@ namespace LibraryManagement
 
         }
         private Form frmGH;
-        private Form FrmGH 
+        private Form FrmGH
         {
-            get 
+            get
             {
-                if (frmGH == null|| frmGH.IsDisposed)
+                if (frmGH == null || frmGH.IsDisposed)
                 {
                     frmGH = new FrmGH();
                     frmGH.MdiParent = this;
