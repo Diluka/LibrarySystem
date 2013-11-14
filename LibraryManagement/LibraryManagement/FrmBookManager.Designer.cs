@@ -46,7 +46,6 @@
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.treeCategories = new System.Windows.Forms.TreeView();
@@ -96,8 +95,7 @@
             this.toolStripButton5,
             this.toolStripSeparator7,
             this.toolStripSeparator6,
-            this.toolStripButton7,
-            this.toolStripSeparator8});
+            this.toolStripButton7});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
             this.tsMenu.Name = "tsMenu";
             this.tsMenu.Size = new System.Drawing.Size(1090, 64);
@@ -208,11 +206,6 @@
             this.toolStripButton7.Text = "退    出";
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 64);
             // 
             // splitContainer1
             // 
@@ -496,6 +489,5 @@
         private System.Windows.Forms.Button btnReflash;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
     }
 }
