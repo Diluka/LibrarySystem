@@ -82,7 +82,7 @@ namespace LibraryManagement
             skinEngine1.MenuFont = Fonts.GetFont(FontName.方正粗圆简体, 10);
             //this.Font = Fonts.GetFont(FontName.方正粗圆简体, 9);
             skinEngine1.TitleFont = new Font("幼圆", 12, FontStyle.Bold);
-            cboSkins.SelectedIndex = 0;
+            cboSkins.SelectedIndex = 3;
 
             Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
             btnLogin.Font = font;
