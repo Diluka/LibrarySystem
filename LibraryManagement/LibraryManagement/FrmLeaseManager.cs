@@ -101,7 +101,7 @@ namespace LibraryManagement
             {
                 if (frmGH == null|| frmGH.IsDisposed)
                 {
-                    frmGH = new FrmGH();
+                    //frmGH = new FrmGH();
                     frmGH.MdiParent = this;
                 }
                 return frmGH;

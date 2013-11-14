@@ -193,6 +193,7 @@
             // 
             this.numAge.Location = new System.Drawing.Point(32, 145);
             this.numAge.Name = "numAge";
+            this.numAge.ReadOnly = true;
             this.numAge.Size = new System.Drawing.Size(106, 21);
             this.numAge.TabIndex = 18;
             // 
@@ -200,6 +201,7 @@
             // 
             this.txtPhone.Location = new System.Drawing.Point(219, 117);
             this.txtPhone.Name = "txtPhone";
+            this.txtPhone.ReadOnly = true;
             this.txtPhone.Size = new System.Drawing.Size(269, 21);
             this.txtPhone.TabIndex = 17;
             // 
@@ -207,6 +209,7 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(219, 48);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(269, 21);
             this.txtEmail.TabIndex = 15;
             // 
@@ -215,12 +218,14 @@
             this.txtAddress.Location = new System.Drawing.Point(220, 192);
             this.txtAddress.Multiline = true;
             this.txtAddress.Name = "txtAddress";
+            this.txtAddress.ReadOnly = true;
             this.txtAddress.Size = new System.Drawing.Size(268, 135);
             this.txtAddress.TabIndex = 14;
             // 
             // rdoGirl
             // 
             this.rdoGirl.AutoSize = true;
+            this.rdoGirl.Enabled = false;
             this.rdoGirl.Location = new System.Drawing.Point(102, 235);
             this.rdoGirl.Name = "rdoGirl";
             this.rdoGirl.Size = new System.Drawing.Size(35, 16);
@@ -232,6 +237,7 @@
             // rdoBoy
             // 
             this.rdoBoy.AutoSize = true;
+            this.rdoBoy.Enabled = false;
             this.rdoBoy.Location = new System.Drawing.Point(32, 235);
             this.rdoBoy.Name = "rdoBoy";
             this.rdoBoy.Size = new System.Drawing.Size(35, 16);
@@ -244,6 +250,7 @@
             // 
             this.txtName.Location = new System.Drawing.Point(32, 48);
             this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(106, 21);
             this.txtName.TabIndex = 11;
             // 
