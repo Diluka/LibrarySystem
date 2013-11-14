@@ -38,6 +38,10 @@ namespace LibraryManagement
             {
                 using (SqlDataAdapter da = new SqlDataAdapter("select * from userview", DBHelper.conn))
                 {
+                    if (ds.Tables["users"] != null)
+                    {
+                        ds.Tables["users"].Clear();
+                    }
                     da.Fill(ds, "users");
                     dv = new DataView(ds.Tables["users"]);
                 }

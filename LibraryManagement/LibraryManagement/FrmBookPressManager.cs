@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Entity;
 
 namespace LibraryManagement
 {
@@ -32,7 +33,7 @@ namespace LibraryManagement
             }
         }
 
-        private IQueryable<Press> presses;
+        private DbSet<Press> presses;
         private void frmBookPressManager_Load(object sender, EventArgs e)
         {
             try
@@ -44,9 +45,17 @@ namespace LibraryManagement
                 MessageBox.Show(ex.Message);
             }
 
-            listPresses.DataSource = presses;
+            listPresses.Items.Clear();
             listPresses.DisplayMember = "PressName";
-            listPresses.ValueMember = "PressName";
+            listPresses.DataSource = presses.ToArray<Press>();
+
+            //foreach (Press p in presses)
+            //{
+            //    listPresses.Items.Add(p);
+            //}
+            //listPresses.DataSource = presses;
+            //listPresses.DisplayMember = "PressName";
+            //listPresses.ValueMember = "PressName";
 
         }
 
@@ -68,7 +77,7 @@ namespace LibraryManagement
                         DBHelper.Entities.Presses.Add(p);
                         res = DBHelper.Entities.SaveChanges();
                         presses = DBHelper.Entities.Presses;
-                        listPresses.DataSource = presses;
+                        listPresses.DataSource = presses.ToArray<Press>();
                         listPresses.EndUpdate();
                     }
                     catch (Exception ex)
@@ -109,7 +118,7 @@ namespace LibraryManagement
                         DBHelper.Entities.Presses.Remove(p);
                         res = DBHelper.Entities.SaveChanges();
                         presses = DBHelper.Entities.Presses;
-                        listPresses.DataSource = presses;
+                        listPresses.DataSource = presses.ToArray<Press>();
                         listPresses.EndUpdate();
                     }
                     catch (Exception ex)

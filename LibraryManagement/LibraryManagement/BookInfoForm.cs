@@ -63,6 +63,10 @@ namespace LibraryManagement
             try
             {
                 openFileDialog1.ShowDialog();
+                if (img != null)
+                {
+                    img.Close();
+                }
                 img = openFileDialog1.OpenFile();
                 picCover.Image = Image.FromStream(img);
 

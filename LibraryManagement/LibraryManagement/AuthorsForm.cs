@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.Entity;
 
 namespace LibraryManagement
 {
@@ -16,7 +17,7 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-        private IQueryable<Author> authors;
+        private DbSet<Author> authors;
 
         private void AuthorsForm_Load(object sender, EventArgs e)
         {
@@ -31,9 +32,11 @@ namespace LibraryManagement
                 MessageBox.Show(ex.Message);
             }
 
-            listAuthors.DataSource = authors;
+            listAuthors.Items.Clear();
             listAuthors.DisplayMember = "AuthorName";
-            listAuthors.ValueMember = "AuthorName";
+            listAuthors.DataSource = authors.ToArray<Author>();
+            //listAuthors.DisplayMember = "AuthorName";
+            //listAuthors.ValueMember = "AuthorName";
         }
 
         private void btnGo_Click(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace LibraryManagement
                         res = DBHelper.Entities.SaveChanges();
                         authors = DBHelper.Entities.Authors;
 
-                        listAuthors.DataSource = authors;
+                        listAuthors.DataSource = authors.ToArray<Author>();
                         listAuthors.EndUpdate();
                     }
                     catch (Exception ex)
@@ -129,7 +132,7 @@ namespace LibraryManagement
                         res = DBHelper.Entities.SaveChanges();
                         authors = DBHelper.Entities.Authors;
 
-                        listAuthors.DataSource = authors;
+                        listAuthors.DataSource = authors.ToArray<Author>();
                         listAuthors.EndUpdate();
                     }
                     catch (Exception ex)
