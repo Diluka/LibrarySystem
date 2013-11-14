@@ -37,16 +37,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBookID = new System.Windows.Forms.TextBox();
+            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.txtOutDate = new System.Windows.Forms.TextBox();
+            this.txtReturnDate = new System.Windows.Forms.TextBox();
+            this.picCover = new System.Windows.Forms.PictureBox();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCover)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,6 @@
             this.label1.Size = new System.Drawing.Size(159, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "归  还  成  功";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -78,7 +77,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 2;
-            this.label2.Text = "书籍编号：";
+            this.label2.Text = "藏 书 号：";
             // 
             // label3
             // 
@@ -125,55 +124,61 @@
             this.label7.TabIndex = 7;
             this.label7.Text = "用户名称：";
             // 
-            // textBox1
+            // txtBookID
             // 
-            this.textBox1.Location = new System.Drawing.Point(89, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(113, 21);
-            this.textBox1.TabIndex = 8;
+            this.txtBookID.Location = new System.Drawing.Point(89, 25);
+            this.txtBookID.Name = "txtBookID";
+            this.txtBookID.ReadOnly = true;
+            this.txtBookID.Size = new System.Drawing.Size(113, 21);
+            this.txtBookID.TabIndex = 8;
             // 
-            // textBox2
+            // txtTitle
             // 
-            this.textBox2.Location = new System.Drawing.Point(89, 66);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(113, 21);
-            this.textBox2.TabIndex = 9;
+            this.txtTitle.Location = new System.Drawing.Point(89, 66);
+            this.txtTitle.Name = "txtTitle";
+            this.txtTitle.ReadOnly = true;
+            this.txtTitle.Size = new System.Drawing.Size(113, 21);
+            this.txtTitle.TabIndex = 9;
             // 
-            // textBox3
+            // txtOutDate
             // 
-            this.textBox3.Location = new System.Drawing.Point(89, 107);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(113, 21);
-            this.textBox3.TabIndex = 10;
+            this.txtOutDate.Location = new System.Drawing.Point(89, 107);
+            this.txtOutDate.Name = "txtOutDate";
+            this.txtOutDate.ReadOnly = true;
+            this.txtOutDate.Size = new System.Drawing.Size(113, 21);
+            this.txtOutDate.TabIndex = 10;
             // 
-            // textBox4
+            // txtReturnDate
             // 
-            this.textBox4.Location = new System.Drawing.Point(89, 148);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(113, 21);
-            this.textBox4.TabIndex = 11;
+            this.txtReturnDate.Location = new System.Drawing.Point(89, 148);
+            this.txtReturnDate.Name = "txtReturnDate";
+            this.txtReturnDate.ReadOnly = true;
+            this.txtReturnDate.Size = new System.Drawing.Size(113, 21);
+            this.txtReturnDate.TabIndex = 11;
             // 
-            // pictureBox1
+            // picCover
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(233, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(113, 149);
-            this.pictureBox1.TabIndex = 12;
-            this.pictureBox1.TabStop = false;
+            this.picCover.Location = new System.Drawing.Point(233, 55);
+            this.picCover.Name = "picCover";
+            this.picCover.Size = new System.Drawing.Size(113, 149);
+            this.picCover.TabIndex = 12;
+            this.picCover.TabStop = false;
             // 
-            // textBox5
+            // txtUserName
             // 
-            this.textBox5.Location = new System.Drawing.Point(89, 189);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(113, 21);
-            this.textBox5.TabIndex = 13;
+            this.txtUserName.Location = new System.Drawing.Point(89, 189);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.ReadOnly = true;
+            this.txtUserName.Size = new System.Drawing.Size(113, 21);
+            this.txtUserName.TabIndex = 13;
             // 
-            // textBox6
+            // txtName
             // 
-            this.textBox6.Location = new System.Drawing.Point(89, 230);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(113, 21);
-            this.textBox6.TabIndex = 14;
+            this.txtName.Location = new System.Drawing.Point(89, 230);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(113, 21);
+            this.txtName.TabIndex = 14;
             // 
             // label8
             // 
@@ -186,21 +191,21 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtBookID);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtTitle);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtUserName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtOutDate);
+            this.groupBox1.Controls.Add(this.picCover);
+            this.groupBox1.Controls.Add(this.txtReturnDate);
             this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(360, 283);
@@ -222,7 +227,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "归还书籍";
             this.Load += new System.EventHandler(this.GHTC_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCover)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -240,13 +245,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtBookID;
+        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox txtOutDate;
+        private System.Windows.Forms.TextBox txtReturnDate;
+        private System.Windows.Forms.PictureBox picCover;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
     }
