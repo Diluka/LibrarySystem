@@ -101,7 +101,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要编辑的项！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要编辑的项！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -143,7 +143,7 @@ namespace LibraryManagement
             //}
             //else
             //{
-            //    MessageBox.Show("请选择要编辑的项！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    MessageBox.Show("请选择要编辑的项！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             //}
         }
 
@@ -171,7 +171,7 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
 
                     }
@@ -185,11 +185,11 @@ namespace LibraryManagement
             }
             //else if (dgvBookInfo.SelectedRows.Count > 0)
             //{
-            //    MessageBox.Show("书籍已借出，不能删除！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            //    MessageBox.Show("书籍已借出，不能删除！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             //}
             else
             {
-                MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的项", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -218,7 +218,7 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
 
                     }
@@ -232,11 +232,11 @@ namespace LibraryManagement
             }
             //else if (dgvBookInfo.SelectedRows.Count > 0 && a() > b())
             //{
-            //    MessageBox.Show("书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            //    MessageBox.Show("书籍已借出，不能删除！","温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
             //}
             else
             {
-                MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的项", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -325,12 +325,12 @@ namespace LibraryManagement
             }
             //else if (dgvBookInfo.SelectedRows.Count > 0)
             //{
-            //    MessageBox.Show("有书籍书籍已借出，不能删除！","迅邦温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
+            //    MessageBox.Show("有书籍书籍已借出，不能删除！","温馨提示",MessageBoxButtons.OK,MessageBoxIcon.Question);
             //}
 
             else
             {
-                MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的项", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         List<Form> bookForms = new List<Form>();
@@ -349,7 +349,7 @@ namespace LibraryManagement
 
                     if (bi == null)
                     {
-                        MessageBox.Show("请选择", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MessageBox.Show("请选择", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         return;
                     }
                     foreach (Form form in bookForms)

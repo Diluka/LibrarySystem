@@ -54,7 +54,7 @@ namespace LibraryManagement
                 }
                 if (user == null)
                 {
-                    MessageBox.Show("用户不存在", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("用户不存在", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     txtUsername.Select();
                     txtUsername.Focus();
                     return;
@@ -154,11 +154,11 @@ namespace LibraryManagement
 
             if (txtBookID.Text== "")
             {
-                MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("没有输入书籍编号", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else if (txtUsername.Text.Trim() == "")
             {
-                MessageBox.Show("请输入会员卡号", "迅邦温馨提示");
+                MessageBox.Show("请输入会员卡号", "温馨提示");
             }
             else
             {
@@ -177,7 +177,7 @@ namespace LibraryManagement
 
                 if (books.Count + notReturnBook >= userGroupInfo.Max)
                 {
-                    MessageBox.Show("不能再借了，用户借阅书籍数量上线（" + userGroupInfo.Max + "本）", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                    MessageBox.Show("不能再借了，用户借阅书籍数量上线（" + userGroupInfo.Max + "本）", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                     return;
                 }
                 Book book = null;
@@ -210,7 +210,7 @@ namespace LibraryManagement
                 }
                 else
                 {
-                    MessageBox.Show("书籍不存在", "迅邦温馨提示", MessageBoxButtons.OK);
+                    MessageBox.Show("书籍不存在", "温馨提示", MessageBoxButtons.OK);
                 }
             }
         }
@@ -219,15 +219,15 @@ namespace LibraryManagement
         {
             if (txtUsername.Text.Trim() == "")
             {
-                MessageBox.Show("请输入会员卡号！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("请输入会员卡号！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
             else if (txtBookID.Text.Trim() == "")
             {
-                MessageBox.Show("请选择书籍！", "迅邦温馨提示");
+                MessageBox.Show("请选择书籍！", "温馨提示");
             }
             else if (books.Count > userGroupInfo.Max)
             {
-                MessageBox.Show("已达到最大借书量", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("已达到最大借书量", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
             else
@@ -293,7 +293,7 @@ namespace LibraryManagement
 
         //    if (txtName.Text == "")
         //    {
-        //        MessageBox.Show("必须输入姓名", "迅邦温馨提示", MessageBoxButtons.OK);
+        //        MessageBox.Show("必须输入姓名", "温馨提示", MessageBoxButtons.OK);
         //        return;
         //    }
 
@@ -324,7 +324,7 @@ namespace LibraryManagement
         //    }
         //    else
         //    {
-        //        MessageBox.Show("保存失败", "迅邦温馨提示", MessageBoxButtons.OK);
+        //        MessageBox.Show("保存失败", "温馨提示", MessageBoxButtons.OK);
         //    }
         //}
 

@@ -6,13 +6,13 @@ using System.Resources;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("迅邦")]
-[assembly: AssemblyDescription("迅邦图书管理系统")]
+[assembly: AssemblyTitle("")]
+[assembly: AssemblyDescription("图书管理系统")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("凯龙小组")]
 [assembly: AssemblyProduct("图书管理系统")]
 [assembly: AssemblyCopyright("Copyright © 凯龙 2013")]
-[assembly: AssemblyTrademark("迅邦")]
+[assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // 将 ComVisible 设置为 false 使此程序集中的类型

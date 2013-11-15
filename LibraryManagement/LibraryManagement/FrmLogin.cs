@@ -75,12 +75,12 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Show();
             }
 
 
-            //MessageBox.Show("登录失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
         }
 

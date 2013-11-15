@@ -58,7 +58,7 @@ namespace LibraryManagement
 
             if (!string.IsNullOrEmpty(txtSearchString.Text) && listAuthors.FindStringExact(txtSearchString.Text) == -1)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否添加作者“{0}”？", txtSearchString.Text), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否添加作者“{0}”？", txtSearchString.Text), "温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
 
@@ -92,7 +92,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("添加失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("添加失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -119,7 +119,7 @@ namespace LibraryManagement
 
             if (a != null)
             {
-                DialogResult result = MessageBox.Show(string.Format("是否要删除作者“{0}”？", a.AuthorName), "迅邦温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show(string.Format("是否要删除作者“{0}”？", a.AuthorName), "温馨提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
                     int res = 0;
@@ -144,7 +144,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("删除失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

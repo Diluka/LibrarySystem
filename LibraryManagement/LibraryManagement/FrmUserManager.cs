@@ -81,19 +81,19 @@ namespace LibraryManagement
 
                     if (sqlresult > 0)
                     {
-                        MessageBox.Show("删除失败！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MessageBox.Show("删除失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         GetAll();
                     }
                     else
                     {
-                        MessageBox.Show("删除成功！", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("删除成功！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                 }
 
             }
             else
             {
-                MessageBox.Show("请选择要删除的项", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要删除的项", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -119,7 +119,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("请选择要修改的用户", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("请选择要修改的用户", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

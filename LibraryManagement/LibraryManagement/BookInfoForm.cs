@@ -280,7 +280,7 @@ namespace LibraryManagement
 
             if (string.IsNullOrEmpty(txtTitle.Text))
             {
-                MessageBox.Show("有未填写的必填项", "迅邦温馨提示提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("有未填写的必填项", "温馨提示提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -377,7 +377,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("没有保存或者保存失败", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                MessageBox.Show("没有保存或者保存失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
 
         }
