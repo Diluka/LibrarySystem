@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BookForm));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblAll = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblNow = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblPress = new System.Windows.Forms.Label();
@@ -47,10 +51,7 @@
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblNow = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblAll = new System.Windows.Forms.Label();
+            this.备注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
@@ -79,6 +80,42 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "书籍信息";
+            // 
+            // lblAll
+            // 
+            this.lblAll.AutoSize = true;
+            this.lblAll.Location = new System.Drawing.Point(92, 308);
+            this.lblAll.Name = "lblAll";
+            this.lblAll.Size = new System.Drawing.Size(41, 12);
+            this.lblAll.TabIndex = 13;
+            this.lblAll.Text = "label8";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(20, 308);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "总 库 存";
+            // 
+            // lblNow
+            // 
+            this.lblNow.AutoSize = true;
+            this.lblNow.Location = new System.Drawing.Point(92, 262);
+            this.lblNow.Name = "lblNow";
+            this.lblNow.Size = new System.Drawing.Size(41, 12);
+            this.lblNow.TabIndex = 11;
+            this.lblNow.Text = "label4";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 262);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "现 库 存";
             // 
             // lblCategory
             // 
@@ -201,15 +238,17 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.删除ToolStripMenuItem});
+            this.删除ToolStripMenuItem,
+            this.备注ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Visible = false;
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // btnNew
@@ -232,41 +271,12 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // label2
+            // 备注ToolStripMenuItem
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(20, 262);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 12);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "现 库 存";
-            // 
-            // lblNow
-            // 
-            this.lblNow.AutoSize = true;
-            this.lblNow.Location = new System.Drawing.Point(92, 262);
-            this.lblNow.Name = "lblNow";
-            this.lblNow.Size = new System.Drawing.Size(41, 12);
-            this.lblNow.TabIndex = 11;
-            this.lblNow.Text = "label4";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(20, 308);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 12);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "总 库 存";
-            // 
-            // lblAll
-            // 
-            this.lblAll.AutoSize = true;
-            this.lblAll.Location = new System.Drawing.Point(92, 308);
-            this.lblAll.Name = "lblAll";
-            this.lblAll.Size = new System.Drawing.Size(41, 12);
-            this.lblAll.TabIndex = 13;
-            this.lblAll.Text = "label8";
+            this.备注ToolStripMenuItem.Name = "备注ToolStripMenuItem";
+            this.备注ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.备注ToolStripMenuItem.Text = "备注";
+            this.备注ToolStripMenuItem.Click += new System.EventHandler(this.备注ToolStripMenuItem_Click);
             // 
             // BookForm
             // 
@@ -317,5 +327,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblNow;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolStripMenuItem 备注ToolStripMenuItem;
     }
 }

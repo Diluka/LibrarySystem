@@ -149,5 +149,14 @@ namespace LibraryManagement
                 MessageBox.Show("删除失败，请确定书本不处于借出状态", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void 备注ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Book b = dgvBooks.CurrentRow.DataBoundItem as Book;
+            Form form = new RemarkForm();
+            form.Tag = b;
+            form.Text = string.Format("《{0}》的备注信息", b.BookInfo.Title);
+            form.ShowDialog();
+        }
     }
 }

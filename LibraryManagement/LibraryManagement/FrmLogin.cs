@@ -18,30 +18,30 @@ namespace LibraryManagement
     public partial class frmLogin : Form
     {
 
-        private byte[][] skins ={
-                            new byte[0],
-                            Skin.Calmness,
-                            Skin.DeepCyan,
-                            Skin.DiamondBlue,
-                            Skin.Eighteen,
-                            Skin.Emerald,
-                            Skin.GlassBrown,
-                            Skin.Longhorn,
-                            Skin.MacOS,
-                            Skin.Midsummer,
-                            Skin.MP10,
-                            Skin.MSN,
-                            Skin.OneBlue,
-                            Skin.Page,
-                            Skin.RealOne,
-                            Skin.Silver,
-                            Skin.SportsBlack,
-                            Skin.SteelBlack,
-                            Skin.Vista1,
-                            Skin.Vista2,
-                            Skin.Warm,
-                            Skin.Wave,
-                            Skin.XPSilver,
+        private MemoryStream[] skins ={
+                            new MemoryStream(),
+                            new MemoryStream(Skin.Calmness),
+                            new MemoryStream(Skin.DeepCyan),
+                            new MemoryStream(Skin.DiamondBlue),
+                            new MemoryStream(Skin.Eighteen),
+                            new MemoryStream(Skin.Emerald),
+                            new MemoryStream(Skin.GlassBrown),
+                            new MemoryStream(Skin.Longhorn),
+                            new MemoryStream(Skin.MacOS),
+                            new MemoryStream(Skin.Midsummer),
+                            new MemoryStream(Skin.MP10),
+                            new MemoryStream(Skin.MSN),
+                            new MemoryStream(Skin.OneBlue),
+                            new MemoryStream(Skin.Page),
+                            new MemoryStream(Skin.RealOne),
+                            new MemoryStream(Skin.Silver),
+                            new MemoryStream(Skin.SportsBlack),
+                            new MemoryStream(Skin.SteelBlack),
+                            new MemoryStream(Skin.Vista1),
+                            new MemoryStream(Skin.Vista2),
+                            new MemoryStream(Skin.Warm),
+                            new MemoryStream(Skin.Wave),
+                            new MemoryStream(Skin.XPSilver),
                         };
 
         public frmLogin()
@@ -103,7 +103,7 @@ namespace LibraryManagement
 
         private void cboSkins_SelectedIndexChanged(object sender, EventArgs e)
         {
-            skinEngine1.SkinStream = new MemoryStream(skins[cboSkins.SelectedIndex]);
+            skinEngine1.SkinStream = skins[cboSkins.SelectedIndex];
         }
 
         private void frmLogin_MouseDoubleClick(object sender, MouseEventArgs e)

@@ -217,6 +217,12 @@
     <Compile Include="RecordView.cs">
       <DependentUpon>LibraryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RemarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RemarkForm.Designer.cs">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Skin.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -287,6 +293,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AuthorsForm.resx">
       <DependentUpon>AuthorsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemarkForm.resx">
+      <DependentUpon>RemarkForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Skin.resx">
       <Generator>ResXFileCodeGenerator</Generator>
