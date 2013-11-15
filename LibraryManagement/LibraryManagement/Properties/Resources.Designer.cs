@@ -203,9 +203,29 @@ namespace LibraryManagement.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 欢迎动画副本 {
+            get {
+                object obj = ResourceManager.GetObject("欢迎动画副本", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 欢迎动画副本3 {
             get {
                 object obj = ResourceManager.GetObject("欢迎动画副本3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 欢迎动画副本31 {
+            get {
+                object obj = ResourceManager.GetObject("欢迎动画副本31", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -151,8 +151,8 @@
   <data name="超期信息" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\超期信息.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="2222222222222222" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\2222222222222222.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="背景XXXX" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\背景XXXX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="搜索" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\搜索.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -175,14 +175,11 @@
   <data name="删除选中" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\删除选中.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="修改书籍" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\修改书籍.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="背景XXXX" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\背景XXXX.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="主窗体背景" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\主窗体背景.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="退出" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\退出.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="归还信息" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\归还信息.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -190,17 +187,23 @@
   <data name="登录背景" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\登录背景.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="欢迎动画副本3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\欢迎动画副本3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="添加用户" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\20131101023456214_easyicon_net_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="书籍租出" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\书籍租出.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="2222222222222222" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\2222222222222222.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="背景图片5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\背景图片5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="退出" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\退出.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="修改书籍" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\修改书籍.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="登录背景1111" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\登录背景1111.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +214,10 @@
   <data name="添加按钮" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\添加按钮.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="欢迎动画副本3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\欢迎动画副本3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="欢迎动画副本31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\欢迎动画副本31.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="欢迎动画副本" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\欢迎动画副本.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

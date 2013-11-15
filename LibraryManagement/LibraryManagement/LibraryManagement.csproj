@@ -462,6 +462,8 @@
     <None Include="Resources\登录1212.png" />
     <None Include="Resources\登录背景1111.png" />
     <None Include="Resources\欢迎动画副本3.png" />
+    <None Include="Resources\欢迎动画副本31.png" />
+    <None Include="Resources\欢迎动画副本.png" />
     <Content Include="窗体图标.ico" />
   </ItemGroup>
   <ItemGroup>
