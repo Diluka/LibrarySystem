@@ -34,6 +34,7 @@ namespace LibraryManagement
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             FrmRent.Show();
+            FrmRent.Activate();
         }
 
         private void toolStripButton7_Click(object sender, EventArgs e)
@@ -57,6 +58,7 @@ namespace LibraryManagement
         private void toolStripButton5_Click(object sender, EventArgs e)
         {
             RecordForm.Show();
+            RecordForm.Activate();
         }
 
     }

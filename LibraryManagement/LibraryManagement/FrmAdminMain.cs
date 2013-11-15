@@ -33,6 +33,7 @@ namespace LibraryManagement
         private void button1_Click(object sender, EventArgs e)
         {
             FrmBookManager.Show();
+            FrmBookManager.Activate();
         }
 
         private Form frmUserManager;
@@ -52,6 +53,7 @@ namespace LibraryManagement
         {
 
             FrmUserManager.Show();
+            FrmUserManager.Activate();
         }
 
         private Form frmLeaseManager;
@@ -69,8 +71,8 @@ namespace LibraryManagement
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmLeaseManager.Show(); 
-            
+            FrmLeaseManager.Show();
+            FrmLeaseManager.Activate();
         }
 
         private void Adm_FormClosed(object sender, FormClosedEventArgs e)
