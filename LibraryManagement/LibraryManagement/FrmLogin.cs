@@ -64,13 +64,13 @@ namespace LibraryManagement
                 user = ie.Current;
             }
 
-            
 
+            
             if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)) && user.UserGroupInfo.IsAdmin)
             {
                 Form form = new FrmAdminMain();
                 form.Show();
-                wait.Close();
+                //wait.Close();
                 //this.Hide();
             }
             else
@@ -79,6 +79,7 @@ namespace LibraryManagement
                 this.Show();
             }
 
+            wait.Close();
 
             //MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
