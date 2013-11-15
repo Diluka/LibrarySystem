@@ -34,7 +34,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::LibraryManagement.Properties.Resources.欢迎动画1;
+            this.BackgroundImage = global::LibraryManagement.Properties.Resources.欢迎动画副本3;
             this.ClientSize = new System.Drawing.Size(489, 247);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

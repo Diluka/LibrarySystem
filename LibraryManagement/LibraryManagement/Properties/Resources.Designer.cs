@@ -203,6 +203,16 @@ namespace LibraryManagement.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 欢迎动画副本3 {
+            get {
+                object obj = ResourceManager.GetObject("欢迎动画副本3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 添加按钮 {
             get {
                 object obj = ResourceManager.GetObject("添加按钮", resourceCulture);
@@ -233,6 +243,16 @@ namespace LibraryManagement.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap 登录1212 {
+            get {
+                object obj = ResourceManager.GetObject("登录1212", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap 登录背景 {
             get {
                 object obj = ResourceManager.GetObject("登录背景", resourceCulture);
@@ -246,6 +266,16 @@ namespace LibraryManagement.Properties {
         internal static System.Drawing.Bitmap 登录背景111 {
             get {
                 object obj = ResourceManager.GetObject("登录背景111", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 登录背景1111 {
+            get {
+                object obj = ResourceManager.GetObject("登录背景1111", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -286,6 +316,16 @@ namespace LibraryManagement.Properties {
         internal static System.Drawing.Bitmap 背景9999 {
             get {
                 object obj = ResourceManager.GetObject("背景9999", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap 背景XXXX {
+            get {
+                object obj = ResourceManager.GetObject("背景XXXX", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
