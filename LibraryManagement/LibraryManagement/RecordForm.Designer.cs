@@ -147,8 +147,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(984, 424);
-            this.splitContainer1.SplitterDistance = 212;
+            this.splitContainer1.Size = new System.Drawing.Size(981, 363);
+            this.splitContainer1.SplitterDistance = 211;
             this.splitContainer1.TabIndex = 10;
             // 
             // groupBox2
@@ -158,7 +158,7 @@
             this.groupBox2.Controls.Add(this.treeView1);
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(212, 454);
+            this.groupBox2.Size = new System.Drawing.Size(212, 393);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "类型筛选";
