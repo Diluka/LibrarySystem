@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLeaseManager));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -36,12 +35,7 @@
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.租借ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.续期ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.归还ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -100,39 +94,11 @@
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.租借ToolStripMenuItem,
-            this.续期ToolStripMenuItem,
-            this.归还ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 70);
-            // 
-            // 租借ToolStripMenuItem
-            // 
-            this.租借ToolStripMenuItem.Name = "租借ToolStripMenuItem";
-            this.租借ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.租借ToolStripMenuItem.Text = "租借";
-            // 
-            // 续期ToolStripMenuItem
-            // 
-            this.续期ToolStripMenuItem.Name = "续期ToolStripMenuItem";
-            this.续期ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.续期ToolStripMenuItem.Text = "续期";
-            // 
-            // 归还ToolStripMenuItem
-            // 
-            this.归还ToolStripMenuItem.Name = "归还ToolStripMenuItem";
-            this.归还ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
-            this.归还ToolStripMenuItem.Text = "归还";
-            // 
             // FrmLeaseManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 604);
-            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -142,7 +108,6 @@
             this.Text = "租借管理";
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -154,10 +119,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripButton toolStripButton7;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 租借ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 续期ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 归还ToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
     }
 }
