@@ -79,6 +79,7 @@
             // tsMenu
             // 
             this.tsMenu.AutoSize = false;
+            this.tsMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tsMenu.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.tsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButton1,
