@@ -150,7 +150,9 @@ namespace LibraryManagement
         private List<Book> books;
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (txtBookID.Text.Trim() == "")
+            txtBookID.Text = txtBookID.Text.Trim();
+
+            if (txtBookID.Text== "")
             {
                 MessageBox.Show("没有输入书籍编号", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
@@ -160,7 +162,16 @@ namespace LibraryManagement
             }
             else
             {
-                txtBookID.Text = txtBookID.Text.Trim();
+                int bid = Convert.ToInt32(txtBookID.Text);
+
+                for (int i = 0; i < books.Count; i++)
+                {
+                    if (books[i].BookID == bid)
+                    {
+                        MessageBox.Show("该书已添加");
+                        return;
+                    }
+                }
 
                 int notReturnBook = DBHelper.Entities.Records.Count(f => f.UserID == user.UserID && f.ReturnDate == null);
 
@@ -172,7 +183,7 @@ namespace LibraryManagement
                 Book book = null;
                 try
                 {
-                    int bid = Convert.ToInt32(txtBookID.Text);
+
                     IEnumerator<Book> ie = DBHelper.Entities.Books.Where(f => f.BookID == bid).GetEnumerator();
                     if (ie.MoveNext())
                     {
@@ -187,8 +198,15 @@ namespace LibraryManagement
 
                 if (book != null)
                 {
-                    books.Add(book);
-                    ShowBookView();
+                    if (!book.IsRent)
+                    {
+                        books.Add(book);
+                        ShowBookView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("该书已借出！");
+                    }
                 }
                 else
                 {
@@ -313,6 +331,29 @@ namespace LibraryManagement
         private void button1_Click(object sender, EventArgs e)
         {
             books.Clear();
+            ShowBookView();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if (dgvBooks.CurrentRow == null)
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void 移除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int bid = Convert.ToInt32(dgvBooks.CurrentRow.Cells["藏书号"].Value);
+            for (int i = 0; i < books.Count; i++)
+            {
+                if (books[i].BookID == bid)
+                {
+                    books.RemoveAt(i);
+                    break;
+                }
+            }
+
             ShowBookView();
         }
 
