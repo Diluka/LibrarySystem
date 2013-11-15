@@ -54,7 +54,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(181, 21);
             this.txtPassword.TabIndex = 6;
-            this.txtPassword.Text = "密码";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtUsername
@@ -64,7 +63,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(181, 21);
             this.txtUsername.TabIndex = 5;
-            this.txtUsername.Text = "用户名";
             // 
             // skinEngine1
             // 

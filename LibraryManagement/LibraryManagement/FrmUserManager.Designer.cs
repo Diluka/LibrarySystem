@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUserManager));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btnAddUser = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -40,17 +40,17 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.txtUserName = new System.Windows.Forms.ToolStripTextBox();
             this.btnGo = new System.Windows.Forms.ToolStripButton();
-            this.btnAll = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnAll = new System.Windows.Forms.ToolStripButton();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip2
@@ -79,7 +79,7 @@
             this.btnAddUser.Image = global::LibraryManagement.Properties.Resources.添加用户;
             this.btnAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(59, 61);
+            this.btnAddUser.Size = new System.Drawing.Size(60, 61);
             this.btnAddUser.Text = "添加用户";
             this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddUser.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -96,7 +96,7 @@
             this.btnDelUser.Image = global::LibraryManagement.Properties.Resources.删除按钮;
             this.btnDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelUser.Name = "btnDelUser";
-            this.btnDelUser.Size = new System.Drawing.Size(59, 61);
+            this.btnDelUser.Size = new System.Drawing.Size(60, 61);
             this.btnDelUser.Text = "删除用户";
             this.btnDelUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnDelUser.Visible = false;
@@ -115,7 +115,7 @@
             this.btnModifyUser.Image = global::LibraryManagement.Properties.Resources.超期信息;
             this.btnModifyUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifyUser.Name = "btnModifyUser";
-            this.btnModifyUser.Size = new System.Drawing.Size(59, 61);
+            this.btnModifyUser.Size = new System.Drawing.Size(60, 61);
             this.btnModifyUser.Text = "修改信息";
             this.btnModifyUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnModifyUser.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -132,7 +132,7 @@
             this.btnExit.Image = global::LibraryManagement.Properties.Resources.退出;
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(51, 61);
+            this.btnExit.Size = new System.Drawing.Size(52, 61);
             this.btnExit.Text = "退    出";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -148,33 +148,6 @@
             this.groupBox1.Size = new System.Drawing.Size(972, 370);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
-            // 
-            // dgvUsers
-            // 
-            this.dgvUsers.AccessibleDescription = "s";
-            this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.NullValue = "[未指定]";
-            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.NullValue = "[未指定]";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(0, 45);
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.RowHeadersVisible = false;
-            this.dgvUsers.RowTemplate.Height = 23;
-            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(972, 325);
-            this.dgvUsers.TabIndex = 4;
             // 
             // toolStrip1
             // 
@@ -194,7 +167,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(43, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(44, 22);
             this.toolStripLabel1.Text = "账户：";
             // 
             // txtUserName
@@ -204,13 +177,17 @@
             // 
             // btnGo
             // 
-            this.btnGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
+            this.btnGo.Image = global::LibraryManagement.Properties.Resources.搜索;
             this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(35, 22);
+            this.btnGo.Size = new System.Drawing.Size(52, 22);
             this.btnGo.Text = "查找";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
             // btnAll
             // 
@@ -218,14 +195,36 @@
             this.btnAll.Image = ((System.Drawing.Image)(resources.GetObject("btnAll.Image")));
             this.btnAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(59, 22);
+            this.btnAll.Size = new System.Drawing.Size(60, 22);
             this.btnAll.Text = "显示全部";
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
-            // toolStripSeparator2
+            // dgvUsers
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.dgvUsers.AccessibleDescription = "s";
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.NullValue = "[未指定]";
+            this.dgvUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.NullValue = "[未指定]";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Location = new System.Drawing.Point(0, 45);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersVisible = false;
+            this.dgvUsers.RowTemplate.Height = 23;
+            this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUsers.Size = new System.Drawing.Size(972, 325);
+            this.dgvUsers.TabIndex = 4;
             // 
             // FrmUserManager
             // 
@@ -247,9 +246,9 @@
             this.toolStrip2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
