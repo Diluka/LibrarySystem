@@ -48,10 +48,11 @@ namespace LibraryManagement
                 {
                     fliter1 = "";
                 }
-                else if (cboType.Text == "藏书号")
+                else if (cboType.Text == "藏书号" )
                 {
                     fliter1 = string.Format("藏书号 = {0}", Convert.ToInt32(textBox1.Text));
                 }
+                
                 else
                 {
                     fliter1 = string.Format("{0} like '{1}%'", cboType.Text, textBox1.Text);
@@ -64,6 +65,10 @@ namespace LibraryManagement
                     {
                         dv.RowFilter += " AND " + fliter2;
                     }
+                }
+                else if (textBox1.Text == null || cboType.Text != "全部")
+                {
+                    MessageBox.Show("没有输入查询信息！");
                 }
                 else
                 {

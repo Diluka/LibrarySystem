@@ -34,17 +34,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 98);
+            this.BackgroundImage = global::LibraryManagement.Properties.Resources.欢迎动画1;
+            this.ClientSize = new System.Drawing.Size(489, 247);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WaitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
+            this.Load += new System.EventHandler(this.WaitForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+
 
     }
 }

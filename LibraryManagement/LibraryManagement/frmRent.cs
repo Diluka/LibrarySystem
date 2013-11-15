@@ -207,7 +207,7 @@ namespace LibraryManagement
             {
                 MessageBox.Show("请选择书籍！", "迅邦温馨提示");
             }
-            else if (books.Count >= userGroupInfo.Max)
+            else if (books.Count > userGroupInfo.Max)
             {
                 MessageBox.Show("已达到最大借书量", "迅邦温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
             }
