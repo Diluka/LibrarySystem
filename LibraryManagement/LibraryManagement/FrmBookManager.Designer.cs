@@ -43,7 +43,6 @@
             this.toolStripButton6 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -93,7 +92,6 @@
             this.toolStripButton6,
             this.toolStripSeparator5,
             this.toolStripButton5,
-            this.toolStripSeparator7,
             this.toolStripSeparator6,
             this.toolStripButton7});
             this.tsMenu.Location = new System.Drawing.Point(0, 0);
@@ -140,12 +138,14 @@
             this.toolStripButton3.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton3.Text = "删除书籍";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton3.Visible = false;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 64);
+            this.toolStripSeparator3.Visible = false;
             // 
             // toolStripButton4
             // 
@@ -155,12 +155,14 @@
             this.toolStripButton4.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton4.Text = "选择全部";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton4.Visible = false;
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 64);
+            this.toolStripSeparator4.Visible = false;
             // 
             // toolStripButton6
             // 
@@ -170,12 +172,14 @@
             this.toolStripButton6.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton6.Text = "取消全选";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton6.Visible = false;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 64);
+            this.toolStripSeparator5.Visible = false;
             // 
             // toolStripButton5
             // 
@@ -185,17 +189,14 @@
             this.toolStripButton5.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton5.Text = "删除选中";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButton5.Visible = false;
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
-            // 
-            // toolStripSeparator7
-            // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 64);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 64);
+            this.toolStripSeparator6.Visible = false;
             // 
             // toolStripButton7
             // 
@@ -253,7 +254,7 @@
             this.groupBox1.Controls.Add(this.dgvBookInfo);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(834, 508);
+            this.groupBox1.Size = new System.Drawing.Size(834, 444);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "书籍信息";
@@ -405,6 +406,7 @@
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
             this.删除ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Visible = false;
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
@@ -487,6 +489,5 @@
         private System.Windows.Forms.ToolStripMenuItem 查看库存书本ToolStripMenuItem;
         private System.Windows.Forms.Button btnReflash;
         private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
     }
 }

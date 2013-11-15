@@ -407,7 +407,7 @@ namespace LibraryManagement
             }
             else
             {
-                txtBookInfoID.Clear();
+                //txtBookInfoID.Clear();
                 txtTitle.Clear();
                 txtISBN.Clear();
                 txtPrice.Clear();

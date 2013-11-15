@@ -50,6 +50,7 @@
             this.btnDel.TabIndex = 11;
             this.btnDel.Text = "删除已选作者";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Visible = false;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnClear

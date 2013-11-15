@@ -63,20 +63,20 @@
             this.修改ToolStripMenuItem,
             this.删除ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 48);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
@@ -157,6 +157,7 @@
             this.btnDel.TabIndex = 6;
             this.btnDel.Text = "删除已选类别";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Visible = false;
             this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // FrmCategoryManager
