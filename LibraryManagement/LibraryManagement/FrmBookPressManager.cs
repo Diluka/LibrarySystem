@@ -132,7 +132,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("删除失败，只能删除未关联的出版社", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

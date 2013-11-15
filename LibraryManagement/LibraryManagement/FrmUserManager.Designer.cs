@@ -79,7 +79,7 @@
             this.btnAddUser.Image = global::LibraryManagement.Properties.Resources.添加用户;
             this.btnAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(60, 61);
+            this.btnAddUser.Size = new System.Drawing.Size(59, 61);
             this.btnAddUser.Text = "添加用户";
             this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddUser.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -96,10 +96,9 @@
             this.btnDelUser.Image = global::LibraryManagement.Properties.Resources.删除按钮;
             this.btnDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelUser.Name = "btnDelUser";
-            this.btnDelUser.Size = new System.Drawing.Size(60, 61);
+            this.btnDelUser.Size = new System.Drawing.Size(59, 61);
             this.btnDelUser.Text = "删除用户";
             this.btnDelUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnDelUser.Visible = false;
             this.btnDelUser.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator3
@@ -107,7 +106,6 @@
             this.toolStripSeparator3.AccessibleDescription = "s";
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 64);
-            this.toolStripSeparator3.Visible = false;
             // 
             // btnModifyUser
             // 
@@ -115,7 +113,7 @@
             this.btnModifyUser.Image = global::LibraryManagement.Properties.Resources.超期信息;
             this.btnModifyUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifyUser.Name = "btnModifyUser";
-            this.btnModifyUser.Size = new System.Drawing.Size(60, 61);
+            this.btnModifyUser.Size = new System.Drawing.Size(59, 61);
             this.btnModifyUser.Text = "修改信息";
             this.btnModifyUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnModifyUser.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -132,7 +130,7 @@
             this.btnExit.Image = global::LibraryManagement.Properties.Resources.退出;
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(52, 61);
+            this.btnExit.Size = new System.Drawing.Size(51, 61);
             this.btnExit.Text = "退    出";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -167,7 +165,7 @@
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(44, 22);
+            this.toolStripLabel1.Size = new System.Drawing.Size(43, 22);
             this.toolStripLabel1.Text = "账户：";
             // 
             // txtUserName
@@ -180,7 +178,7 @@
             this.btnGo.Image = global::LibraryManagement.Properties.Resources.搜索;
             this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(52, 22);
+            this.btnGo.Size = new System.Drawing.Size(51, 22);
             this.btnGo.Text = "查找";
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
@@ -195,7 +193,7 @@
             this.btnAll.Image = ((System.Drawing.Image)(resources.GetObject("btnAll.Image")));
             this.btnAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(60, 22);
+            this.btnAll.Size = new System.Drawing.Size(59, 22);
             this.btnAll.Text = "显示全部";
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 

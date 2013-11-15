@@ -49,9 +49,9 @@
             this.dgvBooks = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.备注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.备注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBooks)).BeginInit();
@@ -241,15 +241,21 @@
             this.删除ToolStripMenuItem,
             this.备注ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 48);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.删除ToolStripMenuItem.Text = "删除";
-            this.删除ToolStripMenuItem.Visible = false;
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // 备注ToolStripMenuItem
+            // 
+            this.备注ToolStripMenuItem.Name = "备注ToolStripMenuItem";
+            this.备注ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.备注ToolStripMenuItem.Text = "备注";
+            this.备注ToolStripMenuItem.Click += new System.EventHandler(this.备注ToolStripMenuItem_Click);
             // 
             // btnNew
             // 
@@ -270,13 +276,6 @@
             this.btnClose.Text = "关  闭";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // 备注ToolStripMenuItem
-            // 
-            this.备注ToolStripMenuItem.Name = "备注ToolStripMenuItem";
-            this.备注ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.备注ToolStripMenuItem.Text = "备注";
-            this.备注ToolStripMenuItem.Click += new System.EventHandler(this.备注ToolStripMenuItem_Click);
             // 
             // BookForm
             // 

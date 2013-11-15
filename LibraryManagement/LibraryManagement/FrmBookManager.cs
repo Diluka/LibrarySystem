@@ -171,7 +171,7 @@ namespace LibraryManagement
                         }
                         else
                         {
-                            MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("删除失败，只能删除未使用的书籍", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
 
                     }

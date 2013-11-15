@@ -144,7 +144,7 @@ namespace LibraryManagement
                     }
                     else
                     {
-                        MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("删除失败，只能删除无关联的作者", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

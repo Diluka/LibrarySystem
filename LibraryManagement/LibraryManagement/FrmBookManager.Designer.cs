@@ -139,14 +139,12 @@
             this.toolStripButton3.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton3.Text = "删除书籍";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolStripButton3.Visible = false;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 64);
-            this.toolStripSeparator3.Visible = false;
             // 
             // toolStripButton4
             // 

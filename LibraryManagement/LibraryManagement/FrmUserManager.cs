@@ -81,12 +81,12 @@ namespace LibraryManagement
 
                     if (sqlresult > 0)
                     {
-                        MessageBox.Show("删除失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
+                        MessageBox.Show("删除成功！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Question);
                         GetAll();
                     }
                     else
                     {
-                        MessageBox.Show("删除成功！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("删除失败，只能删除没有记录的新用户", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                     }
                 }
 

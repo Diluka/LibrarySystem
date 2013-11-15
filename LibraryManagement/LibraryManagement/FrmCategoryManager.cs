@@ -174,7 +174,7 @@ namespace LibraryManagement
 
             if (result <= 0)
             {
-                MessageBox.Show("删除失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("删除失败，只能删除未关联的分类", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }

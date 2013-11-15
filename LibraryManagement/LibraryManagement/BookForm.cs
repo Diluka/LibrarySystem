@@ -46,7 +46,7 @@ namespace LibraryManagement
 
         private void LoadInfo()
         {
-            IEnumerator<BookInfoListView> ie = DBHelper.Entities.BookInfoListViews.Where(f => f.书籍编号 == bookInfo.BookInfoID).GetEnumerator();
+            IEnumerator<BookInfoListView> ie = DBHelper.Entities.BookInfoListViews.AsNoTracking().Where(f => f.书籍编号 == bookInfo.BookInfoID).GetEnumerator();
             if (ie.MoveNext())
             {
                 BookInfoListView bookInfoListView = ie.Current;
@@ -134,10 +134,6 @@ namespace LibraryManagement
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                DBHelper.conn.Close();
-            }
 
             if (result > 0)
             {
@@ -146,7 +142,7 @@ namespace LibraryManagement
             }
             else
             {
-                MessageBox.Show("删除失败，请确定书本不处于借出状态", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("删除失败，只能删除未使用的书籍", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
