@@ -80,7 +80,7 @@
             this.dgvRecords.ReadOnly = true;
             this.dgvRecords.RowTemplate.Height = 23;
             this.dgvRecords.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvRecords.Size = new System.Drawing.Size(763, 345);
+            this.dgvRecords.Size = new System.Drawing.Size(823, 343);
             this.dgvRecords.TabIndex = 4;
             // 
             // contextMenuStrip1
@@ -120,9 +120,10 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvRecords);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(769, 365);
+            this.groupBox1.Size = new System.Drawing.Size(829, 363);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "历史记录";
@@ -148,17 +149,16 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(981, 363);
-            this.splitContainer1.SplitterDistance = 211;
+            this.splitContainer1.SplitterDistance = 148;
             this.splitContainer1.TabIndex = 10;
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(212, 365);
+            this.groupBox2.Size = new System.Drawing.Size(148, 363);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "类型筛选";
@@ -190,7 +190,7 @@
             treeNode7.Text = "全部";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode7});
-            this.treeView1.Size = new System.Drawing.Size(206, 345);
+            this.treeView1.Size = new System.Drawing.Size(142, 343);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
