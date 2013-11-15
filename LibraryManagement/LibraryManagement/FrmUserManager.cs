@@ -122,5 +122,17 @@ namespace LibraryManagement
                 MessageBox.Show("请选择要修改的用户", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            txtUserName.Text = txtUserName.Text.Trim();
+            dv.RowFilter = string.Format("账户 like '{0}%'", txtUserName.Text);
+        }
+
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            dv.RowFilter = "";
+            txtUserName.Clear();
+        }
     }
 }

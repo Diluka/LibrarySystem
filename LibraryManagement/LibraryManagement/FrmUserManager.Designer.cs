@@ -41,15 +41,22 @@
             this.btnExit = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.txtUserName = new System.Windows.Forms.ToolStripTextBox();
+            this.btnGo = new System.Windows.Forms.ToolStripButton();
+            this.btnAll = new System.Windows.Forms.ToolStripButton();
             this.toolStrip2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip2
             // 
             this.toolStrip2.AccessibleDescription = "s";
             this.toolStrip2.AutoSize = false;
+            this.toolStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnAddUser,
@@ -71,7 +78,7 @@
             this.btnAddUser.Image = global::LibraryManagement.Properties.Resources.添加用户;
             this.btnAddUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAddUser.Name = "btnAddUser";
-            this.btnAddUser.Size = new System.Drawing.Size(60, 61);
+            this.btnAddUser.Size = new System.Drawing.Size(59, 61);
             this.btnAddUser.Text = "添加用户";
             this.btnAddUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAddUser.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -88,9 +95,10 @@
             this.btnDelUser.Image = global::LibraryManagement.Properties.Resources.删除按钮;
             this.btnDelUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnDelUser.Name = "btnDelUser";
-            this.btnDelUser.Size = new System.Drawing.Size(60, 61);
+            this.btnDelUser.Size = new System.Drawing.Size(59, 61);
             this.btnDelUser.Text = "删除用户";
             this.btnDelUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnDelUser.Visible = false;
             this.btnDelUser.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripSeparator3
@@ -98,6 +106,7 @@
             this.toolStripSeparator3.AccessibleDescription = "s";
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(6, 64);
+            this.toolStripSeparator3.Visible = false;
             // 
             // btnModifyUser
             // 
@@ -105,7 +114,7 @@
             this.btnModifyUser.Image = global::LibraryManagement.Properties.Resources.超期信息;
             this.btnModifyUser.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnModifyUser.Name = "btnModifyUser";
-            this.btnModifyUser.Size = new System.Drawing.Size(60, 61);
+            this.btnModifyUser.Size = new System.Drawing.Size(59, 61);
             this.btnModifyUser.Text = "修改信息";
             this.btnModifyUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnModifyUser.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -122,7 +131,7 @@
             this.btnExit.Image = global::LibraryManagement.Properties.Resources.退出;
             this.btnExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(52, 61);
+            this.btnExit.Size = new System.Drawing.Size(51, 61);
             this.btnExit.Text = "退    出";
             this.btnExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnExit.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -130,6 +139,7 @@
             // groupBox1
             // 
             this.groupBox1.AccessibleDescription = "s";
+            this.groupBox1.Controls.Add(this.toolStrip1);
             this.groupBox1.Controls.Add(this.dgvUsers);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 64);
@@ -156,15 +166,59 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvUsers.Location = new System.Drawing.Point(3, 17);
+            this.dgvUsers.Location = new System.Drawing.Point(0, 45);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.RowHeadersVisible = false;
             this.dgvUsers.RowTemplate.Height = 23;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(966, 350);
+            this.dgvUsers.Size = new System.Drawing.Size(972, 325);
             this.dgvUsers.TabIndex = 4;
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel1,
+            this.txtUserName,
+            this.btnGo,
+            this.btnAll});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 17);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(966, 25);
+            this.toolStrip1.TabIndex = 5;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(43, 22);
+            this.toolStripLabel1.Text = "账户：";
+            // 
+            // txtUserName
+            // 
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(100, 25);
+            // 
+            // btnGo
+            // 
+            this.btnGo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnGo.Image = ((System.Drawing.Image)(resources.GetObject("btnGo.Image")));
+            this.btnGo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(35, 22);
+            this.btnGo.Text = "查找";
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
+            // btnAll
+            // 
+            this.btnAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAll.Image = ((System.Drawing.Image)(resources.GetObject("btnAll.Image")));
+            this.btnAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(59, 22);
+            this.btnAll.Text = "显示全部";
+            this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
             // 
             // FrmUserManager
             // 
@@ -185,7 +239,10 @@
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -202,6 +259,11 @@
         private System.Windows.Forms.ToolStripButton btnExit;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox txtUserName;
+        private System.Windows.Forms.ToolStripButton btnGo;
+        private System.Windows.Forms.ToolStripButton btnAll;
 
 
     }
