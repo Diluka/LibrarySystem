@@ -13,9 +13,12 @@ namespace LibraryManagement
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            using (DBHelper.Entities)
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new frmLogin());
+            }
         }
     }
 }
