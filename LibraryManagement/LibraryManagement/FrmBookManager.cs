@@ -177,7 +177,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        MessageBox.Show("删除失败，只能删除未使用的书籍", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
                 }
@@ -224,7 +225,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
                 }
@@ -311,7 +313,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        MessageBox.Show("删除失败", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
                     if (ds.Tables["books"] != null)
@@ -360,31 +363,28 @@ namespace LibraryManagement
                             break;
                         }
                     }
+
+                    if (f != null && !f.IsDisposed)
+                    {
+                        f.ShowDialog();
+                        f.Activate();
+                    }
+                    else
+                    {
+                        if (f != null)
+                        {
+                            bookForms.Remove(f);
+                        }
+                        f = new BookForm();
+                        f.Tag = bi;
+                        f.ShowDialog();
+                        bookForms.Add(f);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
-                }
-                finally
-                {
-                    DBHelper.conn.Close();
-                }
-
-                if (f != null && !f.IsDisposed)
-                {
-                    f.ShowDialog();
-                    f.Activate();
-                }
-                else
-                {
-                    if (f != null)
-                    {
-                        bookForms.Remove(f);
-                    }
-                    f = new BookForm();
-                    f.Tag = bi;
-                    f.ShowDialog();
-                    bookForms.Add(f);
+                    Logger.Log(ex);
+                    MessageBox.Show("查看库存书籍时出现错误");
                 }
 
             }
@@ -402,23 +402,18 @@ namespace LibraryManagement
             {
                 da.Fill(ds, "books");
                 DBHelper.MakeCategoryTree(treeCategories);
+
+                dv = new DataView(ds.Tables["books"]);
+                dgvBookInfo.DataSource = dv;
+
+                treeCategories.Nodes[0].Expand();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("加载书籍信息错误");
             }
 
-            dv = new DataView(ds.Tables["books"]);
-            dgvBookInfo.DataSource = dv;
-
-            treeCategories.Nodes[0].Expand();
         }
-
-        private void FrmBookManager_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-        }
-
-
     }
 }

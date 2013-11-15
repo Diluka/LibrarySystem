@@ -76,11 +76,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-            }
-            finally
-            {
-                DBHelper.conn.Close();
+                Logger.Log(ex);
+                MessageBox.Show("加载用户信息出错");
             }
 
             ShowUserInfo();
@@ -193,7 +190,7 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Logger.Log(ex);
                 }
 
                 if (book != null)
@@ -254,7 +251,8 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Logger.Log(ex);
+                    MessageBox.Show("借书出错");
                 }
 
 

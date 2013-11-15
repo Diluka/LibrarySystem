@@ -39,15 +39,16 @@ namespace LibraryManagement
             try
             {
                 presses = DBHelper.Entities.Presses;
+
+                listPresses.Items.Clear();
+                listPresses.DisplayMember = "PressName";
+                listPresses.DataSource = presses.ToArray<Press>();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("出版社数据加载失败");
             }
-
-            listPresses.Items.Clear();
-            listPresses.DisplayMember = "PressName";
-            listPresses.DataSource = presses.ToArray<Press>();
 
             //foreach (Press p in presses)
             //{
@@ -82,7 +83,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        //MessageBox.Show("添加出版社出现错误");
                     }
 
                     if (res > 0)
@@ -123,7 +125,7 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
                     }
 
                     if (res > 0)

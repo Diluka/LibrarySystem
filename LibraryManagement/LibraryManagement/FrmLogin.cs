@@ -53,58 +53,79 @@ namespace LibraryManagement
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Form wait = new WaitForm();
-            wait.Show();
-            this.Hide();
-
-            IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
-
-            if (ie.MoveNext())
+            try
             {
-                user = ie.Current;
+                Form wait = new WaitForm();
+                wait.Show();
+                this.Hide();
+
+                IEnumerator<User> ie = DBHelper.Entities.Users.Where(f => f.UserName.Equals(txtUsername.Text, StringComparison.CurrentCultureIgnoreCase)).GetEnumerator();
+
+                if (ie.MoveNext())
+                {
+                    user = ie.Current;
+                }
+
+
+
+                if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)) && user.UserGroupInfo.IsAdmin)
+                {
+                    Form form = new FrmAdminMain();
+                    form.Show();
+                    //wait.Close();
+                    //this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    this.Show();
+                }
+
+                wait.Close();
+
+                //MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
-            
-            if (user != null && user.UserPWD.Equals(Tools.ToSHA1(txtPassword.Text)) && user.UserGroupInfo.IsAdmin)
+            catch (Exception ex)
             {
-                Form form = new FrmAdminMain();
-                form.Show();
-                //wait.Close();
-                //this.Hide();
+                Logger.Log(ex);
+                MessageBox.Show("登录出现错误");
             }
-            else
-            {
-                MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Show();
-            }
-
-            wait.Close();
-
-            //MessageBox.Show("登录失败！", "温馨提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            DBHelper.Entities.Database.Initialize(false);
+            try
+            {
+                skinEngine1.MenuFont = Fonts.GetFont(FontName.方正粗圆简体, 10);
+                //this.Font = Fonts.GetFont(FontName.方正粗圆简体, 9);
+                skinEngine1.TitleFont = new Font("幼圆", 12, FontStyle.Bold);
+                Random rand = new Random();
+                cboSkins.SelectedIndex = rand.Next(cboSkins.Items.Count);//不准修改这里，想换皮肤请在运行的时候双击登陆窗
 
-            skinEngine1.MenuFont = Fonts.GetFont(FontName.方正粗圆简体, 10);
-            //this.Font = Fonts.GetFont(FontName.方正粗圆简体, 9);
-            skinEngine1.TitleFont = new Font("幼圆", 12, FontStyle.Bold);
-            Random rand = new Random();
-            cboSkins.SelectedIndex = rand.Next(cboSkins.Items.Count);//不准修改这里，想换皮肤请在运行的时候双击登陆窗
+                Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
+                btnLogin.Font = font;
 
-            Font font = Fonts.GetFont(FontName.叶根友毛笔行书, 18);
-            btnLogin.Font = font;
-
-            //txtUsername.Text = "admin";
-            //txtPassword.Text = "admin123";
+                //txtUsername.Text = "admin";
+                //txtPassword.Text = "admin123";
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+                MessageBox.Show("启动出现错误");
+            }
         }
 
         private void cboSkins_SelectedIndexChanged(object sender, EventArgs e)
         {
-            skinEngine1.SkinStream = skins[cboSkins.SelectedIndex];
+            try
+            {
+                skinEngine1.SkinStream = skins[cboSkins.SelectedIndex];
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(ex);
+                MessageBox.Show("换肤失败");
+            }
         }
 
         private void frmLogin_MouseDoubleClick(object sender, MouseEventArgs e)

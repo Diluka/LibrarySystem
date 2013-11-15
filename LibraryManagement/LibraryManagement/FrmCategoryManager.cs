@@ -25,7 +25,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("加载分类信息出错");
             }
 
             treeCategories.Nodes[0].Expand();
@@ -118,7 +119,8 @@ namespace LibraryManagement
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message);
+                            Logger.Log(ex);
+                            //MessageBox.Show(ex.Message);
                         }
 
                         if (result2 <= 0)
@@ -169,7 +171,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                //MessageBox.Show(ex.Message);
             }
 
             if (result <= 0)
@@ -200,11 +203,6 @@ namespace LibraryManagement
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             btnDel_Click(sender, e);
-        }
-
-        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
     }

@@ -49,7 +49,6 @@
             // 
             // treeCategories
             // 
-            this.treeCategories.ContextMenuStrip = this.contextMenuStrip1;
             this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeCategories.Location = new System.Drawing.Point(3, 17);
             this.treeCategories.Name = "treeCategories";
@@ -71,7 +70,6 @@
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.修改ToolStripMenuItem.Text = "修改";
-            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
@@ -148,6 +146,7 @@
             this.btnClear.TabIndex = 5;
             this.btnClear.Text = "清除选择";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDel
             // 

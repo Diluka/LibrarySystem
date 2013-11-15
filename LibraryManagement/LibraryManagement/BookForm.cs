@@ -35,7 +35,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("加载书籍信息出错");
             }
             LoadInfo();
 
@@ -81,7 +82,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("添加书错误");
             }
 
             if (result > 0)
@@ -132,7 +134,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                //MessageBox.Show(ex.Message);
             }
 
             if (result > 0)

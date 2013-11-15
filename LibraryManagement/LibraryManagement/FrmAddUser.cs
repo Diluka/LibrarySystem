@@ -38,7 +38,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("用户组信息加载失败");
             }
 
 
@@ -65,7 +66,8 @@ namespace LibraryManagement
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Logger.Log(ex);
+                    MessageBox.Show("用户信息读取失败");
                 }
 
 
@@ -179,9 +181,15 @@ namespace LibraryManagement
             {
                 if (this.Tag == null)
                 {
+                    if (DBHelper.Entities.Users.Count(f => f.UserName == txtUsername.Text) != 0)
+                    {
+                        MessageBox.Show("该用户名已被使用");
+                        return 0;
+                    }
+
                     user = new User();
                     user.UserName = txtUsername.Text;
-                    user.UserPWD = Tools.ToSHA1(txtPassword.Text);
+                    user.UserPWD = Tools.ToSHA1(SetPassword());
                     user.UserGroupID = ((UserGroupInfo)cboUserGroup.SelectedItem).GroupID;
                     user.Name = txtName.Text;
                     user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
@@ -196,7 +204,10 @@ namespace LibraryManagement
                 else
                 {
                     user.UserName = txtUsername.Text;
-                    user.UserPWD = Tools.ToSHA1(txtPassword.Text);
+                    if (txtPassword.Text != "")
+                    {
+                        user.UserPWD = Tools.ToSHA1(txtPassword.Text);
+                    }
                     user.UserGroupID = ((UserGroupInfo)cboUserGroup.SelectedItem).GroupID;
                     user.Name = txtName.Text;
                     user.Age = txtAge.Text == "" ? null : (int?)Convert.ToInt32(txtAge.Text);
@@ -210,7 +221,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("添加用户出现错误");
             }
 
             return result;

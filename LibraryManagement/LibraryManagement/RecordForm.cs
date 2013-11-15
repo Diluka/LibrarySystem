@@ -35,7 +35,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("貌似加载数据失败了= =");
             }
         }
         private string fliter1 = "";
@@ -48,11 +49,11 @@ namespace LibraryManagement
                 {
                     fliter1 = "";
                 }
-                else if (cboType.Text == "藏书号" )
+                else if (cboType.Text == "藏书号")
                 {
                     fliter1 = string.Format("藏书号 = {0}", Convert.ToInt32(textBox1.Text));
                 }
-                
+
                 else
                 {
                     fliter1 = string.Format("{0} like '{1}%'", cboType.Text, textBox1.Text);
@@ -79,9 +80,11 @@ namespace LibraryManagement
                 }
 
             }
+            catch (FormatException) { }
+            catch (OverflowException) { }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
             }
         }
 
@@ -130,7 +133,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("还书出现错误");
             }
         }
 
@@ -163,7 +167,7 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
             }
 
             if (result > 0)
@@ -192,7 +196,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("还书出现错误");
             }
         }
 

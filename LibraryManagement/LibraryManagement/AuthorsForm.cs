@@ -27,7 +27,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("貌似加载出错了");
             }
 
             listAuthors.Items.Clear();
@@ -77,7 +78,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        //MessageBox.Show(ex.Message);
                     }
 
                     if (res > 0)
@@ -135,7 +137,8 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
+                        //MessageBox.Show(ex.Message);
                     }
 
                     if (res > 0)

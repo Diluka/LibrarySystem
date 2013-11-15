@@ -50,7 +50,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("读取用户数据错误");
             }
         }
 
@@ -75,7 +76,7 @@ namespace LibraryManagement
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        Logger.Log(ex);
                     }
 
 

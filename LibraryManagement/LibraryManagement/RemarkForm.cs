@@ -22,8 +22,9 @@ namespace LibraryManagement
             {
                 book = (Book)this.Tag;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Log(ex);
                 MessageBox.Show("藏书信息错误");
                 this.Close();
             }
@@ -32,8 +33,9 @@ namespace LibraryManagement
             {
                 txtRemark.Text = book.Remark;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Log(ex);
                 MessageBox.Show("加载备注信息错误");
             }
         }
@@ -51,8 +53,9 @@ namespace LibraryManagement
                 book.Remark = txtRemark.Text;
                 result = DBHelper.Entities.SaveChanges();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Log(ex);
                 MessageBox.Show("保存备注出错");
             }
 
@@ -72,8 +75,9 @@ namespace LibraryManagement
             {
                 txtRemark.Text = book.Remark;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Logger.Log(ex);
                 MessageBox.Show("加载备注信息错误");
             }
         }

@@ -172,40 +172,34 @@ namespace LibraryManagement
 
                 try
                 {
-
                     bookInfo = DBHelper.Entities.BookInfoes.Find(this.Tag);
 
+                    txtBookInfoID.Text = bookInfo.BookInfoID.ToString();
+                    txtTitle.Text = bookInfo.Title;
+
+                    txtCategory.Text = bookInfo.Category;
+
+
+                    txtAuthor.Text = bookInfo.Author;
+
+
+                    txtPress.Text = bookInfo.Press;
+
+                    datePressDate.Value = bookInfo.PublishDate ?? DateTime.Now;
+                    txtISBN.Text = bookInfo.ISBN;
+                    txtPrice.Text = bookInfo.Price.ToString();
+
+                    if (bookInfo.Cover != null)
+                    {
+                        picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
+                    }
+                    txtBrief.Text = bookInfo.Brief;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show(ex.Message);
+                    Logger.Log(ex);
+                    MessageBox.Show("加载书籍信息时出现错误");
                 }
-                finally
-                {
-                    DBHelper.conn.Close();
-                }
-
-                txtBookInfoID.Text = bookInfo.BookInfoID.ToString();
-                txtTitle.Text = bookInfo.Title;
-
-                txtCategory.Text = bookInfo.Category;
-
-
-                txtAuthor.Text = bookInfo.Author;
-
-
-                txtPress.Text = bookInfo.Press;
-
-                datePressDate.Value = bookInfo.PublishDate ?? DateTime.Now;
-                txtISBN.Text = bookInfo.ISBN;
-                txtPrice.Text = bookInfo.Price.ToString();
-
-                if (bookInfo.Cover != null)
-                {
-                    picCover.Image = Image.FromStream(new MemoryStream(bookInfo.Cover));
-                }
-                txtBrief.Text = bookInfo.Brief;
-
 
                 ResetControlState();
                 btnModify.Enabled = true;
@@ -364,7 +358,8 @@ namespace LibraryManagement
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Logger.Log(ex);
+                MessageBox.Show("保存时出错");
             }
 
 
@@ -472,10 +467,9 @@ namespace LibraryManagement
             {
                 img.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-
+                Logger.Log(ex);
             }
         }
 
