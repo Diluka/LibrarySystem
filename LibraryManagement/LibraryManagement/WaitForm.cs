@@ -15,26 +15,5 @@ namespace LibraryManagement
         {
             InitializeComponent();
         }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            base.OnPaintBackground(e);
-            e.Graphics.DrawString("", SystemFonts.DefaultFont, SystemBrushes.ControlText, new PointF(this.Width / 3, this.Height / 2));
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void WaitForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

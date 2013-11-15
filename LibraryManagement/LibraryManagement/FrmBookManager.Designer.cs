@@ -107,7 +107,7 @@
             this.toolStripButton1.Image = global::LibraryManagement.Properties.Resources.添加按钮;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton1.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton1.Text = "添加书籍";
             this.toolStripButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
@@ -122,7 +122,7 @@
             this.toolStripButton2.Image = global::LibraryManagement.Properties.Resources.修改书籍;
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton2.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton2.Text = "查看书籍";
             this.toolStripButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
@@ -137,7 +137,7 @@
             this.toolStripButton3.Image = global::LibraryManagement.Properties.Resources.删除按钮;
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton3.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton3.Text = "删除书籍";
             this.toolStripButton3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
@@ -152,7 +152,7 @@
             this.toolStripButton4.Image = global::LibraryManagement.Properties.Resources.选择全部;
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton4.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton4.Text = "选择全部";
             this.toolStripButton4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
@@ -167,7 +167,7 @@
             this.toolStripButton6.Image = global::LibraryManagement.Properties.Resources.取消选择;
             this.toolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton6.Name = "toolStripButton6";
-            this.toolStripButton6.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton6.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton6.Text = "取消全选";
             this.toolStripButton6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton6.Click += new System.EventHandler(this.toolStripButton6_Click);
@@ -182,7 +182,7 @@
             this.toolStripButton5.Image = global::LibraryManagement.Properties.Resources.删除选中;
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(60, 61);
+            this.toolStripButton5.Size = new System.Drawing.Size(59, 61);
             this.toolStripButton5.Text = "删除选中";
             this.toolStripButton5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
@@ -202,7 +202,7 @@
             this.toolStripButton7.Image = global::LibraryManagement.Properties.Resources.退出;
             this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton7.Name = "toolStripButton7";
-            this.toolStripButton7.Size = new System.Drawing.Size(52, 61);
+            this.toolStripButton7.Size = new System.Drawing.Size(51, 61);
             this.toolStripButton7.Text = "退    出";
             this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.toolStripButton7.Click += new System.EventHandler(this.toolStripButton7_Click);
@@ -391,33 +391,33 @@
             this.修改ToolStripMenuItem,
             this.查看库存书本ToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(149, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(147, 92);
             // 
             // 添加ToolStripMenuItem
             // 
             this.添加ToolStripMenuItem.Name = "添加ToolStripMenuItem";
-            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.添加ToolStripMenuItem.Text = "添加";
             this.添加ToolStripMenuItem.Click += new System.EventHandler(this.添加ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.修改ToolStripMenuItem.Text = "查看";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 查看库存书本ToolStripMenuItem
             // 
             this.查看库存书本ToolStripMenuItem.Name = "查看库存书本ToolStripMenuItem";
-            this.查看库存书本ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.查看库存书本ToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.查看库存书本ToolStripMenuItem.Text = "查看库存书本";
             this.查看库存书本ToolStripMenuItem.Click += new System.EventHandler(this.查看库存书本ToolStripMenuItem_Click);
             // 
@@ -429,7 +429,6 @@
             this.ClientSize = new System.Drawing.Size(1090, 572);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tsMenu);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmBookManager";

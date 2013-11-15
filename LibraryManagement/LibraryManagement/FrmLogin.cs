@@ -107,7 +107,8 @@ namespace LibraryManagement
 
         private void frmLogin_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            pnlHidden.Visible = !pnlHidden.Visible;
+            label1.Visible = !label1.Visible;
+            cboSkins.Visible = !cboSkins.Visible;
         }
     }
 }

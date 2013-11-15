@@ -38,15 +38,20 @@
             this.ClientSize = new System.Drawing.Size(489, 247);
             this.ControlBox = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "WaitForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Welcome";
-            this.Load += new System.EventHandler(this.WaitForm_Load);
+            this.TopMost = true;
+            this.UseWaitCursor = true;
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+
 
 
 
