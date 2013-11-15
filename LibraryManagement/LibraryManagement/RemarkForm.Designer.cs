@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RemarkForm));
             this.txtRemark = new System.Windows.Forms.RichTextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,9 +40,9 @@
             // txtRemark
             // 
             this.txtRemark.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRemark.Location = new System.Drawing.Point(0, 24);
+            this.txtRemark.Location = new System.Drawing.Point(0, 25);
             this.txtRemark.Name = "txtRemark";
-            this.txtRemark.Size = new System.Drawing.Size(284, 237);
+            this.txtRemark.Size = new System.Drawing.Size(284, 236);
             this.txtRemark.TabIndex = 0;
             this.txtRemark.Text = "";
             // 
@@ -53,28 +54,28 @@
             this.关闭ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(284, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(284, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.保存ToolStripMenuItem.Text = "保存";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // 重新读取ToolStripMenuItem
             // 
             this.重新读取ToolStripMenuItem.Name = "重新读取ToolStripMenuItem";
-            this.重新读取ToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.重新读取ToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.重新读取ToolStripMenuItem.Text = "重新读取";
             this.重新读取ToolStripMenuItem.Click += new System.EventHandler(this.重新读取ToolStripMenuItem_Click);
             // 
             // 关闭ToolStripMenuItem
             // 
             this.关闭ToolStripMenuItem.Name = "关闭ToolStripMenuItem";
-            this.关闭ToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.关闭ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
             this.关闭ToolStripMenuItem.Text = "关闭";
             this.关闭ToolStripMenuItem.Click += new System.EventHandler(this.关闭ToolStripMenuItem_Click);
             // 
@@ -85,6 +86,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.txtRemark);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "RemarkForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
