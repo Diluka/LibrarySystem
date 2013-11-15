@@ -221,7 +221,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(1090, 508);
-            this.splitContainer1.SplitterDistance = 252;
+            this.splitContainer1.SplitterDistance = 177;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupBox2
@@ -230,7 +230,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(252, 508);
+            this.groupBox2.Size = new System.Drawing.Size(177, 508);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "分类";
@@ -240,7 +240,7 @@
             this.treeCategories.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeCategories.Location = new System.Drawing.Point(3, 17);
             this.treeCategories.Name = "treeCategories";
-            this.treeCategories.Size = new System.Drawing.Size(246, 488);
+            this.treeCategories.Size = new System.Drawing.Size(171, 488);
             this.treeCategories.TabIndex = 2;
             this.treeCategories.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeCategories_AfterSelect);
             // 
@@ -251,7 +251,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(834, 508);
+            this.groupBox1.Size = new System.Drawing.Size(909, 508);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "书籍信息";
@@ -270,7 +270,7 @@
             this.pnlBeat.Controls.Add(this.rdoISBN);
             this.pnlBeat.Location = new System.Drawing.Point(8, 22);
             this.pnlBeat.Name = "pnlBeat";
-            this.pnlBeat.Size = new System.Drawing.Size(815, 42);
+            this.pnlBeat.Size = new System.Drawing.Size(890, 42);
             this.pnlBeat.TabIndex = 1;
             // 
             // btnReflash
@@ -378,7 +378,7 @@
             this.dgvBookInfo.ReadOnly = true;
             this.dgvBookInfo.RowTemplate.Height = 23;
             this.dgvBookInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBookInfo.Size = new System.Drawing.Size(815, 432);
+            this.dgvBookInfo.Size = new System.Drawing.Size(890, 432);
             this.dgvBookInfo.TabIndex = 0;
             // 
             // contextMenuStrip1
