@@ -30,7 +30,7 @@ namespace LibraryManagement
             //txtCategory.Enabled = false;
             //txtAuthor.Enabled = false;
             //txtPress.Enabled = false;
-            //datePressDate.Enabled = false;
+            datePressDate.Enabled = false;
             //txtPrice.Enabled = false;
             //numTotal.Enabled = false;
             //numRemain.Enabled = false;
