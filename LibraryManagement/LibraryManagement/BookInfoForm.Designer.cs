@@ -162,9 +162,8 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "位图文件(*.bmp)|*.bmp|GIF|*.gif|PNG|*.png|JPEG|*.jpeg;*jpe;*.jpg;*.jifi|所有图片文件|*.bmp;" +
-    "*.gif;*.png;*.jpeg;*jpe;*.jpg;*.jifi|所有文件|*.*";
+            this.openFileDialog1.Filter = "所有图片文件|*.bmp;*.gif;*.png;*.jpeg;*jpe;*.jpg;*.jifi|位图文件(*.bmp)|*.bmp|GIF|*.gif|PNG" +
+    "|*.png|JPEG|*.jpeg;*jpe;*.jpg;*.jifi|所有文件|*.*";
             this.openFileDialog1.Title = "选择封面图片";
             // 
             // btnChooseCover

@@ -10,7 +10,6 @@ FROM      dbo.Record INNER JOIN
                 dbo.Book ON dbo.Record.BookID = dbo.Book.BookID INNER JOIN
                 dbo.BookInfo ON dbo.Book.BookInfoID = dbo.BookInfo.BookInfoID LEFT JOIN
                 dbo.Category ON dbo.BookInfo.Category = dbo.Category.CategoryName
-
 GO
 EXECUTE sp_addextendedproperty @name = N'MS_DiagramPane1', @value = N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
 Begin DesignProperties = 

@@ -71,7 +71,7 @@ namespace LibraryManagement
                 picCover.Image = Image.FromStream(img);
 
             }
-            catch (IOException)
+            catch (Exception)
             {
                 openFileDialog1.Reset();
                 if (img != null)
